@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:id="@+id/activity_secao_dor_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="96dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/activity_secao_dor_titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="#B0B0B0"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/dor"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/activity_secao_dor_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:minHeight="48dp"
+                android:text="@string/sente_dor_ou_incomodo"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_dor_titulo"/>
+
+            <EditText
+                android:id="@+id/activity_secao_dor_ha_quanto_tempo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:hint="@string/ha_quanto_tempo_sente_dor"
+                android:importantForAutofill="no"
+                android:minHeight="48dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_dor_switch" />
+
+            <TextView
+                android:id="@+id/activity_secao_dor_texto_checkBox_tipo_dor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/tipo_de_dor"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_dor_ha_quanto_tempo" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_dor_checkBox_tipo_dor_irradiada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/irradiada"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_dor_texto_checkBox_tipo_dor" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_dor_checkBox_tipo_dor_queimacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/em_queimacao"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_dor_checkBox_tipo_dor_irradiada" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_dor_checkBox_tipo_dor_pontada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/em_pontada"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_dor_checkBox_tipo_dor_queimacao" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_dor_checkBox_tipo_dor_peso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/sensacao_de_peso"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_dor_checkBox_tipo_dor_pontada" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_dor_checkBox_tipo_dor_formigamento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/formigamento"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_dor_checkBox_tipo_dor_peso" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_dor_checkBox_tipo_dor_outra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/outra"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_dor_checkBox_tipo_dor_formigamento" />
+
+            <EditText
+                android:id="@+id/activity_secao_dor_descricao_outra_dor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:hint="@string/descricao_dor"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_dor_checkBox_tipo_dor_outra" />
+
+            <TextView
+                android:id="@+id/activity_secao_dor_texto_radio_group_aparicao_dor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/aparicao_dor"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_dor_descricao_outra_dor" />
+
+            <RadioGroup
+                android:id="@+id/activity_secao_dor_radio_group_aparicao_dor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_dor_texto_radio_group_aparicao_dor">
+
+                <RadioButton
+                    android:id="@+id/activity_secao_dor_radio_acordar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/ao_acordar"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_dor_radio_decorrer_dia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/decorrer_dia"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_dor_radio_fim_dia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/final_dia"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_dor_radio_constante"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/constante"
+                    android:textSize="18sp" />
+            </RadioGroup>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/activity_secao_dor_switch_dor_repouso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/dor_desaparece_com_repouso"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_dor_radio_group_aparicao_dor"/>
+
+            <TextView
+                android:id="@+id/activity_secao_dor_texto_local_da_dor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/local_da_dor"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_dor_switch_dor_repouso" />
+
+            <EditText
+                android:id="@+id/activity_secao_dor_local_da_dor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:hint="@string/local_da_dor"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_dor_texto_local_da_dor" />
+
+
+            <TextView
+                android:id="@+id/activity_secao_dor_texto_seekbar_intensidade_dor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/intensidade_da_dor"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_dor_local_da_dor" />
+
+            <TextView
+                android:id="@+id/activity_secao_dor_valor_seekbar_intensidade_dor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="2dp"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="5"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_dor_texto_seekbar_intensidade_dor" />
+
+            <SeekBar
+                android:id="@+id/activity_secao_dor_seekBar_intensidade_dor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="10"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="16dp"
+                android:thumb="@drawable/thumb_seekbar_20dp"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_dor_valor_seekbar_intensidade_dor" />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/activity_secao_dor_button_proximo"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_margin="8dp"
+        android:text="@string/proximo"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/activity_secao_dor_button_salvar_e_sair"
+        app:layout_constraintTop_toBottomOf="@id/activity_secao_dor_scroll_view"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/activity_secao_dor_button_salvar_e_sair"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_margin="8dp"
+        android:text="@string/salvar_e_sair"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/activity_secao_dor_button_proximo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_secao_dor_scroll_view"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

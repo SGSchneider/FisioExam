@@ -1,0 +1,31 @@
+package br.ufsm.fisioexam.database.dao;
+
+import androidx.room.Dao;
+import androidx.room.Delete;
+import androidx.room.Insert;
+import androidx.room.Query;
+import androidx.room.Update;
+
+import java.util.List;
+
+import br.ufsm.fisioexam.model.Exame;
+import br.ufsm.fisioexam.model.Paciente;
+
+@Dao
+public interface PacienteDAO {
+
+    @Insert
+    void salva(Paciente paciente);
+
+    @Query("SELECT * FROM paciente ORDER BY nome")
+    List<Paciente> todos();
+
+    @Query("SELECT * FROM paciente WHERE nome LIKE :termo ORDER BY nome")
+    List<Paciente> pesquisa(String termo);
+
+    @Delete
+    void remove(Paciente paciente);
+
+    @Update
+    void edita(Paciente paciente);
+}

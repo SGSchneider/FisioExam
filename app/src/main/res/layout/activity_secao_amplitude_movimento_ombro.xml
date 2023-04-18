@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/activity_secao_amplitude_movimento_ombro_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="96dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="#B0B0B0"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/amplitude_movimento"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/flexao"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/esquerdo"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/ativo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_flexao_ativo_esquerdo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/ativo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/passivo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_flexao_passivo_esquerdo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/passivo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/direito"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/ativo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_flexao_ativo_direito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/ativo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/passivo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_flexao_passivo_direito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/passivo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/extensao"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/esquerdo"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/ativo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_extensao_ativo_esquerdo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/ativo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/passivo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_extensao_passivo_esquerdo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/passivo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/direito"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/ativo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_extensao_ativo_direito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/ativo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/passivo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_extensao_passivo_direito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/passivo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/abducao"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/esquerdo"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/ativo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_abducao_ativo_esquerdo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/ativo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/passivo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_abducao_passivo_esquerdo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/passivo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/direito"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/ativo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_abducao_ativo_direito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/ativo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/passivo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_abducao_passivo_direito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/passivo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/aducao_horizontal"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/esquerdo"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/ativo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_aducao_horizontal_ativo_esquerdo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/ativo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/passivo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_aducao_horizontal_passivo_esquerdo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/passivo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/direito"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/ativo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_aducao_horizontal_ativo_direito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/ativo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/passivo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_aducao_horizontal_passivo_direito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/passivo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/rotacao_medial"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/esquerdo"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/ativo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_rotacao_medial_ativo_esquerdo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/ativo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/passivo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_rotacao_medial_passivo_esquerdo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/passivo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/direito"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/ativo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_rotacao_medial_ativo_direito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/ativo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/passivo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_rotacao_medial_passivo_direito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/passivo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/rotacao_lateral"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/esquerdo"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/ativo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_rotacao_lateral_ativo_esquerdo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/ativo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/passivo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_rotacao_lateral_passivo_esquerdo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/passivo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/direito"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/ativo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_rotacao_lateral_ativo_direito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/ativo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/passivo"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_rotacao_lateral_passivo_direito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/passivo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/titulo_ritmo_escapulo_umeral"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/texto_ritmo_escapulo_umeral"
+                android:textSize="18sp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_alteracao_ritmo_escapulo_umeral"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/alteracao"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/graus"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_grau_i_ritmo_escapulo_umeral"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/grau_i_amp_mov_ombro"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_grau_ii_ritmo_escapulo_umeral"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/grau_ii_amp_mov_ombro"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_grau_iii_ritmo_escapulo_umeral"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/grau_iii_amp_mov_ombro"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/activity_secao_amplitude_movimento_ombro_button_salvar_e_sair"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_margin="8dp"
+        android:text="@string/salvar_e_sair"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/activity_secao_amplitude_movimento_ombro_button_proximo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_secao_amplitude_movimento_ombro_scroll_view"
+        app:layout_constraintVertical_bias="1" />
+
+    <Button
+        android:id="@+id/activity_secao_amplitude_movimento_ombro_button_proximo"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_margin="8dp"
+        android:text="@string/proximo"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/activity_secao_amplitude_movimento_ombro_button_salvar_e_sair"
+        app:layout_constraintTop_toBottomOf="@+id/activity_secao_amplitude_movimento_ombro_scroll_view"
+        app:layout_constraintVertical_bias="1" />
+</androidx.constraintlayout.widget.ConstraintLayout>

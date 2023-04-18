@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/activity_secao_historia_familiar_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="96dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/activity_secao_historia_familiar_titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="#B0B0B0"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/historia_familiar"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_historia_familiar_checkBox_hipertensao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/hipertensao"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_historia_familiar_titulo" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_historia_familiar_checkBox_diabete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/diabete"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_historia_familiar_checkBox_hipertensao" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_historia_familiar_checkBox_doenca_cardiovascular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/doenca_cardiovascular"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_historia_familiar_checkBox_diabete" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_historia_familiar_checkBox_doenca_pulmonar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/doenca_pulmonar"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_historia_familiar_checkBox_doenca_cardiovascular" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_historia_familiar_checkBox_cancer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/cancer"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_historia_familiar_checkBox_doenca_pulmonar" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_historia_familiar_checkBox_outra_doenca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/outra"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_historia_familiar_checkBox_cancer" />
+
+            <EditText
+                android:id="@+id/activity_secao_historia_familiar_descricao_outra_doenca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:hint="@string/qual"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_historia_familiar_checkBox_outra_doenca" />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/activity_secao_historia_familiar_button_salvar_e_sair"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_margin="8dp"
+        android:text="@string/salvar_e_sair"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/activity_secao_historia_familiar_button_proximo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_secao_historia_familiar_scroll_view"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/activity_secao_historia_familiar_button_proximo"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_margin="8dp"
+        android:text="@string/proximo"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/activity_secao_historia_familiar_button_salvar_e_sair"
+        app:layout_constraintTop_toBottomOf="@id/activity_secao_historia_familiar_scroll_view"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

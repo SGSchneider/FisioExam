@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/activity_secao_habitos_vida_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="96dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/activity_secao_habitos_vida_titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="#B0B0B0"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/historia_social_e_habitos_de_vida"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/activity_secao_habitos_vida_texto_moradia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/moradia"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_habitos_vida_titulo" />
+
+            <RadioGroup
+                android:id="@+id/activity_secao_habitos_vida_radio_group_moradia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_habitos_vida_texto_moradia">
+
+                <RadioButton
+                    android:id="@+id/activity_secao_habitos_vida_radio_moradia_casa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/casa"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_habitos_vida_radio_moradia_apartamento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/apartamento"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_habitos_vida_radio_moradia_outra"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/outra"
+                    android:textSize="18sp" />
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/activity_secao_habitos_vida_descricao_outra_moradia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:hint="@string/qual"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_habitos_vida_radio_group_moradia" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/activity_secao_habitos_vida_switch_tabagista"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/tabagista"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_habitos_vida_descricao_outra_moradia"/>
+
+            <EditText
+                android:id="@+id/activity_secao_habitos_vida_quantidade_cigarros"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:hint="@string/quantidade_diaria"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_habitos_vida_switch_tabagista" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/activity_secao_habitos_vida_switch_etilista"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/etilista"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_habitos_vida_quantidade_cigarros"/>
+
+            <EditText
+                android:id="@+id/activity_secao_habitos_vida_quantidade_alcool"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:hint="@string/quantidade_diaria"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_habitos_vida_switch_etilista" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/activity_secao_habitos_vida_switch_atividade_fisica"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/atividade_fisica"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_habitos_vida_quantidade_alcool"/>
+
+            <EditText
+                android:id="@+id/activity_secao_habitos_vida_qual_atividade_fisica"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:hint="@string/qual"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_habitos_vida_switch_atividade_fisica" />
+
+            <EditText
+                android:id="@+id/activity_secao_habitos_vida_atividade_fisica_semanal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:hint="@string/quantidade_semanal"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_secao_habitos_vida_qual_atividade_fisica" />
+
+            <TextView
+                android:id="@+id/activity_secao_habitos_vida_texto_alimentacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/alimentaca_o_restricao"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_habitos_vida_checkBox_sal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/sal"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_habitos_vida_checkBox_acucar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/acucar"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_habitos_vida_checkBox_frituras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/frituras"
+                android:textSize="18sp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/activity_secao_habitos_vida_lazer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/lazer"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/activity_secao_habitos_vida_qual_lazer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:hint="@string/qual"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/activity_secao_habitos_vida_button_salvar_e_sair"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_margin="8dp"
+        android:text="@string/salvar_e_sair"
+        android:textSize="16sp"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/activity_secao_habitos_vida_button_proximo"
+        app:layout_constraintTop_toBottomOf="@id/activity_secao_habitos_vida_scroll_view"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/activity_secao_habitos_vida_button_proximo"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_margin="8dp"
+        android:text="@string/proximo"
+        android:textSize="16sp"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_secao_habitos_vida_scroll_view"
+        app:layout_constraintStart_toEndOf="@+id/activity_secao_habitos_vida_button_salvar_e_sair" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

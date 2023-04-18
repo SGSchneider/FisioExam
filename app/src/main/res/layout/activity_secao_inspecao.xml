@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/activity_secao_inspecao_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="96dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:background="#B0B0B0"
+                android:textStyle="bold"
+                android:text="@string/inspecao"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text="@string/pele"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/coloracao"/>
+
+            <CheckBox
+                android:id="@+id/activity_secao_inspecao_checkBox_pele_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="18sp"
+                android:text="@string/normal" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_inspecao_checkBox_pele_cianose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="18sp"
+                android:text="@string/cianose" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_inspecao_checkBox_pele_vermelhidao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="18sp"
+                android:text="@string/vermelhidao" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/hidratacao"/>
+
+            <CheckBox
+                android:id="@+id/activity_secao_inspecao_checkBox_pele_hidratada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="18sp"
+                android:text="@string/hidratada" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_inspecao_checkBox_pele_desidratada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="18sp"
+                android:text="@string/desidratada" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/espessura"/>
+
+            <CheckBox
+                android:id="@+id/activity_secao_inspecao_checkBox_pele_espessura_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="18sp"
+                android:text="@string/normal" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_inspecao_checkBox_pele_espessura_fina"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="18sp"
+                android:text="@string/fina" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_inspecao_checkBox_pele_espessura_espessa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="18sp"
+                android:text="@string/espessa" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/activity_secao_inspecao_switch_cicatrizes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/presenca_de_cicatrizes"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/activity_secao_inspecao_local_cicatrizes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:hint="@string/localizacao" />
+
+            <EditText
+                android:id="@+id/activity_secao_inspecao_tamanho_cicatrizes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:hint="@string/tamanho" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/activity_secao_inspecao_switch_feridas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/presenca_de_feridas"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/activity_secao_inspecao_local_feridas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:hint="@string/localizacao" />
+
+            <EditText
+                android:id="@+id/activity_secao_inspecao_tamanho_feridas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:hint="@string/tamanho" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text="@string/trofismo_muscular"/>
+
+            <CheckBox
+                android:id="@+id/activity_secao_inspecao_checkBox_trofismo_muscular_eutrofico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="18sp"
+                android:text="@string/eutrofico" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_inspecao_checkBox_trofismo_muscular_hipotrofico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="18sp"
+                android:text="@string/hipotrofico" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_inspecao_checkBox_trofismo_muscular_hipertrofico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="18sp"
+                android:text="@string/hipertrofico" />
+
+            <EditText
+                android:id="@+id/activity_secao_inspecao_local_trofismo_muscular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:hint="@string/localizacao" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text="@string/edema"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/activity_secao_inspecao_switch_edema"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/presenca_de_edema"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/activity_secao_inspecao_local_edema"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:hint="@string/localizacao" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text="@string/tecido_osseo"/>
+
+            <CheckBox
+                android:id="@+id/activity_secao_inspecao_checkBox_tecido_osseo_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="18sp"
+                android:text="@string/normal" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_inspecao_checkBox_tecido_osseo_calo_osseo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="18sp"
+                android:text="@string/calo_osseo" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_inspecao_checkBox_tecido_osseo_desalinhamento_deformidade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="18sp"
+                android:text="@string/desalinhamento_deformidade" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text="@string/marcha"/>
+
+            <CheckBox
+                android:id="@+id/activity_secao_inspecao_checkBox_marcha_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="18sp"
+                android:text="@string/normal" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_inspecao_checkBox_marcha_antalgica"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="18sp"
+                android:text="@string/antalgica" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_inspecao_checkBox_marcha_dor_ombro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="18sp"
+                android:text="@string/dor_no_ombro_durante_a_marcha" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text="@string/proteses"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/activity_secao_inspecao_switch_protese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/presenca_de_proteses"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/activity_secao_inspecao_qual_protese"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:hint="@string/qual" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text="@string/orteses"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/activity_secao_inspecao_switch_orteses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/presenca_de_orteses"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/activity_secao_inspecao_qual_ortese"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:hint="@string/qual" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text="@string/cateteres_e_sondas"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/activity_secao_inspecao_switch_cateter_sonda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/presenca_de_cateteres_e_sondas"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/activity_secao_inspecao_local_cateter_sonda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:hint="@string/localizacao" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/activity_secao_inspecao_button_salvar_e_sair"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_margin="8dp"
+        android:text="@string/salvar_e_sair"
+        android:textSize="16sp"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/activity_secao_inspecao_button_proximo"
+        app:layout_constraintTop_toBottomOf="@id/activity_secao_inspecao_scroll_view"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/activity_secao_inspecao_button_proximo"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_margin="8dp"
+        android:text="@string/proximo"
+        android:textSize="16sp"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_secao_inspecao_scroll_view"
+        app:layout_constraintStart_toEndOf="@+id/activity_secao_inspecao_button_salvar_e_sair" />
+</androidx.constraintlayout.widget.ConstraintLayout>

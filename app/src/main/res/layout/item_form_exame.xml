@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/item_form_secao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Nome da Seção"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@id/item_form_preenchido"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        app:shapeAppearance="@style/roundShape"
+        android:id="@+id/item_form_preenchido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="#A00"
+        android:scaleX="1.2"
+        android:scaleY="1.2"
+        android:backgroundTintMode="src_over"
+        android:contentDescription="@string/icone_preenchido"
+        android:src="@drawable/ic_action_not_done"
+        app:layout_constraintBottom_toBottomOf="@id/item_form_secao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@id/item_form_secao"
+        app:layout_constraintTop_toTopOf="@+id/item_form_secao"
+        app:layout_constraintVertical_bias="0.5"
+        app:tint="#FFF" />
+
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/item_form_secao2"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="8dp"-->
+    <!--        android:layout_marginLeft="8dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:text="Nome da Seção"-->
+    <!--        android:textSize="24sp"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/item_form_secao" />-->
+
+    <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+    <!--        android:id="@+id/item_form_preenchido2"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:contentDescription="@string/icone_preenchido"-->
+    <!--        android:focusable="false"-->
+    <!--        android:clickable="false"-->
+    <!--        android:backgroundTint="#090"-->
+    <!--        android:padding="0dp"-->
+    <!--        android:scaleX="0.5"-->
+    <!--        android:scaleY="0.5"-->
+    <!--        android:src="@drawable/ic_action_done"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@id/item_form_secao2"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="1.0"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/item_form_secao2"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/item_form_secao2"-->
+    <!--        app:tint="#FFF" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

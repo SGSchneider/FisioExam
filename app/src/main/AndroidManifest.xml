@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.ufsm.fisioexam">
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name ="android.permission.INTERNET"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FisioExam" >
+        <activity android:name=".ui.activity.fisioExamMenuActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.activity.ListaPacientesActivity"/>
+        <activity android:name=".ui.activity.FormularioPacienteActivity"/>
+        <activity android:name=".ui.activity.ConfiguracoesActivity"/>
+        <activity android:name=".ui.activity.ListaExamesActivity"/>
+        <activity android:name=".ui.activity.SecoesExameActivity"/>
+        <activity android:name=".ui.activity.SecaoDiagnosticoMedicoActivity"/>
+        <activity android:name=".ui.activity.SecaoQueixaPrincipalActivity"/>
+        <activity android:name=".ui.activity.SecaoHistoriaDoencaAtualActivity"/>
+        <activity android:name=".ui.activity.SecaoDorActivity"/>
+        <activity android:name=".ui.activity.SecaoTratamentoAnteriorActivity"/>
+        <activity android:name=".ui.activity.SecaoAfastamentoDaFuncaoActivity"/>
+        <activity android:name=".ui.activity.SecaoHistoriaPregressaActivity"/>
+        <activity android:name=".ui.activity.SecaoDoencasAssociadasActivity"/>
+        <activity android:name=".ui.activity.SecaoMedicamentosEmUsoActivity"/>
+        <activity android:name=".ui.activity.SecaoHistoriaFamiliarActivity"/>
+        <activity android:name=".ui.activity.SecaoHistoriaOcupacionalActivity"/>
+        <activity android:name=".ui.activity.SecaoHabitosVidaActivity"/>
+        <activity android:name=".ui.activity.SecaoExamesComplementaresActivity"/>
+        <activity android:name=".ui.activity.SecaoSinaisVitaisActivity"/>
+        <activity android:name=".ui.activity.SecaoInspecaoActivity"/>
+        <activity android:name=".ui.activity.SecaoPalpacaoActivity"/>
+        <activity android:name=".ui.activity.SecaoObservacoesActivity"/>
+        <activity android:name=".ui.activity.SecaoDiagnosticoFisioterapeuticoActivity"/>
+        <activity android:name=".ui.activity.SecaoObjetivosTratamentoActivity"/>
+        <activity android:name=".ui.activity.SecaoPlanoTratamentoActivity"/>
+        <activity android:name=".ui.activity.SecaoAmplitudeMovimentoOmbroActivity"/>
+        <activity android:name=".ui.activity.IntermediarioSecoesEspecificasActivity"/>
+        <activity android:name=".ui.activity.SecaoPerimetriaOmbroActivity"/>
+        <activity android:name=".ui.activity.SecaoSensibilidadeOmbroActivity"/>
+    </application>
+
+
+</manifest>

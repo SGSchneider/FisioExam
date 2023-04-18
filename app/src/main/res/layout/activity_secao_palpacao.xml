@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/activity_secao_palpacao_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="96dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:background="#B0B0B0"
+                android:textStyle="bold"
+                android:text="@string/palpacao"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text="@string/coloracao_da_pele"/>
+
+            <CheckBox
+                android:id="@+id/activity_secao_palpacao_checkBox_coloracao_da_pele_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="18sp"
+                android:text="@string/sem_alteracoes" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_palpacao_checkBox_coloracao_da_pele_vermelha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="18sp"
+                android:text="@string/vermelha" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_palpacao_checkBox_coloracao_da_pele_esquimose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="18sp"
+                android:text="@string/equimose_roxa" />
+
+            <EditText
+                android:id="@+id/activity_secao_palpacao_local_coloracao_da_pele"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:hint="@string/localizacao" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text="@string/feridas"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/activity_secao_palpacao_switch_palp_feridas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/feridas"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/activity_secao_palpacao_local_palp_feridas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:hint="@string/localizacao" />
+
+            <EditText
+                android:id="@+id/activity_secao_palpacao_tamanho_palp_feridas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:hint="@string/tamanho" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text="@string/cicatrizes"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/activity_secao_palpacao_switch_palp_cicatrizes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/cicatrizes"
+                android:textSize="18sp"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/activity_secao_palpacao_switch_palp_cicatrizes_aderencias"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/com_aderencias"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/activity_secao_palpacao_local_palp_cicatrizes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:hint="@string/localizacao" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text="@string/edema"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/activity_secao_palpacao_switch_palp_edema"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/presenca_de_edema"
+                android:textSize="18sp"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/activity_secao_palpacao_switch_palp_edema_cacifo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/com_cacifo"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/activity_secao_palpacao_local_palp_edema"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:hint="@string/localizacao" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text="@string/temperatura"/>
+
+            <RadioGroup
+                android:id="@+id/activity_secao_palpacao_radio_group_palp_temperatura"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/activity_secao_palpacao_radio_palp_temperatura_normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textSize="18sp"
+                    android:text="@string/normal" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_palpacao_radio_palp_temperatura_aumento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textSize="18sp"
+                    android:text="@string/aumento" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_palpacao_radio_palp_temperatura_diminuicao"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textSize="18sp"
+                    android:text="@string/diminuicao" />
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/activity_secao_palpacao_local_palp_temperatura"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:hint="@string/localizacao" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text="@string/tensao_muscular"/>
+
+            <RadioGroup
+                android:id="@+id/activity_secao_palpacao_radio_group_palp_tensao_muscular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/activity_secao_palpacao_radio_tensao_muscular_nao_ha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textSize="18sp"
+                    android:text="@string/nao_ha_pontos_de_tensao" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_palpacao_radio_tensao_muscular_aumentada"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textSize="18sp"
+                    android:text="@string/aumentada" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_palpacao_radio_tensao_muscular_diminuida"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textSize="18sp"
+                    android:text="@string/diminuida" />
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/activity_secao_palpacao_local_palp_tensao_muscular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:hint="@string/localizacao" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text="@string/tecido_osseo"/>
+
+            <RadioGroup
+                android:id="@+id/activity_secao_palpacao_radio_group_palp_tecido_osseo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/activity_secao_palpacao_radio_palp_tecido_osseo_normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textSize="18sp"
+                    android:text="@string/normal" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_palpacao_radio_palp_tecido_osseo_calo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textSize="18sp"
+                    android:text="@string/calo_osseo" />
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/activity_secao_palpacao_local_palp_tecido_osseo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:hint="@string/localizacao" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text="@string/dor"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/activity_secao_palpacao_switch_palp_dor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/dor_a_palpacao"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/activity_secao_palpacao_grau_palp_dor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:hint="@string/grau_de_dor" />
+
+            <EditText
+                android:id="@+id/activity_secao_palpacao_local_palp_dor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:hint="@string/localizacao" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/activity_secao_palpacao_button_salvar_e_sair"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_margin="8dp"
+        android:text="@string/salvar_e_sair"
+        android:textSize="16sp"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/activity_secao_palpacao_button_proximo"
+        app:layout_constraintTop_toBottomOf="@id/activity_secao_palpacao_scroll_view"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/activity_secao_palpacao_button_proximo"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_margin="8dp"
+        android:text="@string/proximo"
+        android:textSize="16sp"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_secao_palpacao_scroll_view"
+        app:layout_constraintStart_toEndOf="@+id/activity_secao_palpacao_button_salvar_e_sair" />
+</androidx.constraintlayout.widget.ConstraintLayout>
