@@ -19,8 +19,6 @@ import br.ufsm.fisioexam.model.Ombro;
 import br.ufsm.fisioexam.model.Secoes;
 
 public class SecaoForcaMuscularOmbroActivity extends AppCompatActivity {
-    //Usar Parâmetros MAGEE (2010) por ser mais recente.
-
 
     private EditText campoTrapezioSuperiorDir;
     private EditText campoTrapezioSuperiorEsq;
@@ -141,7 +139,7 @@ public class SecaoForcaMuscularOmbroActivity extends AppCompatActivity {
         salva();
         Intent vaiParaFormularioSecaoActivity = new Intent(this, IntermediarioSecoesEspecificasActivity.class);
         vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, ombro.getExame());
-        vaiParaFormularioSecaoActivity.putExtra(CHAVE_SECAO, 5);
+        vaiParaFormularioSecaoActivity.putExtra(CHAVE_SECAO, 4);
         startActivity(vaiParaFormularioSecaoActivity);
         finish();
     }
