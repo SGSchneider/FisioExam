@@ -200,7 +200,7 @@ public class FormularioPacienteActivity extends AppCompatActivity {
     }
 
     private void preencheNascimento() {
-        dataSelecionada = paciente.getNascimento();
+        dataSelecionada = paciente.getNascimentoCalendar();
         atualizaDataNascimento();
     }
 
@@ -395,7 +395,7 @@ public class FormularioPacienteActivity extends AppCompatActivity {
 
         paciente.setNome(nome);
         paciente.setIdade(idade);
-        paciente.setNascimento(nascimento);
+        paciente.setNascimentoCalendar(nascimento);
         paciente.setGenero(genero);
         paciente.setEtnia(etnia);
         paciente.setTelefone(telefone);

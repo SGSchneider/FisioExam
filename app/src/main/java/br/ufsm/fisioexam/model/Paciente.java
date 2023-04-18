@@ -14,7 +14,7 @@ public class Paciente implements Serializable {
 
     private String nome;
     private int idade;
-    private Calendar nascimento;
+    private Long nascimento;
     private String genero;
     private String etnia;
     private String telefone;
@@ -52,9 +52,21 @@ public class Paciente implements Serializable {
         this.idade = idade;
     }
 
-    public Calendar getNascimento() { return nascimento; }
+    public Calendar getNascimentoCalendar() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(nascimento);
+        return calendar;
+    }
 
-    public void setNascimento(Calendar nascimento) {
+    public Long getNascimento(){
+        return nascimento;
+    }
+
+    public void setNascimentoCalendar(Calendar nascimento) {
+        this.nascimento = nascimento.getTimeInMillis();
+    }
+
+    public void setNascimento(Long nascimento) {
         this.nascimento = nascimento;
     }
 

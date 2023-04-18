@@ -17,8 +17,8 @@ import br.ufsm.fisioexam.model.Paciente;
 
 public class SyncBD {
 
-    private FisioExamDatabase fisioExamDatabase;
-    private DatabaseReference databaseReference;
+    private final FisioExamDatabase fisioExamDatabase;
+    private final DatabaseReference databaseReference;
 
     public SyncBD(FisioExamDatabase fisioExamDatabase, DatabaseReference databaseReference) {
         this.fisioExamDatabase = fisioExamDatabase;
@@ -40,6 +40,9 @@ public class SyncBD {
     }
 
     private void getFromFirebase(@NonNull DataSnapshot dataSnapshot) {
+        syncPacientes();
+        syncExames();
+        syncOmbros();
         List<Exame> exames = new ArrayList<>();
         List<Paciente> pacientes = new ArrayList<>();
         List<Ombro> ombros = new ArrayList<>();
