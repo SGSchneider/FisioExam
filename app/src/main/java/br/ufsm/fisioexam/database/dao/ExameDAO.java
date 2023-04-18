@@ -21,6 +21,12 @@ public interface ExameDAO {
     @Query("SELECT * FROM exame")
     List<Exame> getAllExames();
 
+    @Insert
+    void insertAllExames(List<Exame> Exames);
+
+    @Query("DELETE FROM exame")
+    void deleteAllExames();
+
     @Delete
     void remove(Exame exame);
 

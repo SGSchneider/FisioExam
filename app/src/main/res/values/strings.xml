@@ -206,4 +206,9 @@
     <string name="termica">Térmica</string>
     <string name="dolorosa">Dolorosa</string>
     <string name="local_avaliado">Local Avaliado:</string>
+    <string name="sincronizar">Sincronizar</string>
+    <string name="voltar">voltar</string>
+    <string name="logar">Login</string>
+    <string name="e_mail">E-Mail</string>
+    <string name="senha">Senha</string>
 </resources>

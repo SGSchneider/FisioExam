@@ -22,6 +22,12 @@ public interface PacienteDAO {
     @Query("SELECT * FROM paciente")
     List<Paciente> getAllPacientes();
 
+    @Insert
+    void insertAllPacientes(List<Paciente> Pacientes);
+
+    @Query("DELETE FROM paciente ")
+    void deleteAllPacientes();
+
     @Query("SELECT * FROM paciente WHERE nome LIKE :termo ORDER BY nome")
     List<Paciente> pesquisa(String termo);
 

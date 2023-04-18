@@ -28,6 +28,12 @@ public interface OmbroDAO {
     @Query("SELECT * FROM ombro ")
     List<Ombro> getAllOmbros();
 
+    @Insert
+    void insertAllOmbros(List<Ombro> ombros);
+
+    @Query("DELETE FROM ombro ")
+    void deleteAllOmbros();
+
     @Update
     void edita(Ombro ombro);
 

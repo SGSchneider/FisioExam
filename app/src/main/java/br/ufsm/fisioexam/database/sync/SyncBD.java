@@ -1,7 +1,13 @@
 package br.ufsm.fisioexam.database.sync;
 
-import com.google.firebase.database.DatabaseReference;
+import androidx.annotation.NonNull;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import br.ufsm.fisioexam.database.FisioExamDatabase;
@@ -19,23 +25,78 @@ public class SyncBD {
         this.databaseReference = databaseReference;
     }
 
+    public void syncNow(DatabaseReference databaseReference) {
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                getFromFirebase(dataSnapshot);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // lógica de tratamento de erros
+            }
+        });
+    }
+
+    private void getFromFirebase(@NonNull DataSnapshot dataSnapshot) {
+        List<Exame> exames = new ArrayList<>();
+        List<Paciente> pacientes = new ArrayList<>();
+        List<Ombro> ombros = new ArrayList<>();
+
+        for (DataSnapshot snapshot : dataSnapshot.child("exames").getChildren()) {
+            Exame exame = snapshot.getValue(Exame.class);
+            exames.add(exame);
+        }
+
+        for (DataSnapshot snapshot : dataSnapshot.child("pacientes").getChildren()) {
+            Paciente paciente = snapshot.getValue(Paciente.class);
+            pacientes.add(paciente);
+        }
+
+        for (DataSnapshot snapshot : dataSnapshot.child("ombros").getChildren()) {
+            Ombro ombro = snapshot.getValue(Ombro.class);
+            ombros.add(ombro);
+        }
+
+        updateTables(exames, pacientes, ombros);
+
+    }
+
+    private void updateTables(List<Exame> exames, List<Paciente> pacientes, List<Ombro> ombros) {
+        fisioExamDatabase.getRoomPacienteDAO().deleteAllPacientes();
+        fisioExamDatabase.getRoomPacienteDAO().insertAllPacientes(pacientes);
+
+        fisioExamDatabase.getRoomExameDAO().deleteAllExames();
+        fisioExamDatabase.getRoomExameDAO().insertAllExames(exames);
+
+        fisioExamDatabase.getRoomOmbroDAO().deleteAllOmbros();
+        fisioExamDatabase.getRoomOmbroDAO().insertAllOmbros(ombros);
+    }
+
     public void syncExames() {
         List<Exame> exames = fisioExamDatabase.getRoomExameDAO().getAllExames();
-        List<Paciente> pacientes = fisioExamDatabase.getRoomPacienteDAO().getAllPacientes();
-        List<Ombro> ombros = fisioExamDatabase.getRoomOmbroDAO().getAllOmbros();
-
 
         for (Exame exame : exames) {
             databaseReference.child("exames").child(Integer.toString(exame.getId())).setValue(exame);
         }
 
-        for (Paciente paciente : pacientes) {
-            databaseReference.child("pacientes").child(Integer.toString(paciente.getId())).setValue(paciente);
-        }
+    }
+
+    public void syncOmbros() {
+        List<Ombro> ombros = fisioExamDatabase.getRoomOmbroDAO().getAllOmbros();
 
         for (Ombro ombro : ombros) {
             databaseReference.child("ombros").child(Integer.toString(ombro.getId())).setValue(ombro);
         }
-
     }
+
+    public void syncPacientes() {
+        List<Paciente> pacientes = fisioExamDatabase.getRoomPacienteDAO().getAllPacientes();
+
+        for (Paciente paciente : pacientes) {
+            databaseReference.child("pacientes").child(Integer.toString(paciente.getId())).setValue(paciente);
+        }
+    }
+
 }
