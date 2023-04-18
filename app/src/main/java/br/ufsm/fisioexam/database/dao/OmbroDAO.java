@@ -25,6 +25,9 @@ public interface OmbroDAO {
     @Query("SELECT * FROM ombro WHERE id LIKE :id")
     Ombro getOmbro(int id);
 
+    @Query("SELECT * FROM ombro ")
+    List<Ombro> getAllOmbros();
+
     @Update
     void edita(Ombro ombro);
 

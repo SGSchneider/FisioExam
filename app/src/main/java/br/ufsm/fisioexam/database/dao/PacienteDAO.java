@@ -8,7 +8,6 @@ import androidx.room.Update;
 
 import java.util.List;
 
-import br.ufsm.fisioexam.model.Exame;
 import br.ufsm.fisioexam.model.Paciente;
 
 @Dao
@@ -19,6 +18,9 @@ public interface PacienteDAO {
 
     @Query("SELECT * FROM paciente ORDER BY nome")
     List<Paciente> todos();
+
+    @Query("SELECT * FROM paciente")
+    List<Paciente> getAllPacientes();
 
     @Query("SELECT * FROM paciente WHERE nome LIKE :termo ORDER BY nome")
     List<Paciente> pesquisa(String termo);

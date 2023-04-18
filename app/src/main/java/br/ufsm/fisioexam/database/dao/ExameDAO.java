@@ -18,6 +18,9 @@ public interface ExameDAO {
     @Query("SELECT * FROM exame WHERE paciente LIKE :registro ORDER BY tipo")
     List<Exame> todos(int registro);
 
+    @Query("SELECT * FROM exame")
+    List<Exame> getAllExames();
+
     @Delete
     void remove(Exame exame);
 
