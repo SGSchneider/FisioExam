@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/activity_secao_testes_especiais_ombro_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="96dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/activity_secao_testes_especiais_ombro_titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="#B0B0B0"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/testes_especiais"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/integridade_manguito_rotador"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/jobe"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/activity_secao_testes_especiais_ombro_radio_jobe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp">
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_esquerda_mais_jobe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/esquerdamais"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_esquerda_menos_jobe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/esquerdamenos"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_direita_mais_jobe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/direitamais"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_direita_menos_jobe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/direitamenos"
+                    android:textSize="18sp" />
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/patte"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/activity_secao_testes_especiais_ombro_radio_patte"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp">
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_esquerda_mais_patte"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/esquerdamais"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_esquerda_menos_patte"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/esquerdamenos"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_direita_mais_patte"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/direitamais"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_direita_menos_patte"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/direitamenos"
+                    android:textSize="18sp" />
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/gerber"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/activity_secao_testes_especiais_ombro_radio_gerber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp">
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_esquerda_mais_gerber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/esquerdamais"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_esquerda_menos_gerber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/esquerdamenos"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_direita_mais_gerber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/direitamais"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_direita_menos_gerber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/direitamenos"
+                    android:textSize="18sp" />
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/irritativos"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@string/neer"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/activity_secao_testes_especiais_ombro_radio_neer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp">
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_esquerda_mais_neer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/esquerdamais"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_esquerda_menos_neer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/esquerdamenos"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_direita_mais_neer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/direitamais"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_direita_menos_neer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/direitamenos"
+                    android:textSize="18sp" />
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/hawkins_kennedy"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/activity_secao_testes_especiais_ombro_radio_hk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp">
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_esquerda_mais_hk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/esquerdamais"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_esquerda_menos_hk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/esquerdamenos"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_direita_mais_hk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/direitamais"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_direita_menos_hk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/direitamenos"
+                    android:textSize="18sp" />
+
+            </RadioGroup>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/porcao_longa_biceps_braquial"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/speed"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/activity_secao_testes_especiais_ombro_radio_speed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp">
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_esquerda_mais_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/esquerdamais"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_esquerda_menos_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/esquerdamenos"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_direita_mais_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/direitamais"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_direita_menos_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/direitamenos"
+                    android:textSize="18sp" />
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/yergason"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/activity_secao_testes_especiais_ombro_radio_yergason"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp">
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_esquerda_mais_yergason"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/esquerdamais"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_esquerda_menos_yergason"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/esquerdamenos"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_direita_mais_yergason"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/direitamais"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_direita_menos_yergason"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/direitamenos"
+                    android:textSize="18sp" />
+
+            </RadioGroup>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/instabilidade"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/apreensao_anterior"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/activity_secao_testes_especiais_ombro_radio_apreensao_anterior"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp">
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_esquerda_mais_apreensao_anterior"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/esquerdamais"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_esquerda_menos_apreensao_anterior"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/esquerdamenos"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_direita_mais_apreensao_anterior"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/direitamais"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_direita_menos_apreensao_anterior"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/direitamenos"
+                    android:textSize="18sp" />
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/sinal_de_sulco"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/activity_secao_testes_especiais_ombro_radio_sinal_de_sulco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp">
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_esquerda_mais_sinal_de_sulco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/esquerdamais"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_esquerda_menos_sinal_de_sulco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/esquerdamenos"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_direita_mais_sinal_de_sulco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/direitamais"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_direita_menos_sinal_de_sulco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/direitamenos"
+                    android:textSize="18sp" />
+
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/activity_secao_testes_especiais_ombro_escala"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="#B0B0B0"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/escalas_utilizadas"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/dash"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/data_aplicacao"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/activity_secao_testes_especiais_ombro_dash_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/data"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/pontuacao"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/activity_secao_testes_especiais_ombro_dash_pontuacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/pontuacao"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/resultados"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/activity_secao_testes_especiais_ombro_dash_resultados"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/resultados"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/ases"
+                android:textSize="20sp"
+                android:textStyle="italic" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/data_aplicacao"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/activity_secao_testes_especiais_ombro_ases_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/data"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/pontuacao"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/activity_secao_testes_especiais_ombro_ases_pontuacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/pontuacao"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/resultados"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/activity_secao_testes_especiais_ombro_ases_resultados"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/resultados"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/activity_secao_testes_especiais_ombro_button_salvar_e_sair"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_margin="8dp"
+        android:text="@string/salvar_e_sair"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/activity_secao_testes_especiais_ombro_button_proximo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_secao_testes_especiais_ombro_scroll_view"
+        app:layout_constraintVertical_bias="1" />
+
+    <Button
+        android:id="@+id/activity_secao_testes_especiais_ombro_button_proximo"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_margin="8dp"
+        android:text="@string/proximo"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/activity_secao_testes_especiais_ombro_button_salvar_e_sair"
+        app:layout_constraintTop_toBottomOf="@+id/activity_secao_testes_especiais_ombro_scroll_view"
+        app:layout_constraintVertical_bias="1" />
+</androidx.constraintlayout.widget.ConstraintLayout>
