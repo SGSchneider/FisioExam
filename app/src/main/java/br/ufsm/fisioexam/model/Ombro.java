@@ -107,33 +107,18 @@ public class Ombro {
 
     //Testes Especiais
     //Integridade de Manguito Rotador
-    private Boolean jobeDir;
-    private Boolean jobeEsq;
-    private Boolean patteDir;
-    private Boolean patteEsq;
-    private Boolean infraespinhalDir;
-    private Boolean infraespinhalEsq;
-    private Boolean gerberLiffOffDir;
-    private Boolean gerberLiffOffEsq;
+    private String jobe;
+    private String patte;
+    private String gerberLiffOff;
     //Irritativos
-    private Boolean neerDir;
-    private Boolean neerEsq;
-    private Boolean hawkinsDir;
-    private Boolean hawkinsEsq;
+    private String neer;
+    private String hawkins;
     //Porção Longa do Biceps Braquial
-    private Boolean palmUpSpeedDir;
-    private Boolean palmUpSpeedEsq;
-    private Boolean yergasonDir;
-    private Boolean yergasonEsq;
+    private String palmUpSpeed;
+    private String yergason;
     //Instabilidade
-    private Boolean gavetaAnteriorDir;
-    private Boolean gavetaAnteriorEsq;
-    private Boolean apreensaoAnteriorDir;
-    private Boolean apreensaoAnteriorEsq;
-    private Boolean gavetaPosteriorDir;
-    private Boolean gavetaPosteriorEsq;
-    private Boolean sinalSulcoDir;
-    private Boolean sinalSulcoEsq;
+    private String apreensaoAnterior;
+    private String sinalSulco;
 
     //Escalas Utilizadas
     //DASH
@@ -758,196 +743,76 @@ public class Ombro {
         this.sensibilidadeLocalAvaliado = sensibilidadeLocalAvaliado;
     }
 
-    public Boolean getJobeDir() {
-        return jobeDir;
+    public String getJobe() {
+        return jobe;
     }
 
-    public void setJobeDir(Boolean jobeDir) {
-        this.jobeDir = jobeDir;
+    public void setJobe(String jobe) {
+        this.jobe = jobe;
     }
 
-    public Boolean getJobeEsq() {
-        return jobeEsq;
+    public String getPatte() {
+        return patte;
     }
 
-    public void setJobeEsq(Boolean jobeEsq) {
-        this.jobeEsq = jobeEsq;
+    public void setPatte(String patte) {
+        this.patte = patte;
     }
 
-    public Boolean getPatteDir() {
-        return patteDir;
+    public String getGerberLiffOff() {
+        return gerberLiffOff;
     }
 
-    public void setPatteDir(Boolean patteDir) {
-        this.patteDir = patteDir;
+    public void setGerberLiffOff(String gerberLiffOff) {
+        this.gerberLiffOff = gerberLiffOff;
     }
 
-    public Boolean getPatteEsq() {
-        return patteEsq;
+    public String getNeer() {
+        return neer;
     }
 
-    public void setPatteEsq(Boolean patteEsq) {
-        this.patteEsq = patteEsq;
+    public void setNeer(String neer) {
+        this.neer = neer;
     }
 
-    public Boolean getInfraespinhalDir() {
-        return infraespinhalDir;
+    public String getHawkins() {
+        return hawkins;
     }
 
-    public void setInfraespinhalDir(Boolean infraespinhalDir) {
-        this.infraespinhalDir = infraespinhalDir;
+    public void setHawkins(String hawkins) {
+        this.hawkins = hawkins;
     }
 
-    public Boolean getInfraespinhalEsq() {
-        return infraespinhalEsq;
+    public String getPalmUpSpeed() {
+        return palmUpSpeed;
     }
 
-    public void setInfraespinhalEsq(Boolean infraespinhalEsq) {
-        this.infraespinhalEsq = infraespinhalEsq;
+    public void setPalmUpSpeed(String palmUpSpeed) {
+        this.palmUpSpeed = palmUpSpeed;
     }
 
-    public Boolean getGerberLiffOffDir() {
-        return gerberLiffOffDir;
+    public String getYergason() {
+        return yergason;
     }
 
-    public void setGerberLiffOffDir(Boolean gerberLiffOffDir) {
-        this.gerberLiffOffDir = gerberLiffOffDir;
+    public void setYergason(String yergason) {
+        this.yergason = yergason;
     }
 
-    public Boolean getGerberLiffOffEsq() {
-        return gerberLiffOffEsq;
+    public String getApreensaoAnterior() {
+        return apreensaoAnterior;
     }
 
-    public void setGerberLiffOffEsq(Boolean gerberLiffOffEsq) {
-        this.gerberLiffOffEsq = gerberLiffOffEsq;
+    public void setApreensaoAnterior(String apreensaoAnterior) {
+        this.apreensaoAnterior = apreensaoAnterior;
     }
 
-    public Boolean getNeerDir() {
-        return neerDir;
+    public String getSinalSulco() {
+        return sinalSulco;
     }
 
-    public void setNeerDir(Boolean neerDir) {
-        this.neerDir = neerDir;
-    }
-
-    public Boolean getNeerEsq() {
-        return neerEsq;
-    }
-
-    public void setNeerEsq(Boolean neerEsq) {
-        this.neerEsq = neerEsq;
-    }
-
-    public Boolean getHawkinsDir() {
-        return hawkinsDir;
-    }
-
-    public void setHawkinsDir(Boolean hawkinsDir) {
-        this.hawkinsDir = hawkinsDir;
-    }
-
-    public Boolean getHawkinsEsq() {
-        return hawkinsEsq;
-    }
-
-    public void setHawkinsEsq(Boolean hawkinsEsq) {
-        this.hawkinsEsq = hawkinsEsq;
-    }
-
-    public Boolean getPalmUpSpeedDir() {
-        return palmUpSpeedDir;
-    }
-
-    public void setPalmUpSpeedDir(Boolean palmUpSpeedDir) {
-        this.palmUpSpeedDir = palmUpSpeedDir;
-    }
-
-    public Boolean getPalmUpSpeedEsq() {
-        return palmUpSpeedEsq;
-    }
-
-    public void setPalmUpSpeedEsq(Boolean palmUpSpeedEsq) {
-        this.palmUpSpeedEsq = palmUpSpeedEsq;
-    }
-
-    public Boolean getYergasonDir() {
-        return yergasonDir;
-    }
-
-    public void setYergasonDir(Boolean yergasonDir) {
-        this.yergasonDir = yergasonDir;
-    }
-
-    public Boolean getYergasonEsq() {
-        return yergasonEsq;
-    }
-
-    public void setYergasonEsq(Boolean yergasonEsq) {
-        this.yergasonEsq = yergasonEsq;
-    }
-
-    public Boolean getGavetaAnteriorDir() {
-        return gavetaAnteriorDir;
-    }
-
-    public void setGavetaAnteriorDir(Boolean gavetaAnteriorDir) {
-        this.gavetaAnteriorDir = gavetaAnteriorDir;
-    }
-
-    public Boolean getGavetaAnteriorEsq() {
-        return gavetaAnteriorEsq;
-    }
-
-    public void setGavetaAnteriorEsq(Boolean gavetaAnteriorEsq) {
-        this.gavetaAnteriorEsq = gavetaAnteriorEsq;
-    }
-
-    public Boolean getApreensaoAnteriorDir() {
-        return apreensaoAnteriorDir;
-    }
-
-    public void setApreensaoAnteriorDir(Boolean apreensaoAnteriorDir) {
-        this.apreensaoAnteriorDir = apreensaoAnteriorDir;
-    }
-
-    public Boolean getApreensaoAnteriorEsq() {
-        return apreensaoAnteriorEsq;
-    }
-
-    public void setApreensaoAnteriorEsq(Boolean apreensaoAnteriorEsq) {
-        this.apreensaoAnteriorEsq = apreensaoAnteriorEsq;
-    }
-
-    public Boolean getGavetaPosteriorDir() {
-        return gavetaPosteriorDir;
-    }
-
-    public void setGavetaPosteriorDir(Boolean gavetaPosteriorDir) {
-        this.gavetaPosteriorDir = gavetaPosteriorDir;
-    }
-
-    public Boolean getGavetaPosteriorEsq() {
-        return gavetaPosteriorEsq;
-    }
-
-    public void setGavetaPosteriorEsq(Boolean gavetaPosteriorEsq) {
-        this.gavetaPosteriorEsq = gavetaPosteriorEsq;
-    }
-
-    public Boolean getSinalSulcoDir() {
-        return sinalSulcoDir;
-    }
-
-    public void setSinalSulcoDir(Boolean sinalSulcoDir) {
-        this.sinalSulcoDir = sinalSulcoDir;
-    }
-
-    public Boolean getSinalSulcoEsq() {
-        return sinalSulcoEsq;
-    }
-
-    public void setSinalSulcoEsq(Boolean sinalSulcoEsq) {
-        this.sinalSulcoEsq = sinalSulcoEsq;
+    public void setSinalSulco(String sinalSulco) {
+        this.sinalSulco = sinalSulco;
     }
 
     public Calendar getDashData() {

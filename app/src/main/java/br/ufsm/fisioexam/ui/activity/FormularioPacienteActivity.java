@@ -97,6 +97,7 @@ public class FormularioPacienteActivity extends AppCompatActivity {
         configuraBotaoSalvar();
         configuraToastCliqueIdade();
         ConfiguraListenerRadios();
+        atualizaDataNascimento();
     }
 
 

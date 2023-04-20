@@ -77,9 +77,19 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
                 testesEspeciais();
                 finish();
                 break;
+            case 6:
+                observacoes();
+                finish();
+                break;
             default:
                 finish();
         }
+    }
+
+    private void observacoes() {
+        Intent vaiParaFormularioSecaoActivity = new Intent(this, SecaoObservacoesActivity.class);
+        vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
+        startActivity(vaiParaFormularioSecaoActivity);
     }
 
     private void testesEspeciais() {

@@ -10,6 +10,10 @@ public interface ConstantesActivities {
     String CHAVE_DIMINUIDA = "diminuida";
     String CHAVE_AUMENTADA = "aumentada";
     String CHAVE_AUSENTE = "ausente";
+    String CHAVE_DIR_MAIS = "D+";
+    String CHAVE_DIR_MENOS = "D-";
+    String CHAVE_ESQ_MAIS = "E+";
+    String CHAVE_ESQ_MENOS = "E-";
 
 
     //Chaves Valores Pacientes
