@@ -511,7 +511,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
-                android:hint="@string/data"/>
+                android:hint="@string/data" />
 
             <TextView
                 android:layout_width="match_parent"
