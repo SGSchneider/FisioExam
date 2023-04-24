@@ -5,6 +5,7 @@ import android.widget.ListView;
 
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
+import br.ufsm.fisioexam.model.Secoes;
 import br.ufsm.fisioexam.ui.adapter.SecoesExamesAdapter;
 
 public class SecoesExameView {
@@ -19,7 +20,16 @@ public class SecoesExameView {
     }
 
     public void atualizaSecoes() {
-        adapter.atualiza(dao.getSecao(id_exame));
+        Secoes secao;
+        secao = dao.getSecao(id_exame);
+        if(secao!=null) {
+            adapter.atualiza(secao);
+        }
+        else{
+            secao = new Secoes(id_exame);
+            dao.salva(secao);
+            adapter.atualiza(secao);
+        }
     }
 
     public void configuraAdapter(ListView listaSecoes) {

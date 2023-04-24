@@ -48,8 +48,6 @@ public class SyncBD {
         List<Ombro> ombros = new ArrayList<>();
 
 
-
-
         for (DataSnapshot snapshot : dataSnapshot.child("exames").getChildren()) {
             Exame exame = snapshot.getValue(Exame.class);
             exames.add(exame);

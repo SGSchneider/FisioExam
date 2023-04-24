@@ -20,8 +20,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.lang.String;
-
 import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.model.Exame;
 import br.ufsm.fisioexam.ui.ListaExamesView;

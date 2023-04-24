@@ -30,7 +30,7 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
     private ExameDAO exameDao;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState){
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intermediario_secoes_especificas);
         inicializaDAOs();
@@ -50,13 +50,13 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
             exame = exameDao.getExame((String) dados.getSerializableExtra(CHAVE_EXAME));
             secao = (int) dados.getSerializableExtra(CHAVE_SECAO);
             selecionaFormulario();
-        }else{
+        } else {
             finish();
         }
     }
 
     private void selecionaFormulario() {
-        switch(secao){
+        switch (secao) {
             case 1:
                 amplitudeMovimento();
                 finish();
@@ -94,7 +94,7 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
 
     private void testesEspeciais() {
         tipo = exame.getTipo();
-        switch (tipo){
+        switch (tipo) {
             case TIPO_OMBRO:
                 Ombro ombro = getOmbro();
                 Intent vaiParaFormularioSecaoOmbroActivity = new Intent(this, SecaoTestesEspeciaisOmbro.class);
@@ -114,12 +114,11 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         Ombro ombro;
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         OmbroDAO ombroDAO = database.getRoomOmbroDAO();
-        if (ombroDAO.todos(exame.getId()).isEmpty()){
+        if (ombroDAO.todos(exame.getId()).isEmpty()) {
             ombro = new Ombro(exame.getId());
             ombroDAO.salva(ombro);
             ombro.setId(ombroDAO.getIdOmbroPeloExame(exame.getId()));
-        }
-        else {
+        } else {
             ombro = ombroDAO.getOmbro(ombroDAO.getIdOmbroPeloExame(exame.getId()));
         }
         return ombro;
@@ -127,7 +126,7 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
 
     private void sensibilidade() {
         tipo = exame.getTipo();
-        switch(tipo) {
+        switch (tipo) {
             case TIPO_OMBRO:
                 Ombro ombro;
                 FisioExamDatabase database = FisioExamDatabase.getInstance(this);
@@ -158,7 +157,7 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
 
     private void forcaMuscular() {
         tipo = exame.getTipo();
-        switch(tipo) {
+        switch (tipo) {
             case TIPO_OMBRO:
                 Ombro ombro;
                 FisioExamDatabase database = FisioExamDatabase.getInstance(this);
@@ -189,7 +188,7 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
 
     private void perimetria() {
         tipo = exame.getTipo();
-        switch(tipo) {
+        switch (tipo) {
             case TIPO_OMBRO:
                 Ombro ombro;
                 FisioExamDatabase database = FisioExamDatabase.getInstance(this);
@@ -220,16 +219,16 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
 
     private void amplitudeMovimento() {
         tipo = exame.getTipo();
-        switch(tipo){
+        switch (tipo) {
             case TIPO_OMBRO:
                 Ombro ombro;
                 FisioExamDatabase database = FisioExamDatabase.getInstance(this);
                 OmbroDAO ombroDao = database.getRoomOmbroDAO();
-                if (ombroDao.todos(exame.getId()).isEmpty()){
+                if (ombroDao.todos(exame.getId()).isEmpty()) {
                     ombro = new Ombro(exame.getId());
                     ombroDao.salva(ombro);
                     ombro.setId(ombroDao.getIdOmbroPeloExame(exame.getId()));
-                }else{
+                } else {
                     ombro = ombroDao.getOmbro(ombroDao.getIdOmbroPeloExame(exame.getId()));
                 }
                 Intent vaiParaFormularioSecaoOmbroActivity = new Intent(this, SecaoAmplitudeMovimentoOmbroActivity.class);
@@ -253,11 +252,7 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
     private void rodaGif() {
         ImageView imageView = findViewById(R.id.activity_secao_intermediario_secoes_especificas_gif);
         RequestOptions requestOptions = new RequestOptions().centerInside().override(200, 200);
-        Glide.with(this)
-                .asGif()
-                .load(R.drawable.loading_gif)
-                .apply(requestOptions)
-                .into(imageView);
+        Glide.with(this).asGif().load(R.drawable.loading_gif).apply(requestOptions).into(imageView);
     }
 
 }

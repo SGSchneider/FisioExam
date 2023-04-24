@@ -8,19 +8,13 @@ import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-import java.lang.String;
 import java.util.UUID;
 
-@Entity(foreignKeys = {@ForeignKey(entity = Exame.class,
-        parentColumns = "id",
-        childColumns = "exame",
-        onDelete = ForeignKey.CASCADE,
-        onUpdate = ForeignKey.CASCADE)},
-        indices = {@Index(name = "idx_ombro_exame",
-                value = {"exame"})})
+@Entity(foreignKeys = {@ForeignKey(entity = Exame.class, parentColumns = "id", childColumns = "exame", onDelete = ForeignKey.CASCADE, onUpdate = ForeignKey.CASCADE)}, indices = {@Index(name = "idx_ombro_exame", value = {"exame"})})
 public class Ombro {
     @PrimaryKey()
-    private @NonNull String id;
+    private @NonNull
+    String id;
     //chave estrangeira
     private String exame;
 
@@ -141,7 +135,7 @@ public class Ombro {
 
 
     @Ignore
-    public Ombro(){
+    public Ombro() {
         id = UUID.randomUUID().toString();
     }
 

@@ -13,19 +13,13 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
-import java.lang.String;
 import java.util.UUID;
 
-@Entity(foreignKeys = {@ForeignKey(entity  = Paciente.class,
-                                    parentColumns = "id",
-                                    childColumns = "paciente",
-                                    onDelete = ForeignKey.CASCADE,
-                                    onUpdate = ForeignKey.CASCADE)},
-        indices = {@Index(name = "idx_exame_paciente",
-                            value = {"paciente"})})
+@Entity(foreignKeys = {@ForeignKey(entity = Paciente.class, parentColumns = "id", childColumns = "paciente", onDelete = ForeignKey.CASCADE, onUpdate = ForeignKey.CASCADE)}, indices = {@Index(name = "idx_exame_paciente", value = {"paciente"})})
 public class Exame implements Serializable {
     @PrimaryKey()
-    private @NonNull String id;
+    private @NonNull
+    String id;
 
     //    Chave estrangeira.
     private String paciente;
@@ -177,7 +171,7 @@ public class Exame implements Serializable {
     }
 
     @Ignore
-    public Exame (){
+    public Exame() {
         id = UUID.randomUUID().toString();
         tipo = CHAVE_TIPO_VAZIO;
     }
@@ -203,9 +197,6 @@ public class Exame implements Serializable {
         return creationKey;
     }
 
-    public void setCreationKey(String creationKey) {
-        //this.creationKey = creationKey;
-    }
 
     public long getData() {
         return data;
@@ -1215,12 +1206,12 @@ public class Exame implements Serializable {
         this.evolucaoFisioterapia = evolucaoFisioterapia;
     }
 
-    public String getDataString(){
+    public String getDataString() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(data);
         String formatoData = "dd/MM/yyyy";
-        SimpleDateFormat dateFormat = new SimpleDateFormat(formatoData,new Locale("pt", "BR"));
-        return(dateFormat.format(calendar.getTime()));
+        SimpleDateFormat dateFormat = new SimpleDateFormat(formatoData, new Locale("pt", "BR"));
+        return (dateFormat.format(calendar.getTime()));
     }
 
     @NonNull

@@ -11,7 +11,8 @@ import java.util.UUID;
 public class Paciente implements Serializable {
 
     @PrimaryKey()
-    private @NonNull String id;
+    private @NonNull
+    String id;
 
     private String nome;
     private int idade;

@@ -245,10 +245,7 @@ public class SecoesExameActivity extends AppCompatActivity {
         };
         campoData.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) {
-                new DatePickerDialog(SecoesExameActivity.this, date,
-                        dataSelecionada.get(Calendar.YEAR),
-                        dataSelecionada.get(Calendar.MONTH),
-                        dataSelecionada.get(Calendar.DAY_OF_MONTH)).show();
+                new DatePickerDialog(SecoesExameActivity.this, date, dataSelecionada.get(Calendar.YEAR), dataSelecionada.get(Calendar.MONTH), dataSelecionada.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
     }

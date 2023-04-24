@@ -7,14 +7,11 @@ import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
-@Entity(foreignKeys = {@ForeignKey(entity  = Exame.class,
-        parentColumns = "id",
-        childColumns = "id",
-        onDelete = ForeignKey.CASCADE,
-        onUpdate = ForeignKey.CASCADE)})
+@Entity(foreignKeys = {@ForeignKey(entity = Exame.class, parentColumns = "id", childColumns = "id", onDelete = ForeignKey.CASCADE, onUpdate = ForeignKey.CASCADE)})
 public class Secoes implements Serializable {
     @PrimaryKey
-    private @NonNull String id;
+    private @NonNull
+    String id;
 
     private boolean diagnosticoMedico;
     private boolean queixaPrincipal;

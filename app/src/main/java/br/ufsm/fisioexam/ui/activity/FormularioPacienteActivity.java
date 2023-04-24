@@ -101,13 +101,11 @@ public class FormularioPacienteActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode,
-                                    @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             if (resultCode == RESULT_OK && data != null) {
-                ArrayList<String> result = data.getStringArrayListExtra(
-                        RecognizerIntent.EXTRA_RESULTS);
+                ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
             }
         }
     }
@@ -134,10 +132,7 @@ public class FormularioPacienteActivity extends AppCompatActivity {
 
         campoNascimento.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) {
-                new DatePickerDialog(FormularioPacienteActivity.this, date,
-                        dataSelecionada.get(Calendar.YEAR),
-                        dataSelecionada.get(Calendar.MONTH),
-                        dataSelecionada.get(Calendar.DAY_OF_MONTH)).show();
+                new DatePickerDialog(FormularioPacienteActivity.this, date, dataSelecionada.get(Calendar.YEAR), dataSelecionada.get(Calendar.MONTH), dataSelecionada.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
     }
