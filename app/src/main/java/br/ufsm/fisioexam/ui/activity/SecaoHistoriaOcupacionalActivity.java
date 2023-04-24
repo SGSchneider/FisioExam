@@ -89,7 +89,7 @@ public class SecaoHistoriaOcupacionalActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            exame = exameDao.getExame((int) dados.getSerializableExtra(CHAVE_EXAME));
+            exame = exameDao.getExame((String) dados.getSerializableExtra(CHAVE_EXAME));
             secoes = secoesDao.getSecao(exame.getId());
         }
     }

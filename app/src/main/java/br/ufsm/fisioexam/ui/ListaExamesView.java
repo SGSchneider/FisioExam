@@ -6,6 +6,8 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.lang.String;
+
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.ExameDAO;
 import br.ufsm.fisioexam.model.Exame;
@@ -15,9 +17,9 @@ public class ListaExamesView {
     private final ListaExamesAdapter adapter;
     private final ExameDAO dao;
     private final Context context;
-    private int id_paciente;
+    private final String id_paciente;
 
-    public ListaExamesView(Context context, int id_paciente) {
+    public ListaExamesView(Context context, String id_paciente) {
         this.context = context;
         this.adapter = new ListaExamesAdapter(context);
         this.id_paciente = id_paciente;

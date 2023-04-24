@@ -21,5 +21,5 @@ public interface SecoesDAO {
     void edita(Secoes secoes);
 
     @Query("SELECT * FROM secoes WHERE id LIKE :id")
-    Secoes getSecao(int id);
+    Secoes getSecao(String id);
 }

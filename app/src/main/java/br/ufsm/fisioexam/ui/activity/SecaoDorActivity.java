@@ -22,6 +22,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
+
 import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.ExameDAO;
@@ -146,7 +147,7 @@ public class SecaoDorActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            exame = exameDao.getExame((int) dados.getSerializableExtra(CHAVE_EXAME));
+            exame = exameDao.getExame((String) dados.getSerializableExtra(CHAVE_EXAME));
             secoes = secoesDao.getSecao(exame.getId());
         }
     }

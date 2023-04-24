@@ -1,5 +1,6 @@
 package br.ufsm.fisioexam.model;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
@@ -13,7 +14,7 @@ import java.io.Serializable;
         onUpdate = ForeignKey.CASCADE)})
 public class Secoes implements Serializable {
     @PrimaryKey
-    private int id;
+    private @NonNull String id;
 
     private boolean diagnosticoMedico;
     private boolean queixaPrincipal;
@@ -41,7 +42,7 @@ public class Secoes implements Serializable {
     private boolean objetivosTratamento;
     private boolean planoTratamento;
 
-    public Secoes(int id) {
+    public Secoes(@NonNull String id) {
         this.id = id;
         this.diagnosticoMedico = false;
         this.queixaPrincipal = false;
@@ -68,11 +69,12 @@ public class Secoes implements Serializable {
         this.planoTratamento = false;
     }
 
-    public int getId() {
+    @NonNull
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(@NonNull String id) {
         this.id = id;
     }
 

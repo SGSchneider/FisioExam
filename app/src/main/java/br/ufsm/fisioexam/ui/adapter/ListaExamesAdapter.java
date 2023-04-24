@@ -35,7 +35,7 @@ public class ListaExamesAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return exames.get(position).getId();
+        return position;
     }
 
     @Override

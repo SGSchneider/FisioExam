@@ -5,9 +5,7 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import androidx.room.TypeConverters;
 
-import br.ufsm.fisioexam.database.converter.ConversorCalendar;
 import br.ufsm.fisioexam.database.dao.ExameDAO;
 import br.ufsm.fisioexam.database.dao.OmbroDAO;
 import br.ufsm.fisioexam.database.dao.PacienteDAO;
@@ -18,8 +16,7 @@ import br.ufsm.fisioexam.model.Paciente;
 import br.ufsm.fisioexam.model.Secoes;
 
 
-@Database(entities = {Paciente.class, Exame.class, Secoes.class, Ombro.class}, version = 26, exportSchema = false)
-@TypeConverters({ConversorCalendar.class})
+@Database(entities = {Paciente.class, Exame.class, Secoes.class, Ombro.class}, version = 32, exportSchema = false)
 public abstract class FisioExamDatabase extends RoomDatabase {
 
     private static final String NOME_DATABASE = "fisioExam.db";
@@ -34,7 +31,7 @@ public abstract class FisioExamDatabase extends RoomDatabase {
 
     public static FisioExamDatabase getInstance(Context context){
         return Room.databaseBuilder(context, FisioExamDatabase.class, NOME_DATABASE)
-                .fallbackToDestructiveMigrationFrom(25)
+                .fallbackToDestructiveMigrationFrom(31)
                 .allowMainThreadQueries()
                 .build();
     }

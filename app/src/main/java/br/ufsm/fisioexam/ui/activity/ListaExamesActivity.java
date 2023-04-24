@@ -6,6 +6,7 @@ import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_EXAM
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.TIPO_COTOVELO;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.TIPO_OMBRO;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -19,6 +20,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.lang.String;
+
 import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.model.Exame;
 import br.ufsm.fisioexam.ui.ListaExamesView;
@@ -26,7 +29,7 @@ import br.ufsm.fisioexam.ui.ListaExamesView;
 public class ListaExamesActivity extends AppCompatActivity {
     public static final String TITULO_APPBAR = "Lista de Exames";
     private ListaExamesView listaExamesView;
-    private int id_paciente;
+    private String id_paciente;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,22 +53,21 @@ public class ListaExamesActivity extends AppCompatActivity {
         FloatingActionButton botaoNovoExame = findViewById(R.id.activity_lista_exames_fab_novo_exame);
     }
 
+    @SuppressLint("NonConstantResourceId")
     public void showPopup(View v) {
         PopupMenu popup = new PopupMenu(this, v);
-        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.activity_lista_exames_menu_add_exame_cotovelo:
-                        abreFormularioModoNovoExame(TIPO_COTOVELO);
-                        return true;
-                    case R.id.activity_lista_exames_menu_add_exame_ombro:
-                        abreFormularioModoNovoExame(TIPO_OMBRO);
-                        return true;
+        popup.setOnMenuItemClickListener(item -> {
+            boolean b = true;
+            switch (item.getItemId()) {
+                case R.id.activity_lista_exames_menu_add_exame_cotovelo:
+                    abreFormularioModoNovoExame(TIPO_COTOVELO);
+                    return b;
+                case R.id.activity_lista_exames_menu_add_exame_ombro:
+                    abreFormularioModoNovoExame(TIPO_OMBRO);
+                    return b;
 
-                    default:
-                        return false;
-                }
+                default:
+                    return false;
             }
         });
         popup.inflate(R.menu.activity_lista_exames_add_exame);
@@ -106,7 +108,7 @@ public class ListaExamesActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_ID_PACIENTE)) {
-            id_paciente = (int) dados.getSerializableExtra(CHAVE_ID_PACIENTE);
+            id_paciente = (String) dados.getSerializableExtra(CHAVE_ID_PACIENTE);
         }
     }
 

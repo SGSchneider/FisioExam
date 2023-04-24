@@ -47,7 +47,7 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME) && dados.hasExtra(CHAVE_SECAO)) {
-            exame = exameDao.getExame((int) dados.getSerializableExtra(CHAVE_EXAME));
+            exame = exameDao.getExame((String) dados.getSerializableExtra(CHAVE_EXAME));
             secao = (int) dados.getSerializableExtra(CHAVE_SECAO);
             selecionaFormulario();
         }else{
@@ -100,10 +100,13 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
                 Intent vaiParaFormularioSecaoOmbroActivity = new Intent(this, SecaoTestesEspeciaisOmbro.class);
                 adicionaChaveTipo(vaiParaFormularioSecaoOmbroActivity, ombro.getId());
                 startActivity(vaiParaFormularioSecaoOmbroActivity);
+                break;
+            case TIPO_COTOVELO:
+                break;
         }
     }
 
-    private void adicionaChaveTipo(Intent vaiParaFormularioSecaoOmbroActivity, int ombro) {
+    private void adicionaChaveTipo(Intent vaiParaFormularioSecaoOmbroActivity, String ombro) {
         vaiParaFormularioSecaoOmbroActivity.putExtra(CHAVE_EXAME, ombro);
     }
 

@@ -5,7 +5,7 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-import java.util.Calendar;
+import java.util.UUID;
 
 @Entity(foreignKeys = {@ForeignKey(entity  = Exame.class,
         parentColumns = "id",
@@ -15,10 +15,10 @@ import java.util.Calendar;
 public class Cotovelo {
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    private UUID id;
 
     // chave estrangeira
-    private int exame;
+    private UUID exame;
 
     //Amplitude de movimento
     private String flexaoDirAtivo;
@@ -95,28 +95,28 @@ public class Cotovelo {
 
     //Escalas Utilizadas
     //DASH
-    private Calendar dashData;
+    private Long dashData;
     private String dashPontuacao;
     private String dashResultados;
 
     //ASES
-    private Calendar asesData;
+    private Long asesData;
     private String asesPontuacao;
     private String asesResultados;
 
-    public int getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
-    public int getExame() {
+    public UUID getExame() {
         return exame;
     }
 
-    public void setExame(int exame) {
+    public void setExame(UUID exame) {
         this.exame = exame;
     }
 
@@ -600,12 +600,20 @@ public class Cotovelo {
         this.testeEsforcoValgoEsq = testeEsforcoValgoEsq;
     }
 
-    public Calendar getDashData() {
+    public Long getDashData() {
         return dashData;
     }
 
-    public void setDashData(Calendar dashData) {
+    public void setDashData(Long dashData) {
         this.dashData = dashData;
+    }
+
+    public Long getAsesData() {
+        return asesData;
+    }
+
+    public void setAsesData(Long asesData) {
+        this.asesData = asesData;
     }
 
     public String getDashPontuacao() {
@@ -622,14 +630,6 @@ public class Cotovelo {
 
     public void setDashResultados(String dashResultados) {
         this.dashResultados = dashResultados;
-    }
-
-    public Calendar getAsesData() {
-        return asesData;
-    }
-
-    public void setAsesData(Calendar asesData) {
-        this.asesData = asesData;
     }
 
     public String getAsesPontuacao() {

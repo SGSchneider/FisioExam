@@ -1,16 +1,17 @@
 package br.ufsm.fisioexam.model;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
-import java.util.Calendar;
+import java.util.UUID;
 
 @Entity
 public class Paciente implements Serializable {
 
-    @PrimaryKey(autoGenerate = true)
-    private int id;
+    @PrimaryKey()
+    private @NonNull String id;
 
     private String nome;
     private int idade;
@@ -28,11 +29,16 @@ public class Paciente implements Serializable {
     private String parentesco;
     private String medico;
 
-    public int getId() {
+    public Paciente() {
+        id = UUID.randomUUID().toString();
+    }
+
+    @NonNull
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(@NonNull String id) {
         this.id = id;
     }
 
@@ -52,19 +58,10 @@ public class Paciente implements Serializable {
         this.idade = idade;
     }
 
-    public Calendar getNascimentoCalendar() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(nascimento);
-        return calendar;
-    }
-
-    public Long getNascimento(){
+    public Long getNascimento() {
         return nascimento;
     }
 
-    public void setNascimentoCalendar(Calendar nascimento) {
-        this.nascimento = nascimento.getTimeInMillis();
-    }
 
     public void setNascimento(Long nascimento) {
         this.nascimento = nascimento;
@@ -166,7 +163,6 @@ public class Paciente implements Serializable {
         this.medico = medico;
     }
 
-    public boolean temIdValido(){return id>0;}
 }
 
 

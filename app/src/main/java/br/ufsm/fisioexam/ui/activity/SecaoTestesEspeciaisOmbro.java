@@ -119,11 +119,11 @@ public class SecaoTestesEspeciaisOmbro extends AppCompatActivity {
         setaApreensao();
         setaSinalSulco();
 
-        ombro.setDashData(dataDash);
+        ombro.setDashData(dataDash.getTimeInMillis());
         ombro.setDashPontuacao(campoPontoDash.getText().toString());
         ombro.setDashResultados(campoResultDash.getText().toString());
 
-        ombro.setAsesData(dataAses);
+        ombro.setAsesData(dataAses.getTimeInMillis());
         ombro.setAsesPontuacao(campoPontoAses.getText().toString());
         ombro.setAsesResultados(campoResultAses.getText().toString());
 
@@ -393,8 +393,8 @@ public class SecaoTestesEspeciaisOmbro extends AppCompatActivity {
 
     private void preencheFormulario() {
         if(secoes.isTestesEspeciais()){
-            dataDash = ombro.getDashData();
-            dataAses = ombro.getAsesData();
+            dataDash.setTimeInMillis(ombro.getDashData());
+            dataAses.setTimeInMillis(ombro.getAsesData());
 
             getDadosRadio(ombro.getJobe(),
                     R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_jobe,
@@ -482,7 +482,7 @@ public class SecaoTestesEspeciaisOmbro extends AppCompatActivity {
     private void carregaExame() {
         Intent dados = getIntent();
         if (dados.hasExtra(CHAVE_EXAME)) {
-            ombro = ombroDao.getOmbro((int) dados.getSerializableExtra(CHAVE_EXAME));
+            ombro = ombroDao.getOmbro((String) dados.getSerializableExtra(CHAVE_EXAME));
             secoes = secoesDao.getSecao(ombro.getId());
         }
     }

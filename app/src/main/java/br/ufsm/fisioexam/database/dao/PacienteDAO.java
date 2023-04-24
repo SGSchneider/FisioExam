@@ -36,4 +36,7 @@ public interface PacienteDAO {
 
     @Update
     void edita(Paciente paciente);
+
+    @Query("SELECT * FROM paciente WHERE id like :paciente")
+    List<Paciente> CheckID(String paciente);
 }

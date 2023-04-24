@@ -10,11 +10,9 @@ import br.ufsm.fisioexam.ui.adapter.SecoesExamesAdapter;
 public class SecoesExameView {
     private final SecoesExamesAdapter adapter;
     private final SecoesDAO dao;
-    private final Context context;
-    private int id_exame;
+    private final String id_exame;
 
-    public SecoesExameView(Context context, int id_exame) {
-        this.context = context;
+    public SecoesExameView(Context context, String id_exame) {
         this.adapter = new SecoesExamesAdapter(context);
         this.id_exame = id_exame;
         dao = FisioExamDatabase.getInstance(context).getRoomSecoesDAO();

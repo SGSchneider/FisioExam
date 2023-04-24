@@ -47,6 +47,9 @@ public class SyncBD {
         List<Paciente> pacientes = new ArrayList<>();
         List<Ombro> ombros = new ArrayList<>();
 
+
+
+
         for (DataSnapshot snapshot : dataSnapshot.child("exames").getChildren()) {
             Exame exame = snapshot.getValue(Exame.class);
             exames.add(exame);
@@ -67,13 +70,14 @@ public class SyncBD {
     }
 
     private void updateTables(List<Exame> exames, List<Paciente> pacientes, List<Ombro> ombros) {
-        fisioExamDatabase.getRoomPacienteDAO().deleteAllPacientes();
-        fisioExamDatabase.getRoomPacienteDAO().insertAllPacientes(pacientes);
 
-        fisioExamDatabase.getRoomExameDAO().deleteAllExames();
-        fisioExamDatabase.getRoomExameDAO().insertAllExames(exames);
 
         fisioExamDatabase.getRoomOmbroDAO().deleteAllOmbros();
+        fisioExamDatabase.getRoomExameDAO().deleteAllExames();
+        fisioExamDatabase.getRoomPacienteDAO().deleteAllPacientes();
+
+        fisioExamDatabase.getRoomPacienteDAO().insertAllPacientes(pacientes);
+        fisioExamDatabase.getRoomExameDAO().insertAllExames(exames);
         fisioExamDatabase.getRoomOmbroDAO().insertAllOmbros(ombros);
     }
 
@@ -81,7 +85,7 @@ public class SyncBD {
         List<Exame> exames = fisioExamDatabase.getRoomExameDAO().getAllExames();
 
         for (Exame exame : exames) {
-            databaseReference.child("exames").child(Integer.toString(exame.getId())).setValue(exame);
+            databaseReference.child("exames").child(exame.getId()).setValue(exame);
         }
 
     }
@@ -90,7 +94,7 @@ public class SyncBD {
         List<Ombro> ombros = fisioExamDatabase.getRoomOmbroDAO().getAllOmbros();
 
         for (Ombro ombro : ombros) {
-            databaseReference.child("ombros").child(Integer.toString(ombro.getId())).setValue(ombro);
+            databaseReference.child("ombros").child(ombro.getId()).setValue(ombro);
         }
     }
 
@@ -98,7 +102,7 @@ public class SyncBD {
         List<Paciente> pacientes = fisioExamDatabase.getRoomPacienteDAO().getAllPacientes();
 
         for (Paciente paciente : pacientes) {
-            databaseReference.child("pacientes").child(Integer.toString(paciente.getId())).setValue(paciente);
+            databaseReference.child("pacientes").child(paciente.getId()).setValue(paciente);
         }
     }
 

@@ -38,8 +38,6 @@ public class SecoesExameActivity extends AppCompatActivity {
     private static final String TITULO_APPBAR_NOVO_EXAME = "Novo Exame";
     private static final String TITULO_APPBAR_EDITA_EXAME = "Edita Exame";
     private String tipo;
-    private int idPaciente;
-    private Button salvar;
     private TextView campoTipo;
     private EditText campoData;
     private SecoesExameView secoesExameView;
@@ -72,7 +70,7 @@ public class SecoesExameActivity extends AppCompatActivity {
     }
 
     private void configuraBotaoSalvar() {
-        salvar = findViewById(R.id.activity_secoes_exame_botao_salvar);
+        Button salvar = findViewById(R.id.activity_secoes_exame_botao_salvar);
         salvar.setOnClickListener(v -> finalizaExame());
     }
 
@@ -261,7 +259,7 @@ public class SecoesExameActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            exame = exameDao.getExame((int) dados.getSerializableExtra(CHAVE_EXAME));
+            exame = exameDao.getExame((String) dados.getSerializableExtra(CHAVE_EXAME));
             preencheTitulo();
             preencheCampos();
             setTitle(TITULO_APPBAR_EDITA_EXAME);
@@ -270,7 +268,7 @@ public class SecoesExameActivity extends AppCompatActivity {
             if (dados.hasExtra(CHAVE_TIPO_EXAME)) {
                 setTitle(TITULO_APPBAR_NOVO_EXAME);
                 tipo = (String) dados.getSerializableExtra(CHAVE_TIPO_EXAME);
-                idPaciente = (int) dados.getSerializableExtra(CHAVE_ID_PACIENTE);
+                String idPaciente = (String) dados.getSerializableExtra(CHAVE_ID_PACIENTE);
                 exame = new Exame(idPaciente, tipo, geraChaveCriacao());
                 exameDao.salva(exame);
                 exame.setId(exameDao.getIdNovoExame(idPaciente, exame.getCreationKey()));
@@ -299,7 +297,7 @@ public class SecoesExameActivity extends AppCompatActivity {
     }
 
     private void preencheData() {
-        dataSelecionada = exame.getData();
+        dataSelecionada.setTimeInMillis(exame.getData());
         if (dataSelecionada != null) {
             atualizaDataExame();
         }
@@ -333,7 +331,7 @@ public class SecoesExameActivity extends AppCompatActivity {
         Calendar data = dataSelecionada;
 
         exame.setTipo(tipo);
-        exame.setData(data);
+        exame.setData(data.getTimeInMillis());
 
 
     }

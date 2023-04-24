@@ -1,8 +1,11 @@
 package br.ufsm.fisioexam.model;
 
+import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_VAZIO;
+
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
@@ -10,6 +13,8 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+import java.lang.String;
+import java.util.UUID;
 
 @Entity(foreignKeys = {@ForeignKey(entity  = Paciente.class,
                                     parentColumns = "id",
@@ -19,11 +24,11 @@ import java.util.Locale;
         indices = {@Index(name = "idx_exame_paciente",
                             value = {"paciente"})})
 public class Exame implements Serializable {
-    @PrimaryKey(autoGenerate = true)
-    private int id;
+    @PrimaryKey()
+    private @NonNull String id;
 
     //    Chave estrangeira.
-    private int paciente;
+    private String paciente;
 
     //    Chave Criacao.
     private String creationKey;
@@ -31,7 +36,7 @@ public class Exame implements Serializable {
     @NonNull
     private String tipo;
 
-    private Calendar data;
+    private long data;
     private String diagnosticoMedico;
     private String queixaPrincipal;
     private String historiaDoencaAtual;
@@ -164,24 +169,33 @@ public class Exame implements Serializable {
     private String planoTratamento;
     private String evolucaoFisioterapia;
 
-    public Exame(int paciente, @NonNull String tipo, String creationKey) {
+    public Exame(@NonNull String paciente, @NonNull String tipo, String creationKey) {
         this.paciente = paciente;
         this.tipo = tipo;
         this.creationKey = creationKey;
+        id = UUID.randomUUID().toString();
     }
-    public int getId() {
+
+    @Ignore
+    public Exame (){
+        id = UUID.randomUUID().toString();
+        tipo = CHAVE_TIPO_VAZIO;
+    }
+
+    @NonNull
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(@NonNull String id) {
         this.id = id;
     }
 
-    public int getPaciente() {
+    public String getPaciente() {
         return paciente;
     }
 
-    public void setPaciente(int paciente) {
+    public void setPaciente(String paciente) {
         this.paciente = paciente;
     }
 
@@ -193,11 +207,11 @@ public class Exame implements Serializable {
         //this.creationKey = creationKey;
     }
 
-    public Calendar getData() {
+    public long getData() {
         return data;
     }
 
-    public void setData(Calendar data) {
+    public void setData(long data) {
         this.data = data;
     }
 
@@ -1202,9 +1216,11 @@ public class Exame implements Serializable {
     }
 
     public String getDataString(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(data);
         String formatoData = "dd/MM/yyyy";
         SimpleDateFormat dateFormat = new SimpleDateFormat(formatoData,new Locale("pt", "BR"));
-        return(dateFormat.format(data.getTime()));
+        return(dateFormat.format(calendar.getTime()));
     }
 
     @NonNull
@@ -1215,6 +1231,4 @@ public class Exame implements Serializable {
     public void setTipo(@NonNull String tipo) {
         this.tipo = tipo;
     }
-
-    public boolean temIdValido() {return id>0; }
 }

@@ -1,12 +1,15 @@
 package br.ufsm.fisioexam.model;
 
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-import java.util.Calendar;
+import java.lang.String;
+import java.util.UUID;
 
 @Entity(foreignKeys = {@ForeignKey(entity = Exame.class,
         parentColumns = "id",
@@ -16,10 +19,10 @@ import java.util.Calendar;
         indices = {@Index(name = "idx_ombro_exame",
                 value = {"exame"})})
 public class Ombro {
-    @PrimaryKey(autoGenerate = true)
-    private int id;
+    @PrimaryKey()
+    private @NonNull String id;
     //chave estrangeira
-    private int exame;
+    private String exame;
 
 
     //Amplitude de movimento
@@ -122,32 +125,40 @@ public class Ombro {
 
     //Escalas Utilizadas
     //DASH
-    private Calendar dashData;
+    private Long dashData;
     private String dashPontuacao;
     private String dashResultados;
 
     //ASES
-    private Calendar asesData;
+    private Long asesData;
     private String asesPontuacao;
     private String asesResultados;
 
-    public Ombro(int exame) {
+    public Ombro(String exame) {
         this.exame = exame;
+        id = UUID.randomUUID().toString();
     }
 
-    public int getId() {
+
+    @Ignore
+    public Ombro(){
+        id = UUID.randomUUID().toString();
+    }
+
+    @NonNull
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(@NonNull String id) {
         this.id = id;
     }
 
-    public int getExame() {
+    public String getExame() {
         return exame;
     }
 
-    public void setExame(int exame) {
+    public void setExame(String exame) {
         this.exame = exame;
     }
 
@@ -815,11 +826,11 @@ public class Ombro {
         this.sinalSulco = sinalSulco;
     }
 
-    public Calendar getDashData() {
+    public Long getDashData() {
         return dashData;
     }
 
-    public void setDashData(Calendar dashData) {
+    public void setDashData(Long dashData) {
         this.dashData = dashData;
     }
 
@@ -839,11 +850,11 @@ public class Ombro {
         this.dashResultados = dashResultados;
     }
 
-    public Calendar getAsesData() {
+    public Long getAsesData() {
         return asesData;
     }
 
-    public void setAsesData(Calendar asesData) {
+    public void setAsesData(Long asesData) {
         this.asesData = asesData;
     }
 

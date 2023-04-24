@@ -19,9 +19,9 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -48,7 +48,6 @@ public class FormularioPacienteActivity extends AppCompatActivity {
     private static final String TITULO_APPBAR_NOVO_PACIENTE = "Novo Paciente";
     private static final String TITULO_APPBAR_EDITA_PACIENTE = "Edita Paciente";
 
-    private Button salvar;
     private EditText campoNome;
     private EditText campoIdade;
     private EditText campoNascimento;
@@ -119,32 +118,26 @@ public class FormularioPacienteActivity extends AppCompatActivity {
     }
 
     private void configuraBotaoSalvar() {
-        salvar = findViewById(R.id.activity_formulario_paciente_botao_salvar);
+        Button salvar = findViewById(R.id.activity_formulario_paciente_botao_salvar);
         salvar.setOnClickListener(v -> finalizaFormulario());
 
     }
 
     private void setListenerCalendarioNascimento() {
 
-        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                dataSelecionada.set(Calendar.YEAR, year);
-                dataSelecionada.set(Calendar.MONTH, month);
-                dataSelecionada.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                atualizaDataNascimento();
-            }
+        DatePickerDialog.OnDateSetListener date = (view, year, month, dayOfMonth) -> {
+            dataSelecionada.set(Calendar.YEAR, year);
+            dataSelecionada.set(Calendar.MONTH, month);
+            dataSelecionada.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            atualizaDataNascimento();
         };
 
-        campoNascimento.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    new DatePickerDialog(FormularioPacienteActivity.this, date,
-                            dataSelecionada.get(Calendar.YEAR),
-                            dataSelecionada.get(Calendar.MONTH),
-                            dataSelecionada.get(Calendar.DAY_OF_MONTH)).show();
-                }
+        campoNascimento.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) {
+                new DatePickerDialog(FormularioPacienteActivity.this, date,
+                        dataSelecionada.get(Calendar.YEAR),
+                        dataSelecionada.get(Calendar.MONTH),
+                        dataSelecionada.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
     }
@@ -201,7 +194,7 @@ public class FormularioPacienteActivity extends AppCompatActivity {
     }
 
     private void preencheNascimento() {
-        dataSelecionada = paciente.getNascimentoCalendar();
+        dataSelecionada.setTimeInMillis(paciente.getNascimento());
         atualizaDataNascimento();
     }
 
@@ -335,9 +328,12 @@ public class FormularioPacienteActivity extends AppCompatActivity {
 
     private void finalizaFormulario() {
         preenchePaciente();
-        if (paciente.temIdValido()) {
+        if (!dao.CheckID(paciente.getId()).isEmpty()) {
+            Log.i("ID", "Tem ID");
             dao.edita(paciente);
         } else {
+
+            Log.i("ID", "Não Tem ID");
             dao.salva(paciente);
         }
         finish();
@@ -396,7 +392,7 @@ public class FormularioPacienteActivity extends AppCompatActivity {
 
         paciente.setNome(nome);
         paciente.setIdade(idade);
-        paciente.setNascimentoCalendar(nascimento);
+        paciente.setNascimento(nascimento.getTimeInMillis());
         paciente.setGenero(genero);
         paciente.setEtnia(etnia);
         paciente.setTelefone(telefone);

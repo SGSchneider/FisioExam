@@ -34,6 +34,7 @@ public interface ConstantesActivities {
     String TIPO_OMBRO = "Ombro";
     String TIPO_COTOVELO = "Cotovelo";
     String TIPO_PUNHO = "Punho";
+    String CHAVE_TIPO_VAZIO = "";
 
     //Chaves Valores Exames
     String ACORDAR = "ACORDAR";

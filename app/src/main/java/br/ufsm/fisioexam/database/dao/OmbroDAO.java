@@ -7,6 +7,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import java.util.List;
+import java.lang.String;
 
 import br.ufsm.fisioexam.model.Ombro;
 
@@ -17,13 +18,13 @@ public interface OmbroDAO {
     void salva(Ombro ombro);
 
     @Query("SELECT * FROM ombro WHERE exame LIKE :registro")
-    List<Ombro> todos(int registro);
+    List<Ombro> todos(String registro);
 
     @Delete
     void remove(Ombro ombro);
 
     @Query("SELECT * FROM ombro WHERE id LIKE :id")
-    Ombro getOmbro(int id);
+    Ombro getOmbro(String id);
 
     @Query("SELECT * FROM ombro ")
     List<Ombro> getAllOmbros();
@@ -38,6 +39,6 @@ public interface OmbroDAO {
     void edita(Ombro ombro);
 
     @Query("SELECT id FROM ombro WHERE exame LIKE :registro ")
-    int getIdOmbroPeloExame(int registro);
+    String getIdOmbroPeloExame(String registro);
 }
 

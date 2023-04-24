@@ -11,6 +11,7 @@ import android.widget.EditText;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.OmbroDAO;
@@ -149,7 +150,7 @@ public class SecaoForcaMuscularOmbroActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            ombro = ombroDao.getOmbro((int) dados.getSerializableExtra(CHAVE_EXAME));
+            ombro = ombroDao.getOmbro((String) dados.getSerializableExtra(CHAVE_EXAME));
             secoes = secoesDao.getSecao(ombro.getId());
         }
     }
