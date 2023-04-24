@@ -235,4 +235,20 @@
     <string name="pontuacao">Pontuação</string>
     <string name="data_aplicacao">Data de Aplicação</string>
     <string name="ases">American Shoulder and Elbow Society (ASES)</string>
+    <string name="supinacao">Supinação</string>
+    <string name="pronacao">Pronação</string>
+    <string name="angulo_carregamento">Ângulo de Carregamento</string>
+    <string name="perimetria_cotovelo">Interlinha da Fossa Antecubial</string>
+    <string name="biceps_braquial_cotovelo">Bíceps Braquial ( flexão de cotovelo com supinação)</string>
+    <string name="braquial_cotovelo">Braquial (flexão de cotovelo com pronação)</string>
+    <string name="braquirradial_cotovelo">Braquirradial (flexão de cotovelo)</string>
+    <string name="triceps_braquial_cotovelo">Tríceps braquial e Ânconeo (extensão de cotovelo)</string>
+    <string name="supinador_cotovelo">Supinador</string>
+    <string name="pronador_cotovelo">Pronador Quadrado e Redondo</string>
+    <string name="epicondite">Epicondite</string>
+    <string name="cozen">Teste de Cozen (lateral)</string>
+    <string name="teste_golfista">Teste para Cotovelo de Golfista (medial)</string>
+    <string name="tinel">Sinal de tinal (neurite do nervo ulnar)</string>
+    <string name="lcl">Teste de Esforço em Adução (varo) (LCL)</string>
+    <string name="lcm">Teste de esforço em abdução (valgo) (LCM)</string>
 </resources>
