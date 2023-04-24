@@ -16,11 +16,17 @@ public interface CotoveloDAO {
     void salva(Cotovelo cotovelo);
 
     @Query("SELECT * FROM cotovelo WHERE exame LIKE :registro")
-    List<Cotovelo> todos(int registro);
+    List<Cotovelo> todos(String registro);
 
     @Delete
     void remove(Cotovelo cotovelo);
 
     @Update
     void edita(Cotovelo cotovelo);
+
+    @Query("SELECT * FROM cotovelo WHERE id LIKE :registro")
+    Cotovelo getCotovelo(String registro);
+
+    @Query("SELECT id FROM cotovelo WHERE exame LIKE :registro")
+    String getIdCotoveloPeloExame(String registro);
 }

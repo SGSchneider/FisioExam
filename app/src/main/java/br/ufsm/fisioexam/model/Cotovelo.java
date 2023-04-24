@@ -1,6 +1,7 @@
 package br.ufsm.fisioexam.model;
 
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
@@ -14,11 +15,11 @@ import java.util.UUID;
         onUpdate = ForeignKey.CASCADE)})
 public class Cotovelo {
 
-    @PrimaryKey(autoGenerate = true)
-    private UUID id;
+    @PrimaryKey()
+    private @NonNull String id;
 
     // chave estrangeira
-    private UUID exame;
+    private @NonNull String exame;
 
     //Amplitude de movimento
     private String flexaoDirAtivo;
@@ -37,9 +38,7 @@ public class Cotovelo {
     private String pronacaoDirPassivo;
     private String pronacaoEsqAtivo;
     private String pronacaoEsqPassivo;
-    private String anguloCarregamentoDirAtivo;
     private String anguloCarregamentoDirPassivo;
-    private String anguloCarregamentoEsqAtivo;
     private String anguloCarregamentoEsqPassivo;
 
     //Perimetria
@@ -104,19 +103,24 @@ public class Cotovelo {
     private String asesPontuacao;
     private String asesResultados;
 
-    public UUID getId() {
+    public Cotovelo(@NonNull String exame){
+        this.exame = exame;
+        id = UUID.randomUUID().toString();
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public UUID getExame() {
+    public String getExame() {
         return exame;
     }
 
-    public void setExame(UUID exame) {
+    public void setExame(String exame) {
         this.exame = exame;
     }
 
@@ -248,13 +252,7 @@ public class Cotovelo {
         this.pronacaoEsqPassivo = pronacaoEsqPassivo;
     }
 
-    public String getAnguloCarregamentoDirAtivo() {
-        return anguloCarregamentoDirAtivo;
-    }
 
-    public void setAnguloCarregamentoDirAtivo(String anguloCarregamentoDirAtivo) {
-        this.anguloCarregamentoDirAtivo = anguloCarregamentoDirAtivo;
-    }
 
     public String getAnguloCarregamentoDirPassivo() {
         return anguloCarregamentoDirPassivo;
@@ -264,13 +262,6 @@ public class Cotovelo {
         this.anguloCarregamentoDirPassivo = anguloCarregamentoDirPassivo;
     }
 
-    public String getAnguloCarregamentoEsqAtivo() {
-        return anguloCarregamentoEsqAtivo;
-    }
-
-    public void setAnguloCarregamentoEsqAtivo(String anguloCarregamentoEsqAtivo) {
-        this.anguloCarregamentoEsqAtivo = anguloCarregamentoEsqAtivo;
-    }
 
     public String getAnguloCarregamentoEsqPassivo() {
         return anguloCarregamentoEsqPassivo;

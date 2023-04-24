@@ -18,8 +18,10 @@ import com.bumptech.glide.request.RequestOptions;
 
 import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
+import br.ufsm.fisioexam.database.dao.CotoveloDAO;
 import br.ufsm.fisioexam.database.dao.ExameDAO;
 import br.ufsm.fisioexam.database.dao.OmbroDAO;
+import br.ufsm.fisioexam.model.Cotovelo;
 import br.ufsm.fisioexam.model.Exame;
 import br.ufsm.fisioexam.model.Ombro;
 
@@ -97,55 +99,29 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         switch (tipo) {
             case TIPO_OMBRO:
                 Ombro ombro = getOmbro();
-                Intent vaiParaFormularioSecaoOmbroActivity = new Intent(this, SecaoTestesEspeciaisOmbro.class);
-                adicionaChaveTipo(vaiParaFormularioSecaoOmbroActivity, ombro.getId());
-                startActivity(vaiParaFormularioSecaoOmbroActivity);
+                vaiParaSecaoEspecifica(ombro.getId(), SecaoTestesEspeciaisOmbro.class);
                 break;
             case TIPO_COTOVELO:
+                Cotovelo cotovelo = getCotovelo();
+                vaiParaSecaoEspecifica(cotovelo.getId(), SecaoTestesEspeciaisCotovelo.class);
                 break;
         }
     }
 
-    private void adicionaChaveTipo(Intent vaiParaFormularioSecaoOmbroActivity, String ombro) {
-        vaiParaFormularioSecaoOmbroActivity.putExtra(CHAVE_EXAME, ombro);
-    }
-
-    private Ombro getOmbro() {
-        Ombro ombro;
-        FisioExamDatabase database = FisioExamDatabase.getInstance(this);
-        OmbroDAO ombroDAO = database.getRoomOmbroDAO();
-        if (ombroDAO.todos(exame.getId()).isEmpty()) {
-            ombro = new Ombro(exame.getId());
-            ombroDAO.salva(ombro);
-            ombro.setId(ombroDAO.getIdOmbroPeloExame(exame.getId()));
-        } else {
-            ombro = ombroDAO.getOmbro(ombroDAO.getIdOmbroPeloExame(exame.getId()));
-        }
-        return ombro;
+    private void adicionaChaveTipo(Intent vaiParaFormularioSecaoEspecificaActivity, String idTipo) {
+        vaiParaFormularioSecaoEspecificaActivity.putExtra(CHAVE_EXAME, idTipo);
     }
 
     private void sensibilidade() {
         tipo = exame.getTipo();
         switch (tipo) {
             case TIPO_OMBRO:
-                Ombro ombro;
-                FisioExamDatabase database = FisioExamDatabase.getInstance(this);
-                OmbroDAO ombroDao = database.getRoomOmbroDAO();
-                if (ombroDao.todos(exame.getId()).isEmpty()) {
-                    ombro = new Ombro(exame.getId());
-                    ombroDao.salva(ombro);
-                    ombro.setId(ombroDao.getIdOmbroPeloExame(exame.getId()));
-                } else {
-                    ombro = ombroDao.getOmbro(ombroDao.getIdOmbroPeloExame(exame.getId()));
-                }
-                Intent vaiParaFormularioSecaoOmbroActivity = new Intent(this, SecaoSensibilidadeOmbroActivity.class);
-                adicionaChaveTipo(vaiParaFormularioSecaoOmbroActivity, ombro.getId());
-                startActivity(vaiParaFormularioSecaoOmbroActivity);
+                Ombro ombro = getOmbro();
+                vaiParaSecaoEspecifica(ombro.getId(), SecaoSensibilidadeOmbroActivity.class);
                 break;
             case TIPO_COTOVELO:
-//                Intent vaiParaFormularioSecaoCotoveloActivity = new Intent(this, SecaoAmplitudeMovimentoCotoveloActivity.class);
-//                vaiParaFormularioSecaoCotoveloActivity.putExtra(CHAVE_EXAME, exame.getId());
-//                startActivity(vaiParaFormularioSecaoCotoveloActivity);
+                Cotovelo cotovelo = getCotovelo();
+                vaiParaSecaoEspecifica(cotovelo.getId(), SecaoSensibilidadeCotoveloActivity.class);
                 break;
             case TIPO_PUNHO:
 //                Intent vaiParaFormularioSecaoPunhoActivity = new Intent(this, SecaoAmplitudeMovimentoPunhoActivity.class);
@@ -159,24 +135,12 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         tipo = exame.getTipo();
         switch (tipo) {
             case TIPO_OMBRO:
-                Ombro ombro;
-                FisioExamDatabase database = FisioExamDatabase.getInstance(this);
-                OmbroDAO ombroDao = database.getRoomOmbroDAO();
-                if (ombroDao.todos(exame.getId()).isEmpty()) {
-                    ombro = new Ombro(exame.getId());
-                    ombroDao.salva(ombro);
-                    ombro.setId(ombroDao.getIdOmbroPeloExame(exame.getId()));
-                } else {
-                    ombro = ombroDao.getOmbro(ombroDao.getIdOmbroPeloExame(exame.getId()));
-                }
-                Intent vaiParaFormularioSecaoOmbroActivity = new Intent(this, SecaoForcaMuscularOmbroActivity.class);
-                adicionaChaveTipo(vaiParaFormularioSecaoOmbroActivity, ombro.getId());
-                startActivity(vaiParaFormularioSecaoOmbroActivity);
+                Ombro ombro = getOmbro();
+                vaiParaSecaoEspecifica(ombro.getId(), SecaoForcaMuscularOmbroActivity.class);
                 break;
             case TIPO_COTOVELO:
-//                Intent vaiParaFormularioSecaoCotoveloActivity = new Intent(this, SecaoAmplitudeMovimentoCotoveloActivity.class);
-//                vaiParaFormularioSecaoCotoveloActivity.putExtra(CHAVE_EXAME, exame.getId());
-//                startActivity(vaiParaFormularioSecaoCotoveloActivity);
+                Cotovelo cotovelo = getCotovelo();
+                vaiParaSecaoEspecifica(cotovelo.getId(), SecaoForcaMuscularCotoveloActivity.class);
                 break;
             case TIPO_PUNHO:
 //                Intent vaiParaFormularioSecaoPunhoActivity = new Intent(this, SecaoAmplitudeMovimentoPunhoActivity.class);
@@ -190,24 +154,12 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         tipo = exame.getTipo();
         switch (tipo) {
             case TIPO_OMBRO:
-                Ombro ombro;
-                FisioExamDatabase database = FisioExamDatabase.getInstance(this);
-                OmbroDAO ombroDao = database.getRoomOmbroDAO();
-                if (ombroDao.todos(exame.getId()).isEmpty()) {
-                    ombro = new Ombro(exame.getId());
-                    ombroDao.salva(ombro);
-                    ombro.setId(ombroDao.getIdOmbroPeloExame(exame.getId()));
-                } else {
-                    ombro = ombroDao.getOmbro(ombroDao.getIdOmbroPeloExame(exame.getId()));
-                }
-                Intent vaiParaFormularioSecaoOmbroActivity = new Intent(this, SecaoPerimetriaOmbroActivity.class);
-                adicionaChaveTipo(vaiParaFormularioSecaoOmbroActivity, ombro.getId());
-                startActivity(vaiParaFormularioSecaoOmbroActivity);
+                Ombro ombro = getOmbro();
+                vaiParaSecaoEspecifica(ombro.getId(), SecaoPerimetriaOmbroActivity.class);
                 break;
             case TIPO_COTOVELO:
-//                Intent vaiParaFormularioSecaoCotoveloActivity = new Intent(this, SecaoAmplitudeMovimentoCotoveloActivity.class);
-//                vaiParaFormularioSecaoCotoveloActivity.putExtra(CHAVE_EXAME, exame.getId());
-//                startActivity(vaiParaFormularioSecaoCotoveloActivity);
+                Cotovelo cotovelo = getCotovelo();
+                vaiParaSecaoEspecifica(cotovelo.getId(), SecaoPerimetriaCotoveloActivity.class);
                 break;
             case TIPO_PUNHO:
 //                Intent vaiParaFormularioSecaoPunhoActivity = new Intent(this, SecaoAmplitudeMovimentoPunhoActivity.class);
@@ -221,24 +173,12 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         tipo = exame.getTipo();
         switch (tipo) {
             case TIPO_OMBRO:
-                Ombro ombro;
-                FisioExamDatabase database = FisioExamDatabase.getInstance(this);
-                OmbroDAO ombroDao = database.getRoomOmbroDAO();
-                if (ombroDao.todos(exame.getId()).isEmpty()) {
-                    ombro = new Ombro(exame.getId());
-                    ombroDao.salva(ombro);
-                    ombro.setId(ombroDao.getIdOmbroPeloExame(exame.getId()));
-                } else {
-                    ombro = ombroDao.getOmbro(ombroDao.getIdOmbroPeloExame(exame.getId()));
-                }
-                Intent vaiParaFormularioSecaoOmbroActivity = new Intent(this, SecaoAmplitudeMovimentoOmbroActivity.class);
-                adicionaChaveTipo(vaiParaFormularioSecaoOmbroActivity, ombro.getId());
-                startActivity(vaiParaFormularioSecaoOmbroActivity);
+                Ombro ombro = getOmbro();
+                vaiParaSecaoEspecifica(ombro.getId(), SecaoAmplitudeMovimentoOmbroActivity.class);
                 break;
             case TIPO_COTOVELO:
-//                Intent vaiParaFormularioSecaoCotoveloActivity = new Intent(this, SecaoAmplitudeMovimentoCotoveloActivity.class);
-//                vaiParaFormularioSecaoCotoveloActivity.putExtra(CHAVE_EXAME, exame.getId());
-//                startActivity(vaiParaFormularioSecaoCotoveloActivity);
+                Cotovelo cotovelo = getCotovelo();
+                vaiParaSecaoEspecifica(cotovelo.getId(), SecaoAmplitudeMovimentoCotoveloActivity.class);
                 break;
             case TIPO_PUNHO:
 //                Intent vaiParaFormularioSecaoPunhoActivity = new Intent(this, SecaoAmplitudeMovimentoPunhoActivity.class);
@@ -255,6 +195,39 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         Glide.with(this).asGif().load(R.drawable.loading_gif).apply(requestOptions).into(imageView);
     }
 
+    private Ombro getOmbro() {
+        Ombro ombro;
+        FisioExamDatabase database = FisioExamDatabase.getInstance(this);
+        OmbroDAO ombroDAO = database.getRoomOmbroDAO();
+        if (ombroDAO.todos(exame.getId()).isEmpty()) {
+            ombro = new Ombro(exame.getId());
+            ombroDAO.salva(ombro);
+            ombro.setId(ombroDAO.getIdOmbroPeloExame(exame.getId()));
+        } else {
+            ombro = ombroDAO.getOmbro(ombroDAO.getIdOmbroPeloExame(exame.getId()));
+        }
+        return ombro;
+    }
+
+    private Cotovelo getCotovelo() {
+        Cotovelo cotovelo;
+        FisioExamDatabase database = FisioExamDatabase.getInstance(this);
+        CotoveloDAO cotoveloDAO = database.getRoomCotoveloDAO();
+        if (cotoveloDAO.todos(exame.getId()).isEmpty()) {
+            cotovelo = new Cotovelo(exame.getId());
+            cotoveloDAO.salva(cotovelo);
+            cotovelo.setId(cotoveloDAO.getIdCotoveloPeloExame(exame.getId()));
+        } else {
+            cotovelo = cotoveloDAO.getCotovelo(cotoveloDAO.getIdCotoveloPeloExame(exame.getId()));
+        }
+        return cotovelo;
+    }
+
+    private void vaiParaSecaoEspecifica(String chave, Class secao) {
+        Intent vaiParaFormularioSecaoEspecificaActivity = new Intent(this, secao);
+        adicionaChaveTipo(vaiParaFormularioSecaoEspecificaActivity, chave);
+        startActivity(vaiParaFormularioSecaoEspecificaActivity);
+    }
 }
 
 
