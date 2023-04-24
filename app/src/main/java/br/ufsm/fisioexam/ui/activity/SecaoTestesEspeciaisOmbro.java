@@ -64,9 +64,9 @@ public class SecaoTestesEspeciaisOmbro extends AppCompatActivity {
         inicializaCalendars();
         inicializaDAOS();
         carregaExame();
-        setListenerCalendariosDatas();
         inicializaBotoes();
         inicializaFormulario();
+        setListenerCalendariosDatas();
     }
 
     private void inicializaCalendars() {
@@ -389,6 +389,94 @@ public class SecaoTestesEspeciaisOmbro extends AppCompatActivity {
         campoResultAses = findViewById(R.id.activity_secao_testes_especiais_ombro_ases_resultados);
 
         preencheFormulario();
+    }
+
+    private void preencheFormulario() {
+        if(secoes.isTestesEspeciais()){
+            dataDash = ombro.getDashData();
+            dataAses = ombro.getAsesData();
+
+            getDadosRadio(ombro.getJobe(),
+                    R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_jobe,
+                    R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_jobe,
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_jobe,
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_jobe);
+
+            getDadosRadio(ombro.getPatte(),
+                    R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_patte,
+                    R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_patte,
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_patte,
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_patte);
+
+            getDadosRadio(ombro.getGerberLiffOff(),
+                    R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_gerber,
+                    R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_gerber,
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_gerber,
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_gerber);
+
+            getDadosRadio(ombro.getNeer(),
+                    R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_neer,
+                    R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_neer,
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_neer,
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_neer);
+
+            getDadosRadio(ombro.getHawkins(),
+                    R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_hk,
+                    R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_hk,
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_hk,
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_hk);
+
+            getDadosRadio(ombro.getPalmUpSpeed(),
+                    R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_speed,
+                    R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_speed,
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_speed,
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_speed);
+
+            getDadosRadio(ombro.getYergason(),
+                    R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_yergason,
+                    R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_yergason,
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_yergason,
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_yergason);
+
+            getDadosRadio(ombro.getApreensaoAnterior(),
+                    R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_apreensao_anterior,
+                    R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_apreensao_anterior,
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_apreensao_anterior,
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_apreensao_anterior);
+
+            getDadosRadio(ombro.getSinalSulco(),
+                    R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_sinal_de_sulco,
+                    R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_sinal_de_sulco,
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_sinal_de_sulco,
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_sinal_de_sulco);
+
+            atualizaDataDash();
+            campoPontoDash.setText(ombro.getDashPontuacao());
+            campoResultDash.setText(ombro.getDashResultados());
+            atualizaDataAses();
+            campoPontoAses.setText(ombro.getAsesPontuacao());
+            campoResultAses.setText(ombro.getAsesResultados());
+
+        }
+    }
+
+    private void getDadosRadio(@Nullable String radio, int idDM, int idDm, int idEM, int idEm) {
+        if(radio != null){
+            switch (radio){
+                case CHAVE_DIR_MAIS:
+                    radioJobe.check(idDM);
+                    break;
+                case CHAVE_DIR_MENOS:
+                    radioJobe.check(idDm);
+                    break;
+                case CHAVE_ESQ_MAIS:
+                    radioJobe.check(idEM);
+                    break;
+                case CHAVE_ESQ_MENOS:
+                    radioJobe.check(idEm);
+                    break;
+            }
+        }
     }
 
     private void carregaExame() {

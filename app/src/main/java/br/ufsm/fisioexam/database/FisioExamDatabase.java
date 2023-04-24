@@ -18,7 +18,7 @@ import br.ufsm.fisioexam.model.Paciente;
 import br.ufsm.fisioexam.model.Secoes;
 
 
-@Database(entities = {Paciente.class, Exame.class, Secoes.class, Ombro.class}, version = 25, exportSchema = false)
+@Database(entities = {Paciente.class, Exame.class, Secoes.class, Ombro.class}, version = 26, exportSchema = false)
 @TypeConverters({ConversorCalendar.class})
 public abstract class FisioExamDatabase extends RoomDatabase {
 
@@ -34,7 +34,7 @@ public abstract class FisioExamDatabase extends RoomDatabase {
 
     public static FisioExamDatabase getInstance(Context context){
         return Room.databaseBuilder(context, FisioExamDatabase.class, NOME_DATABASE)
-                .fallbackToDestructiveMigrationFrom(12)
+                .fallbackToDestructiveMigrationFrom(25)
                 .allowMainThreadQueries()
                 .build();
     }

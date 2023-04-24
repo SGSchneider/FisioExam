@@ -88,12 +88,38 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
 
     private void observacoes() {
         Intent vaiParaFormularioSecaoActivity = new Intent(this, SecaoObservacoesActivity.class);
-        vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
+        adicionaChaveTipo(vaiParaFormularioSecaoActivity, exame.getId());
         startActivity(vaiParaFormularioSecaoActivity);
     }
 
     private void testesEspeciais() {
         tipo = exame.getTipo();
+        switch (tipo){
+            case TIPO_OMBRO:
+                Ombro ombro = getOmbro();
+                Intent vaiParaFormularioSecaoOmbroActivity = new Intent(this, SecaoTestesEspeciaisOmbro.class);
+                adicionaChaveTipo(vaiParaFormularioSecaoOmbroActivity, ombro.getId());
+                startActivity(vaiParaFormularioSecaoOmbroActivity);
+        }
+    }
+
+    private void adicionaChaveTipo(Intent vaiParaFormularioSecaoOmbroActivity, int ombro) {
+        vaiParaFormularioSecaoOmbroActivity.putExtra(CHAVE_EXAME, ombro);
+    }
+
+    private Ombro getOmbro() {
+        Ombro ombro;
+        FisioExamDatabase database = FisioExamDatabase.getInstance(this);
+        OmbroDAO ombroDAO = database.getRoomOmbroDAO();
+        if (ombroDAO.todos(exame.getId()).isEmpty()){
+            ombro = new Ombro(exame.getId());
+            ombroDAO.salva(ombro);
+            ombro.setId(ombroDAO.getIdOmbroPeloExame(exame.getId()));
+        }
+        else {
+            ombro = ombroDAO.getOmbro(ombroDAO.getIdOmbroPeloExame(exame.getId()));
+        }
+        return ombro;
     }
 
     private void sensibilidade() {
@@ -111,7 +137,7 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
                     ombro = ombroDao.getOmbro(ombroDao.getIdOmbroPeloExame(exame.getId()));
                 }
                 Intent vaiParaFormularioSecaoOmbroActivity = new Intent(this, SecaoSensibilidadeOmbroActivity.class);
-                vaiParaFormularioSecaoOmbroActivity.putExtra(CHAVE_EXAME, ombro.getId());
+                adicionaChaveTipo(vaiParaFormularioSecaoOmbroActivity, ombro.getId());
                 startActivity(vaiParaFormularioSecaoOmbroActivity);
                 break;
             case TIPO_COTOVELO:
@@ -142,7 +168,7 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
                     ombro = ombroDao.getOmbro(ombroDao.getIdOmbroPeloExame(exame.getId()));
                 }
                 Intent vaiParaFormularioSecaoOmbroActivity = new Intent(this, SecaoForcaMuscularOmbroActivity.class);
-                vaiParaFormularioSecaoOmbroActivity.putExtra(CHAVE_EXAME, ombro.getId());
+                adicionaChaveTipo(vaiParaFormularioSecaoOmbroActivity, ombro.getId());
                 startActivity(vaiParaFormularioSecaoOmbroActivity);
                 break;
             case TIPO_COTOVELO:
@@ -173,7 +199,7 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
                     ombro = ombroDao.getOmbro(ombroDao.getIdOmbroPeloExame(exame.getId()));
                 }
                 Intent vaiParaFormularioSecaoOmbroActivity = new Intent(this, SecaoPerimetriaOmbroActivity.class);
-                vaiParaFormularioSecaoOmbroActivity.putExtra(CHAVE_EXAME, ombro.getId());
+                adicionaChaveTipo(vaiParaFormularioSecaoOmbroActivity, ombro.getId());
                 startActivity(vaiParaFormularioSecaoOmbroActivity);
                 break;
             case TIPO_COTOVELO:
@@ -204,7 +230,7 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
                     ombro = ombroDao.getOmbro(ombroDao.getIdOmbroPeloExame(exame.getId()));
                 }
                 Intent vaiParaFormularioSecaoOmbroActivity = new Intent(this, SecaoAmplitudeMovimentoOmbroActivity.class);
-                vaiParaFormularioSecaoOmbroActivity.putExtra(CHAVE_EXAME, ombro.getId());
+                adicionaChaveTipo(vaiParaFormularioSecaoOmbroActivity, ombro.getId());
                 startActivity(vaiParaFormularioSecaoOmbroActivity);
                 break;
             case TIPO_COTOVELO:
