@@ -4,22 +4,25 @@ package br.ufsm.fisioexam.model;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import java.util.UUID;
 
-@Entity(foreignKeys = {@ForeignKey(entity  = Exame.class,
+@Entity(foreignKeys = {@ForeignKey(entity = Exame.class,
         parentColumns = "id",
         childColumns = "exame",
         onDelete = ForeignKey.CASCADE,
-        onUpdate = ForeignKey.CASCADE)})
+        onUpdate = ForeignKey.CASCADE)}, indices = {@Index(name = "idx_cotovelo_exame", value = {"exame"})})
 public class Cotovelo {
 
     @PrimaryKey()
-    private @NonNull String id;
+    private @NonNull
+    String id;
 
     // chave estrangeira
-    private @NonNull String exame;
+    private @NonNull
+    String exame;
 
     //Amplitude de movimento
     private String flexaoDirAtivo;
@@ -60,8 +63,8 @@ public class Cotovelo {
     private String bicepsBraquialEsq;
     private String braquialDir;
     private String braquialEsq;
-    private String braquirradicalDir;
-    private String braquirradicalEsq;
+    private String braquirradialDir;
+    private String braquirradialEsq;
     private String tricepsBraquialEAnconeoDir;
     private String tricepsBraquialEAnconeoEsq;
     private String supinadorDir;
@@ -77,20 +80,13 @@ public class Cotovelo {
 
     //Testes Especiais
     //Epicondilite
-    private Boolean testeCozenDir;
-    private Boolean testeCozenEsq;
-    private Boolean testeCotoveloGolfistaDir;
-    private Boolean testeCotoveloGolfistaEsq;
-    private Boolean irritativosDir;
-    private Boolean irrirativosEsq;
-    private Boolean sinalTinelDir;
-    private Boolean sinalTinelEsq;
+    private String testeCozen;
+    private String testeCotoveloGolfista;
+    private String sinalTinel;
 
     //Instabilidade
-    private Boolean testeEsforcoVaroDir;
-    private Boolean testeEsforcoVaroEsq;
-    private Boolean testeEsforcoValgoDir;
-    private Boolean testeEsforcoValgoEsq;
+    private String testeEsforcoVaro;
+    private String testeEsforcoValgo;
 
     //Escalas Utilizadas
     //DASH
@@ -103,24 +99,26 @@ public class Cotovelo {
     private String asesPontuacao;
     private String asesResultados;
 
-    public Cotovelo(@NonNull String exame){
+    public Cotovelo(@NonNull String exame) {
         this.exame = exame;
         id = UUID.randomUUID().toString();
     }
 
+    @NonNull
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(@NonNull String id) {
         this.id = id;
     }
 
+    @NonNull
     public String getExame() {
         return exame;
     }
 
-    public void setExame(String exame) {
+    public void setExame(@NonNull String exame) {
         this.exame = exame;
     }
 
@@ -251,7 +249,6 @@ public class Cotovelo {
     public void setPronacaoEsqPassivo(String pronacaoEsqPassivo) {
         this.pronacaoEsqPassivo = pronacaoEsqPassivo;
     }
-
 
 
     public String getAnguloCarregamentoDirPassivo() {
@@ -399,20 +396,20 @@ public class Cotovelo {
         this.braquialEsq = braquialEsq;
     }
 
-    public String getBraquirradicalDir() {
-        return braquirradicalDir;
+    public String getBraquirradialDir() {
+        return braquirradialDir;
     }
 
-    public void setBraquirradicalDir(String braquirradicalDir) {
-        this.braquirradicalDir = braquirradicalDir;
+    public void setBraquirradialDir(String braquirradialDir) {
+        this.braquirradialDir = braquirradialDir;
     }
 
-    public String getBraquirradicalEsq() {
-        return braquirradicalEsq;
+    public String getBraquirradialEsq() {
+        return braquirradialEsq;
     }
 
-    public void setBraquirradicalEsq(String braquirradicalEsq) {
-        this.braquirradicalEsq = braquirradicalEsq;
+    public void setBraquirradialEsq(String braquirradialEsq) {
+        this.braquirradialEsq = braquirradialEsq;
     }
 
     public String getTricepsBraquialEAnconeoDir() {
@@ -495,100 +492,44 @@ public class Cotovelo {
         this.sensibilidadeLocalAvaliado = sensibilidadeLocalAvaliado;
     }
 
-    public Boolean getTesteCozenDir() {
-        return testeCozenDir;
+    public String getTesteCozen() {
+        return testeCozen;
     }
 
-    public void setTesteCozenDir(Boolean testeCozenDir) {
-        this.testeCozenDir = testeCozenDir;
+    public void setTesteCozen(String testeCozen) {
+        this.testeCozen = testeCozen;
     }
 
-    public Boolean getTesteCozenEsq() {
-        return testeCozenEsq;
+    public String getTesteCotoveloGolfista() {
+        return testeCotoveloGolfista;
     }
 
-    public void setTesteCozenEsq(Boolean testeCozenEsq) {
-        this.testeCozenEsq = testeCozenEsq;
+    public void setTesteCotoveloGolfista(String testeCotoveloGolfista) {
+        this.testeCotoveloGolfista = testeCotoveloGolfista;
     }
 
-    public Boolean getTesteCotoveloGolfistaDir() {
-        return testeCotoveloGolfistaDir;
+    public String getSinalTinel() {
+        return sinalTinel;
     }
 
-    public void setTesteCotoveloGolfistaDir(Boolean testeCotoveloGolfistaDir) {
-        this.testeCotoveloGolfistaDir = testeCotoveloGolfistaDir;
+    public void setSinalTinel(String sinalTinel) {
+        this.sinalTinel = sinalTinel;
     }
 
-    public Boolean getTesteCotoveloGolfistaEsq() {
-        return testeCotoveloGolfistaEsq;
+    public String getTesteEsforcoVaro() {
+        return testeEsforcoVaro;
     }
 
-    public void setTesteCotoveloGolfistaEsq(Boolean testeCotoveloGolfistaEsq) {
-        this.testeCotoveloGolfistaEsq = testeCotoveloGolfistaEsq;
+    public void setTesteEsforcoVaro(String testeEsforcoVaro) {
+        this.testeEsforcoVaro = testeEsforcoVaro;
     }
 
-    public Boolean getIrritativosDir() {
-        return irritativosDir;
+    public String getTesteEsforcoValgo() {
+        return testeEsforcoValgo;
     }
 
-    public void setIrritativosDir(Boolean irritativosDir) {
-        this.irritativosDir = irritativosDir;
-    }
-
-    public Boolean getIrrirativosEsq() {
-        return irrirativosEsq;
-    }
-
-    public void setIrrirativosEsq(Boolean irrirativosEsq) {
-        this.irrirativosEsq = irrirativosEsq;
-    }
-
-    public Boolean getSinalTinelDir() {
-        return sinalTinelDir;
-    }
-
-    public void setSinalTinelDir(Boolean sinalTinelDir) {
-        this.sinalTinelDir = sinalTinelDir;
-    }
-
-    public Boolean getSinalTinelEsq() {
-        return sinalTinelEsq;
-    }
-
-    public void setSinalTinelEsq(Boolean sinalTinelEsq) {
-        this.sinalTinelEsq = sinalTinelEsq;
-    }
-
-    public Boolean getTesteEsforcoVaroDir() {
-        return testeEsforcoVaroDir;
-    }
-
-    public void setTesteEsforcoVaroDir(Boolean testeEsforcoVaroDir) {
-        this.testeEsforcoVaroDir = testeEsforcoVaroDir;
-    }
-
-    public Boolean getTesteEsforcoVaroEsq() {
-        return testeEsforcoVaroEsq;
-    }
-
-    public void setTesteEsforcoVaroEsq(Boolean testeEsforcoVaroEsq) {
-        this.testeEsforcoVaroEsq = testeEsforcoVaroEsq;
-    }
-
-    public Boolean getTesteEsforcoValgoDir() {
-        return testeEsforcoValgoDir;
-    }
-
-    public void setTesteEsforcoValgoDir(Boolean testeEsforcoValgoDir) {
-        this.testeEsforcoValgoDir = testeEsforcoValgoDir;
-    }
-
-    public Boolean getTesteEsforcoValgoEsq() {
-        return testeEsforcoValgoEsq;
-    }
-
-    public void setTesteEsforcoValgoEsq(Boolean testeEsforcoValgoEsq) {
-        this.testeEsforcoValgoEsq = testeEsforcoValgoEsq;
+    public void setTesteEsforcoValgo(String testeEsforcoValgo) {
+        this.testeEsforcoValgo = testeEsforcoValgo;
     }
 
     public Long getDashData() {

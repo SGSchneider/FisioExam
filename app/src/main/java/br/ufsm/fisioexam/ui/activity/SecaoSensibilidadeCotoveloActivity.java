@@ -116,7 +116,7 @@ public class SecaoSensibilidadeCotoveloActivity extends AppCompatActivity {
             default:
                 idTermica = "";
         }
-        cotovelo.setSensibilidadeTactil(idTermica);
+        cotovelo.setSensibilidadeTermica(idTermica);
 
         switch (campoDolorosa.getCheckedRadioButtonId()){
             case(R.id.activity_secao_sensibilidade_cotovelo_radio_dolorosa_presente):
@@ -134,7 +134,10 @@ public class SecaoSensibilidadeCotoveloActivity extends AppCompatActivity {
             default:
                 idDolorosa = "";
         }
-        cotovelo.setSensibilidadeTactil(idDolorosa);
+        cotovelo.setSensibilidadeDolorosa(idDolorosa);
+
+
+        cotovelo.setSensibilidadeLocalAvaliado(campoLocalAvaliado.getText().toString());
 
         cotoveloDao.edita(cotovelo);
     }
@@ -154,7 +157,7 @@ public class SecaoSensibilidadeCotoveloActivity extends AppCompatActivity {
 
         if (dados.hasExtra(CHAVE_EXAME)) {
             cotovelo = cotoveloDao.getCotovelo((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(cotovelo.getId());
+            secoes = secoesDao.getSecao(cotovelo.getExame());
         }
     }
 

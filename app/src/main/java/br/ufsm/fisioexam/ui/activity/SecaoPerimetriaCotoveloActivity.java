@@ -111,7 +111,7 @@ public class SecaoPerimetriaCotoveloActivity extends AppCompatActivity {
 
         if (dados.hasExtra(CHAVE_EXAME)) {
             cotovelo = cotoveloDao.getCotovelo((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(cotovelo.getId());
+            secoes = secoesDao.getSecao(cotovelo.getExame());
         }
     }
 

@@ -116,7 +116,7 @@ public class SecaoSensibilidadeOmbroActivity extends AppCompatActivity {
             default:
                 idTermica = "";
         }
-        ombro.setSensibilidadeTactil(idTermica);
+        ombro.setSensibilidadeTermica(idTermica);
 
         switch (campoDolorosa.getCheckedRadioButtonId()){
             case(R.id.activity_secao_sensibilidade_ombro_radio_dolorosa_presente):
@@ -134,7 +134,7 @@ public class SecaoSensibilidadeOmbroActivity extends AppCompatActivity {
             default:
                 idDolorosa = "";
         }
-        ombro.setSensibilidadeTactil(idDolorosa);
+        ombro.setSensibilidadeDolorosa(idDolorosa);
 
         ombroDao.edita(ombro);
     }
@@ -154,7 +154,7 @@ public class SecaoSensibilidadeOmbroActivity extends AppCompatActivity {
 
         if (dados.hasExtra(CHAVE_EXAME)) {
             ombro = ombroDao.getOmbro((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(ombro.getId());
+            secoes = secoesDao.getSecao(ombro.getExame());
         }
     }
 

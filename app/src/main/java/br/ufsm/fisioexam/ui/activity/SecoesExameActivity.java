@@ -61,6 +61,7 @@ public class SecoesExameActivity extends AppCompatActivity {
         atualizaDataExame();
         configuraBotaoSalvar();
         configuraLista();
+        preencheExame();
     }
 
     @Override
@@ -330,6 +331,7 @@ public class SecoesExameActivity extends AppCompatActivity {
         exame.setTipo(tipo);
         exame.setData(data.getTimeInMillis());
 
+        exameDao.edita(exame);
 
     }
 }

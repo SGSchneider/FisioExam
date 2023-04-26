@@ -28,7 +28,7 @@ import br.ufsm.fisioexam.database.dao.SecoesDAO;
 import br.ufsm.fisioexam.model.Ombro;
 import br.ufsm.fisioexam.model.Secoes;
 
-public class SecaoTestesEspeciaisOmbro extends AppCompatActivity {
+public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
     private Ombro ombro;
     private OmbroDAO ombroDao;
     private Secoes secoes;
@@ -142,7 +142,7 @@ public class SecaoTestesEspeciaisOmbro extends AppCompatActivity {
 
         campoDataDash.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) {
-                new DatePickerDialog(SecaoTestesEspeciaisOmbro.this, dateDash,
+                new DatePickerDialog(SecaoTestesEspeciaisOmbroActivity.this, dateDash,
                         dataDash.get(Calendar.YEAR),
                         dataDash.get(Calendar.MONTH),
                         dataDash.get(Calendar.DAY_OF_MONTH)).show();
@@ -151,7 +151,7 @@ public class SecaoTestesEspeciaisOmbro extends AppCompatActivity {
 
         campoDataAses.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) {
-                new DatePickerDialog(SecaoTestesEspeciaisOmbro.this, dateAses,
+                new DatePickerDialog(SecaoTestesEspeciaisOmbroActivity.this, dateAses,
                         dataAses.get(Calendar.YEAR),
                         dataAses.get(Calendar.MONTH),
                         dataAses.get(Calendar.DAY_OF_MONTH)).show();
@@ -483,7 +483,7 @@ public class SecaoTestesEspeciaisOmbro extends AppCompatActivity {
         Intent dados = getIntent();
         if (dados.hasExtra(CHAVE_EXAME)) {
             ombro = ombroDao.getOmbro((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(ombro.getId());
+            secoes = secoesDao.getSecao(ombro.getExame());
         }
     }
 

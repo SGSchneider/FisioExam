@@ -46,7 +46,12 @@
         <activity android:name=".ui.activity.SecaoPerimetriaOmbroActivity"/>
         <activity android:name=".ui.activity.SecaoForcaMuscularOmbroActivity"/>
         <activity android:name=".ui.activity.SecaoSensibilidadeOmbroActivity"/>
-        <activity android:name=".ui.activity.SecaoTestesEspeciaisOmbro"/>
+        <activity android:name=".ui.activity.SecaoTestesEspeciaisOmbroActivity"/>
+        <activity android:name=".ui.activity.SecaoAmplitudeMovimentoCotoveloActivity"/>
+        <activity android:name=".ui.activity.SecaoPerimetriaCotoveloActivity"/>
+        <activity android:name=".ui.activity.SecaoForcaMuscularCotoveloActivity"/>
+        <activity android:name=".ui.activity.SecaoSensibilidadeCotoveloActivity"/>
+        <activity android:name=".ui.activity.SecaoTestesEspeciaisCotoveloActivity"/>
     </application>
 
 

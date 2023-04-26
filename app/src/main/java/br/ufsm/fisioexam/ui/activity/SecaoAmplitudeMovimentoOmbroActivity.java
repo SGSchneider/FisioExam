@@ -175,7 +175,7 @@ public class SecaoAmplitudeMovimentoOmbroActivity extends AppCompatActivity {
 
         if (dados.hasExtra(CHAVE_EXAME)) {
             ombro = ombroDao.getOmbro((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(ombro.getId());
+            secoes = secoesDao.getSecao(ombro.getExame());
         }
     }
 

@@ -164,7 +164,7 @@ public class SecaoAmplitudeMovimentoCotoveloActivity extends AppCompatActivity {
         Intent dados = getIntent();
         if(dados.hasExtra(CHAVE_EXAME)){
             cotovelo = cotoveloDAO.getCotovelo(dados.getSerializableExtra(CHAVE_EXAME).toString());
-            secoes = secoesDAO.getSecao(cotovelo.getId());
+            secoes = secoesDAO.getSecao(cotovelo.getExame());
         }
     }
 
