@@ -27,6 +27,9 @@ public interface CotoveloDAO {
     @Query("SELECT * FROM cotovelo WHERE id LIKE :registro")
     Cotovelo getCotovelo(String registro);
 
+    @Query("SELECT * FROM cotovelo")
+    List<Cotovelo> getAllCotovelos();
+
     @Query("SELECT id FROM cotovelo WHERE exame LIKE :registro")
     String getIdCotoveloPeloExame(String registro);
 }

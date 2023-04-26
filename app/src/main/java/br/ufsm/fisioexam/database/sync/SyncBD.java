@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufsm.fisioexam.database.FisioExamDatabase;
+import br.ufsm.fisioexam.model.Cotovelo;
 import br.ufsm.fisioexam.model.Exame;
 import br.ufsm.fisioexam.model.Ombro;
 import br.ufsm.fisioexam.model.Paciente;
@@ -94,6 +95,15 @@ public class SyncBD {
         for (Ombro ombro : ombros) {
             databaseReference.child("ombros").child(ombro.getId()).setValue(ombro);
         }
+    }
+
+    public void syncCotovelos() {
+        List<Cotovelo> cotovelos = fisioExamDatabase.getRoomCotoveloDAO().getAllCotovelos();
+
+        for (Cotovelo cotovelo : cotovelos) {
+            databaseReference.child("exames").child(cotovelo.getId()).setValue(cotovelo);
+        }
+
     }
 
     public void syncPacientes() {
