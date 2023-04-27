@@ -258,4 +258,13 @@
     <string name="tinel">Tinel</string>
     <string name="finkelstein">Finkelstein</string>
     <string name="tunel_ulnar">Tríade do Túnel Ulnar</string>
+    <string name="perimetria_punho">Interlinha da Fossa Antecubial</string>
+    <string name="perimetria_em_oito">Perimetria em 8</string>
+    <string name="flexor_radial_punho">Flexor Radial do Carpo (flexão de punho e desvio radial)</string>
+    <string name="palmar_longo_punho">Palmar Longo (flexão de punho)</string>
+    <string name="flexor_ulnar_punho">Flexor Ulnar do Carpo (flexão de punho e desvio ulnar)</string>
+    <string name="dinamometro">Dinamômetro</string>
+    <string name="extensor_radial_longo_punho">Extensor Radial Longo do Carpo (extensão de punho e desvio radial)</string>
+    <string name="extensor_radial_curto_punho">Extensor Radial Curto do Carpo (extensão de punho)</string>
+    <string name="extensor_ulnar_punho">Extensor Ulnar do Carpo (extensão de punho e desvio ulnar)</string>
 </resources>

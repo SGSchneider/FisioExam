@@ -40,20 +40,15 @@ public class Punho {
 
 
     //Perimetria
-    //TODO REVISAR O SUPERIOR (perimetria em 8) após resposta da prof.
     //TODO ATUALIZAR VERSÃO BD
-    private String perimetriaSupDir5;
-    private String perimetriaSupDir10;
-    private String perimetriaSupDir15;
-    private String perimetriaSupEsq5;
-    private String perimetriaSupEsq10;
-    private String perimetriaSupEsq15;
     private String perimetriaInfDir5;
     private String perimetriaInfDir10;
     private String perimetriaInfDir15;
     private String perimetriaInfEsq5;
     private String perimetriaInfEsq10;
     private String perimetriaInfEsq15;
+    private String perimetriaEm8Dir;
+    private String perimetriaEm8Esq;
 
     //Força Muscular
     private String forcaMuscularFlexorRadialDir;
@@ -246,52 +241,20 @@ public class Punho {
         this.desvioUlnarEsqPassivo = desvioUlnarEsqPassivo;
     }
 
-    public String getPerimetriaSupDir5() {
-        return perimetriaSupDir5;
+    public String getPerimetriaEm8Dir() {
+        return perimetriaEm8Dir;
     }
 
-    public void setPerimetriaSupDir5(String perimetriaSupDir5) {
-        this.perimetriaSupDir5 = perimetriaSupDir5;
+    public void setPerimetriaEm8Dir(String perimetriaEm8Dir) {
+        this.perimetriaEm8Dir = perimetriaEm8Dir;
     }
 
-    public String getPerimetriaSupDir10() {
-        return perimetriaSupDir10;
+    public String getPerimetriaEm8Esq() {
+        return perimetriaEm8Esq;
     }
 
-    public void setPerimetriaSupDir10(String perimetriaSupDir10) {
-        this.perimetriaSupDir10 = perimetriaSupDir10;
-    }
-
-    public String getPerimetriaSupDir15() {
-        return perimetriaSupDir15;
-    }
-
-    public void setPerimetriaSupDir15(String perimetriaSupDir15) {
-        this.perimetriaSupDir15 = perimetriaSupDir15;
-    }
-
-    public String getPerimetriaSupEsq5() {
-        return perimetriaSupEsq5;
-    }
-
-    public void setPerimetriaSupEsq5(String perimetriaSupEsq5) {
-        this.perimetriaSupEsq5 = perimetriaSupEsq5;
-    }
-
-    public String getPerimetriaSupEsq10() {
-        return perimetriaSupEsq10;
-    }
-
-    public void setPerimetriaSupEsq10(String perimetriaSupEsq10) {
-        this.perimetriaSupEsq10 = perimetriaSupEsq10;
-    }
-
-    public String getPerimetriaSupEsq15() {
-        return perimetriaSupEsq15;
-    }
-
-    public void setPerimetriaSupEsq15(String perimetriaSupEsq15) {
-        this.perimetriaSupEsq15 = perimetriaSupEsq15;
+    public void setPerimetriaEm8Esq(String perimetriaEm8Esq) {
+        this.perimetriaEm8Esq = perimetriaEm8Esq;
     }
 
     public String getPerimetriaInfDir5() {

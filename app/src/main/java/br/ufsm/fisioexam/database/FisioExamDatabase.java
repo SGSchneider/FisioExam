@@ -11,6 +11,7 @@ import br.ufsm.fisioexam.database.dao.ExameDAO;
 import br.ufsm.fisioexam.database.dao.LoginInfoDAO;
 import br.ufsm.fisioexam.database.dao.OmbroDAO;
 import br.ufsm.fisioexam.database.dao.PacienteDAO;
+import br.ufsm.fisioexam.database.dao.PunhoDAO;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
 import br.ufsm.fisioexam.model.Cotovelo;
 import br.ufsm.fisioexam.model.Exame;
@@ -37,6 +38,8 @@ public abstract class FisioExamDatabase extends RoomDatabase {
     public abstract CotoveloDAO getRoomCotoveloDAO();
 
     public abstract LoginInfoDAO getRoomLoginInfoDAO();
+
+    public abstract PunhoDAO getRoomPunhoDAO();
 
     public static FisioExamDatabase getInstance(Context context){
         return Room.databaseBuilder(context, FisioExamDatabase.class, NOME_DATABASE)

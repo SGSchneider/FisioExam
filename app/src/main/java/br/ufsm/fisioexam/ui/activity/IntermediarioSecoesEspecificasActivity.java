@@ -21,9 +21,11 @@ import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.CotoveloDAO;
 import br.ufsm.fisioexam.database.dao.ExameDAO;
 import br.ufsm.fisioexam.database.dao.OmbroDAO;
+import br.ufsm.fisioexam.database.dao.PunhoDAO;
 import br.ufsm.fisioexam.model.Cotovelo;
 import br.ufsm.fisioexam.model.Exame;
 import br.ufsm.fisioexam.model.Ombro;
+import br.ufsm.fisioexam.model.Punho;
 
 public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
     private Exame exame;
@@ -105,8 +107,13 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
                 Cotovelo cotovelo = getCotovelo();
                 vaiParaSecaoEspecifica(cotovelo.getId(), SecaoTestesEspeciaisCotoveloActivity.class);
                 break;
+            case TIPO_PUNHO:
+                Punho punho = getPunho();
+                vaiParaSecaoEspecifica(punho.getId(), SecaoTestesEspeciaisPunhoActivity.class);
         }
     }
+
+
 
     private void adicionaChaveTipo(Intent vaiParaFormularioSecaoEspecificaActivity, String idTipo) {
         vaiParaFormularioSecaoEspecificaActivity.putExtra(CHAVE_EXAME, idTipo);
@@ -124,9 +131,8 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
                 vaiParaSecaoEspecifica(cotovelo.getId(), SecaoSensibilidadeCotoveloActivity.class);
                 break;
             case TIPO_PUNHO:
-//                Intent vaiParaFormularioSecaoPunhoActivity = new Intent(this, SecaoAmplitudeMovimentoPunhoActivity.class);
-//                vaiParaFormularioSecaoCotoveloActivity.putExtra(CHAVE_EXAME, exame.getId());
-//                startActivity(vaiParaFormularioSecaoCotoveloActivity);
+                Punho punho = getPunho();
+                vaiParaSecaoEspecifica(punho.getId(), SecaoSensibilidadePunhoActivity.class);
                 break;
         }
     }
@@ -143,9 +149,8 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
                 vaiParaSecaoEspecifica(cotovelo.getId(), SecaoForcaMuscularCotoveloActivity.class);
                 break;
             case TIPO_PUNHO:
-//                Intent vaiParaFormularioSecaoPunhoActivity = new Intent(this, SecaoAmplitudeMovimentoPunhoActivity.class);
-//                vaiParaFormularioSecaoCotoveloActivity.putExtra(CHAVE_EXAME, exame.getId());
-//                startActivity(vaiParaFormularioSecaoCotoveloActivity);
+                Punho punho = getPunho();
+                vaiParaSecaoEspecifica(punho.getId(), SecaoForcaMuscularPunhoActivity.class);
                 break;
         }
     }
@@ -162,9 +167,8 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
                 vaiParaSecaoEspecifica(cotovelo.getId(), SecaoPerimetriaCotoveloActivity.class);
                 break;
             case TIPO_PUNHO:
-//                Intent vaiParaFormularioSecaoPunhoActivity = new Intent(this, SecaoAmplitudeMovimentoPunhoActivity.class);
-//                vaiParaFormularioSecaoCotoveloActivity.putExtra(CHAVE_EXAME, exame.getId());
-//                startActivity(vaiParaFormularioSecaoCotoveloActivity);
+                Punho punho = getPunho();
+                vaiParaSecaoEspecifica(punho.getId(), SecaoPerimetriaPunhoActivity.class);
                 break;
         }
     }
@@ -181,9 +185,8 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
                 vaiParaSecaoEspecifica(cotovelo.getId(), SecaoAmplitudeMovimentoCotoveloActivity.class);
                 break;
             case TIPO_PUNHO:
-//                Intent vaiParaFormularioSecaoPunhoActivity = new Intent(this, SecaoAmplitudeMovimentoPunhoActivity.class);
-//                vaiParaFormularioSecaoCotoveloActivity.putExtra(CHAVE_EXAME, exame.getId());
-//                startActivity(vaiParaFormularioSecaoCotoveloActivity);
+                Punho punho = getPunho();
+                vaiParaSecaoEspecifica(punho.getId(), SecaoAmplitudeMovimentoPunhoActivity.class);
                 break;
         }
     }
@@ -221,6 +224,21 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
             cotovelo = cotoveloDAO.getCotovelo(cotoveloDAO.getIdCotoveloPeloExame(exame.getId()));
         }
         return cotovelo;
+    }
+
+    private Punho getPunho() {
+        Punho punho;
+        FisioExamDatabase database  = FisioExamDatabase.getInstance(this);
+        PunhoDAO punhoDAO = database.getRoomPunhoDAO();
+        if (punhoDAO.todos(exame.getId()).isEmpty()){
+            punho = new Punho(exame.getId());
+            punhoDAO.salva(punho);
+            punho.setId(punhoDAO.getIdPunhoPeloExame(exame.getId()));
+        } else {
+            punho = punhoDAO.getPunho(punhoDAO.getIdPunhoPeloExame(exame.getId()));
+        }
+
+        return punho;
     }
 
     private void vaiParaSecaoEspecifica(String chave, Class secao) {
