@@ -17,10 +17,11 @@ import br.ufsm.fisioexam.model.Exame;
 import br.ufsm.fisioexam.model.LoginInfo;
 import br.ufsm.fisioexam.model.Ombro;
 import br.ufsm.fisioexam.model.Paciente;
+import br.ufsm.fisioexam.model.Punho;
 import br.ufsm.fisioexam.model.Secoes;
 
 
-@Database(entities = {Paciente.class, Exame.class, Secoes.class, Ombro.class, Cotovelo.class, LoginInfo.class}, version = 36, exportSchema = false)
+@Database(entities = {Paciente.class, Exame.class, Secoes.class, Ombro.class, Cotovelo.class, LoginInfo.class, Punho.class}, version = 36, exportSchema = false)
 public abstract class FisioExamDatabase extends RoomDatabase {
 
     private static final String NOME_DATABASE = "fisioExam.db";

@@ -248,7 +248,14 @@
     <string name="epicondite">Epicondite</string>
     <string name="cozen">Teste de Cozen (lateral)</string>
     <string name="teste_golfista">Teste para Cotovelo de Golfista (medial)</string>
-    <string name="tinel">Sinal de tinal (neurite do nervo ulnar)</string>
+    <string name="sinal_tinel">Sinal de tinal (neurite do nervo ulnar)</string>
     <string name="lcl">Teste de Esforço em Adução (varo) (LCL)</string>
     <string name="lcm">Teste de esforço em abdução (valgo) (LCM)</string>
+    <string name="desvio_radial">Desvio Radial</string>
+    <string name="desvio_ulnar">Desvio Ulnar</string>
+    <string name="phalen">Phalen</string>
+    <string name="phalen_invertido">Phalen Invertido</string>
+    <string name="tinel">Tinel</string>
+    <string name="finkelstein">Finkelstein</string>
+    <string name="tunel_ulnar">Tríade do Túnel Ulnar</string>
 </resources>

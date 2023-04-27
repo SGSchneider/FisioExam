@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <ScrollView
-        android:id="@+id/activity_secao_testes_especiais_cotovelo_scroll_view"
+        android:id="@+id/activity_secao_testes_especiais_punho_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="96dp"
@@ -20,7 +20,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/activity_secao_testes_especiais_cotovelo_titulo"
+                android:id="@+id/activity_secao_testes_especiais_punho_titulo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -36,54 +36,43 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:text="@string/epicondite"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/cozen"
+                android:text="@string/phalen"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <RadioGroup
-                android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_cozen"
+                android:id="@+id/activity_secao_testes_especiais_punho_radio_phalen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp">
 
                 <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_cozen"
+                    android:id="@+id/activity_secao_testes_especiais_punho_radio_esquerda_mais_phalen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/esquerdamais"
                     android:textSize="18sp" />
 
                 <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_cozen"
+                    android:id="@+id/activity_secao_testes_especiais_punho_radio_esquerda_menos_phalen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/esquerdamenos"
                     android:textSize="18sp" />
 
                 <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_direita_mais_cozen"
+                    android:id="@+id/activity_secao_testes_especiais_punho_radio_direita_mais_phalen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/direitamais"
                     android:textSize="18sp" />
 
                 <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_direita_menos_cozen"
+                    android:id="@+id/activity_secao_testes_especiais_punho_radio_direita_menos_phalen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/direitamenos"
@@ -95,39 +84,84 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:text="@string/teste_golfista"
+                android:text="@string/phalen_invertido"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <RadioGroup
-                android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_teste_golfista"
+                android:id="@+id/activity_secao_testes_especiais_punho_radio_phalen_invertido"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp">
 
                 <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_teste_golfista"
+                    android:id="@+id/activity_secao_testes_especiais_punho_radio_esquerda_mais_phalen_invertido"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/esquerdamais"
                     android:textSize="18sp" />
 
                 <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_teste_golfista"
+                    android:id="@+id/activity_secao_testes_especiais_punho_radio_esquerda_menos_phalen_invertido"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/esquerdamenos"
                     android:textSize="18sp" />
 
                 <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_direita_mais_teste_golfista"
+                    android:id="@+id/activity_secao_testes_especiais_punho_radio_direita_mais_phalen_invertido"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/direitamais"
                     android:textSize="18sp" />
 
                 <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_direita_menos_teste_golfista"
+                    android:id="@+id/activity_secao_testes_especiais_punho_radio_direita_menos_phalen_invertido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/direitamenos"
+                    android:textSize="18sp" />
+
+            </RadioGroup>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/tinel"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/activity_secao_testes_especiais_punho_radio_tinel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp">
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_punho_radio_esquerda_mais_tinel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/esquerdamais"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_punho_radio_esquerda_menos_tinel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/esquerdamenos"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_punho_radio_direita_mais_tinel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/direitamais"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/activity_secao_testes_especiais_punho_radio_direita_menos_tinel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/direitamenos"
@@ -139,99 +173,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:text="@string/irritativos"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/sinal_tinel"
+                android:text="@string/finkelstein"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <RadioGroup
-                android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_tinel"
+                android:id="@+id/activity_secao_testes_especiais_punho_radio_finkelstein"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp">
 
                 <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_tinel"
+                    android:id="@+id/activity_secao_testes_especiais_punho_radio_esquerda_mais_finkelstein"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/esquerdamais"
                     android:textSize="18sp" />
 
                 <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_tinel"
+                    android:id="@+id/activity_secao_testes_especiais_punho_radio_esquerda_menos_finkelstein"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/esquerdamenos"
                     android:textSize="18sp" />
 
                 <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_direita_mais_tinel"
+                    android:id="@+id/activity_secao_testes_especiais_punho_radio_direita_mais_finkelstein"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/direitamais"
                     android:textSize="18sp" />
 
                 <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_direita_menos_tinel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/direitamenos"
-                    android:textSize="18sp" />
-
-            </RadioGroup>
-            
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/instabilidade"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/lcl"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <RadioGroup
-                android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_lcl"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp">
-
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_lcl"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/esquerdamais"
-                    android:textSize="18sp" />
-
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_lcl"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/esquerdamenos"
-                    android:textSize="18sp" />
-
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_direita_mais_lcl"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/direitamais"
-                    android:textSize="18sp" />
-
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_direita_menos_lcl"
+                    android:id="@+id/activity_secao_testes_especiais_punho_radio_direita_menos_finkelstein"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/direitamenos"
@@ -243,39 +217,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:text="@string/lcm"
+                android:text="@string/tunel_ulnar"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <RadioGroup
-                android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_lcm"
+                android:id="@+id/activity_secao_testes_especiais_punho_radio_tunel_ulnar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp">
 
                 <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_lcm"
+                    android:id="@+id/activity_secao_testes_especiais_punho_radio_esquerda_mais_tunel_ulnar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/esquerdamais"
                     android:textSize="18sp" />
 
                 <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_lcm"
+                    android:id="@+id/activity_secao_testes_especiais_punho_radio_esquerda_menos_tunel_ulnar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/esquerdamenos"
                     android:textSize="18sp" />
 
                 <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_direita_mais_lcm"
+                    android:id="@+id/activity_secao_testes_especiais_punho_radio_direita_mais_tunel_ulnar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/direitamais"
                     android:textSize="18sp" />
 
                 <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_radio_direita_menos_lcm"
+                    android:id="@+id/activity_secao_testes_especiais_punho_radio_direita_menos_tunel_ulnar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/direitamenos"
@@ -285,7 +259,7 @@
 
 
             <TextView
-                android:id="@+id/activity_secao_testes_especiais_cotovelo_escala"
+                android:id="@+id/activity_secao_testes_especiais_punho_escala"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -321,7 +295,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/activity_secao_testes_especiais_cotovelo_dash_data"
+                android:id="@+id/activity_secao_testes_especiais_punho_dash_data"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
@@ -336,7 +310,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/activity_secao_testes_especiais_cotovelo_dash_pontuacao"
+                android:id="@+id/activity_secao_testes_especiais_punho_dash_pontuacao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
@@ -351,61 +325,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/activity_secao_testes_especiais_cotovelo_dash_resultados"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:hint="@string/resultados"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/ases"
-                android:textSize="20sp"
-                android:textStyle="italic" />
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/data_aplicacao"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/activity_secao_testes_especiais_cotovelo_ases_data"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:hint="@string/data"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/pontuacao"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/activity_secao_testes_especiais_cotovelo_ases_pontuacao"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:hint="@string/pontuacao"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/resultados"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/activity_secao_testes_especiais_cotovelo_ases_resultados"
+                android:id="@+id/activity_secao_testes_especiais_punho_dash_resultados"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
@@ -415,20 +335,20 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/activity_secao_testes_especiais_cotovelo_button_salvar_e_sair"
+        android:id="@+id/activity_secao_testes_especiais_punho_button_salvar_e_sair"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_margin="8dp"
         android:text="@string/salvar_e_sair"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/activity_secao_testes_especiais_cotovelo_button_proximo"
+        app:layout_constraintEnd_toStartOf="@id/activity_secao_testes_especiais_punho_button_proximo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activity_secao_testes_especiais_cotovelo_scroll_view"
+        app:layout_constraintTop_toBottomOf="@id/activity_secao_testes_especiais_punho_scroll_view"
         app:layout_constraintVertical_bias="1" />
 
     <Button
-        android:id="@+id/activity_secao_testes_especiais_cotovelo_button_proximo"
+        android:id="@+id/activity_secao_testes_especiais_punho_button_proximo"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_margin="8dp"
@@ -436,8 +356,8 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/activity_secao_testes_especiais_cotovelo_button_salvar_e_sair"
-        app:layout_constraintTop_toBottomOf="@+id/activity_secao_testes_especiais_cotovelo_scroll_view"
+        app:layout_constraintStart_toEndOf="@+id/activity_secao_testes_especiais_punho_button_salvar_e_sair"
+        app:layout_constraintTop_toBottomOf="@+id/activity_secao_testes_especiais_punho_scroll_view"
         app:layout_constraintVertical_bias="1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -44,6 +44,7 @@ public class SyncBD {
         syncPacientes();
         syncExames();
         syncOmbros();
+        syncCotovelos();
         List<Exame> exames = new ArrayList<>();
         List<Paciente> pacientes = new ArrayList<>();
         List<Ombro> ombros = new ArrayList<>();

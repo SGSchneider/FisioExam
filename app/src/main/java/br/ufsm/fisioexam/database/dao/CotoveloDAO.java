@@ -32,4 +32,7 @@ public interface CotoveloDAO {
 
     @Query("SELECT id FROM cotovelo WHERE exame LIKE :registro")
     String getIdCotoveloPeloExame(String registro);
+
+    @Query("DELETE FROM cotovelo")
+    void deleteAllCotovelos();
 }
