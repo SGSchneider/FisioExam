@@ -101,7 +101,7 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
         secoes.setTestesEspeciais(true);
         secoesDao.edita(secoes);
 
-        setaphalen();
+        setaPhalen();
         setaPhalenInvertido();
         setaTinel();
         setaTriade();
@@ -148,25 +148,25 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
     }
 
 
-    private void setaphalen() {
-        String idphalen;
+    private void setaPhalen() {
+        String idPhalen;
         switch (radiophalen.getCheckedRadioButtonId()) {
             case (R.id.activity_secao_testes_especiais_punho_radio_direita_mais_phalen):
-                idphalen = CHAVE_DIR_MAIS;
+                idPhalen = CHAVE_DIR_MAIS;
                 break;
             case (R.id.activity_secao_testes_especiais_punho_radio_direita_menos_phalen):
-                idphalen = CHAVE_DIR_MENOS;
+                idPhalen = CHAVE_DIR_MENOS;
                 break;
             case (R.id.activity_secao_testes_especiais_punho_radio_esquerda_mais_phalen):
-                idphalen = CHAVE_ESQ_MAIS;
+                idPhalen = CHAVE_ESQ_MAIS;
                 break;
             case (R.id.activity_secao_testes_especiais_punho_radio_esquerda_menos_phalen):
-                idphalen = CHAVE_ESQ_MENOS;
+                idPhalen = CHAVE_ESQ_MENOS;
                 break;
             default:
-                idphalen = "";
+                idPhalen = "";
         }
-        punho.setTestesEspeciaisPhalen(idphalen);
+        punho.setTestesEspeciaisPhalen(idPhalen);
     }
 
     private void setaPhalenInvertido() {
