@@ -10,7 +10,7 @@ import androidx.room.PrimaryKey;
 
 import java.util.UUID;
 
-@Entity(foreignKeys = {@ForeignKey(entity = Exame.class, parentColumns = "id", childColumns = "exame", onDelete = ForeignKey.CASCADE, onUpdate = ForeignKey.CASCADE)}, indices = {@Index(name = "idx_ombro_exame", value = {"exame"})})
+@Entity(foreignKeys = {@ForeignKey(entity = Exame.class, parentColumns = "id", childColumns = "exame", onDelete = ForeignKey.CASCADE, onUpdate = ForeignKey.CASCADE)}, indices = {@Index(name = "idx_punho_exame", value = {"exame"})})
 public class Punho {
     @PrimaryKey()
     private @NonNull

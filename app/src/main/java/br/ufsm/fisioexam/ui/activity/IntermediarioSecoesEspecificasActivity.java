@@ -2,9 +2,9 @@ package br.ufsm.fisioexam.ui.activity;
 
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_EXAME;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_SECAO;
-import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.TIPO_COTOVELO;
-import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.TIPO_OMBRO;
-import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.TIPO_PUNHO;
+import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_COTOVELO;
+import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_OMBRO;
+import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_PUNHO;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -99,15 +99,15 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
     private void testesEspeciais() {
         tipo = exame.getTipo();
         switch (tipo) {
-            case TIPO_OMBRO:
+            case CHAVE_TIPO_OMBRO:
                 Ombro ombro = getOmbro();
                 vaiParaSecaoEspecifica(ombro.getId(), SecaoTestesEspeciaisOmbroActivity.class);
                 break;
-            case TIPO_COTOVELO:
+            case CHAVE_TIPO_COTOVELO:
                 Cotovelo cotovelo = getCotovelo();
                 vaiParaSecaoEspecifica(cotovelo.getId(), SecaoTestesEspeciaisCotoveloActivity.class);
                 break;
-            case TIPO_PUNHO:
+            case CHAVE_TIPO_PUNHO:
                 Punho punho = getPunho();
                 vaiParaSecaoEspecifica(punho.getId(), SecaoTestesEspeciaisPunhoActivity.class);
         }
@@ -122,15 +122,15 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
     private void sensibilidade() {
         tipo = exame.getTipo();
         switch (tipo) {
-            case TIPO_OMBRO:
+            case CHAVE_TIPO_OMBRO:
                 Ombro ombro = getOmbro();
                 vaiParaSecaoEspecifica(ombro.getId(), SecaoSensibilidadeOmbroActivity.class);
                 break;
-            case TIPO_COTOVELO:
+            case CHAVE_TIPO_COTOVELO:
                 Cotovelo cotovelo = getCotovelo();
                 vaiParaSecaoEspecifica(cotovelo.getId(), SecaoSensibilidadeCotoveloActivity.class);
                 break;
-            case TIPO_PUNHO:
+            case CHAVE_TIPO_PUNHO:
                 Punho punho = getPunho();
                 vaiParaSecaoEspecifica(punho.getId(), SecaoSensibilidadePunhoActivity.class);
                 break;
@@ -140,15 +140,15 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
     private void forcaMuscular() {
         tipo = exame.getTipo();
         switch (tipo) {
-            case TIPO_OMBRO:
+            case CHAVE_TIPO_OMBRO:
                 Ombro ombro = getOmbro();
                 vaiParaSecaoEspecifica(ombro.getId(), SecaoForcaMuscularOmbroActivity.class);
                 break;
-            case TIPO_COTOVELO:
+            case CHAVE_TIPO_COTOVELO:
                 Cotovelo cotovelo = getCotovelo();
                 vaiParaSecaoEspecifica(cotovelo.getId(), SecaoForcaMuscularCotoveloActivity.class);
                 break;
-            case TIPO_PUNHO:
+            case CHAVE_TIPO_PUNHO:
                 Punho punho = getPunho();
                 vaiParaSecaoEspecifica(punho.getId(), SecaoForcaMuscularPunhoActivity.class);
                 break;
@@ -158,15 +158,15 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
     private void perimetria() {
         tipo = exame.getTipo();
         switch (tipo) {
-            case TIPO_OMBRO:
+            case CHAVE_TIPO_OMBRO:
                 Ombro ombro = getOmbro();
                 vaiParaSecaoEspecifica(ombro.getId(), SecaoPerimetriaOmbroActivity.class);
                 break;
-            case TIPO_COTOVELO:
+            case CHAVE_TIPO_COTOVELO:
                 Cotovelo cotovelo = getCotovelo();
                 vaiParaSecaoEspecifica(cotovelo.getId(), SecaoPerimetriaCotoveloActivity.class);
                 break;
-            case TIPO_PUNHO:
+            case CHAVE_TIPO_PUNHO:
                 Punho punho = getPunho();
                 vaiParaSecaoEspecifica(punho.getId(), SecaoPerimetriaPunhoActivity.class);
                 break;
@@ -176,15 +176,15 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
     private void amplitudeMovimento() {
         tipo = exame.getTipo();
         switch (tipo) {
-            case TIPO_OMBRO:
+            case CHAVE_TIPO_OMBRO:
                 Ombro ombro = getOmbro();
                 vaiParaSecaoEspecifica(ombro.getId(), SecaoAmplitudeMovimentoOmbroActivity.class);
                 break;
-            case TIPO_COTOVELO:
+            case CHAVE_TIPO_COTOVELO:
                 Cotovelo cotovelo = getCotovelo();
                 vaiParaSecaoEspecifica(cotovelo.getId(), SecaoAmplitudeMovimentoCotoveloActivity.class);
                 break;
-            case TIPO_PUNHO:
+            case CHAVE_TIPO_PUNHO:
                 Punho punho = getPunho();
                 vaiParaSecaoEspecifica(punho.getId(), SecaoAmplitudeMovimentoPunhoActivity.class);
                 break;

@@ -30,6 +30,9 @@ public interface CotoveloDAO {
     @Query("SELECT * FROM cotovelo")
     List<Cotovelo> getAllCotovelos();
 
+    @Insert
+    void insertAllCotovelos(List<Cotovelo> cotovelos);
+
     @Query("SELECT id FROM cotovelo WHERE exame LIKE :registro")
     String getIdCotoveloPeloExame(String registro);
 

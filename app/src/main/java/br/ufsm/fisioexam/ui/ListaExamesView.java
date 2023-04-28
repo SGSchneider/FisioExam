@@ -6,8 +6,6 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import java.lang.String;
-
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.ExameDAO;
 import br.ufsm.fisioexam.model.Exame;
@@ -15,7 +13,7 @@ import br.ufsm.fisioexam.ui.adapter.ListaExamesAdapter;
 
 public class ListaExamesView {
     private final ListaExamesAdapter adapter;
-    private final ExameDAO dao;
+    private final ExameDAO exameDAO;
     private final Context context;
     private final String id_paciente;
 
@@ -23,7 +21,7 @@ public class ListaExamesView {
         this.context = context;
         this.adapter = new ListaExamesAdapter(context);
         this.id_paciente = id_paciente;
-        dao = FisioExamDatabase.getInstance(context).getRoomExameDAO();
+        exameDAO = FisioExamDatabase.getInstance(context).getRoomExameDAO();
     }
 
     public void confirmaRemocao(final MenuItem item) {
@@ -40,12 +38,16 @@ public class ListaExamesView {
     }
 
     private void removeExame(Exame exame) {
-        dao.remove(exame);
+        ExclusorDeDados exclusor = new ExclusorDeDados(context);
+        exclusor.ExcluiExame(exame.getId());
+        exclusor.atualizaRemocoesDB();
+
+        exameDAO.remove(exame);
         adapter.remove(exame);
     }
 
     public void atualizaExames() {
-        adapter.atualiza(dao.todos(id_paciente));
+        adapter.atualiza(exameDAO.todos(id_paciente));
     }
 
     public void configuraAdapter(ListView listaDeExames) {

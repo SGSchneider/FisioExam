@@ -31,9 +31,9 @@ public interface ConstantesActivities {
     String AMASIADO = "Amasiado";
 
     //tipos de exames
-    String TIPO_OMBRO = "Ombro";
-    String TIPO_COTOVELO = "Cotovelo";
-    String TIPO_PUNHO = "Punho";
+    String CHAVE_TIPO_OMBRO = "Ombro";
+    String CHAVE_TIPO_COTOVELO = "Cotovelo";
+    String CHAVE_TIPO_PUNHO = "Punho";
     String CHAVE_TIPO_VAZIO = "";
 
     //Chaves Valores Exames

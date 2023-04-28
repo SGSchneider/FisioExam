@@ -3,8 +3,8 @@ package br.ufsm.fisioexam.ui.activity;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_EXAME;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_ID_PACIENTE;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_EXAME;
-import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.TIPO_COTOVELO;
-import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.TIPO_OMBRO;
+import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_COTOVELO;
+import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_OMBRO;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -58,10 +58,10 @@ public class ListaExamesActivity extends AppCompatActivity {
             boolean b = true;
             switch (item.getItemId()) {
                 case R.id.activity_lista_exames_menu_add_exame_cotovelo:
-                    abreFormularioModoNovoExame(TIPO_COTOVELO);
+                    abreFormularioModoNovoExame(CHAVE_TIPO_COTOVELO);
                     return b;
                 case R.id.activity_lista_exames_menu_add_exame_ombro:
-                    abreFormularioModoNovoExame(TIPO_OMBRO);
+                    abreFormularioModoNovoExame(CHAVE_TIPO_OMBRO);
                     return b;
 
                 default:

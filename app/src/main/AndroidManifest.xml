@@ -52,6 +52,11 @@
         <activity android:name=".ui.activity.SecaoForcaMuscularCotoveloActivity"/>
         <activity android:name=".ui.activity.SecaoSensibilidadeCotoveloActivity"/>
         <activity android:name=".ui.activity.SecaoTestesEspeciaisCotoveloActivity"/>
+        <activity android:name=".ui.activity.SecaoAmplitudeMovimentoPunhoActivity"/>
+        <activity android:name=".ui.activity.SecaoPerimetriaPunhoActivity"/>
+        <activity android:name=".ui.activity.SecaoForcaMuscularPunhoActivity"/>
+        <activity android:name=".ui.activity.SecaoSensibilidadePunhoActivity"/>
+        <activity android:name=".ui.activity.SecaoTestesEspeciaisPunhoActivity"/>
     </application>
 
 

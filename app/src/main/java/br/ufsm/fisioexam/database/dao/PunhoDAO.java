@@ -33,6 +33,9 @@ public interface PunhoDAO {
     @Query("SELECT id FROM punho WHERE exame LIKE :exame")
     String getIdPunhoPeloExame(String exame);
 
+    @Insert
+    void insertAllPunhos(List<Punho> punhos);
+
     @Query("SELECT * FROM punho WHERE id LIKE :registro")
     Punho  getPunho(String registro);
 }

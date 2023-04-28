@@ -15,13 +15,14 @@ import br.ufsm.fisioexam.ui.adapter.ListaPacientesAdapter;
 public class ListaPacientesView {
 
     private final ListaPacientesAdapter adapter;
-    private final PacienteDAO dao;
+    private final PacienteDAO pacienteDAO;
     private final Context context;
 
     public ListaPacientesView(Context context) {
         this.context = context;
         this.adapter = new ListaPacientesAdapter(context);
-        dao = FisioExamDatabase.getInstance(context).getRoomPacienteDAO();
+        pacienteDAO = FisioExamDatabase.getInstance(context).getRoomPacienteDAO();
+
     }
 
     public void confirmaRemocao(final MenuItem item) {
@@ -43,17 +44,20 @@ public class ListaPacientesView {
     }
 
     private void removePaciente(Paciente paciente) {
-        dao.remove(paciente);
+        ExclusorDeDados exclusor = new ExclusorDeDados(context);
+        exclusor.ExcluiPaciente(paciente.getId());
+        exclusor.atualizaRemocoesDB();
+        pacienteDAO.remove(paciente);
         adapter.remove(paciente);
     }
 
     public void atualizaPacientes() {
-        adapter.atualiza(dao.todos());
+        adapter.atualiza(pacienteDAO.todos());
     }
 
     public void configuraAdapter(ListView listaDePacientes) { listaDePacientes.setAdapter(this.adapter);}
 
     public void pesquisaPacientes(String pacientes){
-        adapter.atualiza(dao.pesquisa(pacientes));
+        adapter.atualiza(pacienteDAO.pesquisa(pacientes));
     }
 }
