@@ -132,8 +132,12 @@
             <com.google.android.exoplayer2.ui.StyledPlayerView
                 android:id="@+id/activity_ajuda_amplitude_movimento_ombro_rotacao_medial_video"
                 android:layout_width="match_parent"
-                android:layout_height="184dp"
-                android:contentDescription="@string/video_demonstrativo"/>
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/video_demonstrativo"
+                android:layout_gravity="top"
+                app:resize_mode="fit"
+                app:show_timeout="0"
+                app:surface_type="texture_view"/>
 
 
         </LinearLayout>

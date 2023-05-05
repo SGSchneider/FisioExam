@@ -2,6 +2,9 @@ package br.ufsm.fisioexam.ui.activity;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.view.Display;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.annotation.Nullable;
@@ -31,6 +34,16 @@ public class AjudaAmplitudeMovimentoOmbroAducaoHorizontalActivity extends AppCom
 
     private void rodaVideoEmLoop() {
         StyledPlayerView video = findViewById(R.id.activity_ajuda_amplitude_movimento_ombro_aducao_horizontal_video);
+
+        Display display = getWindowManager().getDefaultDisplay();
+        DisplayMetrics size = new DisplayMetrics();
+        display.getMetrics(size);
+        int width = size.widthPixels;
+        int height = (int) (width * (9.0f / 16.0f)); // assumindo uma proporção de aspecto de 16:9
+        ViewGroup.LayoutParams params = (ViewGroup.LayoutParams) video.getLayoutParams();
+        params.width = width;
+        params.height = height;
+        video.setLayoutParams(params);
 
         exoPlayer = new ExoPlayer.Builder(this).build();
 
