@@ -5,13 +5,12 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class FirebaseHelper {
     private static FirebaseHelper instance;
-    private DatabaseReference databaseReference;
-    private DatabaseReference calendarRef;
+    private final DatabaseReference databaseReference;
+
 
     private FirebaseHelper() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference();
-        calendarRef = FirebaseDatabase.getInstance().getReference().child("calendar");
 
 
     }

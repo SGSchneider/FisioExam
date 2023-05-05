@@ -107,12 +107,12 @@ public class SecaoAmplitudeMovimentoOmbroActivity extends AppCompatActivity {
 
         salvarESair.setOnClickListener(v -> finalizaForm());
 
-        ajudaFlexao.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroFlexao.class));
-        ajudaAbducao.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroAbducao.class));
-        ajudaAducaoHorizontal.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroAducaoHorizontal.class));
-        ajudaExtensao.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroExtensao.class));
-        ajudaRotacaoLateral.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroRotacaoLateral.class));
-        ajudaRotacaoMedial.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroRotacaoMedial.class));
+        ajudaFlexao.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroFlexaoActivity.class));
+        ajudaAbducao.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroAbducaoActivity.class));
+        ajudaAducaoHorizontal.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroAducaoHorizontalActivity.class));
+        ajudaExtensao.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroExtensaoActivity.class));
+        ajudaRotacaoLateral.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroRotacaoLateralActivity.class));
+        ajudaRotacaoMedial.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroRotacaoMedialActivity.class));
     }
 
     private void vaiParaAjuda(Class<?> classe) {

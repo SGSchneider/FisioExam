@@ -82,57 +82,42 @@ public class SecaoSensibilidadeOmbroActivity extends AppCompatActivity {
         secoesDao.edita(secoes);
 
 
-        switch (campoTactil.getCheckedRadioButtonId()){
-            case(R.id.activity_secao_sensibilidade_ombro_radio_tactil_presente):
-                idTactil = CHAVE_PRESENTE;
-                break;
-            case(R.id.activity_secao_sensibilidade_ombro_radio_tactil_diminuida):
-                idTactil = CHAVE_DIMINUIDA;
-                break;
-            case(R.id.activity_secao_sensibilidade_ombro_radio_tactil_aumentada):
-                idTactil = CHAVE_AUMENTADA;
-                break;
-            case(R.id.activity_secao_sensibilidade_ombro_radio_tactil_ausente):
-                idTactil = CHAVE_AUSENTE;
-                break;
-            default:
-                idTactil = "";
+        if (campoTactil.getCheckedRadioButtonId() == R.id.activity_secao_sensibilidade_ombro_radio_tactil_presente) {
+            idTactil = CHAVE_PRESENTE;
+        } else if (campoTactil.getCheckedRadioButtonId() == R.id.activity_secao_sensibilidade_ombro_radio_tactil_diminuida) {
+            idTactil = CHAVE_DIMINUIDA;
+        } else if (campoTactil.getCheckedRadioButtonId() == R.id.activity_secao_sensibilidade_ombro_radio_tactil_aumentada) {
+            idTactil = CHAVE_AUMENTADA;
+        } else if (campoTactil.getCheckedRadioButtonId() == R.id.activity_secao_sensibilidade_ombro_radio_tactil_ausente) {
+            idTactil = CHAVE_AUSENTE;
+        } else {
+            idTactil = "";
         }
         ombro.setSensibilidadeTactil(idTactil);
 
-        switch (campoTermica.getCheckedRadioButtonId()){
-            case(R.id.activity_secao_sensibilidade_ombro_radio_termica_presente):
-                idTermica = CHAVE_PRESENTE;
-                break;
-            case(R.id.activity_secao_sensibilidade_ombro_radio_termica_diminuida):
-                idTermica = CHAVE_DIMINUIDA;
-                break;
-            case(R.id.activity_secao_sensibilidade_ombro_radio_termica_aumentada):
-                idTermica = CHAVE_AUMENTADA;
-                break;
-            case(R.id.activity_secao_sensibilidade_ombro_radio_termica_ausente):
-                idTermica = CHAVE_AUSENTE;
-                break;
-            default:
-                idTermica = "";
+        if (campoTermica.getCheckedRadioButtonId() == R.id.activity_secao_sensibilidade_ombro_radio_termica_presente) {
+            idTermica = CHAVE_PRESENTE;
+        } else if (campoTermica.getCheckedRadioButtonId() == R.id.activity_secao_sensibilidade_ombro_radio_termica_diminuida) {
+            idTermica = CHAVE_DIMINUIDA;
+        } else if (campoTermica.getCheckedRadioButtonId() == R.id.activity_secao_sensibilidade_ombro_radio_termica_aumentada) {
+            idTermica = CHAVE_AUMENTADA;
+        } else if (campoTermica.getCheckedRadioButtonId() == R.id.activity_secao_sensibilidade_ombro_radio_termica_ausente) {
+            idTermica = CHAVE_AUSENTE;
+        } else {
+            idTermica = "";
         }
         ombro.setSensibilidadeTermica(idTermica);
 
-        switch (campoDolorosa.getCheckedRadioButtonId()){
-            case(R.id.activity_secao_sensibilidade_ombro_radio_dolorosa_presente):
-                idDolorosa = CHAVE_PRESENTE;
-                break;
-            case(R.id.activity_secao_sensibilidade_ombro_radio_dolorosa_diminuida):
-                idDolorosa = CHAVE_DIMINUIDA;
-                break;
-            case(R.id.activity_secao_sensibilidade_ombro_radio_dolorosa_aumentada):
-                idDolorosa = CHAVE_AUMENTADA;
-                break;
-            case(R.id.activity_secao_sensibilidade_ombro_radio_dolorosa_ausente):
-                idDolorosa = CHAVE_AUSENTE;
-                break;
-            default:
-                idDolorosa = "";
+        if (campoDolorosa.getCheckedRadioButtonId() == R.id.activity_secao_sensibilidade_ombro_radio_dolorosa_presente) {
+            idDolorosa = CHAVE_PRESENTE;
+        } else if (campoDolorosa.getCheckedRadioButtonId() == R.id.activity_secao_sensibilidade_ombro_radio_dolorosa_diminuida) {
+            idDolorosa = CHAVE_DIMINUIDA;
+        } else if (campoDolorosa.getCheckedRadioButtonId() == R.id.activity_secao_sensibilidade_ombro_radio_dolorosa_aumentada) {
+            idDolorosa = CHAVE_AUMENTADA;
+        } else if (campoDolorosa.getCheckedRadioButtonId() == R.id.activity_secao_sensibilidade_ombro_radio_dolorosa_ausente) {
+            idDolorosa = CHAVE_AUSENTE;
+        } else {
+            idDolorosa = "";
         }
         ombro.setSensibilidadeDolorosa(idDolorosa);
 

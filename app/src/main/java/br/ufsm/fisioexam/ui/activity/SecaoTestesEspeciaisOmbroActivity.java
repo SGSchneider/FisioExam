@@ -183,189 +183,145 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
 
     private void setaJobe() {
         String idJobe;
-        switch (radioJobe.getCheckedRadioButtonId()) {
-            case (R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_jobe):
-                idJobe = CHAVE_DIR_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_jobe):
-                idJobe = CHAVE_DIR_MENOS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_jobe):
-                idJobe = CHAVE_ESQ_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_jobe):
-                idJobe = CHAVE_ESQ_MENOS;
-                break;
-            default:
-                idJobe = "";
+
+        if (radioJobe.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_jobe) {
+            idJobe = CHAVE_DIR_MAIS;
+        } else if (radioJobe.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_jobe) {
+            idJobe = CHAVE_DIR_MENOS;
+        } else if (radioJobe.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_jobe) {
+            idJobe = CHAVE_ESQ_MAIS;
+        } else if (radioJobe.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_jobe) {
+            idJobe = CHAVE_ESQ_MENOS;
+        } else {
+            idJobe = "";
         }
         ombro.setJobe(idJobe);
     }
 
     private void setaPatte() {
         String idPatte;
-        switch (radioPatte.getCheckedRadioButtonId()) {
-            case (R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_patte):
-                idPatte = CHAVE_DIR_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_patte):
-                idPatte = CHAVE_DIR_MENOS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_patte):
-                idPatte = CHAVE_ESQ_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_patte):
-                idPatte = CHAVE_ESQ_MENOS;
-                break;
-            default:
-                idPatte = "";
+        if (radioPatte.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_patte) {
+            idPatte = CHAVE_DIR_MAIS;
+        } else if (radioPatte.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_patte) {
+            idPatte = CHAVE_DIR_MENOS;
+        } else if (radioPatte.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_patte) {
+            idPatte = CHAVE_ESQ_MAIS;
+        } else if (radioPatte.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_patte) {
+            idPatte = CHAVE_ESQ_MENOS;
+        } else {
+            idPatte = "";
         }
         ombro.setPatte(idPatte);
     }
 
     private void setaGerber() {
         String idGerber;
-        switch (radioGerber.getCheckedRadioButtonId()) {
-            case (R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_gerber):
-                idGerber = CHAVE_DIR_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_gerber):
-                idGerber = CHAVE_DIR_MENOS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_gerber):
-                idGerber = CHAVE_ESQ_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_gerber):
-                idGerber = CHAVE_ESQ_MENOS;
-                break;
-            default:
-                idGerber = "";
+        if (radioGerber.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_gerber) {
+            idGerber = CHAVE_DIR_MAIS;
+        } else if (radioGerber.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_gerber) {
+            idGerber = CHAVE_DIR_MENOS;
+        } else if (radioGerber.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_gerber) {
+            idGerber = CHAVE_ESQ_MAIS;
+        } else if (radioGerber.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_gerber) {
+            idGerber = CHAVE_ESQ_MENOS;
+        } else {
+            idGerber = "";
         }
         ombro.setGerberLiffOff(idGerber);
     }
 
     private void setaNeer() {
         String idNeer;
-        switch (radioNeer.getCheckedRadioButtonId()) {
-            case (R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_neer):
-                idNeer = CHAVE_DIR_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_neer):
-                idNeer = CHAVE_DIR_MENOS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_neer):
-                idNeer = CHAVE_ESQ_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_neer):
-                idNeer = CHAVE_ESQ_MENOS;
-                break;
-            default:
-                idNeer = "";
+        if (radioNeer.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_neer) {
+            idNeer = CHAVE_DIR_MAIS;
+        } else if (radioNeer.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_neer) {
+            idNeer = CHAVE_DIR_MENOS;
+        } else if (radioNeer.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_neer) {
+            idNeer = CHAVE_ESQ_MAIS;
+        } else if (radioNeer.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_neer) {
+            idNeer = CHAVE_ESQ_MENOS;
+        } else {
+            idNeer = "";
         }
         ombro.setNeer(idNeer);
     }
 
     private void setaHawkins() {
         String idHawkins;
-        switch (radioHawkins.getCheckedRadioButtonId()) {
-            case (R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_hk):
-                idHawkins = CHAVE_DIR_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_hk):
-                idHawkins = CHAVE_DIR_MENOS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_hk):
-                idHawkins = CHAVE_ESQ_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_hk):
-                idHawkins = CHAVE_ESQ_MENOS;
-                break;
-            default:
-                idHawkins = "";
+        if (radioHawkins.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_hk) {
+            idHawkins = CHAVE_DIR_MAIS;
+        } else if (radioHawkins.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_hk) {
+            idHawkins = CHAVE_DIR_MENOS;
+        } else if (radioHawkins.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_hk) {
+            idHawkins = CHAVE_ESQ_MAIS;
+        } else if (radioHawkins.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_hk) {
+            idHawkins = CHAVE_ESQ_MENOS;
+        } else {
+            idHawkins = "";
         }
         ombro.setHawkins(idHawkins);
     }
 
     private void setaSpeed() {
         String idSpeed;
-        switch (radioSpeed.getCheckedRadioButtonId()) {
-            case (R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_speed):
-                idSpeed = CHAVE_DIR_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_speed):
-                idSpeed = CHAVE_DIR_MENOS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_speed):
-                idSpeed = CHAVE_ESQ_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_speed):
-                idSpeed = CHAVE_ESQ_MENOS;
-                break;
-            default:
-                idSpeed = "";
+        if (radioSpeed.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_speed) {
+            idSpeed = CHAVE_DIR_MAIS;
+        } else if (radioSpeed.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_speed) {
+            idSpeed = CHAVE_DIR_MENOS;
+        } else if (radioSpeed.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_speed) {
+            idSpeed = CHAVE_ESQ_MAIS;
+        } else if (radioSpeed.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_speed) {
+            idSpeed = CHAVE_ESQ_MENOS;
+        } else {
+            idSpeed = "";
         }
         ombro.setPalmUpSpeed(idSpeed);
     }
 
     private void setaYergason() {
         String idYergason;
-        switch (radioYergason.getCheckedRadioButtonId()) {
-            case (R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_yergason):
-                idYergason = CHAVE_DIR_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_yergason):
-                idYergason = CHAVE_DIR_MENOS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_yergason):
-                idYergason = CHAVE_ESQ_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_yergason):
-                idYergason = CHAVE_ESQ_MENOS;
-                break;
-            default:
-                idYergason = "";
+        if (radioYergason.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_yergason) {
+            idYergason = CHAVE_DIR_MAIS;
+        } else if (radioYergason.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_yergason) {
+            idYergason = CHAVE_DIR_MENOS;
+        } else if (radioYergason.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_yergason) {
+            idYergason = CHAVE_ESQ_MAIS;
+        } else if (radioYergason.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_yergason) {
+            idYergason = CHAVE_ESQ_MENOS;
+        } else {
+            idYergason = "";
         }
         ombro.setYergason(idYergason);
     }
 
     private void setaApreensao() {
         String idApreensao;
-        switch (radioApreensao.getCheckedRadioButtonId()) {
-            case (R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_apreensao_anterior):
-                idApreensao = CHAVE_DIR_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_apreensao_anterior):
-                idApreensao = CHAVE_DIR_MENOS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_apreensao_anterior):
-                idApreensao = CHAVE_ESQ_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_apreensao_anterior):
-                idApreensao = CHAVE_ESQ_MENOS;
-                break;
-            default:
-                idApreensao = "";
+        if (radioApreensao.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_apreensao_anterior) {
+            idApreensao = CHAVE_DIR_MAIS;
+        } else if (radioApreensao.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_apreensao_anterior) {
+            idApreensao = CHAVE_DIR_MENOS;
+        } else if (radioApreensao.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_apreensao_anterior) {
+            idApreensao = CHAVE_ESQ_MAIS;
+        } else if (radioApreensao.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_apreensao_anterior) {
+            idApreensao = CHAVE_ESQ_MENOS;
+        } else {
+            idApreensao = "";
         }
         ombro.setApreensaoAnterior(idApreensao);
     }
 
     private void setaSinalSulco() {
         String idSinalSulco;
-        switch (radioSinalSulco.getCheckedRadioButtonId()) {
-            case (R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_sinal_de_sulco):
-                idSinalSulco = CHAVE_DIR_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_sinal_de_sulco):
-                idSinalSulco = CHAVE_DIR_MENOS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_sinal_de_sulco):
-                idSinalSulco = CHAVE_ESQ_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_sinal_de_sulco):
-                idSinalSulco = CHAVE_ESQ_MENOS;
-                break;
-            default:
-                idSinalSulco = "";
+        if (radioSinalSulco.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_sinal_de_sulco) {
+            idSinalSulco = CHAVE_DIR_MAIS;
+        } else if (radioSinalSulco.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_sinal_de_sulco) {
+            idSinalSulco = CHAVE_DIR_MENOS;
+        } else if (radioSinalSulco.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_sinal_de_sulco) {
+            idSinalSulco = CHAVE_ESQ_MAIS;
+        } else if (radioSinalSulco.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_sinal_de_sulco) {
+            idSinalSulco = CHAVE_ESQ_MENOS;
+        } else {
+            idSinalSulco = "";
         }
         ombro.setSinalSulco(idSinalSulco);
     }
@@ -392,7 +348,7 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
     }
 
     private void preencheFormulario() {
-        if(secoes.isTestesEspeciais()){
+        if (secoes.isTestesEspeciais()) {
             dataDash.setTimeInMillis(ombro.getDashData());
             dataAses.setTimeInMillis(ombro.getAsesData());
 
@@ -400,55 +356,64 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
                     R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_jobe,
                     R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_jobe,
                     R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_jobe,
-                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_jobe);
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_jobe,
+                    radioJobe);
 
             getDadosRadio(ombro.getPatte(),
                     R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_patte,
                     R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_patte,
                     R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_patte,
-                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_patte);
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_patte,
+                    radioPatte);
 
             getDadosRadio(ombro.getGerberLiffOff(),
                     R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_gerber,
                     R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_gerber,
                     R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_gerber,
-                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_gerber);
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_gerber,
+                    radioGerber);
 
             getDadosRadio(ombro.getNeer(),
                     R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_neer,
                     R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_neer,
                     R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_neer,
-                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_neer);
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_neer,
+                    radioNeer);
 
             getDadosRadio(ombro.getHawkins(),
                     R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_hk,
                     R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_hk,
                     R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_hk,
-                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_hk);
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_hk,
+                    radioHawkins);
 
             getDadosRadio(ombro.getPalmUpSpeed(),
                     R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_speed,
                     R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_speed,
                     R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_speed,
-                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_speed);
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_speed,
+                    radioSpeed);
 
             getDadosRadio(ombro.getYergason(),
                     R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_yergason,
                     R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_yergason,
                     R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_yergason,
-                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_yergason);
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_yergason,
+                    radioYergason);
 
             getDadosRadio(ombro.getApreensaoAnterior(),
                     R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_apreensao_anterior,
                     R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_apreensao_anterior,
                     R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_apreensao_anterior,
-                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_apreensao_anterior);
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_apreensao_anterior,
+                    radioApreensao);
 
             getDadosRadio(ombro.getSinalSulco(),
                     R.id.activity_secao_testes_especiais_ombro_radio_direita_mais_sinal_de_sulco,
                     R.id.activity_secao_testes_especiais_ombro_radio_direita_menos_sinal_de_sulco,
                     R.id.activity_secao_testes_especiais_ombro_radio_esquerda_mais_sinal_de_sulco,
-                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_sinal_de_sulco);
+                    R.id.activity_secao_testes_especiais_ombro_radio_esquerda_menos_sinal_de_sulco,
+                    radioSinalSulco);
 
             atualizaDataDash();
             campoPontoDash.setText(ombro.getDashPontuacao());
@@ -460,20 +425,20 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
         }
     }
 
-    private void getDadosRadio(@Nullable String radio, int idDM, int idDm, int idEM, int idEm) {
-        if(radio != null){
-            switch (radio){
+    private void getDadosRadio(@Nullable String radioChecked, int idDM, int idDm, int idEM, int idEm, RadioGroup radio) {
+        if (radioChecked != null) {
+            switch (radioChecked) {
                 case CHAVE_DIR_MAIS:
-                    radioJobe.check(idDM);
+                    radio.check(idDM);
                     break;
                 case CHAVE_DIR_MENOS:
-                    radioJobe.check(idDm);
+                    radio.check(idDm);
                     break;
                 case CHAVE_ESQ_MAIS:
-                    radioJobe.check(idEM);
+                    radio.check(idEM);
                     break;
                 case CHAVE_ESQ_MENOS:
-                    radioJobe.check(idEm);
+                    radio.check(idEm);
                     break;
             }
         }

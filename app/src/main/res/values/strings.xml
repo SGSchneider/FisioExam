@@ -269,4 +269,22 @@
     <string name="extensor_ulnar_punho">Extensor Ulnar do Carpo (extensão de punho e desvio ulnar)</string>
     <string name="carregando">Carregando</string>
     <string name="ajuda">Ajuda</string>
+    <string name="sair">Sair</string>
+    <string name="movimento">Movimento :</string>
+    <string name="posicao_do_paciente">Posição do Paciente :</string>
+    <string name="sentado">Sentado</string>
+    <string name="eixo">Eixo :</string>
+    <string name="eixo_articular">Eixo articular (cabeça do úmero lateralmente)</string>
+    <string name="braco_fixo">Braço Fixo :</string>
+    <string name="linha_media_lateral_do_tronco">Linha média lateral do tronco</string>
+    <string name="braco_movel">Braço Móvel :</string>
+    <string name="paralelo_ao_umero">Paralelo ao úmero</string>
+    <string name="video_demonstrativo">Vídeo Demonstrativo</string>
+    <string name="parte_superior_do_acromio">Parte superior do acrômio</string>
+    <string name="paralelo_linha_media_do_tronco">Paralelo à linha média do tronco</string>
+    <string name="parte_lateral_do_torax">Parte lateral do tórax, paralelo à coluna vertebral</string>
+    <string name="decubito_dorsal">Decúbito dorsal</string>
+    <string name="no_olecrano">No olécrano</string>
+    <string name="paralelo_maca">Paralelo à maca</string>
+    <string name="paralelo_ulna">Paralelo à ulna</string>
 </resources>

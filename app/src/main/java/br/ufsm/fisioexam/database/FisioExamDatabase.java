@@ -24,7 +24,7 @@ import br.ufsm.fisioexam.model.Punho;
 import br.ufsm.fisioexam.model.Secoes;
 
 
-@Database(entities = {Paciente.class, Exame.class, Secoes.class, Ombro.class, Cotovelo.class, LoginInfo.class, Punho.class, Exclusoes.class}, version = 37, exportSchema = false)
+@Database(entities = {Paciente.class, Exame.class, Secoes.class, Ombro.class, Cotovelo.class, LoginInfo.class, Punho.class, Exclusoes.class}, version = 38, exportSchema = false)
 public abstract class FisioExamDatabase extends RoomDatabase {
 
     private static final String NOME_DATABASE = "fisioExam.db";

@@ -2,11 +2,10 @@ package br.ufsm.fisioexam.ui.activity;
 
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_EXAME;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_ID_PACIENTE;
-import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_EXAME;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_COTOVELO;
+import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_EXAME;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_OMBRO;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -49,23 +48,21 @@ public class ListaExamesActivity extends AppCompatActivity {
 
     private void configuraFabNovoExame() {
         FloatingActionButton botaoNovoExame = findViewById(R.id.activity_lista_exames_fab_novo_exame);
+        botaoNovoExame.setOnClickListener(this::showPopup);
     }
 
-    @SuppressLint("NonConstantResourceId")
     public void showPopup(View v) {
         PopupMenu popup = new PopupMenu(this, v);
         popup.setOnMenuItemClickListener(item -> {
             boolean b = true;
-            switch (item.getItemId()) {
-                case R.id.activity_lista_exames_menu_add_exame_cotovelo:
-                    abreFormularioModoNovoExame(CHAVE_TIPO_COTOVELO);
-                    return b;
-                case R.id.activity_lista_exames_menu_add_exame_ombro:
-                    abreFormularioModoNovoExame(CHAVE_TIPO_OMBRO);
-                    return b;
-
-                default:
-                    return false;
+            if (item.getItemId() == R.id.activity_lista_exames_menu_add_exame_cotovelo) {
+                abreFormularioModoNovoExame(CHAVE_TIPO_COTOVELO);
+                return b;
+            } else if (item.getItemId() == R.id.activity_lista_exames_menu_add_exame_ombro) {
+                abreFormularioModoNovoExame(CHAVE_TIPO_OMBRO);
+                return b;
+            } else {
+                return false;
             }
         });
         popup.inflate(R.menu.activity_lista_exames_add_exame);

@@ -3,6 +3,7 @@ package br.ufsm.fisioexam.model;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
@@ -64,6 +65,11 @@ public class Secoes implements Serializable {
         this.diagnosticoFisio = false;
         this.objetivosTratamento = false;
         this.planoTratamento = false;
+    }
+
+    @Ignore
+    public Secoes(){
+        id = "";
     }
 
     @NonNull

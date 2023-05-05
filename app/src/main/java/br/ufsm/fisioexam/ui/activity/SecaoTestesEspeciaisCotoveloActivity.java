@@ -176,20 +176,20 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
 
     private void setaCozen() {
         String idCozen;
-        switch (radioCozen.getCheckedRadioButtonId()) {
-            case (R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_cozen):
+        
+            if(radioCozen.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_cozen){
                 idCozen = CHAVE_DIR_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_cozen):
+                } else
+            if(radioCozen.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_cozen){
                 idCozen = CHAVE_DIR_MENOS;
-                break;
-            case (R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_cozen):
+                } else
+            if(radioCozen.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_cozen){
                 idCozen = CHAVE_ESQ_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_cozen):
+                } else
+            if(radioCozen.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_cozen){
                 idCozen = CHAVE_ESQ_MENOS;
-                break;
-            default:
+                } else
+            {
                 idCozen = "";
         }
         cotovelo.setTesteCozen(idCozen);
@@ -197,20 +197,19 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
 
     private void setaCotoveloGolfista() {
         String idCotoveloGolfista;
-        switch (radioCotoveloGolfista.getCheckedRadioButtonId()) {
-            case (R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_teste_golfista):
+            if(radioCotoveloGolfista.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_teste_golfista){
                 idCotoveloGolfista = CHAVE_DIR_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_teste_golfista):
+                } else
+            if(radioCotoveloGolfista.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_teste_golfista){
                 idCotoveloGolfista = CHAVE_DIR_MENOS;
-                break;
-            case (R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_teste_golfista):
+                } else
+            if(radioCotoveloGolfista.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_teste_golfista){
                 idCotoveloGolfista = CHAVE_ESQ_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_teste_golfista):
+                } else
+            if(radioCotoveloGolfista.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_teste_golfista){
                 idCotoveloGolfista = CHAVE_ESQ_MENOS;
-                break;
-            default:
+                } else
+            {
                 idCotoveloGolfista = "";
         }
         cotovelo.setTesteCotoveloGolfista(idCotoveloGolfista);
@@ -218,20 +217,19 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
 
     private void setaSinalTinel() {
         String idSinalTinel;
-        switch (radioSinalTinel.getCheckedRadioButtonId()) {
-            case (R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_tinel):
+            if(radioSinalTinel.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_tinel){
                 idSinalTinel = CHAVE_DIR_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_tinel):
+                } else
+            if(radioSinalTinel.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_tinel){
                 idSinalTinel = CHAVE_DIR_MENOS;
-                break;
-            case (R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_tinel):
+                } else
+            if(radioSinalTinel.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_tinel){
                 idSinalTinel = CHAVE_ESQ_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_tinel):
+                } else
+            if(radioSinalTinel.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_tinel){
                 idSinalTinel = CHAVE_ESQ_MENOS;
-                break;
-            default:
+                } else
+            {
                 idSinalTinel = "";
         }
         cotovelo.setSinalTinel(idSinalTinel);
@@ -239,20 +237,19 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
 
     private void setaLcl() {
         String idLcl;
-        switch (radioLcl.getCheckedRadioButtonId()) {
-            case (R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_lcl):
+            if(radioLcl.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_lcl){
                 idLcl = CHAVE_DIR_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_lcl):
+                } else
+            if(radioLcl.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_lcl){
                 idLcl = CHAVE_DIR_MENOS;
-                break;
-            case (R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_lcl):
+                } else
+            if(radioLcl.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_lcl){
                 idLcl = CHAVE_ESQ_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_lcl):
+                } else
+            if(radioLcl.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_lcl){
                 idLcl = CHAVE_ESQ_MENOS;
-                break;
-            default:
+                } else
+            {
                 idLcl = "";
         }
         cotovelo.setTesteEsforcoVaro(idLcl);
@@ -260,20 +257,19 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
 
     private void setaLcm() {
         String idLcm;
-        switch (radioLcm.getCheckedRadioButtonId()) {
-            case (R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_lcm):
+            if(radioLcm.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_lcm){
                 idLcm = CHAVE_DIR_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_lcm):
+                } else
+            if(radioLcm.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_lcm){
                 idLcm = CHAVE_DIR_MENOS;
-                break;
-            case (R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_lcm):
+                } else
+            if(radioLcm.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_lcm){
                 idLcm = CHAVE_ESQ_MAIS;
-                break;
-            case (R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_lcm):
+                } else
+            if(radioLcm.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_lcm){
                 idLcm = CHAVE_ESQ_MENOS;
-                break;
-            default:
+                } else
+            {
                 idLcm = "";
         }
         cotovelo.setTesteEsforcoValgo(idLcm);
@@ -306,31 +302,36 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
                     R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_cozen,
                     R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_cozen,
                     R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_cozen,
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_cozen);
+                    R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_cozen,
+                    radioCozen);
 
             getDadosRadio(cotovelo.getTesteCotoveloGolfista(),
                     R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_teste_golfista,
                     R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_teste_golfista,
                     R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_teste_golfista,
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_teste_golfista);
+                    R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_teste_golfista,
+                    radioCotoveloGolfista);
 
             getDadosRadio(cotovelo.getSinalTinel(),
                     R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_tinel,
                     R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_tinel,
                     R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_tinel,
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_tinel);
+                    R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_tinel,
+                    radioSinalTinel);
 
             getDadosRadio(cotovelo.getTesteEsforcoVaro(),
                     R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_lcl,
                     R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_lcl,
                     R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_lcl,
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_lcl);
+                    R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_lcl,
+                    radioLcl);
 
             getDadosRadio(cotovelo.getTesteEsforcoValgo(),
                     R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_lcm,
                     R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_lcm,
                     R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_lcm,
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_lcm);
+                    R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_lcm,
+                    radioLcm);
 
             atualizaDataDash();
             campoPontoDash.setText(cotovelo.getDashPontuacao());
@@ -342,20 +343,20 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
         }
     }
 
-    private void getDadosRadio(@Nullable String radio, int idDM, int idDm, int idEM, int idEm) {
-        if(radio != null){
-            switch (radio){
+    private void getDadosRadio(@Nullable String radioChecked, int idDM, int idDm, int idEM, int idEm, RadioGroup radio) {
+        if(radioChecked != null){
+            switch (radioChecked){
                 case CHAVE_DIR_MAIS:
-                    radioCozen.check(idDM);
+                    radio.check(idDM);
                     break;
                 case CHAVE_DIR_MENOS:
-                    radioCozen.check(idDm);
+                    radio.check(idDm);
                     break;
                 case CHAVE_ESQ_MAIS:
-                    radioCozen.check(idEM);
+                    radio.check(idEM);
                     break;
                 case CHAVE_ESQ_MENOS:
-                    radioCozen.check(idEm);
+                    radio.check(idEm);
                     break;
             }
         }

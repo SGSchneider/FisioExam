@@ -159,7 +159,7 @@ public class ConfiguracoesActivity extends AppCompatActivity {
         sincronizador.syncPacientes();
         sincronizador.syncExames();
         sincronizador.syncOmbros();
-        sincronizador.syncNow(firebase.getDatabaseReference());
+        sincronizador.syncNow();
     }
 
     private void inicializaBotoes() {

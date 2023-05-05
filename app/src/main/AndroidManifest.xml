@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.ufsm.fisioexam">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name ="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
@@ -57,6 +56,12 @@
         <activity android:name=".ui.activity.SecaoForcaMuscularPunhoActivity"/>
         <activity android:name=".ui.activity.SecaoSensibilidadePunhoActivity"/>
         <activity android:name=".ui.activity.SecaoTestesEspeciaisPunhoActivity"/>
+        <activity android:name=".ui.activity.AjudaAmplitudeMovimentoOmbroFlexaoActivity"/>
+        <activity android:name=".ui.activity.AjudaAmplitudeMovimentoOmbroExtensaoActivity"/>
+        <activity android:name=".ui.activity.AjudaAmplitudeMovimentoOmbroAbducaoActivity"/>
+        <activity android:name=".ui.activity.AjudaAmplitudeMovimentoOmbroAducaoHorizontalActivity"/>
+        <activity android:name=".ui.activity.AjudaAmplitudeMovimentoOmbroRotacaoLateralActivity"/>
+        <activity android:name=".ui.activity.AjudaAmplitudeMovimentoOmbroRotacaoMedialActivity"/>
     </application>
 
 

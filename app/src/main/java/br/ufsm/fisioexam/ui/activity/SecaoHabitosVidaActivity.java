@@ -90,17 +90,14 @@ public class SecaoHabitosVidaActivity extends AppCompatActivity {
         //Salva as alterações na variável
         int idMoradia;
         idMoradia = campoMoradia.getCheckedRadioButtonId();
-        switch (idMoradia) {
-            case (R.id.activity_secao_habitos_vida_radio_moradia_casa):
-                exame.setMoradia(CASA);
-                break;
-            case (R.id.activity_secao_habitos_vida_radio_moradia_apartamento):
-                exame.setMoradia(APTO);
-                break;
-            case (R.id.activity_secao_habitos_vida_radio_moradia_outra):
-                exame.setMoradia(campoOutraMoradia.getText().toString());
-                break;
+        if (idMoradia == R.id.activity_secao_habitos_vida_radio_moradia_casa) {
+            exame.setMoradia(CASA);
+        } else if (idMoradia == R.id.activity_secao_habitos_vida_radio_moradia_apartamento) {
+            exame.setMoradia(APTO);
+        } else if (idMoradia == R.id.activity_secao_habitos_vida_radio_moradia_outra) {
+            exame.setMoradia(campoOutraMoradia.getText().toString());
         }
+
 
         exame.setTabagista(campoTabagista.isChecked());
         if (exame.isTabagista()) {

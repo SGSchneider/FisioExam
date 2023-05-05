@@ -2,6 +2,7 @@ package br.ufsm.fisioexam.ui;
 
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_EXAME;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_PACIENTE;
+import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_SECAO;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_COTOVELO;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_OMBRO;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_PUNHO;
@@ -23,7 +24,7 @@ import br.ufsm.fisioexam.model.Exclusoes;
 import br.ufsm.fisioexam.model.Paciente;
 
 public class ExclusorDeDados {
-    private List<Exclusoes> exclusoes;
+    private final List<Exclusoes> exclusoes;
     private final FisioExamDatabase database;
 
 
@@ -60,6 +61,7 @@ public class ExclusorDeDados {
                 exclusoes.add(new Exclusoes(punhoDAO.getIdPunhoPeloExame(exame.getId()), CHAVE_TIPO_PUNHO));
                 break;
         }
+        exclusoes.add(new Exclusoes(key,CHAVE_SECAO));
         exclusoes.add(new Exclusoes(exame.getId(), CHAVE_EXAME));
     }
 
