@@ -36,14 +36,33 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/flexao"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:text="@string/flexao"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"/>
+                <ImageButton
+                    android:id="@+id/activity_secao_amplitude_movimento_ombro_button_help_flexao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:src="@drawable/ic_action_help"
+                    android:contentDescription="@string/ajuda"
+                    android:backgroundTint="#0000"
+                    android:scaleY="1.5"
+                    android:scaleX="1.5"/>
+            </LinearLayout>
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -125,14 +144,32 @@
                 android:importantForAutofill="no"
                 android:inputType="text" />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/extensao"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:text="@string/extensao"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"/>
+                <ImageButton
+                    android:id="@+id/activity_secao_amplitude_movimento_ombro_button_help_extensao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:src="@drawable/ic_action_help"
+                    android:contentDescription="@string/ajuda"
+                    android:backgroundTint="#0000"
+                    android:scaleY="1.5"
+                    android:scaleX="1.5"/>
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -214,14 +251,32 @@
                 android:importantForAutofill="no"
                 android:inputType="text" />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/abducao"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:text="@string/abducao"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"/>
+                <ImageButton
+                    android:id="@+id/activity_secao_amplitude_movimento_ombro_button_help_abducao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:src="@drawable/ic_action_help"
+                    android:contentDescription="@string/ajuda"
+                    android:backgroundTint="#0000"
+                    android:scaleY="1.5"
+                    android:scaleX="1.5"/>
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -304,14 +359,32 @@
                 android:inputType="text" />
 
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/aducao_horizontal"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:text="@string/aducao_horizontal"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"/>
+                <ImageButton
+                    android:id="@+id/activity_secao_amplitude_movimento_ombro_button_help_aducao_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:src="@drawable/ic_action_help"
+                    android:contentDescription="@string/ajuda"
+                    android:backgroundTint="#0000"
+                    android:scaleY="1.5"
+                    android:scaleX="1.5"/>
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -393,14 +466,32 @@
                 android:importantForAutofill="no"
                 android:inputType="text" />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/rotacao_medial"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:text="@string/rotacao_medial"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"/>
+                <ImageButton
+                    android:id="@+id/activity_secao_amplitude_movimento_ombro_button_help_rotacao_medial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:src="@drawable/ic_action_help"
+                    android:contentDescription="@string/ajuda"
+                    android:backgroundTint="#0000"
+                    android:scaleY="1.5"
+                    android:scaleX="1.5"/>
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -482,14 +573,32 @@
                 android:importantForAutofill="no"
                 android:inputType="text" />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/rotacao_lateral"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:text="@string/rotacao_lateral"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"/>
+                <ImageButton
+                    android:id="@+id/activity_secao_amplitude_movimento_ombro_button_help_rotacao_lateral"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:src="@drawable/ic_action_help"
+                    android:contentDescription="@string/ajuda"
+                    android:backgroundTint="#0000"
+                    android:scaleY="1.5"
+                    android:scaleX="1.5"/>
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"

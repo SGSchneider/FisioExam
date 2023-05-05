@@ -241,7 +241,7 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         return punho;
     }
 
-    private void vaiParaSecaoEspecifica(String chave, Class secao) {
+    private void vaiParaSecaoEspecifica(String chave, Class<?> secao) {
         Intent vaiParaFormularioSecaoEspecificaActivity = new Intent(this, secao);
         adicionaChaveTipo(vaiParaFormularioSecaoEspecificaActivity, chave);
         startActivity(vaiParaFormularioSecaoEspecificaActivity);

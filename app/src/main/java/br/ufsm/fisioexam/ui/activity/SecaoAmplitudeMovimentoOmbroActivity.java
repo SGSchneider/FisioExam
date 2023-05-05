@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,6 +54,13 @@ public class SecaoAmplitudeMovimentoOmbroActivity extends AppCompatActivity {
     private CheckBox campoGrauAlteracaoIII;
     private Button proximo;
     private Button salvarESair;
+    private ImageButton ajudaFlexao;
+    private ImageButton ajudaExtensao;
+    private ImageButton ajudaAbducao;
+    private ImageButton ajudaAducaoHorizontal;
+    private ImageButton ajudaRotacaoMedial;
+    private ImageButton ajudaRotacaoLateral;
+
     private Ombro ombro;
     private OmbroDAO ombroDao;
     private Secoes secoes;
@@ -83,6 +91,14 @@ public class SecaoAmplitudeMovimentoOmbroActivity extends AppCompatActivity {
     private void inicializaBotoes() {
         proximo = findViewById(R.id.activity_secao_amplitude_movimento_ombro_button_proximo);
         salvarESair = findViewById(R.id.activity_secao_amplitude_movimento_ombro_button_salvar_e_sair);
+
+        ajudaFlexao = findViewById(R.id.activity_secao_amplitude_movimento_ombro_button_help_flexao);
+        ajudaExtensao = findViewById(R.id.activity_secao_amplitude_movimento_ombro_button_help_extensao);
+        ajudaAbducao = findViewById(R.id.activity_secao_amplitude_movimento_ombro_button_help_abducao);
+        ajudaAducaoHorizontal = findViewById(R.id.activity_secao_amplitude_movimento_ombro_button_help_aducao_horizontal);
+        ajudaRotacaoLateral = findViewById(R.id.activity_secao_amplitude_movimento_ombro_button_help_rotacao_lateral);
+        ajudaRotacaoMedial = findViewById(R.id.activity_secao_amplitude_movimento_ombro_button_help_rotacao_medial);
+
         configuraListenersDeClique();
     }
 
@@ -90,6 +106,18 @@ public class SecaoAmplitudeMovimentoOmbroActivity extends AppCompatActivity {
         proximo.setOnClickListener(v -> proximoForm());
 
         salvarESair.setOnClickListener(v -> finalizaForm());
+
+        ajudaFlexao.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroFlexao.class));
+        ajudaAbducao.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroAbducao.class));
+        ajudaAducaoHorizontal.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroAducaoHorizontal.class));
+        ajudaExtensao.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroExtensao.class));
+        ajudaRotacaoLateral.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroRotacaoLateral.class));
+        ajudaRotacaoMedial.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroRotacaoMedial.class));
+    }
+
+    private void vaiParaAjuda(Class<?> classe) {
+        Intent vaiParaAjudaActivity = new Intent(this,classe);
+        startActivity(vaiParaAjudaActivity);
     }
 
     private void configuraListenerDeMarcacao() {

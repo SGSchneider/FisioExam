@@ -167,7 +167,7 @@
     <string name="rotacao_lateral">Rotação Lateral</string>
     <string name="ativo">Ativo</string>
     <string name="passivo">Passivo</string>
-    <string name="texto_ritmo_escapulo_umeral">realizar o movimento de abdução completa combinada com 30o de flexão do ombro</string>
+    <string name="texto_ritmo_escapulo_umeral">realizar o movimento de abdução completa combinada com 30° de flexão do ombro</string>
     <string name="titulo_ritmo_escapulo_umeral">Ritmo escápulo-umeral (Discinesia escapular):</string>
     <string name="alteracao">Alteração</string>
     <string name="graus">Graus</string>
@@ -267,4 +267,6 @@
     <string name="extensor_radial_longo_punho">Extensor Radial Longo do Carpo (extensão de punho e desvio radial)</string>
     <string name="extensor_radial_curto_punho">Extensor Radial Curto do Carpo (extensão de punho)</string>
     <string name="extensor_ulnar_punho">Extensor Ulnar do Carpo (extensão de punho e desvio ulnar)</string>
+    <string name="carregando">Carregando</string>
+    <string name="ajuda">Ajuda</string>
 </resources>
