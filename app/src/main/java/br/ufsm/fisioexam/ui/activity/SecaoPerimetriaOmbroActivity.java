@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +34,8 @@ public class SecaoPerimetriaOmbroActivity extends AppCompatActivity {
     private EditText campoInf10Dir;
     private EditText campoInf15Esq;
     private EditText campoInf15Dir;
+
+    private ImageButton botaoHelpPerimetria;
 
     private Button proximo;
     private Button salvarESair;
@@ -62,6 +65,9 @@ public class SecaoPerimetriaOmbroActivity extends AppCompatActivity {
     private void inicializaBotoes() {
         proximo = findViewById(R.id.activity_secao_perimetria_ombro_button_proximo);
         salvarESair = findViewById(R.id.activity_secao_perimetria_ombro_button_salvar_e_sair);
+
+        botaoHelpPerimetria = findViewById(R.id.activity_secao_perimetria_ombro_button_help);
+
         configuraListenersDeClique();
     }
 
@@ -69,6 +75,13 @@ public class SecaoPerimetriaOmbroActivity extends AppCompatActivity {
         proximo.setOnClickListener(v -> proximoForm());
 
         salvarESair.setOnClickListener(v -> finalizaForm());
+
+        botaoHelpPerimetria.setOnClickListener(v -> vaiParaAjuda());
+    }
+
+    private void vaiParaAjuda() {
+        Intent intent = new Intent(this, AjudaPerimetriaOmbroActivity.class);
+        startActivity(intent);
     }
 
 

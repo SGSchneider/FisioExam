@@ -36,15 +36,36 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
                 android:layout_marginTop="8dp"
-                android:textAlignment="center"
-                android:text="@string/perimetria_ombro"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/perimetria_ombro"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_perimetria_ombro_button_help"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -69,7 +90,7 @@
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/esquerdo"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/activity_secao_perimetria_ombro_sup_5_esq"
@@ -79,6 +100,7 @@
                 android:hint="@string/esquerdo"
                 android:importantForAutofill="no"
                 android:inputType="text"
+                android:paddingVertical="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/activity_secao_perimetria_ombro_titulo" />
 
@@ -88,7 +110,7 @@
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/direito"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/activity_secao_perimetria_ombro_sup_5_dir"
@@ -98,6 +120,7 @@
                 android:hint="@string/direito"
                 android:importantForAutofill="no"
                 android:inputType="text"
+                android:paddingVertical="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/activity_secao_perimetria_ombro_titulo" />
 
@@ -116,7 +139,7 @@
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/esquerdo"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/activity_secao_perimetria_ombro_sup_10_esq"
@@ -126,6 +149,7 @@
                 android:hint="@string/esquerdo"
                 android:importantForAutofill="no"
                 android:inputType="text"
+                android:paddingVertical="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/activity_secao_perimetria_ombro_titulo" />
 
@@ -135,7 +159,7 @@
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/direito"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/activity_secao_perimetria_ombro_sup_10_dir"
@@ -145,6 +169,7 @@
                 android:hint="@string/direito"
                 android:importantForAutofill="no"
                 android:inputType="text"
+                android:paddingVertical="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/activity_secao_perimetria_ombro_titulo" />
 
@@ -163,7 +188,7 @@
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/esquerdo"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/activity_secao_perimetria_ombro_sup_15_esq"
@@ -173,6 +198,7 @@
                 android:hint="@string/esquerdo"
                 android:importantForAutofill="no"
                 android:inputType="text"
+                android:paddingVertical="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/activity_secao_perimetria_ombro_titulo" />
 
@@ -182,7 +208,7 @@
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/direito"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/activity_secao_perimetria_ombro_sup_15_dir"
@@ -192,6 +218,7 @@
                 android:hint="@string/direito"
                 android:importantForAutofill="no"
                 android:inputType="text"
+                android:paddingVertical="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/activity_secao_perimetria_ombro_titulo" />
 
@@ -218,7 +245,7 @@
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/esquerdo"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/activity_secao_perimetria_ombro_inf_5_esq"
@@ -228,6 +255,7 @@
                 android:hint="@string/esquerdo"
                 android:importantForAutofill="no"
                 android:inputType="text"
+                android:paddingVertical="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/activity_secao_perimetria_ombro_titulo" />
 
@@ -237,7 +265,7 @@
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/direito"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/activity_secao_perimetria_ombro_inf_5_dir"
@@ -247,6 +275,7 @@
                 android:hint="@string/direito"
                 android:importantForAutofill="no"
                 android:inputType="text"
+                android:paddingVertical="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/activity_secao_perimetria_ombro_titulo" />
 
@@ -265,7 +294,7 @@
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/esquerdo"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/activity_secao_perimetria_ombro_inf_10_esq"
@@ -275,6 +304,7 @@
                 android:hint="@string/esquerdo"
                 android:importantForAutofill="no"
                 android:inputType="text"
+                android:paddingVertical="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/activity_secao_perimetria_ombro_titulo" />
 
@@ -284,7 +314,7 @@
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/direito"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/activity_secao_perimetria_ombro_inf_10_dir"
@@ -294,6 +324,7 @@
                 android:hint="@string/direito"
                 android:importantForAutofill="no"
                 android:inputType="text"
+                android:paddingVertical="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/activity_secao_perimetria_ombro_titulo" />
 
@@ -301,8 +332,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
-                android:text="@string/quinzecm"
                 android:layout_marginTop="8dp"
+                android:text="@string/quinzecm"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -312,7 +343,7 @@
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/esquerdo"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/activity_secao_perimetria_ombro_inf_15_esq"
@@ -322,6 +353,7 @@
                 android:hint="@string/esquerdo"
                 android:importantForAutofill="no"
                 android:inputType="text"
+                android:paddingVertical="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/activity_secao_perimetria_ombro_titulo" />
 
@@ -331,7 +363,7 @@
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/direito"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/activity_secao_perimetria_ombro_inf_15_dir"
@@ -341,6 +373,7 @@
                 android:hint="@string/direito"
                 android:importantForAutofill="no"
                 android:inputType="text"
+                android:paddingVertical="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/activity_secao_perimetria_ombro_titulo" />
 
@@ -354,11 +387,11 @@
         android:layout_margin="8dp"
         android:text="@string/salvar_e_sair"
         android:textSize="16sp"
-        app:layout_constraintVertical_bias="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/activity_secao_perimetria_ombro_button_proximo"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/activity_secao_perimetria_ombro_scroll_view"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintVertical_bias="1" />
 
     <Button
         android:id="@+id/activity_secao_perimetria_ombro_button_proximo"
@@ -367,9 +400,9 @@
         android:layout_margin="8dp"
         android:text="@string/proximo"
         android:textSize="16sp"
-        app:layout_constraintVertical_bias="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/activity_secao_perimetria_ombro_button_salvar_e_sair"
         app:layout_constraintTop_toBottomOf="@+id/activity_secao_perimetria_ombro_scroll_view"
-        app:layout_constraintStart_toEndOf="@+id/activity_secao_perimetria_ombro_button_salvar_e_sair" />
+        app:layout_constraintVertical_bias="1" />
 </androidx.constraintlayout.widget.ConstraintLayout>

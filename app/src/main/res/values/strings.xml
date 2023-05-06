@@ -296,4 +296,5 @@
     <string name="dd_ou_dv">Decúbito dorsal (DD) ou decúbito ventral (DV)</string>
     <string name="pacientes">Pacientes</string>
     <string name="configuracoes">Configurações</string>
+    <string name="explicacao_ajuda_perimetria_ombro">A partir de um ponto fixo na linha da fossa antecubital, marcar (no braço e no antebraço) distâncias lineares a cada 5 cm. Nestas posições realizar a medida da circunferência do membro.</string>
 </resources>
