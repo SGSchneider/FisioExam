@@ -189,13 +189,13 @@
     <string name="trapezio_inferior_ombro">Trapézio Inferior (adução e depressão da escápula)</string>
     <string name="romboides_ombro">Romboides Maior e Menor (adução escapular e rotação inferior)</string>
     <string name="serratil_ombro">Serrátil Anterior (adução e rotação superior da escápula)</string>
-    <string name="deltoite_anterior_ombro">Deltoite Anterior (flexão de ombro até 180° e adução de ombro)</string>
+    <string name="deltoide_anterior_ombro">Deltoide Anterior (flexão de ombro até 180° e adução de ombro)</string>
     <string name="coracobraquial_ombro">Coracobraquial (flexão do ombro)</string>
     <string name="grande_dorsal_ombro">Grande Dorsal (rotação medial, adução e extensão do ombro)</string>
     <string name="redondo_maior_ombro">Redondo Maior (adução, extensão e rotação medial do ombro)</string>
     <string name="supraespinhal_ombro">Supraespinhal (adução do ombro)</string>
-    <string name="deltoite_medio_ombro">Deltoite Médio (adução do ombro)</string>
-    <string name="deltoite_posterior_ombro">Deltoite Posterior (adução horizontal do ombro)</string>
+    <string name="deltoide_medio_ombro">Deltoide Médio (adução do ombro)</string>
+    <string name="deltoide_posterior_ombro">Deltoide Posterior (adução horizontal do ombro)</string>
     <string name="peitoral_maior_ombro">Peitoral Maior (adução horizontal do ombro)</string>
     <string name="subescapular_ombro">Subescapular (rotação medial do ombro)</string>
     <string name="redondo_menor_ombro">Infraespinhal e Redondo Menor (rotação lateral do ombro)</string>
@@ -287,4 +287,13 @@
     <string name="no_olecrano">No olécrano</string>
     <string name="paralelo_maca">Paralelo à maca</string>
     <string name="paralelo_ulna">Paralelo à ulna</string>
+    <string name="parte_2">Parte 2</string>
+    <string name="musculo">Músculo :</string>
+    <string name="elevacao_dos_ombros">Elevação dos Ombros</string>
+    <string name="local_da_resistencia">Local da Resistência :</string>
+    <string name="acima_do_acromio_oposto_movimento">Acima do acrômio na direção contrária ao movimento</string>
+    <string name="gravidade_minimizada">Gravidade Minimizada :</string>
+    <string name="dd_ou_dv">Decúbito dorsal (DD) ou decúbito ventral (DV)</string>
+    <string name="pacientes">Pacientes</string>
+    <string name="configuracoes">Configurações</string>
 </resources>

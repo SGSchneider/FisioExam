@@ -36,7 +36,6 @@ public class AjudaAmplitudeMovimentoOmbroAbducaoActivity extends AppCompatActivi
     private void rodaVideoEmLoop() {
         StyledPlayerView video = findViewById(R.id.activity_ajuda_amplitude_movimento_ombro_abducao_video);
 
-
         Display display = getWindowManager().getDefaultDisplay();
         DisplayMetrics size = new DisplayMetrics();
         display.getMetrics(size);
@@ -61,8 +60,6 @@ public class AjudaAmplitudeMovimentoOmbroAbducaoActivity extends AppCompatActivi
         exoPlayer.setPlayWhenReady(true);
 
         video.setPlayer(exoPlayer);
-
-
     }
 
     private void inicializaButtons() {

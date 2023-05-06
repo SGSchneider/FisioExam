@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/activity_secao_forca_muscular_ombro_pt2_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="96dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/activity_secao_forca_muscular_ombro_titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:background="#B0B0B0"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/forca_muscular"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/redondo_maior_ombro"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_forca_muscular_ombro_button_help_redondo_maior"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/esquerdo"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/activity_secao_forca_muscular_ombro_redondo_maior_ombro_esq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/esquerdo"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:padding="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/direito"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/activity_secao_forca_muscular_ombro_redondo_maior_ombro_dir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/direito"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:padding="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/supraespinhal_ombro"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_forca_muscular_ombro_button_help_supraespinhal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/esquerdo"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/activity_secao_forca_muscular_ombro_supraespinhal_ombro_esq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/esquerdo"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:padding="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/direito"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/activity_secao_forca_muscular_ombro_supraespinhal_ombro_dir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/direito"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:padding="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/deltoide_medio_ombro"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_forca_muscular_ombro_button_help_deltoide_medio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/esquerdo"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/activity_secao_forca_muscular_ombro_deltoide_medio_ombro_esq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/esquerdo"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:padding="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/direito"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/activity_secao_forca_muscular_ombro_deltoide_medio_ombro_dir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/direito"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:padding="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/deltoide_posterior_ombro"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_forca_muscular_ombro_button_help_deltoide_posterior"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/esquerdo"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/activity_secao_forca_muscular_ombro_deltoide_posterior_ombro_esq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/esquerdo"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:padding="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/direito"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/activity_secao_forca_muscular_ombro_deltoide_posterior_ombro_dir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/direito"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:padding="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/peitoral_maior_ombro"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_forca_muscular_ombro_button_help_peitoral_maior"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/esquerdo"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/activity_secao_forca_muscular_ombro_peitoral_maior_ombro_esq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/esquerdo"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:padding="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/direito"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/activity_secao_forca_muscular_ombro_peitoral_maior_ombro_dir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/direito"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:padding="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/subescapular_ombro"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_forca_muscular_ombro_button_help_subescapular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/esquerdo"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/activity_secao_forca_muscular_ombro_subescapular_ombro_esq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/esquerdo"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:padding="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/direito"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/activity_secao_forca_muscular_ombro_subescapular_ombro_dir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/direito"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:padding="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/redondo_menor_ombro"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_forca_muscular_ombro_button_help_infraespinhal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/esquerdo"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/activity_secao_forca_muscular_ombro_redondo_menor_ombro_esq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/esquerdo"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:padding="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/direito"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/activity_secao_forca_muscular_ombro_redondo_menor_ombro_dir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/direito"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:padding="16dp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/activity_secao_forca_muscular_ombro_button_salvar_e_sair"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:paddingVertical="16dp"
+        android:text="@string/salvar_e_sair"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/activity_secao_forca_muscular_ombro_button_proximo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_secao_forca_muscular_ombro_pt2_scroll_view"
+        app:layout_constraintVertical_bias="1" />
+
+    <Button
+        android:id="@+id/activity_secao_forca_muscular_ombro_button_proximo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:paddingVertical="16dp"
+        android:text="@string/proximo"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/activity_secao_forca_muscular_ombro_button_salvar_e_sair"
+        app:layout_constraintTop_toBottomOf="@+id/activity_secao_forca_muscular_ombro_pt2_scroll_view"
+        app:layout_constraintVertical_bias="1" />
+</androidx.constraintlayout.widget.ConstraintLayout>

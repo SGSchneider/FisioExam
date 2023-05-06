@@ -40,10 +40,12 @@
         <activity android:name=".ui.activity.SecaoDiagnosticoFisioterapeuticoActivity"/>
         <activity android:name=".ui.activity.SecaoObjetivosTratamentoActivity"/>
         <activity android:name=".ui.activity.SecaoPlanoTratamentoActivity"/>
-        <activity android:name=".ui.activity.SecaoAmplitudeMovimentoOmbroActivity"/>
+        <activity android:name=".ui.activity.SecaoAmplitudeMovimentoOmbroPt1Activity"/>
+        <activity android:name=".ui.activity.SecaoAmplitudeMovimentoOmbroPt2Activity"/>
         <activity android:name=".ui.activity.IntermediarioSecoesEspecificasActivity"/>
         <activity android:name=".ui.activity.SecaoPerimetriaOmbroActivity"/>
-        <activity android:name=".ui.activity.SecaoForcaMuscularOmbroActivity"/>
+        <activity android:name=".ui.activity.SecaoForcaMuscularOmbroPt1Activity"/>
+        <activity android:name=".ui.activity.SecaoForcaMuscularOmbroPt2Activity"/>
         <activity android:name=".ui.activity.SecaoSensibilidadeOmbroActivity"/>
         <activity android:name=".ui.activity.SecaoTestesEspeciaisOmbroActivity"/>
         <activity android:name=".ui.activity.SecaoAmplitudeMovimentoCotoveloActivity"/>
@@ -62,6 +64,21 @@
         <activity android:name=".ui.activity.AjudaAmplitudeMovimentoOmbroAducaoHorizontalActivity"/>
         <activity android:name=".ui.activity.AjudaAmplitudeMovimentoOmbroRotacaoLateralActivity"/>
         <activity android:name=".ui.activity.AjudaAmplitudeMovimentoOmbroRotacaoMedialActivity"/>
+        <activity android:name=".ui.activity.AjudaForcaMuscularOmbroCoracobraquialActivity"/>
+        <activity android:name=".ui.activity.AjudaForcaMuscularOmbroDeltoideAnteriorActivity"/>
+        <activity android:name=".ui.activity.AjudaForcaMuscularOmbroDeltoideMedioActivity"/>
+        <activity android:name=".ui.activity.AjudaForcaMuscularOmbroDeltoidePosteriorActivity"/>
+        <activity android:name=".ui.activity.AjudaForcaMuscularOmbroGrandeDorsalActivity"/>
+        <activity android:name=".ui.activity.AjudaForcaMuscularOmbroInfraespinhalActivity"/>
+        <activity android:name=".ui.activity.AjudaForcaMuscularOmbroPeitoralMaiorActivity"/>
+        <activity android:name=".ui.activity.AjudaForcaMuscularOmbroRedondoMaiorActivity"/>
+        <activity android:name=".ui.activity.AjudaForcaMuscularOmbroRomboidesActivity"/>
+        <activity android:name=".ui.activity.AjudaForcaMuscularOmbroSerratilActivity"/>
+        <activity android:name=".ui.activity.AjudaForcaMuscularOmbroSubescapularActivity"/>
+        <activity android:name=".ui.activity.AjudaForcaMuscularOmbroSupraespinhalActivity"/>
+        <activity android:name=".ui.activity.AjudaForcaMuscularOmbroTrapezioInferiorActivity"/>
+        <activity android:name=".ui.activity.AjudaForcaMuscularOmbroTrapezioMedioActivity"/>
+        <activity android:name=".ui.activity.AjudaForcaMuscularOmbroTrapezioSuperiorActivity"/>
     </application>
 
 

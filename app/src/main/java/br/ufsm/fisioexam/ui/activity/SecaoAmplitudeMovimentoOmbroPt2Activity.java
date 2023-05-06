@@ -21,25 +21,10 @@ import br.ufsm.fisioexam.database.dao.SecoesDAO;
 import br.ufsm.fisioexam.model.Ombro;
 import br.ufsm.fisioexam.model.Secoes;
 
-public class SecaoAmplitudeMovimentoOmbroActivity extends AppCompatActivity {
+public class SecaoAmplitudeMovimentoOmbroPt2Activity extends AppCompatActivity {
     //Usar Parâmetros MAGEE (2010) por ser mais recente.
 
-    private EditText campoFlexaoPassivoDir;
-    private EditText campoFlexaoAtivoDir;
-    private EditText campoFlexaoPassivoEsq;
-    private EditText campoFlexaoAtivoEsq;
-    private EditText campoExtensaoAtivoDir;
-    private EditText campoExtensaoPassivoDir;
-    private EditText campoExtensaoAtivoEsq;
-    private EditText campoExtensaoPassivoEsq;
-    private EditText campoAbducaoAtivoDir;
-    private EditText campoAbducaoPassivoDir;
-    private EditText campoAbducaoAtivoEsq;
-    private EditText campoAbducaoPassivoEsq;
-    private EditText campoAducaoHorizontalAtivoDir;
-    private EditText campoAducaoHorizontalPassivoDir;
-    private EditText campoAducaoHorizontalAtivoEsq;
-    private EditText campoAducaoHorizontalPassivoEsq;
+
     private EditText campoRotacaoMedialAtivoDir;
     private EditText campoRotacaoMedialPassivoDir;
     private EditText campoRotacaoMedialAtivoEsq;
@@ -54,10 +39,6 @@ public class SecaoAmplitudeMovimentoOmbroActivity extends AppCompatActivity {
     private CheckBox campoGrauAlteracaoIII;
     private Button proximo;
     private Button salvarESair;
-    private ImageButton ajudaFlexao;
-    private ImageButton ajudaExtensao;
-    private ImageButton ajudaAbducao;
-    private ImageButton ajudaAducaoHorizontal;
     private ImageButton ajudaRotacaoMedial;
     private ImageButton ajudaRotacaoLateral;
 
@@ -70,7 +51,7 @@ public class SecaoAmplitudeMovimentoOmbroActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_secao_amplitude_movimento_ombro);
+        setContentView(R.layout.activity_secao_amplitude_movimento_ombro_pt2);
         inicializaDaos();
         carregaExame();
         inicializaFormulario();
@@ -92,10 +73,6 @@ public class SecaoAmplitudeMovimentoOmbroActivity extends AppCompatActivity {
         proximo = findViewById(R.id.activity_secao_amplitude_movimento_ombro_button_proximo);
         salvarESair = findViewById(R.id.activity_secao_amplitude_movimento_ombro_button_salvar_e_sair);
 
-        ajudaFlexao = findViewById(R.id.activity_secao_amplitude_movimento_ombro_button_help_flexao);
-        ajudaExtensao = findViewById(R.id.activity_secao_amplitude_movimento_ombro_button_help_extensao);
-        ajudaAbducao = findViewById(R.id.activity_secao_amplitude_movimento_ombro_button_help_abducao);
-        ajudaAducaoHorizontal = findViewById(R.id.activity_secao_amplitude_movimento_ombro_button_help_aducao_horizontal);
         ajudaRotacaoLateral = findViewById(R.id.activity_secao_amplitude_movimento_ombro_button_help_rotacao_lateral);
         ajudaRotacaoMedial = findViewById(R.id.activity_secao_amplitude_movimento_ombro_button_help_rotacao_medial);
 
@@ -107,10 +84,6 @@ public class SecaoAmplitudeMovimentoOmbroActivity extends AppCompatActivity {
 
         salvarESair.setOnClickListener(v -> finalizaForm());
 
-        ajudaFlexao.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroFlexaoActivity.class));
-        ajudaAbducao.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroAbducaoActivity.class));
-        ajudaAducaoHorizontal.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroAducaoHorizontalActivity.class));
-        ajudaExtensao.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroExtensaoActivity.class));
         ajudaRotacaoLateral.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroRotacaoLateralActivity.class));
         ajudaRotacaoMedial.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoOmbroRotacaoMedialActivity.class));
     }
@@ -156,22 +129,6 @@ public class SecaoAmplitudeMovimentoOmbroActivity extends AppCompatActivity {
         secoes.setAmplitudeMovimento(true);
         secoesDao.edita(secoes);
 
-        ombro.setFlexaoDirAtivo(campoFlexaoAtivoDir.getText().toString());
-        ombro.setFlexaoDirPassivo(campoFlexaoPassivoDir.getText().toString());
-        ombro.setFlexaoEsqAtivo(campoFlexaoAtivoEsq.getText().toString());
-        ombro.setFlexaoEsqPassivo(campoFlexaoPassivoEsq.getText().toString());
-        ombro.setExtensaoDirAtivo(campoExtensaoAtivoDir.getText().toString());
-        ombro.setExtensaoDirPassivo(campoExtensaoPassivoDir.getText().toString());
-        ombro.setExtensaoEsqAtivo(campoExtensaoAtivoEsq.getText().toString());
-        ombro.setExtensaoEsqPassivo(campoExtensaoPassivoEsq.getText().toString());
-        ombro.setAbducaoDirAtivo(campoAbducaoAtivoDir.getText().toString());
-        ombro.setAbducaoDirPassivo(campoAbducaoPassivoDir.getText().toString());
-        ombro.setAbducaoEsqAtivo(campoAbducaoAtivoEsq.getText().toString());
-        ombro.setAbducaoEsqPassivo(campoAbducaoPassivoEsq.getText().toString());
-        ombro.setAducaoHorDirAtivo(campoAducaoHorizontalAtivoDir.getText().toString());
-        ombro.setAducaoHorDirPassivo(campoAducaoHorizontalPassivoDir.getText().toString());
-        ombro.setAducaoHorEsqAtivo(campoAducaoHorizontalAtivoEsq.getText().toString());
-        ombro.setAducaoHorEsqPassivo(campoAducaoHorizontalPassivoEsq.getText().toString());
         ombro.setRotacaoMedDirAtivo(campoRotacaoMedialAtivoDir.getText().toString());
         ombro.setRotacaoMedDirPassivo(campoRotacaoMedialPassivoDir.getText().toString());
         ombro.setRotacaoMedEsqAtivo(campoRotacaoMedialAtivoEsq.getText().toString());
@@ -209,22 +166,6 @@ public class SecaoAmplitudeMovimentoOmbroActivity extends AppCompatActivity {
 
 
     private void inicializaFormulario() {
-        campoFlexaoAtivoDir = findViewById(R.id.activity_secao_amplitude_movimento_ombro_flexao_ativo_direito);
-        campoFlexaoPassivoDir = findViewById(R.id.activity_secao_amplitude_movimento_ombro_flexao_passivo_direito);
-        campoFlexaoPassivoEsq = findViewById(R.id.activity_secao_amplitude_movimento_ombro_flexao_ativo_esquerdo);
-        campoFlexaoAtivoEsq = findViewById(R.id.activity_secao_amplitude_movimento_ombro_flexao_passivo_esquerdo);
-        campoExtensaoAtivoDir = findViewById(R.id.activity_secao_amplitude_movimento_ombro_extensao_ativo_direito);
-        campoExtensaoPassivoDir = findViewById(R.id.activity_secao_amplitude_movimento_ombro_extensao_passivo_direito);
-        campoExtensaoAtivoEsq = findViewById(R.id.activity_secao_amplitude_movimento_ombro_extensao_ativo_esquerdo);
-        campoExtensaoPassivoEsq = findViewById(R.id.activity_secao_amplitude_movimento_ombro_extensao_passivo_esquerdo);
-        campoAbducaoAtivoDir = findViewById(R.id.activity_secao_amplitude_movimento_ombro_abducao_ativo_direito);
-        campoAbducaoPassivoDir = findViewById(R.id.activity_secao_amplitude_movimento_ombro_abducao_passivo_direito);
-        campoAbducaoAtivoEsq = findViewById(R.id.activity_secao_amplitude_movimento_ombro_abducao_ativo_esquerdo);
-        campoAbducaoPassivoEsq = findViewById(R.id.activity_secao_amplitude_movimento_ombro_abducao_passivo_esquerdo);
-        campoAducaoHorizontalAtivoDir = findViewById(R.id.activity_secao_amplitude_movimento_ombro_aducao_horizontal_ativo_direito);
-        campoAducaoHorizontalPassivoDir = findViewById(R.id.activity_secao_amplitude_movimento_ombro_aducao_horizontal_passivo_direito);
-        campoAducaoHorizontalAtivoEsq = findViewById(R.id.activity_secao_amplitude_movimento_ombro_aducao_horizontal_ativo_esquerdo);
-        campoAducaoHorizontalPassivoEsq = findViewById(R.id.activity_secao_amplitude_movimento_ombro_aducao_horizontal_passivo_esquerdo);
         campoRotacaoMedialAtivoDir = findViewById(R.id.activity_secao_amplitude_movimento_ombro_rotacao_medial_ativo_direito);
         campoRotacaoMedialPassivoDir = findViewById(R.id.activity_secao_amplitude_movimento_ombro_rotacao_medial_passivo_direito);
         campoRotacaoMedialAtivoEsq = findViewById(R.id.activity_secao_amplitude_movimento_ombro_rotacao_medial_ativo_esquerdo);
@@ -244,23 +185,6 @@ public class SecaoAmplitudeMovimentoOmbroActivity extends AppCompatActivity {
     }
 
     private void preencheCampos() {
-
-        campoFlexaoAtivoDir.setText(ombro.getFlexaoDirAtivo());
-        campoFlexaoPassivoDir.setText(ombro.getFlexaoDirPassivo());
-        campoFlexaoPassivoEsq.setText(ombro.getFlexaoEsqPassivo());
-        campoFlexaoAtivoEsq.setText(ombro.getFlexaoEsqAtivo());
-        campoExtensaoAtivoDir.setText(ombro.getExtensaoDirAtivo());
-        campoExtensaoPassivoDir.setText(ombro.getExtensaoDirPassivo());
-        campoExtensaoAtivoEsq.setText(ombro.getExtensaoEsqAtivo());
-        campoExtensaoPassivoEsq.setText(ombro.getExtensaoEsqPassivo());
-        campoAbducaoAtivoDir.setText(ombro.getAbducaoDirAtivo());
-        campoAbducaoPassivoDir.setText(ombro.getAbducaoDirPassivo());
-        campoAbducaoAtivoEsq.setText(ombro.getAbducaoEsqAtivo());
-        campoAbducaoPassivoEsq.setText(ombro.getAbducaoEsqPassivo());
-        campoAducaoHorizontalAtivoDir.setText(ombro.getAducaoHorDirAtivo());
-        campoAducaoHorizontalPassivoDir.setText(ombro.getAducaoHorDirPassivo());
-        campoAducaoHorizontalAtivoEsq.setText(ombro.getAducaoHorEsqAtivo());
-        campoAducaoHorizontalPassivoEsq.setText(ombro.getAducaoHorEsqPassivo());
         campoRotacaoMedialAtivoDir.setText(ombro.getRotacaoMedDirAtivo());
         campoRotacaoMedialPassivoDir.setText(ombro.getRotacaoMedDirPassivo());
         campoRotacaoMedialAtivoEsq.setText(ombro.getRotacaoMedEsqAtivo());
@@ -273,6 +197,5 @@ public class SecaoAmplitudeMovimentoOmbroActivity extends AppCompatActivity {
         campoGrauAlteracaoI.setChecked(ombro.getGrauI());
         campoGrauAlteracaoII.setChecked(ombro.getGrauII());
         campoGrauAlteracaoIII.setChecked(ombro.getGrauIII());
-
     }
 }

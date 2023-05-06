@@ -142,7 +142,7 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         switch (tipo) {
             case CHAVE_TIPO_OMBRO:
                 Ombro ombro = getOmbro();
-                vaiParaSecaoEspecifica(ombro.getId(), SecaoForcaMuscularOmbroActivity.class);
+                vaiParaSecaoEspecifica(ombro.getId(), SecaoForcaMuscularOmbroPt1Activity.class);
                 break;
             case CHAVE_TIPO_COTOVELO:
                 Cotovelo cotovelo = getCotovelo();
@@ -178,7 +178,7 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         switch (tipo) {
             case CHAVE_TIPO_OMBRO:
                 Ombro ombro = getOmbro();
-                vaiParaSecaoEspecifica(ombro.getId(), SecaoAmplitudeMovimentoOmbroActivity.class);
+                vaiParaSecaoEspecifica(ombro.getId(), SecaoAmplitudeMovimentoOmbroPt1Activity.class);
                 break;
             case CHAVE_TIPO_COTOVELO:
                 Cotovelo cotovelo = getCotovelo();
