@@ -37,7 +37,6 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,14 +45,35 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/jobe"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/jobe"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_jobe_button_help"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
 
             <RadioGroup
                 android:id="@+id/activity_secao_testes_especiais_ombro_radio_jobe"
@@ -91,13 +111,36 @@
 
             </RadioGroup>
 
-            <TextView
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/patte"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/patte"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_patte_button_help"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
 
             <RadioGroup
                 android:id="@+id/activity_secao_testes_especiais_ombro_radio_patte"
@@ -135,13 +178,36 @@
 
             </RadioGroup>
 
-            <TextView
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/gerber"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/gerber"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_gerber_button_help"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
 
             <RadioGroup
                 android:id="@+id/activity_secao_testes_especiais_ombro_radio_gerber"
@@ -187,13 +253,35 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="@string/neer"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/neer"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_neer_button_help"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
 
             <RadioGroup
                 android:id="@+id/activity_secao_testes_especiais_ombro_radio_neer"
@@ -231,13 +319,35 @@
 
             </RadioGroup>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/hawkins_kennedy"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/hawkins_kennedy"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_hawkins_button_help"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
 
             <RadioGroup
                 android:id="@+id/activity_secao_testes_especiais_ombro_radio_hk"
@@ -284,13 +394,35 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/speed"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/speed"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_speed_button_help"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
 
             <RadioGroup
                 android:id="@+id/activity_secao_testes_especiais_ombro_radio_speed"
@@ -328,13 +460,35 @@
 
             </RadioGroup>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/yergason"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/yergason"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_testes_especiais_ombro_yergason_button_help"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
 
             <RadioGroup
                 android:id="@+id/activity_secao_testes_especiais_ombro_radio_yergason"
@@ -372,257 +526,22 @@
 
             </RadioGroup>
 
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/instabilidade"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/apreensao_anterior"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <RadioGroup
-                android:id="@+id/activity_secao_testes_especiais_ombro_radio_apreensao_anterior"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp">
-
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_esquerda_mais_apreensao_anterior"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/esquerdamais"
-                    android:textSize="18sp" />
-
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_esquerda_menos_apreensao_anterior"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/esquerdamenos"
-                    android:textSize="18sp" />
-
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_direita_mais_apreensao_anterior"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/direitamais"
-                    android:textSize="18sp" />
-
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_direita_menos_apreensao_anterior"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/direitamenos"
-                    android:textSize="18sp" />
-
-            </RadioGroup>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/sinal_de_sulco"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <RadioGroup
-                android:id="@+id/activity_secao_testes_especiais_ombro_radio_sinal_de_sulco"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp">
-
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_esquerda_mais_sinal_de_sulco"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/esquerdamais"
-                    android:textSize="18sp" />
-
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_esquerda_menos_sinal_de_sulco"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/esquerdamenos"
-                    android:textSize="18sp" />
-
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_direita_mais_sinal_de_sulco"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/direitamais"
-                    android:textSize="18sp" />
-
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_ombro_radio_direita_menos_sinal_de_sulco"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/direitamenos"
-                    android:textSize="18sp" />
-
-            </RadioGroup>
-
-
-            <TextView
-                android:id="@+id/activity_secao_testes_especiais_ombro_escala"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:background="#B0B0B0"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:text="@string/escalas_utilizadas"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/dash"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/data_aplicacao"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/activity_secao_testes_especiais_ombro_dash_data"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:hint="@string/data" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/pontuacao"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/activity_secao_testes_especiais_ombro_dash_pontuacao"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:hint="@string/pontuacao"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/resultados"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/activity_secao_testes_especiais_ombro_dash_resultados"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:hint="@string/resultados"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/ases"
-                android:textSize="20sp"
-                android:textStyle="italic" />
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/data_aplicacao"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/activity_secao_testes_especiais_ombro_ases_data"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:hint="@string/data"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/pontuacao"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/activity_secao_testes_especiais_ombro_ases_pontuacao"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:hint="@string/pontuacao"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/resultados"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/activity_secao_testes_especiais_ombro_ases_resultados"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:hint="@string/resultados"/>
-
         </LinearLayout>
     </ScrollView>
 
     <Button
-        android:id="@+id/activity_secao_testes_especiais_ombro_button_salvar_e_sair"
-        android:layout_width="0dp"
+        android:id="@+id/activity_secao_testes_especiais_ombro_button_parte2"
+        android:layout_width="wrap_content"
         android:layout_height="64dp"
         android:layout_margin="8dp"
-        android:text="@string/salvar_e_sair"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/activity_secao_testes_especiais_ombro_button_proximo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activity_secao_testes_especiais_ombro_scroll_view"
-        app:layout_constraintVertical_bias="1" />
-
-    <Button
-        android:id="@+id/activity_secao_testes_especiais_ombro_button_proximo"
-        android:layout_width="0dp"
-        android:layout_height="64dp"
-        android:layout_margin="8dp"
-        android:text="@string/proximo"
+        android:paddingHorizontal="64dp"
+        android:paddingVertical="16dp"
+        android:text="@string/parte_2"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/activity_secao_testes_especiais_ombro_button_salvar_e_sair"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activity_secao_testes_especiais_ombro_scroll_view"
-        app:layout_constraintVertical_bias="1" />
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintHorizontal_bias="1"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

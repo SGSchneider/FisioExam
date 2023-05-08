@@ -47,7 +47,8 @@
         <activity android:name=".ui.activity.SecaoForcaMuscularOmbroPt1Activity"/>
         <activity android:name=".ui.activity.SecaoForcaMuscularOmbroPt2Activity"/>
         <activity android:name=".ui.activity.SecaoSensibilidadeOmbroActivity"/>
-        <activity android:name=".ui.activity.SecaoTestesEspeciaisOmbroActivity"/>
+        <activity android:name=".ui.activity.SecaoTestesEspeciaisOmbroPt1Activity"/>
+        <activity android:name=".ui.activity.SecaoTestesEspeciaisOmbroPt2Activity"/>
         <activity android:name=".ui.activity.SecaoAmplitudeMovimentoCotoveloActivity"/>
         <activity android:name=".ui.activity.SecaoPerimetriaCotoveloActivity"/>
         <activity android:name=".ui.activity.SecaoForcaMuscularCotoveloActivity"/>

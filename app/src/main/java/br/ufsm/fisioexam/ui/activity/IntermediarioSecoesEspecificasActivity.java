@@ -101,7 +101,7 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         switch (tipo) {
             case CHAVE_TIPO_OMBRO:
                 Ombro ombro = getOmbro();
-                vaiParaSecaoEspecifica(ombro.getId(), SecaoTestesEspeciaisOmbroActivity.class);
+                vaiParaSecaoEspecifica(ombro.getId(), SecaoTestesEspeciaisOmbroPt1Activity.class);
                 break;
             case CHAVE_TIPO_COTOVELO:
                 Cotovelo cotovelo = getCotovelo();
