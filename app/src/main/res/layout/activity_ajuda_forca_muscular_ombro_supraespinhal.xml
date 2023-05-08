@@ -29,14 +29,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
+                    android:layout_weight="0"
+                    android:maxWidth="164dp"
+                    android:minWidth="64dp"
                     android:text="@string/musculo"
                     android:textSize="24sp"
-                    android:minWidth="168dp"
-                    android:layout_weight="1"
+                    
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/supraespinhal_ombro"
                     android:textSize="24sp"
@@ -55,16 +57,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
+                    android:layout_weight="0"
+                    android:maxWidth="164dp"
+                    android:minWidth="64dp"
                     android:text="@string/posicao_do_paciente"
                     android:textSize="24sp"
-                    android:minWidth="168dp"
-                    android:layout_weight="1"
+                    
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/sentado"
+                    android:text="@string/sentado_com_cotovelo_fletido_a_90"
                     android:textSize="24sp"
 
                     android:layout_weight="2" />
@@ -81,16 +85,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
+                    android:layout_weight="0"
+                    android:maxWidth="164dp"
+                    android:minWidth="64dp"
                     android:text="@string/movimento"
                     android:textSize="24sp"
-                    android:minWidth="168dp"
-                    android:layout_weight="1"
+                    
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/elevacao_dos_ombros"
+                    android:text="@string/abducao_do_ombro_ate_30"
                     android:textSize="24sp"
 
                     android:layout_weight="2" />
@@ -107,16 +113,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
+                    android:layout_weight="0"
+                    android:maxWidth="164dp"
+                    android:minWidth="64dp"
                     android:text="@string/local_da_resistencia"
                     android:textSize="24sp"
-                    android:minWidth="168dp"
-                    android:layout_weight="1"
+                    
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/acima_do_acromio_oposto_movimento"
+                    android:text="@string/lateral_acima_do_cotovelo_no_sentido_contrario_ao_movimento"
                     android:textSize="24sp"
 
                     android:layout_weight="2" />
@@ -133,16 +141,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
+                    android:layout_weight="0"
+                    android:maxWidth="164dp"
+                    android:minWidth="64dp"
                     android:text="@string/gravidade_minimizada"
                     android:textSize="24sp"
-                    android:minWidth="168dp"
-                    android:layout_weight="1"
+                    
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/dd_ou_dv"
+                    android:text="@string/dd_c_ombro_apoiado_e_cotovelo_fletido_a_90"
                     android:textSize="24sp"
 
                     android:layout_weight="2" />

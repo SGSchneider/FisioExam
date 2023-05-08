@@ -193,8 +193,8 @@
     <string name="coracobraquial_ombro">Coracobraquial (flexão do ombro)</string>
     <string name="grande_dorsal_ombro">Grande Dorsal (rotação medial, adução e extensão do ombro)</string>
     <string name="redondo_maior_ombro">Redondo Maior (adução, extensão e rotação medial do ombro)</string>
-    <string name="supraespinhal_ombro">Supraespinhal (adução do ombro)</string>
-    <string name="deltoide_medio_ombro">Deltoide Médio (adução do ombro)</string>
+    <string name="supraespinhal_ombro">Supraespinhal</string>
+    <string name="deltoide_medio_ombro">Deltoide Médio</string>
     <string name="deltoide_posterior_ombro">Deltoide Posterior (adução horizontal do ombro)</string>
     <string name="peitoral_maior_ombro">Peitoral Maior (adução horizontal do ombro)</string>
     <string name="subescapular_ombro">Subescapular (rotação medial do ombro)</string>
@@ -297,4 +297,18 @@
     <string name="pacientes">Pacientes</string>
     <string name="configuracoes">Configurações</string>
     <string name="explicacao_ajuda_perimetria_ombro">A partir de um ponto fixo na linha da fossa antecubital, marcar (no braço e no antebraço) distâncias lineares a cada 5 cm. Nestas posições realizar a medida da circunferência do membro.</string>
+    <string name="sentado_ou_decubito_dorsal">Sentado ou decúbito dorsal</string>
+    <string name="sentado_ou_decubito_ventral">Sentado ou decúbito ventral</string>
+    <string name="valor_de_normalidade">Valor de Normalidade :</string>
+    <string name="normalidade_flexao_ampmov_ombro">0–170°/180°</string>
+    <string name="normalidade_extensao_ampmov_ombro">0–50°/60°</string>
+    <string name="normalidade_aducaohor_ampmov_ombro">0–50°/75°</string>
+    <string name="normalidade_abducao_ampmov_ombro">0–170°/180°</string>
+    <string name="normalidade_rotacaomed_ampmov_ombro">0–60°/100°</string>
+    <string name="normalidade_rotacaolat_ampmov_ombro">0–80°/90°</string>
+    <string name="sentado_com_cotovelo_fletido_a_90">Sentado com cotovelo fletido a 90°</string>
+    <string name="abducao_do_ombro_ate_30">Abdução do ombro até 30°</string>
+    <string name="lateral_acima_do_cotovelo_no_sentido_contrario_ao_movimento">Lateral, acima do cotovelo no sentido contrário ao movimento</string>
+    <string name="dd_c_ombro_apoiado_e_cotovelo_fletido_a_90">Decúbito dorsal (DD) com ombro apoiado e cotovelo fletido a 90°</string>
+    <string name="abducao_do_ombro_ate_90">Abdução do ombro até 90°</string>
 </resources>

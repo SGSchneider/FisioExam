@@ -29,10 +29,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
+                    android:layout_weight="0"
+                    android:maxWidth="164dp"
+                    android:minWidth="64dp"
                     android:text="@string/musculo"
                     android:textSize="24sp"
-                    android:minWidth="168dp"
-                    android:layout_weight="1"
                     android:textStyle="bold" />
 
                 <TextView
@@ -40,7 +41,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/romboides_ombro"
                     android:textSize="24sp"
-
                     android:layout_weight="2" />
 
             </LinearLayout>
@@ -55,10 +55,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
+                    android:layout_weight="0"
+                    android:maxWidth="164dp"
+                    android:minWidth="64dp"
                     android:text="@string/posicao_do_paciente"
                     android:textSize="24sp"
-                    android:minWidth="168dp"
-                    android:layout_weight="1"
+                    
                     android:textStyle="bold" />
 
                 <TextView
@@ -81,10 +83,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
+                    android:layout_weight="0"
+                    android:maxWidth="164dp"
+                    android:minWidth="64dp"
                     android:text="@string/movimento"
                     android:textSize="24sp"
-                    android:minWidth="168dp"
-                    android:layout_weight="1"
+                    
                     android:textStyle="bold" />
 
                 <TextView
@@ -107,10 +111,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
+                    android:layout_weight="0"
+                    android:maxWidth="164dp"
+                    android:minWidth="64dp"
                     android:text="@string/local_da_resistencia"
                     android:textSize="24sp"
-                    android:minWidth="168dp"
-                    android:layout_weight="1"
+                    
                     android:textStyle="bold" />
 
                 <TextView
@@ -133,10 +139,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
+                    android:layout_weight="0"
+                    android:maxWidth="164dp"
+                    android:minWidth="64dp"
                     android:text="@string/gravidade_minimizada"
                     android:textSize="24sp"
-                    android:minWidth="168dp"
-                    android:layout_weight="1"
+                    
                     android:textStyle="bold" />
 
                 <TextView

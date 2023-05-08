@@ -29,14 +29,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
+                    android:layout_weight="0"
+                    android:maxWidth="164dp"
+                    android:minWidth="64dp"
                     android:text="@string/musculo"
                     android:textSize="24sp"
-                    android:minWidth="168dp"
-                    android:layout_weight="1"
+                    
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/peitoral_maior_ombro"
                     android:textSize="24sp"
@@ -55,14 +57,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
+                    android:layout_weight="0"
+                    android:maxWidth="164dp"
+                    android:minWidth="64dp"
                     android:text="@string/posicao_do_paciente"
                     android:textSize="24sp"
-                    android:minWidth="168dp"
-                    android:layout_weight="1"
+                    
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/sentado"
                     android:textSize="24sp"
@@ -81,14 +85,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
+                    android:layout_weight="0"
+                    android:maxWidth="164dp"
+                    android:minWidth="64dp"
                     android:text="@string/movimento"
                     android:textSize="24sp"
-                    android:minWidth="168dp"
-                    android:layout_weight="1"
+                    
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/elevacao_dos_ombros"
                     android:textSize="24sp"
@@ -107,14 +113,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
+                    android:layout_weight="0"
+                    android:maxWidth="164dp"
+                    android:minWidth="64dp"
                     android:text="@string/local_da_resistencia"
                     android:textSize="24sp"
-                    android:minWidth="168dp"
-                    android:layout_weight="1"
+                    
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/acima_do_acromio_oposto_movimento"
                     android:textSize="24sp"
@@ -133,14 +141,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
+                    android:layout_weight="0"
+                    android:maxWidth="164dp"
+                    android:minWidth="64dp"
                     android:text="@string/gravidade_minimizada"
                     android:textSize="24sp"
-                    android:minWidth="168dp"
-                    android:layout_weight="1"
+                    
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/dd_ou_dv"
                     android:textSize="24sp"

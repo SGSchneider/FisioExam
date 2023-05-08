@@ -29,14 +29,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
+                    android:maxWidth="164dp"
+                    android:minWidth="64dp"
                     android:text="@string/movimento"
                     android:textSize="24sp"
+
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="2"
                     android:text="@string/extensao"
+
                     android:textSize="24sp" />
 
             </LinearLayout>
@@ -51,14 +56,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
+                    android:maxWidth="164dp"
+                    android:minWidth="64dp"
                     android:text="@string/posicao_do_paciente"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/sentado"
+                    android:layout_weight="2"
+                    android:text="@string/sentado_ou_decubito_ventral"
                     android:textSize="24sp" />
 
             </LinearLayout>
@@ -73,13 +81,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
+                    android:maxWidth="164dp"
+                    android:minWidth="64dp"
                     android:text="@string/eixo"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="3"
                     android:text="@string/eixo_articular"
                     android:textSize="24sp" />
 
@@ -95,14 +106,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
+                    android:maxWidth="164dp"
+                    android:minWidth="64dp"
                     android:text="@string/braco_fixo"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="2"
                     android:text="@string/linha_media_lateral_do_tronco"
+
                     android:textSize="24sp" />
 
             </LinearLayout>
@@ -117,14 +132,47 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
+                    android:maxWidth="164dp"
+                    android:minWidth="64dp"
                     android:text="@string/braco_movel"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="@string/paralelo_ao_umero"
+
+                    android:textSize="24sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:orientation="horizontal">
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/paralelo_ao_umero"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="0"
+                    android:maxWidth="164dp"
+                    android:minWidth="64dp"
+                    android:text="@string/valor_de_normalidade"
+
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="@string/normalidade_extensao_ampmov_ombro"
+
                     android:textSize="24sp" />
 
             </LinearLayout>
@@ -133,11 +181,11 @@
                 android:id="@+id/activity_ajuda_amplitude_movimento_ombro_extensao_video"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/video_demonstrativo"
                 android:layout_gravity="top"
+                android:contentDescription="@string/video_demonstrativo"
                 app:resize_mode="fit"
                 app:show_timeout="0"
-                app:surface_type="texture_view"/>
+                app:surface_type="texture_view" />
 
 
         </LinearLayout>
