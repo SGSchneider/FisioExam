@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioGroup;
 
 import androidx.annotation.Nullable;
@@ -36,6 +37,11 @@ public class SecaoTestesEspeciaisOmbroPt2Activity extends AppCompatActivity {
 
     private Button buttonSalvar;
     private Button buttonProximo;
+
+    private ImageButton buttonHelpApreensao;
+    private ImageButton buttonHelpSinalSulco;
+    private ImageButton buttonHelpDash;
+    private ImageButton buttonHelpAses;
 
     private Calendar dataDash;
     private Calendar dataAses;
@@ -69,12 +75,28 @@ public class SecaoTestesEspeciaisOmbroPt2Activity extends AppCompatActivity {
     private void inicializaBotoes() {
         buttonProximo = findViewById(R.id.activity_secao_testes_especiais_ombro_button_proximo);
         buttonSalvar = findViewById(R.id.activity_secao_testes_especiais_ombro_button_salvar_e_sair);
+
+        buttonHelpApreensao = findViewById(R.id.activity_secao_testes_especiais_ombro_apreensao_anterior_button_help);
+        buttonHelpSinalSulco = findViewById(R.id.activity_secao_testes_especiais_ombro_sinal_sulco_button_help);
+        buttonHelpDash = findViewById(R.id.activity_secao_testes_especiais_ombro_dash_button_help);
+        buttonHelpAses = findViewById(R.id.activity_secao_testes_especiais_ombro_ases_button_help);
+
         setListenerBotoes();
     }
 
     private void setListenerBotoes() {
         buttonProximo.setOnClickListener(v -> proximoForm());
         buttonSalvar.setOnClickListener(v -> salvarESair());
+
+        buttonHelpApreensao.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisApreensaoAnteriorOmbroActivity.class));
+        buttonHelpSinalSulco.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisSinalSulcoOmbroActivity.class));
+        buttonHelpDash.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisDashOmbroActivity.class));
+        buttonHelpAses.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisAsesOmbroActivity.class));
+    }
+
+    private void vaiParaSecaoAjuda(Class<?> classe) {
+        Intent vaiParaSecaoAjudaActivity = new Intent(this, classe);
+        startActivity(vaiParaSecaoAjudaActivity);
     }
 
     private void salvarESair() {

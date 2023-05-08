@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">fisioExam</string>
     <string name="search">Pesquisar</string>
     <string name="medico">Nome do Médico</string>
@@ -311,4 +311,6 @@
     <string name="lateral_acima_do_cotovelo_no_sentido_contrario_ao_movimento">Lateral, acima do cotovelo no sentido contrário ao movimento</string>
     <string name="dd_c_ombro_apoiado_e_cotovelo_fletido_a_90">Decúbito dorsal (DD) com ombro apoiado e cotovelo fletido a 90°</string>
     <string name="abducao_do_ombro_ate_90">Abdução do ombro até 90°</string>
+    <string name="explicacao_ajuda_ases_ombro" tools:ignore="Typos">11 itens que avaliam a dor no momento da aplicação e função do ombro, sendo 10 itens relacionados à função do ombro e 1 item relacionado à dor</string>
+    <string name="explicacao_ajuda_dash_ombro">30 itens que informam sobre o estado de saúde do paciente na última semana, sendo que 21 itens informam sobre o nível de dificuldade de desempenhar as atividades devido ao acometimento do braço, ombro ou mão, 5 itens sobre a gravidade dos sintomas e 4 itens sobre o impacto da lesão nas atividades físicas diárias. \nAinda, há 2 módulos opcionais de 4 itens que informam sobre o desempenho nas atividades de vida diárias do paciente.</string>
 </resources>
