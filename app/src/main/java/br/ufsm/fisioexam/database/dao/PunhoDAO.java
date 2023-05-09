@@ -21,7 +21,7 @@ public interface PunhoDAO {
     @Update
     void edita(Punho punho);
 
-    @Query("SELECT * FROM punho WHERE id LIKE :registro")
+    @Query("SELECT * FROM punho WHERE exame LIKE :registro")
     List<Punho> todos(String registro);
 
     @Query("SELECT * FROM punho")

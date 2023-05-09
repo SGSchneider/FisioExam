@@ -341,4 +341,8 @@
     <string name="sentado_com_ombro_em_abducao_a_90_no_plano_da_escapula_e_rotacao_medial">Sentado com ombro em abdução a 90°, no plano da escápula, e rotação medial.</string>
     <string name="procedimento_jobe_ombro">Resistência no sentido de adução</string>
     <string name="dor_ou_fraqueza_dificuldade_em_manter_o_posicionamento">Dor ou Fraqueza no ombro (dificuldade em manter o posicionamento)</string>
+    <string name="exame_de_ombro">Exame de Ombro</string>
+    <string name="exame_de_cotovelo">Exame de Cotovelo</string>
+    <string name="exame_de_punho">Exame de Punho</string>
+    <string name="lista_de_exames">Lista de Exames</string>
 </resources>

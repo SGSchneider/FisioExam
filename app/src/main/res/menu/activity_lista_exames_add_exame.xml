@@ -5,9 +5,13 @@
 
     <item
         android:id="@+id/activity_lista_exames_menu_add_exame_ombro"
-        android:title="Exame de Ombro" />
+        android:title="@string/exame_de_ombro" />
 
     <item
         android:id="@+id/activity_lista_exames_menu_add_exame_cotovelo"
-        android:title="Exame de Cotovelo" />
+        android:title="@string/exame_de_cotovelo" />
+
+    <item
+        android:id="@+id/activity_lista_exames_menu_add_exame_punho"
+        android:title="@string/exame_de_punho" />
 </menu>

@@ -5,6 +5,7 @@ import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_ID_PACIEN
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_COTOVELO;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_EXAME;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_OMBRO;
+import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_PUNHO;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,7 +25,6 @@ import br.ufsm.fisioexam.model.Exame;
 import br.ufsm.fisioexam.ui.ListaExamesView;
 
 public class ListaExamesActivity extends AppCompatActivity {
-    public static final String TITULO_APPBAR = "Lista de Exames";
     private ListaExamesView listaExamesView;
     private String id_paciente;
 
@@ -32,7 +32,7 @@ public class ListaExamesActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_exames);
-        setTitle(TITULO_APPBAR);
+        setTitle(getString(R.string.lista_de_exames));
         carregaIdPaciente();
         listaExamesView = new ListaExamesView(this, id_paciente);
         configuraFabNovoExame();
@@ -61,7 +61,10 @@ public class ListaExamesActivity extends AppCompatActivity {
             } else if (item.getItemId() == R.id.activity_lista_exames_menu_add_exame_ombro) {
                 abreFormularioModoNovoExame(CHAVE_TIPO_OMBRO);
                 return b;
-            } else {
+            } else if (item.getItemId() == R.id.activity_lista_exames_menu_add_exame_punho) {
+                abreFormularioModoNovoExame(CHAVE_TIPO_PUNHO);
+                return b;
+            }else {
                 return false;
             }
         });
@@ -119,6 +122,4 @@ public class ListaExamesActivity extends AppCompatActivity {
         vaiParaFormularioActivity.putExtra(CHAVE_EXAME, ExameEscolhido.getId());
         startActivity(vaiParaFormularioActivity);
     }
-
-
 }
