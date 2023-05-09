@@ -58,7 +58,7 @@ public class SecaoTestesEspeciaisOmbroPt2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_secao_testes_especiais_ombro_pt1);
+        setContentView(R.layout.activity_secao_testes_especiais_ombro_pt2);
         inicializaCalendars();
         inicializaDAOS();
         carregaExame();
@@ -88,8 +88,8 @@ public class SecaoTestesEspeciaisOmbroPt2Activity extends AppCompatActivity {
         buttonProximo.setOnClickListener(v -> proximoForm());
         buttonSalvar.setOnClickListener(v -> salvarESair());
 
-        buttonHelpApreensao.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisApreensaoAnteriorOmbroActivity.class));
-        buttonHelpSinalSulco.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisSinalSulcoOmbroActivity.class));
+        buttonHelpApreensao.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisOmbroApreensaoActivity.class));
+        buttonHelpSinalSulco.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisOmbroSinalSulcoActivity.class));
         buttonHelpDash.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisDashOmbroActivity.class));
         buttonHelpAses.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisAsesOmbroActivity.class));
     }

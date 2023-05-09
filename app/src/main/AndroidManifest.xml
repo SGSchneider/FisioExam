@@ -81,6 +81,17 @@
         <activity android:name=".ui.activity.AjudaForcaMuscularOmbroTrapezioMedioActivity"/>
         <activity android:name=".ui.activity.AjudaForcaMuscularOmbroTrapezioSuperiorActivity"/>
         <activity android:name=".ui.activity.AjudaPerimetriaOmbroActivity"/>
+        <activity android:name=".ui.activity.AjudaTestesEspeciaisAsesOmbroActivity"/>
+        <activity android:name=".ui.activity.AjudaTestesEspeciaisDashOmbroActivity"/>
+        <activity android:name=".ui.activity.AjudaTestesEspeciaisOmbroApreensaoActivity"/>
+        <activity android:name=".ui.activity.AjudaTestesEspeciaisOmbroSinalSulcoActivity"/>
+        <activity android:name=".ui.activity.AjudaTestesEspeciaisOmbroGerberActivity"/>
+        <activity android:name=".ui.activity.AjudaTestesEspeciaisOmbroHawkinsActivity"/>
+        <activity android:name=".ui.activity.AjudaTestesEspeciaisOmbroJobeActivity"/>
+        <activity android:name=".ui.activity.AjudaTestesEspeciaisOmbroNeerActivity"/>
+        <activity android:name=".ui.activity.AjudaTestesEspeciaisOmbroPatteActivity"/>
+        <activity android:name=".ui.activity.AjudaTestesEspeciaisOmbroSpeedActivity"/>
+        <activity android:name=".ui.activity.AjudaTestesEspeciaisOmbroYergasonActivity"/>
     </application>
 
 

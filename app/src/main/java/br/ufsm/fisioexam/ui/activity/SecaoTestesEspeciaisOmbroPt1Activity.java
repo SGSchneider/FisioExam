@@ -9,6 +9,7 @@ import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_EXAME;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RadioGroup;
 
 import androidx.annotation.Nullable;
@@ -37,6 +38,15 @@ public class SecaoTestesEspeciaisOmbroPt1Activity extends AppCompatActivity {
     private RadioGroup radioSpeed;
     private RadioGroup radioYergason;
 
+    private ImageButton buttonHelpJobe;
+    private ImageButton buttonHelpPatte;
+    private ImageButton buttonHelpGerber;
+    private ImageButton buttonHelpNeer;
+    private ImageButton buttonHelpHawkins;
+    private ImageButton buttonHelpSpeed;
+    private ImageButton buttonHelpYergason;
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,11 +60,34 @@ public class SecaoTestesEspeciaisOmbroPt1Activity extends AppCompatActivity {
 
     private void inicializaBotoes() {
         buttonParteDois = findViewById(R.id.activity_secao_testes_especiais_ombro_button_parte2);
+        
+        buttonHelpJobe = findViewById(R.id.activity_secao_testes_especiais_ombro_jobe_button_help);
+        buttonHelpPatte = findViewById(R.id.activity_secao_testes_especiais_ombro_patte_button_help);
+        buttonHelpGerber = findViewById(R.id.activity_secao_testes_especiais_ombro_gerber_button_help);
+        buttonHelpNeer = findViewById(R.id.activity_secao_testes_especiais_ombro_neer_button_help);
+        buttonHelpHawkins = findViewById(R.id.activity_secao_testes_especiais_ombro_hawkins_button_help);
+        buttonHelpSpeed = findViewById(R.id.activity_secao_testes_especiais_ombro_speed_button_help);
+        buttonHelpYergason = findViewById(R.id.activity_secao_testes_especiais_ombro_yergason_button_help);
+        
         setListenerBotoes();
     }
 
     private void setListenerBotoes() {
         buttonParteDois.setOnClickListener(v -> proximoForm());
+        
+        buttonHelpJobe.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisOmbroJobeActivity.class));
+        buttonHelpPatte.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisOmbroPatteActivity.class));
+        buttonHelpGerber.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisOmbroGerberActivity.class));
+        buttonHelpNeer.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisOmbroNeerActivity.class));
+        buttonHelpHawkins.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisOmbroHawkinsActivity.class));
+        buttonHelpSpeed.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisOmbroSpeedActivity.class));
+        buttonHelpYergason.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisOmbroYergasonActivity.class));
+        
+    }
+
+    private void vaiParaSecaoAjuda(Class<?> classe) {
+        Intent vaiParaSecaoAjudaActivity = new Intent(this, classe);
+        startActivity(vaiParaSecaoAjudaActivity);
     }
 
 
@@ -66,7 +99,7 @@ public class SecaoTestesEspeciaisOmbroPt1Activity extends AppCompatActivity {
 
     private void vaiParaFormParteDois() {
         salva();
-        Intent vaiParaFormularioParteDoisActivity = new Intent(this, IntermediarioSecoesEspecificasActivity.class);
+        Intent vaiParaFormularioParteDoisActivity = new Intent(this, SecaoTestesEspeciaisOmbroPt2Activity.class);
         vaiParaFormularioParteDoisActivity.putExtra(CHAVE_EXAME, ombro.getId());
         startActivity(vaiParaFormularioParteDoisActivity);
         finish();

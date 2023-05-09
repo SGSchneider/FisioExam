@@ -222,7 +222,7 @@
     <string name="gerber">Gerber ou lift off test</string>
     <string name="irritativos">Irritativos</string>
     <string name="neer">Neer</string>
-    <string name="hawkins_kennedy">Hawkins_Kennedy</string>
+    <string name="hawkins_kennedy">Hawkins Kennedy</string>
     <string name="porcao_longa_biceps_braquial">Porção Longa do Bíceps Braquial</string>
     <string name="speed">Speed ou Palm-up</string>
     <string name="yergason">Yergason</string>
@@ -313,4 +313,32 @@
     <string name="abducao_do_ombro_ate_90">Abdução do ombro até 90°</string>
     <string name="explicacao_ajuda_ases_ombro" tools:ignore="Typos">11 itens que avaliam a dor no momento da aplicação e função do ombro, sendo 10 itens relacionados à função do ombro e 1 item relacionado à dor</string>
     <string name="explicacao_ajuda_dash_ombro">30 itens que informam sobre o estado de saúde do paciente na última semana, sendo que 21 itens informam sobre o nível de dificuldade de desempenhar as atividades devido ao acometimento do braço, ombro ou mão, 5 itens sobre a gravidade dos sintomas e 4 itens sobre o impacto da lesão nas atividades físicas diárias. \nAinda, há 2 módulos opcionais de 4 itens que informam sobre o desempenho nas atividades de vida diárias do paciente.</string>
+    <string name="teste">Teste :</string>
+    <string name="em_pe_ombro_abduzido_a_90_cotovelo_fletido_a_90">Em pé, ombro abduzido a 90º, cotovelo fletido a 90°</string>
+    <string name="procedimento">Procedimento :</string>
+    <string name="teste_positivo">Teste Positivo :</string>
+    <string name="procedimento_apreensao_anterior_ombro">O terapeuta deve colocar a mão na região posterior da articulação glenoumeral, e realizar a rotação lateral do ombro</string>
+    <string name="sensacao_de_apreensao_dor_no_ombro_ou_sensacao_de_luxacao">Sensação de apreensão, dor no ombro ou sensação de luxação</string>
+    <string name="paciente_em_pe_membro_sup_ao_lado_do_corpo">Paciente em pé com o membro superior ao lado do corpo</string>
+    <string name="procedimento_sinal_sulco_ombro">O terapeuta segura o antebraço e traciona distalmente</string>
+    <string name="surgimento_do_sulco_no_ombro">Surgimento do sulco no ombro</string>
+    <string name="em_pe_ombro_em_aducao_cotovelo_pronado_e_fletido_a_90">Em pé, ombro em adução, cotovelo pronado e fletido a 90°</string>
+    <string name="procedimento_yergason_ombro">O paciente realiza rotação lateral e supinação, e o terapeuta impõe resistência no sentido contrário ao movimento</string>
+    <string name="dor_sulco_bicipital">Dor no sulco bicipital</string>
+    <string name="sentado_com_ombro_fletido_a_90_rotacao_medial_e_cotovelo_fletido_a_90">Sentado com ombro fletido a 90°, rotação medial e cotovelo fletido a 90°</string>
+    <string name="procedimento_hawkins_ombro">O terapeuta realiza a flexão forçada do ombro</string>
+    <string name="dor_no_ombro">Dor no Ombro</string>
+    <string name="sentado_com_flexao_de_ombro_a_45">Sentado, com flexão de ombro a 45º</string>
+    <string name="procedimento_speed_ombro">O terapeuta realiza palpação do tendão do bíceps e proporciona resistência em extensão</string>
+    <string name="dor_tendao_cabeca_longa_biceps_braquial">Dor no tendão da cabeça longa do bíceps braquial</string>
+    <string name="procedimento_neer_ombro">O terapeuta realiza a flexão do ombro, no plano da escápula, associada à rotação medial</string>
+    <string name="paciente_em_pe_dorso_da_mao_localizada_na_regiao_lombar_em_nivel_de_l3">Paciente em pé, dorso da mão localizada na região lombar, em nível de L3.</string>
+    <string name="procedimento_gerber_ombro">Solicita-se que afaste a mão do dorso, numa atitude de rotação medial máxima</string>
+    <string name="incapacidade_de_realizar_o_teste">Incapacidade de realizar o teste</string>
+    <string name="ombro_em_abducao_a_90_no_plano_da_escapula_rotacao_lateral_e_flexao_de_cotovelo_a_90">Ombro em abdução a 90°, no plano da escápula, rotação lateral e flexão de cotovelo a 90°</string>
+    <string name="procedimento_patte_ombro">Resistência no sentido de rotação medial</string>
+    <string name="dor_no_ombro_ou_dificuldade_em_manter_o_posicionamento">Dor no ombro ou dificuldade em manter o posicionamento</string>
+    <string name="sentado_com_ombro_em_abducao_a_90_no_plano_da_escapula_e_rotacao_medial">Sentado com ombro em abdução a 90°, no plano da escápula, e rotação medial.</string>
+    <string name="procedimento_jobe_ombro">Resistência no sentido de adução</string>
+    <string name="dor_ou_fraqueza_dificuldade_em_manter_o_posicionamento">Dor ou Fraqueza no ombro (dificuldade em manter o posicionamento)</string>
 </resources>
