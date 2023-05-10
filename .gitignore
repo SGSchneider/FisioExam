@@ -25,6 +25,7 @@ output.json
 
 # Google Services (e.g. APIs or Firebase)
 google-services.json
+main/assets/AdminUIDS.json
 
 # Android Profiling
 *.hprof
