@@ -211,10 +211,8 @@
     <string name="logar">Login</string>
     <string name="e_mail">E-Mail</string>
     <string name="senha">Senha</string>
-    <string name="esquerdamais">Esquerda +</string>
-    <string name="esquerdamenos">Esquerda -</string>
-    <string name="direitamais">Direita +</string>
-    <string name="direitamenos">Direita -</string>
+    <string name="esquerda">Esquerda</string>
+    <string name="direita">Direita</string>
     <string name="integridade_manguito_rotador">Integridade de Manguito Rotador</string>
     <string name="testes_especiais">Testes Especiais</string>
     <string name="jobe">Jobe</string>

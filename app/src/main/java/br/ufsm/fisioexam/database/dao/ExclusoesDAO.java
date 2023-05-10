@@ -21,5 +21,4 @@ public interface ExclusoesDAO {
     @Query("select * from exclusoes")
     List<Exclusoes> getExclusoes();
 
-
 }

@@ -32,7 +32,8 @@ public class Secoes implements Serializable {
     private boolean palpacao;
     private boolean amplitudeMovimento;
     private boolean perimetria;
-    private boolean forcaMuscular;
+    private boolean forcaMuscular1;
+    private boolean forcaMuscular2;
     private boolean sensibilidade;
     private boolean testesEspeciais;
     private boolean observacoes;
@@ -58,7 +59,8 @@ public class Secoes implements Serializable {
         this.palpacao = false;
         this.amplitudeMovimento = false;
         this.perimetria = false;
-        this.forcaMuscular = false;
+        this.forcaMuscular1 = false;
+        this.forcaMuscular2 = false;
         this.sensibilidade = false;
         this.testesEspeciais = false;
         this.observacoes = false;
@@ -68,7 +70,7 @@ public class Secoes implements Serializable {
     }
 
     @Ignore
-    public Secoes(){
+    public Secoes() {
         id = "";
     }
 
@@ -213,8 +215,8 @@ public class Secoes implements Serializable {
         return amplitudeMovimento;
     }
 
-    public void setAmplitudeMovimento(boolean amplitudeMovimento) {
-        this.amplitudeMovimento = amplitudeMovimento;
+    public void setAmplitudeMovimento(boolean amplitudeMovimento1) {
+        this.amplitudeMovimento = amplitudeMovimento1;
     }
 
     public boolean isPerimetria() {
@@ -225,12 +227,20 @@ public class Secoes implements Serializable {
         this.perimetria = perimetria;
     }
 
-    public boolean isForcaMuscular() {
-        return forcaMuscular;
+    public boolean isForcaMuscular1() {
+        return forcaMuscular1;
     }
 
-    public void setForcaMuscular(boolean forcaMuscular) {
-        this.forcaMuscular = forcaMuscular;
+    public void setForcaMuscular1(boolean forcaMuscular1) {
+        this.forcaMuscular1 = forcaMuscular1;
+    }
+
+    public boolean isForcaMuscular2() {
+        return forcaMuscular2;
+    }
+
+    public void setForcaMuscular2(boolean forcaMuscular2) {
+        this.forcaMuscular2 = forcaMuscular2;
     }
 
     public boolean isSensibilidade() {
@@ -248,6 +258,8 @@ public class Secoes implements Serializable {
     public void setTestesEspeciais(boolean testesEspeciais) {
         this.testesEspeciais = testesEspeciais;
     }
+
+
 
     public boolean isObservacoes() {
         return observacoes;

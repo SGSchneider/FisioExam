@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -44,41 +45,26 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <RadioGroup
-                android:id="@+id/activity_secao_testes_especiais_punho_radio_phalen"
-                android:layout_width="match_parent"
+
+            <CheckBox
+                android:id="@+id/activity_secao_testes_especiais_punho_esquerda_phalen"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp">
+                android:text="@string/esquerda"
+                android:textSize="18sp"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_punho_radio_esquerda_mais_phalen"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/esquerdamais"
-                    android:textSize="18sp" />
 
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_punho_radio_esquerda_menos_phalen"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/esquerdamenos"
-                    android:textSize="18sp" />
+            <CheckBox
+                android:id="@+id/activity_secao_testes_especiais_punho_direita_phalen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/direita"
+                android:textSize="18sp"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_punho_radio_direita_mais_phalen"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/direitamais"
-                    android:textSize="18sp" />
 
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_punho_radio_direita_menos_phalen"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/direitamenos"
-                    android:textSize="18sp" />
 
-            </RadioGroup>
 
             <TextView
                 android:layout_width="match_parent"
@@ -88,41 +74,23 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <RadioGroup
-                android:id="@+id/activity_secao_testes_especiais_punho_radio_phalen_invertido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp">
-
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_punho_radio_esquerda_mais_phalen_invertido"
+                <CheckBox
+                    android:id="@+id/activity_secao_testes_especiais_punho_esquerda_phalen_invertido"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/esquerdamais"
+                    android:text="@string/esquerda"
                     android:textSize="18sp" />
 
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_punho_radio_esquerda_menos_phalen_invertido"
+                <CheckBox
+                    android:id="@+id/activity_secao_testes_especiais_punho_direita_phalen_invertido"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/esquerdamenos"
+                    android:text="@string/direita"
                     android:textSize="18sp" />
 
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_punho_radio_direita_mais_phalen_invertido"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/direitamais"
-                    android:textSize="18sp" />
 
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_punho_radio_direita_menos_phalen_invertido"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/direitamenos"
-                    android:textSize="18sp" />
 
-            </RadioGroup>
+
 
 
             <TextView
@@ -133,41 +101,20 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <RadioGroup
-                android:id="@+id/activity_secao_testes_especiais_punho_radio_tinel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp">
 
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_punho_radio_esquerda_mais_tinel"
+                <CheckBox
+                    android:id="@+id/activity_secao_testes_especiais_punho_esquerda_tinel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/esquerdamais"
+                    android:text="@string/esquerda"
                     android:textSize="18sp" />
 
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_punho_radio_esquerda_menos_tinel"
+                <CheckBox
+                    android:id="@+id/activity_secao_testes_especiais_punho_direita_tinel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/esquerdamenos"
+                    android:text="@string/direita"
                     android:textSize="18sp" />
-
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_punho_radio_direita_mais_tinel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/direitamais"
-                    android:textSize="18sp" />
-
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_punho_radio_direita_menos_tinel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/direitamenos"
-                    android:textSize="18sp" />
-
-            </RadioGroup>
 
             <TextView
                 android:layout_width="match_parent"
@@ -177,41 +124,21 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <RadioGroup
-                android:id="@+id/activity_secao_testes_especiais_punho_radio_finkelstein"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp">
-
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_punho_radio_esquerda_mais_finkelstein"
+                <CheckBox
+                    android:id="@+id/activity_secao_testes_especiais_punho_esquerda_finkelstein"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/esquerdamais"
+                    android:text="@string/esquerda"
                     android:textSize="18sp" />
 
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_punho_radio_esquerda_menos_finkelstein"
+                <CheckBox
+                    android:id="@+id/activity_secao_testes_especiais_punho_direita_finkelstein"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/esquerdamenos"
+                    android:text="@string/direita"
                     android:textSize="18sp" />
 
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_punho_radio_direita_mais_finkelstein"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/direitamais"
-                    android:textSize="18sp" />
 
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_punho_radio_direita_menos_finkelstein"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/direitamenos"
-                    android:textSize="18sp" />
-
-            </RadioGroup>
 
             <TextView
                 android:layout_width="match_parent"
@@ -221,41 +148,22 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <RadioGroup
-                android:id="@+id/activity_secao_testes_especiais_punho_radio_tunel_ulnar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp">
-
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_punho_radio_esquerda_mais_tunel_ulnar"
+                <CheckBox
+                    android:id="@+id/activity_secao_testes_especiais_punho_esquerda_tunel_ulnar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/esquerdamais"
+                    android:text="@string/esquerda"
                     android:textSize="18sp" />
 
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_punho_radio_esquerda_menos_tunel_ulnar"
+                <CheckBox
+                    android:id="@+id/activity_secao_testes_especiais_punho_direita_tunel_ulnar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/esquerdamenos"
+                    android:text="@string/direita"
                     android:textSize="18sp" />
 
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_punho_radio_direita_mais_tunel_ulnar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/direitamais"
-                    android:textSize="18sp" />
 
-                <RadioButton
-                    android:id="@+id/activity_secao_testes_especiais_punho_radio_direita_menos_tunel_ulnar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/direitamenos"
-                    android:textSize="18sp" />
 
-            </RadioGroup>
 
 
             <TextView
@@ -299,7 +207,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
-                android:hint="@string/data" />
+                android:hint="@string/data"
+                android:importantForAutofill="no"
+                tools:ignore="TextFields,VisualLintTextFieldSize" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -314,7 +224,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
-                android:hint="@string/pontuacao"/>
+                android:hint="@string/pontuacao"
+                android:importantForAutofill="no"
+                tools:ignore="TextFields,VisualLintTextFieldSize" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -329,7 +241,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
-                android:hint="@string/resultados"/>
+                android:hint="@string/resultados"
+                android:importantForAutofill="no"
+                tools:ignore="TextFields,VisualLintTextFieldSize" />
 
         </LinearLayout>
     </ScrollView>
@@ -345,7 +259,8 @@
         app:layout_constraintEnd_toStartOf="@id/activity_secao_testes_especiais_punho_button_proximo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/activity_secao_testes_especiais_punho_scroll_view"
-        app:layout_constraintVertical_bias="1" />
+        app:layout_constraintVertical_bias="1"
+        tools:ignore="VisualLintButtonSize" />
 
     <Button
         android:id="@+id/activity_secao_testes_especiais_punho_button_proximo"
@@ -358,6 +273,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/activity_secao_testes_especiais_punho_button_salvar_e_sair"
         app:layout_constraintTop_toBottomOf="@+id/activity_secao_testes_especiais_punho_scroll_view"
-        app:layout_constraintVertical_bias="1" />
+        app:layout_constraintVertical_bias="1"
+        tools:ignore="VisualLintButtonSize" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

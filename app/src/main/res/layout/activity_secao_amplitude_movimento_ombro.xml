@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <ScrollView
-        android:id="@+id/activity_secao_amplitude_movimento_ombro_pt1_scroll_view"
+        android:id="@+id/activity_secao_amplitude_movimento_ombro_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="96dp"
@@ -39,29 +39,31 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
                     android:text="@string/flexao"
                     android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"/>
+                    android:textStyle="bold" />
+
                 <ImageButton
                     android:id="@+id/activity_secao_amplitude_movimento_ombro_button_help_flexao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginHorizontal="8dp"
-                    android:src="@drawable/ic_action_help"
-                    app:tint="?attr/colorControlNormal"
-                    android:contentDescription="@string/ajuda"
                     android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
                     android:scaleY="1.5"
-                    android:scaleX="1.5"/>
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
             </LinearLayout>
 
 
@@ -73,37 +75,15 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:text="@string/ativo"
-                android:textSize="18sp" />
-
             <EditText
-                android:id="@+id/activity_secao_amplitude_movimento_ombro_flexao_ativo_esquerdo"
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_flexao_esquerdo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
-                android:hint="@string/ativo"
+                android:hint="@string/esquerdo"
                 android:importantForAutofill="no"
                 android:inputType="text" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:text="@string/passivo"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/activity_secao_amplitude_movimento_ombro_flexao_passivo_esquerdo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:hint="@string/passivo"
-                android:importantForAutofill="no"
-                android:inputType="text" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -113,64 +93,44 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:text="@string/ativo"
-                android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/activity_secao_amplitude_movimento_ombro_flexao_ativo_direito"
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_flexao_direito"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
-                android:hint="@string/ativo"
-                android:importantForAutofill="no"
-                android:inputType="text" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:text="@string/passivo"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/activity_secao_amplitude_movimento_ombro_flexao_passivo_direito"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:hint="@string/passivo"
+                android:hint="@string/direito"
                 android:importantForAutofill="no"
                 android:inputType="text" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
                     android:text="@string/extensao"
                     android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"/>
+                    android:textStyle="bold" />
+
                 <ImageButton
                     android:id="@+id/activity_secao_amplitude_movimento_ombro_button_help_extensao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginHorizontal="8dp"
-                    android:src="@drawable/ic_action_help"
-                    app:tint="?attr/colorControlNormal"
-                    android:contentDescription="@string/ajuda"
                     android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
                     android:scaleY="1.5"
-                    android:scaleX="1.5"/>
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
             </LinearLayout>
 
             <TextView
@@ -181,37 +141,16 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:text="@string/ativo"
-                android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/activity_secao_amplitude_movimento_ombro_extensao_ativo_esquerdo"
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_extensao_esquerdo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
-                android:hint="@string/ativo"
+                android:hint="@string/esquerdo"
                 android:importantForAutofill="no"
                 android:inputType="text" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:text="@string/passivo"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/activity_secao_amplitude_movimento_ombro_extensao_passivo_esquerdo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:hint="@string/passivo"
-                android:importantForAutofill="no"
-                android:inputType="text" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -221,64 +160,44 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:text="@string/ativo"
-                android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/activity_secao_amplitude_movimento_ombro_extensao_ativo_direito"
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_extensao_direito"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
-                android:hint="@string/ativo"
-                android:importantForAutofill="no"
-                android:inputType="text" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:text="@string/passivo"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/activity_secao_amplitude_movimento_ombro_extensao_passivo_direito"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:hint="@string/passivo"
+                android:hint="@string/direito"
                 android:importantForAutofill="no"
                 android:inputType="text" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
                     android:text="@string/abducao"
                     android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"/>
+                    android:textStyle="bold" />
+
                 <ImageButton
                     android:id="@+id/activity_secao_amplitude_movimento_ombro_button_help_abducao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginHorizontal="8dp"
-                    android:src="@drawable/ic_action_help"
-                    app:tint="?attr/colorControlNormal"
-                    android:contentDescription="@string/ajuda"
                     android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
                     android:scaleY="1.5"
-                    android:scaleX="1.5"/>
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
             </LinearLayout>
 
             <TextView
@@ -289,35 +208,13 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:text="@string/ativo"
-                android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/activity_secao_amplitude_movimento_ombro_abducao_ativo_esquerdo"
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_abducao_esquerdo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
-                android:hint="@string/ativo"
-                android:importantForAutofill="no"
-                android:inputType="text" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:text="@string/passivo"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/activity_secao_amplitude_movimento_ombro_abducao_passivo_esquerdo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:hint="@string/passivo"
+                android:hint="@string/esquerdo"
                 android:importantForAutofill="no"
                 android:inputType="text" />
 
@@ -329,35 +226,81 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:text="@string/ativo"
-                android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/activity_secao_amplitude_movimento_ombro_abducao_ativo_direito"
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_abducao_direito"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
-                android:hint="@string/ativo"
+                android:hint="@string/direito"
                 android:importantForAutofill="no"
                 android:inputType="text" />
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/aducao_horizontal"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_amplitude_movimento_ombro_button_help_aducao_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
-                android:text="@string/passivo"
-                android:textSize="18sp" />
+                android:text="@string/esquerdo"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
 
             <EditText
-                android:id="@+id/activity_secao_amplitude_movimento_ombro_abducao_passivo_direito"
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_aducao_horizontal_esquerdo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
-                android:hint="@string/passivo"
+                android:hint="@string/esquerdo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/direito"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_aducao_horizontal_direito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/direito"
                 android:importantForAutofill="no"
                 android:inputType="text" />
 
@@ -371,13 +314,13 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
-                    android:text="@string/aducao_horizontal"
+                    android:text="@string/rotacao_medial"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"/>
                 <ImageButton
-                    android:id="@+id/activity_secao_amplitude_movimento_ombro_button_help_aducao_horizontal"
+                    android:id="@+id/activity_secao_amplitude_movimento_ombro_button_help_rotacao_medial"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -398,37 +341,16 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:text="@string/ativo"
-                android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/activity_secao_amplitude_movimento_ombro_aducao_horizontal_ativo_esquerdo"
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_rotacao_medial_esquerdo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
-                android:hint="@string/ativo"
+                android:hint="@string/esquerdo"
                 android:importantForAutofill="no"
                 android:inputType="text" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:text="@string/passivo"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/activity_secao_amplitude_movimento_ombro_aducao_horizontal_passivo_esquerdo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:hint="@string/passivo"
-                android:importantForAutofill="no"
-                android:inputType="text" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -438,19 +360,80 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_rotacao_medial_direito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/direito"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:text="@string/rotacao_lateral"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"/>
+                <ImageButton
+                    android:id="@+id/activity_secao_amplitude_movimento_ombro_button_help_rotacao_lateral"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal"
+                    android:contentDescription="@string/ajuda"
+                    android:backgroundTint="#0000"
+                    android:scaleY="1.5"
+                    android:scaleX="1.5"/>
+            </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
-                android:text="@string/ativo"
-                android:textSize="18sp" />
+                android:text="@string/esquerdo"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
 
             <EditText
-                android:id="@+id/activity_secao_amplitude_movimento_ombro_aducao_horizontal_ativo_direito"
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_rotacao_lateral_esquerdo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
-                android:hint="@string/ativo"
+                android:hint="@string/esquerdo"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/direito"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <EditText
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_rotacao_lateral_direito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:hint="@string/direito"
                 android:importantForAutofill="no"
                 android:inputType="text" />
 
@@ -458,36 +441,85 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
-                android:text="@string/passivo"
-                android:textSize="18sp" />
+                android:layout_marginTop="8dp"
+                android:text="@string/titulo_ritmo_escapulo_umeral"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/activity_secao_amplitude_movimento_ombro_aducao_horizontal_passivo_direito"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
-                android:hint="@string/passivo"
-                android:importantForAutofill="no"
-                android:inputType="text" />
+                android:text="@string/texto_ritmo_escapulo_umeral"
+                android:textSize="18sp" />
 
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_alteracao_ritmo_escapulo_umeral"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/alteracao"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/graus"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_grau_i_ritmo_escapulo_umeral"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/grau_i_amp_mov_ombro"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_grau_ii_ritmo_escapulo_umeral"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/grau_ii_amp_mov_ombro"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/activity_secao_amplitude_movimento_ombro_grau_iii_ritmo_escapulo_umeral"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/grau_iii_amp_mov_ombro"
+                android:textSize="18sp" />
 
         </LinearLayout>
     </ScrollView>
 
     <Button
-        android:id="@+id/activity_secao_amplitude_movimento_ombro_button_parte_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/activity_secao_amplitude_movimento_ombro_button_salvar_e_sair"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
         android:layout_margin="8dp"
-        android:paddingVertical="16dp"
-        android:paddingHorizontal="64dp"
-        android:text="@string/parte_2"
+        android:text="@string/salvar_e_sair"
         android:textSize="16sp"
-        app:flow_horizontalBias="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/activity_secao_amplitude_movimento_ombro_button_proximo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_secao_amplitude_movimento_ombro_scroll_view"
+        app:layout_constraintVertical_bias="1" />
+
+    <Button
+        android:id="@+id/activity_secao_amplitude_movimento_ombro_button_proximo"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_margin="8dp"
+        android:text="@string/proximo"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_secao_amplitude_movimento_ombro_pt1_scroll_view"
+        app:layout_constraintStart_toEndOf="@+id/activity_secao_amplitude_movimento_ombro_button_salvar_e_sair"
+        app:layout_constraintTop_toBottomOf="@+id/activity_secao_amplitude_movimento_ombro_scroll_view"
         app:layout_constraintVertical_bias="1" />
 </androidx.constraintlayout.widget.ConstraintLayout>

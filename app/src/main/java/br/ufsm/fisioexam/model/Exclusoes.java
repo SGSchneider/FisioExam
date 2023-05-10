@@ -9,7 +9,9 @@ import java.io.Serializable;
 
 @Entity
 public class Exclusoes implements Serializable {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    private int keyPrimaria;
+
     private @NonNull String id;
 
     private @NonNull String tipo;
@@ -17,6 +19,14 @@ public class Exclusoes implements Serializable {
     public Exclusoes(@NonNull String id, @NonNull String tipo) {
         this.id = id;
         this.tipo = tipo;
+    }
+
+    public int getKeyPrimaria() {
+        return keyPrimaria;
+    }
+
+    public void setKeyPrimaria(int keyPrimaria) {
+        this.keyPrimaria = keyPrimaria;
     }
 
     @NonNull

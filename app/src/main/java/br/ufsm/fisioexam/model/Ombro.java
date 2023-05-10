@@ -20,30 +20,30 @@ public class Ombro {
 
 
     //Amplitude de movimento
-    private String flexaoDirAtivo;
-    private String flexaoDirPassivo;
-    private String flexaoEsqAtivo;
-    private String flexaoEsqPassivo;
-    private String extensaoDirAtivo;
-    private String extensaoDirPassivo;
-    private String extensaoEsqAtivo;
-    private String extensaoEsqPassivo;
-    private String abducaoDirAtivo;
-    private String abducaoDirPassivo;
-    private String abducaoEsqAtivo;
-    private String abducaoEsqPassivo;
-    private String aducaoHorDirAtivo;
-    private String aducaoHorDirPassivo;
-    private String aducaoHorEsqAtivo;
-    private String aducaoHorEsqPassivo;
-    private String rotacaoMedDirAtivo;
-    private String rotacaoMedDirPassivo;
-    private String rotacaoMedEsqAtivo;
-    private String rotacaoMedEsqPassivo;
-    private String rotacaoLatDirAtivo;
-    private String rotacaoLatDirPassivo;
-    private String rotacaoLatEsqAtivo;
-    private String rotacaoLatEsqPassivo;
+    private String flexaoDir;
+
+    private String flexaoEsq;
+
+    private String extensaoDir;
+
+    private String extensaoEsq;
+
+    private String abducaoDir;
+
+    private String abducaoEsq;
+
+    private String aducaoHorDir;
+
+    private String aducaoHorEsq;
+
+    private String rotacaoMedDir;
+
+    private String rotacaoMedEsq;
+
+    private String rotacaoLatDir;
+
+    private String rotacaoLatEsq;
+
     private Boolean alteracaoRitmoEscapuloUmeral;
     private Boolean grauI;
     private Boolean grauII;
@@ -103,20 +103,24 @@ public class Ombro {
     private String sensibilidadeLocalAvaliado;
 
     //Testes Especiais
-    //Integridade de Manguito Rotador
-    private String jobe;
-    private String patte;
-    private String gerberLiffOff;
-    //Irritativos
-    private String neer;
-    private String hawkins;
-    //Porção Longa do Biceps Braquial
-    private String palmUpSpeed;
-    private String yergason;
-    //Instabilidade
-    private String apreensaoAnterior;
-    private String sinalSulco;
-
+    private boolean jobeDir;
+    private boolean jobeEsq;
+    private boolean patteDir;
+    private boolean patteEsq;
+    private boolean gerberLiftOffDir;
+    private boolean gerberLiftOffEsq;
+    private boolean neerDir;
+    private boolean neerEsq;
+    private boolean hawkinsDir;
+    private boolean hawkinsEsq;
+    private boolean palmUpSpeedDir;
+    private boolean palmUpSpeedEsq;
+    private boolean yergasonDir;
+    private boolean yergasonEsq;
+    private boolean apreensaoAnteriorDir;
+    private boolean apreensaoAnteriorEsq;
+    private boolean sinalSulcoDir;
+    private boolean sinalSulcoEsq;
     //Escalas Utilizadas
     //DASH
     private Long dashData;
@@ -156,196 +160,100 @@ public class Ombro {
         this.exame = exame;
     }
 
-    public String getFlexaoDirAtivo() {
-        return flexaoDirAtivo;
+    public String getFlexaoDir() {
+        return flexaoDir;
     }
 
-    public void setFlexaoDirAtivo(String flexaoDirAtivo) {
-        this.flexaoDirAtivo = flexaoDirAtivo;
+    public void setFlexaoDir(String flexaoDir) {
+        this.flexaoDir = flexaoDir;
     }
 
-    public String getFlexaoDirPassivo() {
-        return flexaoDirPassivo;
+    public String getFlexaoEsq() {
+        return flexaoEsq;
     }
 
-    public void setFlexaoDirPassivo(String flexaoDirPassivo) {
-        this.flexaoDirPassivo = flexaoDirPassivo;
+    public void setFlexaoEsq(String flexaoEsq) {
+        this.flexaoEsq = flexaoEsq;
     }
 
-    public String getFlexaoEsqAtivo() {
-        return flexaoEsqAtivo;
+    public String getExtensaoDir() {
+        return extensaoDir;
     }
 
-    public void setFlexaoEsqAtivo(String flexaoEsqAtivo) {
-        this.flexaoEsqAtivo = flexaoEsqAtivo;
+    public void setExtensaoDir(String extensaoDir) {
+        this.extensaoDir = extensaoDir;
     }
 
-    public String getFlexaoEsqPassivo() {
-        return flexaoEsqPassivo;
+    public String getExtensaoEsq() {
+        return extensaoEsq;
     }
 
-    public void setFlexaoEsqPassivo(String flexaoEsqPassivo) {
-        this.flexaoEsqPassivo = flexaoEsqPassivo;
+    public void setExtensaoEsq(String extensaoEsq) {
+        this.extensaoEsq = extensaoEsq;
     }
 
-    public String getExtensaoDirAtivo() {
-        return extensaoDirAtivo;
+    public String getAbducaoDir() {
+        return abducaoDir;
     }
 
-    public void setExtensaoDirAtivo(String extensaoDirAtivo) {
-        this.extensaoDirAtivo = extensaoDirAtivo;
+    public void setAbducaoDir(String abducaoDir) {
+        this.abducaoDir = abducaoDir;
     }
 
-    public String getExtensaoDirPassivo() {
-        return extensaoDirPassivo;
+    public String getAbducaoEsq() {
+        return abducaoEsq;
     }
 
-    public void setExtensaoDirPassivo(String extensaoDirPassivo) {
-        this.extensaoDirPassivo = extensaoDirPassivo;
+    public void setAbducaoEsq(String abducaoEsq) {
+        this.abducaoEsq = abducaoEsq;
     }
 
-    public String getExtensaoEsqAtivo() {
-        return extensaoEsqAtivo;
+    public String getAducaoHorDir() {
+        return aducaoHorDir;
     }
 
-    public void setExtensaoEsqAtivo(String extensaoEsqAtivo) {
-        this.extensaoEsqAtivo = extensaoEsqAtivo;
+    public void setAducaoHorDir(String aducaoHorDir) {
+        this.aducaoHorDir = aducaoHorDir;
     }
 
-    public String getExtensaoEsqPassivo() {
-        return extensaoEsqPassivo;
+    public String getAducaoHorEsq() {
+        return aducaoHorEsq;
     }
 
-    public void setExtensaoEsqPassivo(String extensaoEsqPassivo) {
-        this.extensaoEsqPassivo = extensaoEsqPassivo;
+    public void setAducaoHorEsq(String aducaoHorEsq) {
+        this.aducaoHorEsq = aducaoHorEsq;
     }
 
-    public String getAbducaoDirAtivo() {
-        return abducaoDirAtivo;
+    public String getRotacaoMedDir() {
+        return rotacaoMedDir;
     }
 
-    public void setAbducaoDirAtivo(String abducaoDirAtivo) {
-        this.abducaoDirAtivo = abducaoDirAtivo;
+    public void setRotacaoMedDir(String rotacaoMedDir) {
+        this.rotacaoMedDir = rotacaoMedDir;
     }
 
-    public String getAbducaoDirPassivo() {
-        return abducaoDirPassivo;
+    public String getRotacaoMedEsq() {
+        return rotacaoMedEsq;
     }
 
-    public void setAbducaoDirPassivo(String abducaoDirPassivo) {
-        this.abducaoDirPassivo = abducaoDirPassivo;
+    public void setRotacaoMedEsq(String rotacaoMedEsq) {
+        this.rotacaoMedEsq = rotacaoMedEsq;
     }
 
-    public String getAbducaoEsqAtivo() {
-        return abducaoEsqAtivo;
+    public String getRotacaoLatDir() {
+        return rotacaoLatDir;
     }
 
-    public void setAbducaoEsqAtivo(String abducaoEsqAtivo) {
-        this.abducaoEsqAtivo = abducaoEsqAtivo;
+    public void setRotacaoLatDir(String rotacaoLatDir) {
+        this.rotacaoLatDir = rotacaoLatDir;
     }
 
-    public String getAbducaoEsqPassivo() {
-        return abducaoEsqPassivo;
+    public String getRotacaoLatEsq() {
+        return rotacaoLatEsq;
     }
 
-    public void setAbducaoEsqPassivo(String abducaoEsqPassivo) {
-        this.abducaoEsqPassivo = abducaoEsqPassivo;
-    }
-
-    public String getAducaoHorDirAtivo() {
-        return aducaoHorDirAtivo;
-    }
-
-    public void setAducaoHorDirAtivo(String aducaoHorDirAtivo) {
-        this.aducaoHorDirAtivo = aducaoHorDirAtivo;
-    }
-
-    public String getAducaoHorDirPassivo() {
-        return aducaoHorDirPassivo;
-    }
-
-    public void setAducaoHorDirPassivo(String aducaoHorDirPassivo) {
-        this.aducaoHorDirPassivo = aducaoHorDirPassivo;
-    }
-
-    public String getAducaoHorEsqAtivo() {
-        return aducaoHorEsqAtivo;
-    }
-
-    public void setAducaoHorEsqAtivo(String aducaoHorEsqAtivo) {
-        this.aducaoHorEsqAtivo = aducaoHorEsqAtivo;
-    }
-
-    public String getAducaoHorEsqPassivo() {
-        return aducaoHorEsqPassivo;
-    }
-
-    public void setAducaoHorEsqPassivo(String aducaoHorEsqPassivo) {
-        this.aducaoHorEsqPassivo = aducaoHorEsqPassivo;
-    }
-
-    public String getRotacaoMedDirAtivo() {
-        return rotacaoMedDirAtivo;
-    }
-
-    public void setRotacaoMedDirAtivo(String rotacaoMedDirAtivo) {
-        this.rotacaoMedDirAtivo = rotacaoMedDirAtivo;
-    }
-
-    public String getRotacaoMedDirPassivo() {
-        return rotacaoMedDirPassivo;
-    }
-
-    public void setRotacaoMedDirPassivo(String rotacaoMedDirPassivo) {
-        this.rotacaoMedDirPassivo = rotacaoMedDirPassivo;
-    }
-
-    public String getRotacaoMedEsqAtivo() {
-        return rotacaoMedEsqAtivo;
-    }
-
-    public void setRotacaoMedEsqAtivo(String rotacaoMedEsqAtivo) {
-        this.rotacaoMedEsqAtivo = rotacaoMedEsqAtivo;
-    }
-
-    public String getRotacaoMedEsqPassivo() {
-        return rotacaoMedEsqPassivo;
-    }
-
-    public void setRotacaoMedEsqPassivo(String rotacaoMedEsqPassivo) {
-        this.rotacaoMedEsqPassivo = rotacaoMedEsqPassivo;
-    }
-
-    public String getRotacaoLatDirAtivo() {
-        return rotacaoLatDirAtivo;
-    }
-
-    public void setRotacaoLatDirAtivo(String rotacaoLatDirAtivo) {
-        this.rotacaoLatDirAtivo = rotacaoLatDirAtivo;
-    }
-
-    public String getRotacaoLatDirPassivo() {
-        return rotacaoLatDirPassivo;
-    }
-
-    public void setRotacaoLatDirPassivo(String rotacaoLatDirPassivo) {
-        this.rotacaoLatDirPassivo = rotacaoLatDirPassivo;
-    }
-
-    public String getRotacaoLatEsqAtivo() {
-        return rotacaoLatEsqAtivo;
-    }
-
-    public void setRotacaoLatEsqAtivo(String rotacaoLatEsqAtivo) {
-        this.rotacaoLatEsqAtivo = rotacaoLatEsqAtivo;
-    }
-
-    public String getRotacaoLatEsqPassivo() {
-        return rotacaoLatEsqPassivo;
-    }
-
-    public void setRotacaoLatEsqPassivo(String rotacaoLatEsqPassivo) {
-        this.rotacaoLatEsqPassivo = rotacaoLatEsqPassivo;
+    public void setRotacaoLatEsq(String rotacaoLatEsq) {
+        this.rotacaoLatEsq = rotacaoLatEsq;
     }
 
     public Boolean getAlteracaoRitmoEscapuloUmeral() {
@@ -748,76 +656,148 @@ public class Ombro {
         this.sensibilidadeLocalAvaliado = sensibilidadeLocalAvaliado;
     }
 
-    public String getJobe() {
-        return jobe;
+    public boolean isJobeDir() {
+        return jobeDir;
     }
 
-    public void setJobe(String jobe) {
-        this.jobe = jobe;
+    public void setJobeDir(boolean jobeDir) {
+        this.jobeDir = jobeDir;
     }
 
-    public String getPatte() {
-        return patte;
+    public boolean isJobeEsq() {
+        return jobeEsq;
     }
 
-    public void setPatte(String patte) {
-        this.patte = patte;
+    public void setJobeEsq(boolean jobeEsq) {
+        this.jobeEsq = jobeEsq;
     }
 
-    public String getGerberLiffOff() {
-        return gerberLiffOff;
+    public boolean isPatteDir() {
+        return patteDir;
     }
 
-    public void setGerberLiffOff(String gerberLiffOff) {
-        this.gerberLiffOff = gerberLiffOff;
+    public void setPatteDir(boolean patteDir) {
+        this.patteDir = patteDir;
     }
 
-    public String getNeer() {
-        return neer;
+    public boolean isPatteEsq() {
+        return patteEsq;
     }
 
-    public void setNeer(String neer) {
-        this.neer = neer;
+    public void setPatteEsq(boolean patteEsq) {
+        this.patteEsq = patteEsq;
     }
 
-    public String getHawkins() {
-        return hawkins;
+    public boolean isGerberLiftOffDir() {
+        return gerberLiftOffDir;
     }
 
-    public void setHawkins(String hawkins) {
-        this.hawkins = hawkins;
+    public void setGerberLiftOffDir(boolean gerberLiftOffDir) {
+        this.gerberLiftOffDir = gerberLiftOffDir;
     }
 
-    public String getPalmUpSpeed() {
-        return palmUpSpeed;
+    public boolean isGerberLiftOffEsq() {
+        return gerberLiftOffEsq;
     }
 
-    public void setPalmUpSpeed(String palmUpSpeed) {
-        this.palmUpSpeed = palmUpSpeed;
+    public void setGerberLiftOffEsq(boolean gerberLiftOffEsq) {
+        this.gerberLiftOffEsq = gerberLiftOffEsq;
     }
 
-    public String getYergason() {
-        return yergason;
+    public boolean isNeerDir() {
+        return neerDir;
     }
 
-    public void setYergason(String yergason) {
-        this.yergason = yergason;
+    public void setNeerDir(boolean neerDir) {
+        this.neerDir = neerDir;
     }
 
-    public String getApreensaoAnterior() {
-        return apreensaoAnterior;
+    public boolean isNeerEsq() {
+        return neerEsq;
     }
 
-    public void setApreensaoAnterior(String apreensaoAnterior) {
-        this.apreensaoAnterior = apreensaoAnterior;
+    public void setNeerEsq(boolean neerEsq) {
+        this.neerEsq = neerEsq;
     }
 
-    public String getSinalSulco() {
-        return sinalSulco;
+    public boolean isHawkinsDir() {
+        return hawkinsDir;
     }
 
-    public void setSinalSulco(String sinalSulco) {
-        this.sinalSulco = sinalSulco;
+    public void setHawkinsDir(boolean hawkinsDir) {
+        this.hawkinsDir = hawkinsDir;
+    }
+
+    public boolean isHawkinsEsq() {
+        return hawkinsEsq;
+    }
+
+    public void setHawkinsEsq(boolean hawkinsEsq) {
+        this.hawkinsEsq = hawkinsEsq;
+    }
+
+    public boolean isPalmUpSpeedDir() {
+        return palmUpSpeedDir;
+    }
+
+    public void setPalmUpSpeedDir(boolean palmUpSpeedDir) {
+        this.palmUpSpeedDir = palmUpSpeedDir;
+    }
+
+    public boolean isPalmUpSpeedEsq() {
+        return palmUpSpeedEsq;
+    }
+
+    public void setPalmUpSpeedEsq(boolean palmUpSpeedEsq) {
+        this.palmUpSpeedEsq = palmUpSpeedEsq;
+    }
+
+    public boolean isYergasonDir() {
+        return yergasonDir;
+    }
+
+    public void setYergasonDir(boolean yergasonDir) {
+        this.yergasonDir = yergasonDir;
+    }
+
+    public boolean isYergasonEsq() {
+        return yergasonEsq;
+    }
+
+    public void setYergasonEsq(boolean yergasonEsq) {
+        this.yergasonEsq = yergasonEsq;
+    }
+
+    public boolean isApreensaoAnteriorDir() {
+        return apreensaoAnteriorDir;
+    }
+
+    public void setApreensaoAnteriorDir(boolean apreensaoAnteriorDir) {
+        this.apreensaoAnteriorDir = apreensaoAnteriorDir;
+    }
+
+    public boolean isApreensaoAnteriorEsq() {
+        return apreensaoAnteriorEsq;
+    }
+
+    public void setApreensaoAnteriorEsq(boolean apreensaoAnteriorEsq) {
+        this.apreensaoAnteriorEsq = apreensaoAnteriorEsq;
+    }
+
+    public boolean isSinalSulcoDir() {
+        return sinalSulcoDir;
+    }
+
+    public void setSinalSulcoDir(boolean sinalSulcoDir) {
+        this.sinalSulcoDir = sinalSulcoDir;
+    }
+
+    public boolean isSinalSulcoEsq() {
+        return sinalSulcoEsq;
+    }
+
+    public void setSinalSulcoEsq(boolean sinalSulcoEsq) {
+        this.sinalSulcoEsq = sinalSulcoEsq;
     }
 
     public Long getDashData() {

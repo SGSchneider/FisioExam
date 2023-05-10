@@ -1,9 +1,5 @@
 package br.ufsm.fisioexam.ui.activity;
 
-import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_DIR_MAIS;
-import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_DIR_MENOS;
-import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_ESQ_MAIS;
-import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_ESQ_MENOS;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_EXAME;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_SECAO;
 
@@ -11,8 +7,8 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioGroup;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,19 +36,24 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
     private Calendar dataDash;
     private Calendar dataAses;
 
-    private RadioGroup radioCozen;
-    private RadioGroup radioCotoveloGolfista;
-    private RadioGroup radioSinalTinel;
-    private RadioGroup radioLcl;
-    private RadioGroup radioLcm;
+    private CheckBox campoCozenDir;
+    private CheckBox campoCozenEsq;
+    private CheckBox campoCotoveloGolfistaDir;
+    private CheckBox campoCotoveloGolfistaEsq;
+    private CheckBox campoSinalTinelDir;
+    private CheckBox campoSinalTinelEsq;
+    private CheckBox campoLclDir;
+    private CheckBox campoLclEsq;
+    private CheckBox campoLcmDir;
+    private CheckBox campoLcmEsq;
 
 
-    private EditText campoDataDash;
-    private EditText campoPontoDash;
-    private EditText campoResultDash;
-    private EditText campoDataAses;
-    private EditText campoPontoAses;
-    private EditText campoResultAses;
+    private EditText cotoveloDataDash;
+    private EditText cotoveloPontoDash;
+    private EditText cotoveloResultDash;
+    private EditText cotoveloDataAses;
+    private EditText cotoveloPontoAses;
+    private EditText cotoveloResultAses;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -106,19 +107,24 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
         secoes.setTestesEspeciais(true);
         secoesDao.edita(secoes);
 
-        setaCozen();
-        setaCotoveloGolfista();
-        setaSinalTinel();
-        setaLcl();
-        setaLcm();
+        cotovelo.setTesteCozenDir(campoCozenDir.isChecked());
+        cotovelo.setTesteCozenEsq(campoCozenEsq.isChecked());
+        cotovelo.setTesteCotoveloGolfistaDir(campoCotoveloGolfistaDir.isChecked());
+        cotovelo.setTesteCotoveloGolfistaEsq(campoCotoveloGolfistaEsq.isChecked());
+        cotovelo.setTesteSinalTinelDir(campoSinalTinelDir.isChecked());
+        cotovelo.setTesteSinalTinelEsq(campoSinalTinelEsq.isChecked());
+        cotovelo.setTesteEsforcoVaroDir(campoLclDir.isChecked());
+        cotovelo.setTesteEsforcoVaroEsq(campoLclEsq.isChecked());
+        cotovelo.setTesteEsforcoValgoDir(campoLcmDir.isChecked());
+        cotovelo.setTesteEsforcoValgoEsq(campoLcmEsq.isChecked());
 
         cotovelo.setDashData(dataDash.getTimeInMillis());
-        cotovelo.setDashPontuacao(campoPontoDash.getText().toString());
-        cotovelo.setDashResultados(campoResultDash.getText().toString());
+        cotovelo.setDashPontuacao(cotoveloPontoDash.getText().toString());
+        cotovelo.setDashResultados(cotoveloResultDash.getText().toString());
 
         cotovelo.setAsesData(dataAses.getTimeInMillis());
-        cotovelo.setAsesPontuacao(campoPontoAses.getText().toString());
-        cotovelo.setAsesResultados(campoResultAses.getText().toString());
+        cotovelo.setAsesPontuacao(cotoveloPontoAses.getText().toString());
+        cotovelo.setAsesResultados(cotoveloResultAses.getText().toString());
 
 
         cotoveloDao.edita(cotovelo);
@@ -133,7 +139,7 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
         atualizaDataAses();
         atualizaDataDash();
 
-        campoDataDash.setOnFocusChangeListener((v, hasFocus) -> {
+        cotoveloDataDash.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) {
                 new DatePickerDialog(SecaoTestesEspeciaisCotoveloActivity.this, dateDash,
                         dataDash.get(Calendar.YEAR),
@@ -142,7 +148,7 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
             }
         });
 
-        campoDataAses.setOnFocusChangeListener((v, hasFocus) -> {
+        cotoveloDataAses.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) {
                 new DatePickerDialog(SecaoTestesEspeciaisCotoveloActivity.this, dateAses,
                         dataAses.get(Calendar.YEAR),
@@ -164,131 +170,34 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
         String formatoData = "dd/MM/yyyy";
         SimpleDateFormat dateFormat = new SimpleDateFormat(formatoData, new Locale("pt", "BR"));
 
-        campoDataDash.setText(dateFormat.format(dataDash.getTime()));
+        cotoveloDataDash.setText(dateFormat.format(dataDash.getTime()));
     }
 
     private void atualizaDataAses() {
         String formatoData = "dd/MM/yyyy";
         SimpleDateFormat dateFormat = new SimpleDateFormat(formatoData, new Locale("pt", "BR"));
 
-        campoDataAses.setText(dateFormat.format(dataAses.getTime()));
-    }
-
-    private void setaCozen() {
-        String idCozen;
-        
-            if(radioCozen.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_cozen){
-                idCozen = CHAVE_DIR_MAIS;
-                } else
-            if(radioCozen.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_cozen){
-                idCozen = CHAVE_DIR_MENOS;
-                } else
-            if(radioCozen.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_cozen){
-                idCozen = CHAVE_ESQ_MAIS;
-                } else
-            if(radioCozen.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_cozen){
-                idCozen = CHAVE_ESQ_MENOS;
-                } else
-            {
-                idCozen = "";
-        }
-        cotovelo.setTesteCozen(idCozen);
-    }
-
-    private void setaCotoveloGolfista() {
-        String idCotoveloGolfista;
-            if(radioCotoveloGolfista.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_teste_golfista){
-                idCotoveloGolfista = CHAVE_DIR_MAIS;
-                } else
-            if(radioCotoveloGolfista.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_teste_golfista){
-                idCotoveloGolfista = CHAVE_DIR_MENOS;
-                } else
-            if(radioCotoveloGolfista.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_teste_golfista){
-                idCotoveloGolfista = CHAVE_ESQ_MAIS;
-                } else
-            if(radioCotoveloGolfista.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_teste_golfista){
-                idCotoveloGolfista = CHAVE_ESQ_MENOS;
-                } else
-            {
-                idCotoveloGolfista = "";
-        }
-        cotovelo.setTesteCotoveloGolfista(idCotoveloGolfista);
-    }
-
-    private void setaSinalTinel() {
-        String idSinalTinel;
-            if(radioSinalTinel.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_tinel){
-                idSinalTinel = CHAVE_DIR_MAIS;
-                } else
-            if(radioSinalTinel.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_tinel){
-                idSinalTinel = CHAVE_DIR_MENOS;
-                } else
-            if(radioSinalTinel.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_tinel){
-                idSinalTinel = CHAVE_ESQ_MAIS;
-                } else
-            if(radioSinalTinel.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_tinel){
-                idSinalTinel = CHAVE_ESQ_MENOS;
-                } else
-            {
-                idSinalTinel = "";
-        }
-        cotovelo.setSinalTinel(idSinalTinel);
-    }
-
-    private void setaLcl() {
-        String idLcl;
-            if(radioLcl.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_lcl){
-                idLcl = CHAVE_DIR_MAIS;
-                } else
-            if(radioLcl.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_lcl){
-                idLcl = CHAVE_DIR_MENOS;
-                } else
-            if(radioLcl.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_lcl){
-                idLcl = CHAVE_ESQ_MAIS;
-                } else
-            if(radioLcl.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_lcl){
-                idLcl = CHAVE_ESQ_MENOS;
-                } else
-            {
-                idLcl = "";
-        }
-        cotovelo.setTesteEsforcoVaro(idLcl);
-    }
-
-    private void setaLcm() {
-        String idLcm;
-            if(radioLcm.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_lcm){
-                idLcm = CHAVE_DIR_MAIS;
-                } else
-            if(radioLcm.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_lcm){
-                idLcm = CHAVE_DIR_MENOS;
-                } else
-            if(radioLcm.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_lcm){
-                idLcm = CHAVE_ESQ_MAIS;
-                } else
-            if(radioLcm.getCheckedRadioButtonId() ==R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_lcm){
-                idLcm = CHAVE_ESQ_MENOS;
-                } else
-            {
-                idLcm = "";
-        }
-        cotovelo.setTesteEsforcoValgo(idLcm);
-
+        cotoveloDataAses.setText(dateFormat.format(dataAses.getTime()));
     }
 
     private void inicializaFormulario() {
-        radioCozen = findViewById(R.id.activity_secao_testes_especiais_cotovelo_radio_cozen);
-        radioCotoveloGolfista = findViewById(R.id.activity_secao_testes_especiais_cotovelo_radio_teste_golfista);
-        radioSinalTinel = findViewById(R.id.activity_secao_testes_especiais_cotovelo_radio_tinel);
-        radioLcl = findViewById(R.id.activity_secao_testes_especiais_cotovelo_radio_lcl);
-        radioLcm = findViewById(R.id.activity_secao_testes_especiais_cotovelo_radio_lcm);
+        campoCozenDir = findViewById(R.id.activity_secao_testes_especiais_cotovelo_direita_cozen);
+        campoCozenEsq = findViewById(R.id.activity_secao_testes_especiais_cotovelo_esquerda_cozen);
+        campoCotoveloGolfistaDir = findViewById(R.id.activity_secao_testes_especiais_cotovelo_direita_teste_golfista);
+        campoCotoveloGolfistaEsq = findViewById(R.id.activity_secao_testes_especiais_cotovelo_esquerda_teste_golfista);
+        campoSinalTinelDir = findViewById(R.id.activity_secao_testes_especiais_cotovelo_direita_tinel);
+        campoSinalTinelEsq = findViewById(R.id.activity_secao_testes_especiais_cotovelo_esquerda_tinel);
+        campoLclDir = findViewById(R.id.activity_secao_testes_especiais_cotovelo_direita_lcl);
+        campoLclEsq = findViewById(R.id.activity_secao_testes_especiais_cotovelo_esquerda_lcl);
+        campoLcmDir = findViewById(R.id.activity_secao_testes_especiais_cotovelo_direita_lcm);
+        campoLcmEsq = findViewById(R.id.activity_secao_testes_especiais_cotovelo_esquerda_lcm);
 
-        campoDataDash = findViewById(R.id.activity_secao_testes_especiais_cotovelo_dash_data);
-        campoPontoDash = findViewById(R.id.activity_secao_testes_especiais_cotovelo_dash_pontuacao);
-        campoResultDash = findViewById(R.id.activity_secao_testes_especiais_cotovelo_dash_resultados);
-        campoDataAses = findViewById(R.id.activity_secao_testes_especiais_cotovelo_ases_data);
-        campoPontoAses = findViewById(R.id.activity_secao_testes_especiais_cotovelo_ases_pontuacao);
-        campoResultAses = findViewById(R.id.activity_secao_testes_especiais_cotovelo_ases_resultados);
+        cotoveloDataDash = findViewById(R.id.activity_secao_testes_especiais_cotovelo_dash_data);
+        cotoveloPontoDash = findViewById(R.id.activity_secao_testes_especiais_cotovelo_dash_pontuacao);
+        cotoveloResultDash = findViewById(R.id.activity_secao_testes_especiais_cotovelo_dash_resultados);
+        cotoveloDataAses = findViewById(R.id.activity_secao_testes_especiais_cotovelo_ases_data);
+        cotoveloPontoAses = findViewById(R.id.activity_secao_testes_especiais_cotovelo_ases_pontuacao);
+        cotoveloResultAses = findViewById(R.id.activity_secao_testes_especiais_cotovelo_ases_resultados);
 
         preencheFormulario();
     }
@@ -298,69 +207,29 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
             dataDash.setTimeInMillis(cotovelo.getDashData());
             dataAses.setTimeInMillis(cotovelo.getAsesData());
 
-            getDadosRadio(cotovelo.getTesteCozen(),
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_cozen,
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_cozen,
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_cozen,
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_cozen,
-                    radioCozen);
-
-            getDadosRadio(cotovelo.getTesteCotoveloGolfista(),
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_teste_golfista,
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_teste_golfista,
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_teste_golfista,
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_teste_golfista,
-                    radioCotoveloGolfista);
-
-            getDadosRadio(cotovelo.getSinalTinel(),
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_tinel,
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_tinel,
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_tinel,
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_tinel,
-                    radioSinalTinel);
-
-            getDadosRadio(cotovelo.getTesteEsforcoVaro(),
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_lcl,
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_lcl,
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_lcl,
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_lcl,
-                    radioLcl);
-
-            getDadosRadio(cotovelo.getTesteEsforcoValgo(),
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_direita_mais_lcm,
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_direita_menos_lcm,
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_mais_lcm,
-                    R.id.activity_secao_testes_especiais_cotovelo_radio_esquerda_menos_lcm,
-                    radioLcm);
+            campoCozenDir.setChecked(cotovelo.getTesteCozenDir());
+            campoCozenEsq.setChecked(cotovelo.getTesteCozenEsq());
+            campoCotoveloGolfistaDir.setChecked(cotovelo.getTesteCotoveloGolfistaDir());
+            campoCotoveloGolfistaEsq.setChecked(cotovelo.getTesteCotoveloGolfistaEsq());
+            campoSinalTinelDir.setChecked(cotovelo.getTesteSinalTinelDir());
+            campoSinalTinelEsq.setChecked(cotovelo.getTesteSinalTinelEsq());
+            campoLclDir.setChecked(cotovelo.getTesteEsforcoVaroDir());
+            campoLclEsq.setChecked(cotovelo.getTesteEsforcoVaroEsq());
+            campoLcmDir.setChecked(cotovelo.getTesteEsforcoValgoDir());
+            campoLcmEsq.setChecked(cotovelo.getTesteEsforcoValgoEsq());
 
             atualizaDataDash();
-            campoPontoDash.setText(cotovelo.getDashPontuacao());
-            campoResultDash.setText(cotovelo.getDashResultados());
+            cotoveloPontoDash.setText(cotovelo.getDashPontuacao());
+            cotoveloResultDash.setText(cotovelo.getDashResultados());
+
             atualizaDataAses();
-            campoPontoAses.setText(cotovelo.getAsesPontuacao());
-            campoResultAses.setText(cotovelo.getAsesResultados());
+            cotoveloPontoAses.setText(cotovelo.getAsesPontuacao());
+            cotoveloResultAses.setText(cotovelo.getAsesResultados());
 
         }
     }
 
-    private void getDadosRadio(@Nullable String radioChecked, int idDM, int idDm, int idEM, int idEm, RadioGroup radio) {
-        if(radioChecked != null){
-            switch (radioChecked){
-                case CHAVE_DIR_MAIS:
-                    radio.check(idDM);
-                    break;
-                case CHAVE_DIR_MENOS:
-                    radio.check(idDm);
-                    break;
-                case CHAVE_ESQ_MAIS:
-                    radio.check(idEM);
-                    break;
-                case CHAVE_ESQ_MENOS:
-                    radio.check(idEm);
-                    break;
-            }
-        }
-    }
+    
 
     private void carregaExame() {
         Intent dados = getIntent();

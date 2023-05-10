@@ -160,7 +160,7 @@ public class SecoesExamesAdapter extends BaseAdapter {
                     aux = new Secao(i, PERIMETRIA, secoes.isPerimetria());
                     break;
                 case 19:
-                    aux = new Secao(i, FORCAMUSCULAR, secoes.isForcaMuscular());
+                    aux = new Secao(i, FORCAMUSCULAR, secoes.isForcaMuscular1());
                     break;
                 case 20:
                     aux = new Secao(i, SENSIBILIDADE, secoes.isSensibilidade());

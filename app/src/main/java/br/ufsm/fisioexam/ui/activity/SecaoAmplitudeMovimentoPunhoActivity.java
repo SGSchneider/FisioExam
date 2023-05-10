@@ -25,27 +25,15 @@ public class SecaoAmplitudeMovimentoPunhoActivity extends AppCompatActivity {
     Secoes secoes;
     SecoesDAO secoesDAO;
 
-    EditText campoFlexaoDA;
-    EditText campoFlexaoDP;
-    EditText campoFlexaoEA;
-    EditText campoFlexaoEP;
-
-    EditText campoExtensaoDA;
-    EditText campoExtensaoDP;
-    EditText campoExtensaoEA;
-    EditText campoExtensaoEP;
-
-    EditText campoDesvioRadialDA;
-    EditText campoDesvioRadialDP;
-    EditText campoDesvioRadialEA;
-    EditText campoDesvioRadialEP;
-
-    EditText campoDesvioUlnarDA;
-    EditText campoDesvioUlnarDP;
-    EditText campoDesvioUlnarEA;
-    EditText campoDesvioUlnarEP;
-
-
+    EditText campoFlexaoD;
+    EditText campoFlexaoE;
+    EditText campoExtensaoD;
+    EditText campoExtensaoE;
+    EditText campoDesvioRadialD;
+    EditText campoDesvioRadialE;
+    EditText campoDesvioUlnarD;
+    EditText campoDesvioUlnarE;
+    
     Button buttonSalvar;
     Button buttonProximo;
 
@@ -78,22 +66,14 @@ public class SecaoAmplitudeMovimentoPunhoActivity extends AppCompatActivity {
         secoes.setAmplitudeMovimento(true);
         secoesDAO.edita(secoes);
 
-        punho.setFlexaoDirAtivo(campoFlexaoDA.getText().toString());
-        punho.setFlexaoDirPassivo(campoFlexaoDP.getText().toString());
-        punho.setFlexaoEsqAtivo(campoFlexaoEA.getText().toString());
-        punho.setFlexaoEsqPassivo(campoFlexaoEP.getText().toString());
-        punho.setExtensaoDirAtivo(campoExtensaoDA.getText().toString());
-        punho.setExtensaoDirPassivo(campoExtensaoDP.getText().toString());
-        punho.setExtensaoEsqAtivo(campoExtensaoEA.getText().toString());
-        punho.setExtensaoEsqPassivo(campoExtensaoEP.getText().toString());
-        punho.setDesvioRadialDirAtivo(campoDesvioRadialDA.getText().toString());
-        punho.setDesvioRadialDirPassivo(campoDesvioRadialDP.getText().toString());
-        punho.setDesvioRadialEsqAtivo(campoDesvioRadialEA.getText().toString());
-        punho.setDesvioRadialEsqPassivo(campoDesvioRadialEP.getText().toString());
-        punho.setDesvioUlnarDirAtivo(campoDesvioUlnarDA.getText().toString());
-        punho.setDesvioUlnarDirPassivo(campoDesvioUlnarDP.getText().toString());
-        punho.setDesvioUlnarEsqAtivo(campoDesvioUlnarEA.getText().toString());
-        punho.setDesvioUlnarEsqPassivo(campoDesvioUlnarEP.getText().toString());
+        punho.setFlexaoDir(campoFlexaoD.getText().toString());
+        punho.setFlexaoEsq(campoFlexaoE.getText().toString());
+        punho.setExtensaoDir(campoExtensaoD.getText().toString());
+        punho.setExtensaoEsq(campoExtensaoE.getText().toString());
+        punho.setDesvioRadialDir(campoDesvioRadialD.getText().toString());
+        punho.setDesvioRadialEsq(campoDesvioRadialE.getText().toString());
+        punho.setDesvioUlnarDir(campoDesvioUlnarD.getText().toString());
+        punho.setDesvioUlnarEsq(campoDesvioUlnarE.getText().toString());
 
         punhoDAO.edita(punho);
     }
@@ -111,43 +91,27 @@ public class SecaoAmplitudeMovimentoPunhoActivity extends AppCompatActivity {
     }
 
     private void inicializacampos() {
-        campoFlexaoDA = findViewById(R.id.activity_secao_amplitude_movimento_punho_flexao_ativo_direito);
-        campoFlexaoDP = findViewById(R.id.activity_secao_amplitude_movimento_punho_flexao_passivo_direito);
-        campoFlexaoEA = findViewById(R.id.activity_secao_amplitude_movimento_punho_flexao_ativo_esquerdo);
-        campoFlexaoEP = findViewById(R.id.activity_secao_amplitude_movimento_punho_flexao_passivo_esquerdo);
-        campoExtensaoDA = findViewById(R.id.activity_secao_amplitude_movimento_punho_extensao_ativo_direito);
-        campoExtensaoDP = findViewById(R.id.activity_secao_amplitude_movimento_punho_extensao_passivo_direito);
-        campoExtensaoEA = findViewById(R.id.activity_secao_amplitude_movimento_punho_extensao_ativo_esquerdo);
-        campoExtensaoEP = findViewById(R.id.activity_secao_amplitude_movimento_punho_extensao_passivo_esquerdo);
-        campoDesvioRadialDA = findViewById(R.id.activity_secao_amplitude_movimento_punho_desvio_radial_ativo_direito);
-        campoDesvioRadialDP = findViewById(R.id.activity_secao_amplitude_movimento_punho_desvio_radial_passivo_direito);
-        campoDesvioRadialEA = findViewById(R.id.activity_secao_amplitude_movimento_punho_desvio_radial_ativo_esquerdo);
-        campoDesvioRadialEP = findViewById(R.id.activity_secao_amplitude_movimento_punho_desvio_radial_passivo_esquerdo);
-        campoDesvioUlnarDA = findViewById(R.id.activity_secao_amplitude_movimento_punho_desvio_ulnar_ativo_direito);
-        campoDesvioUlnarDP = findViewById(R.id.activity_secao_amplitude_movimento_punho_desvio_ulnar_passivo_direito);
-        campoDesvioUlnarEA = findViewById(R.id.activity_secao_amplitude_movimento_punho_desvio_ulnar_ativo_esquerdo);
-        campoDesvioUlnarEP = findViewById(R.id.activity_secao_amplitude_movimento_punho_desvio_ulnar_passivo_esquerdo);
+        campoFlexaoD = findViewById(R.id.activity_secao_amplitude_movimento_punho_flexao_direito);
+        campoFlexaoE = findViewById(R.id.activity_secao_amplitude_movimento_punho_flexao_esquerdo);
+        campoExtensaoD = findViewById(R.id.activity_secao_amplitude_movimento_punho_extensao_direito);
+        campoExtensaoE = findViewById(R.id.activity_secao_amplitude_movimento_punho_extensao_esquerdo);
+        campoDesvioRadialD = findViewById(R.id.activity_secao_amplitude_movimento_punho_desvio_radial_direito);
+        campoDesvioRadialE = findViewById(R.id.activity_secao_amplitude_movimento_punho_desvio_radial_esquerdo);
+        campoDesvioUlnarD = findViewById(R.id.activity_secao_amplitude_movimento_punho_desvio_ulnar_direito);
+        campoDesvioUlnarE = findViewById(R.id.activity_secao_amplitude_movimento_punho_desvio_ulnar_esquerdo);
 
         preenchecampos();
     }
 
     private void preenchecampos() {
-        campoFlexaoDA.setText(punho.getFlexaoDirAtivo());
-        campoFlexaoDP.setText(punho.getFlexaoDirPassivo());
-        campoFlexaoEA.setText(punho.getFlexaoEsqAtivo());
-        campoFlexaoEP.setText(punho.getFlexaoEsqPassivo());
-        campoExtensaoDA.setText(punho.getExtensaoDirAtivo());
-        campoExtensaoDP.setText(punho.getExtensaoDirPassivo());
-        campoExtensaoEA.setText(punho.getExtensaoEsqAtivo());
-        campoExtensaoEP.setText(punho.getExtensaoEsqPassivo());
-        campoDesvioRadialDA.setText(punho.getDesvioRadialDirAtivo());
-        campoDesvioRadialDP.setText(punho.getDesvioRadialDirPassivo());
-        campoDesvioRadialEA.setText(punho.getDesvioRadialEsqAtivo());
-        campoDesvioRadialEP.setText(punho.getDesvioRadialEsqPassivo());
-        campoDesvioUlnarDA.setText(punho.getDesvioUlnarDirAtivo());
-        campoDesvioUlnarDP.setText(punho.getDesvioUlnarDirPassivo());
-        campoDesvioUlnarEA.setText(punho.getDesvioUlnarEsqAtivo());
-        campoDesvioUlnarEP.setText(punho.getDesvioUlnarEsqPassivo());
+        campoFlexaoD.setText(punho.getFlexaoDir());
+        campoFlexaoE.setText(punho.getFlexaoEsq());
+        campoExtensaoD.setText(punho.getExtensaoDir());
+        campoExtensaoE.setText(punho.getExtensaoEsq());
+        campoDesvioRadialD.setText(punho.getDesvioRadialDir());
+        campoDesvioRadialE.setText(punho.getDesvioRadialEsq());
+        campoDesvioUlnarD.setText(punho.getDesvioUlnarDir());
+        campoDesvioUlnarE.setText(punho.getDesvioUlnarEsq());
 
     }
 

@@ -25,24 +25,16 @@ public class Cotovelo {
     String exame;
 
     //Amplitude de movimento
-    private String flexaoDirAtivo;
-    private String flexaoDirPassivo;
-    private String flexaoEsqAtivo;
-    private String flexaoEsqPassivo;
-    private String extensaoDirAtivo;
-    private String extensaoDirPassivo;
-    private String extensaoEsqAtivo;
-    private String extensaoEsqPassivo;
-    private String supinacaoDirAtivo;
-    private String supinacaoDirPassivo;
-    private String supinacaoEsqAtivo;
-    private String supinacaoEsqPassivo;
-    private String pronacaoDirAtivo;
-    private String pronacaoDirPassivo;
-    private String pronacaoEsqAtivo;
-    private String pronacaoEsqPassivo;
-    private String anguloCarregamentoDirPassivo;
-    private String anguloCarregamentoEsqPassivo;
+    private String flexaoDir;
+    private String flexaoEsq;
+    private String extensaoDir;
+    private String extensaoEsq;
+    private String supinacaoDir;
+    private String supinacaoEsq;
+    private String pronacaoDir;
+    private String pronacaoEsq;
+    private String anguloCarregamentoDir;
+    private String anguloCarregamentoEsq;
 
     //Perimetria
     private String perimetriaSupDir5;
@@ -79,16 +71,19 @@ public class Cotovelo {
     private String sensibilidadeLocalAvaliado;
 
     //Testes Especiais
-    //Epicondilite
-    private String testeCozen;
-    private String testeCotoveloGolfista;
-    private String sinalTinel;
+    private Boolean testeCozenDir;
+    private Boolean testeCozenEsq;
+    private Boolean testeCotoveloGolfistaDir;
+    private Boolean testeCotoveloGolfistaEsq;
+    private Boolean testeSinalTinelDir;
+    private Boolean testeSinalTinelEsq;
+    private Boolean testeEsforcoVaroDir;
+    private Boolean testeEsforcoVaroEsq;
+    private Boolean testeEsforcoValgoDir;
+    private Boolean testeEsforcoValgoEsq;
 
-    //Instabilidade
-    private String testeEsforcoVaro;
-    private String testeEsforcoValgo;
 
-    //Escalas Utilizadas
+
     //DASH
     private Long dashData;
     private String dashPontuacao;
@@ -122,150 +117,84 @@ public class Cotovelo {
         this.exame = exame;
     }
 
-    public String getFlexaoDirAtivo() {
-        return flexaoDirAtivo;
+    public String getFlexaoDir() {
+        return flexaoDir;
     }
 
-    public void setFlexaoDirAtivo(String flexaoDirAtivo) {
-        this.flexaoDirAtivo = flexaoDirAtivo;
+    public void setFlexaoDir(String flexaoDir) {
+        this.flexaoDir = flexaoDir;
     }
 
-    public String getFlexaoDirPassivo() {
-        return flexaoDirPassivo;
+    public String getFlexaoEsq() {
+        return flexaoEsq;
     }
 
-    public void setFlexaoDirPassivo(String flexaoDirPassivo) {
-        this.flexaoDirPassivo = flexaoDirPassivo;
+    public void setFlexaoEsq(String flexaoEsq) {
+        this.flexaoEsq = flexaoEsq;
     }
 
-    public String getFlexaoEsqAtivo() {
-        return flexaoEsqAtivo;
+    public String getExtensaoDir() {
+        return extensaoDir;
     }
 
-    public void setFlexaoEsqAtivo(String flexaoEsqAtivo) {
-        this.flexaoEsqAtivo = flexaoEsqAtivo;
+    public void setExtensaoDir(String extensaoDir) {
+        this.extensaoDir = extensaoDir;
     }
 
-    public String getFlexaoEsqPassivo() {
-        return flexaoEsqPassivo;
+    public String getExtensaoEsq() {
+        return extensaoEsq;
     }
 
-    public void setFlexaoEsqPassivo(String flexaoEsqPassivo) {
-        this.flexaoEsqPassivo = flexaoEsqPassivo;
+    public void setExtensaoEsq(String extensaoEsq) {
+        this.extensaoEsq = extensaoEsq;
     }
 
-    public String getExtensaoDirAtivo() {
-        return extensaoDirAtivo;
+    public String getSupinacaoDir() {
+        return supinacaoDir;
     }
 
-    public void setExtensaoDirAtivo(String extensaoDirAtivo) {
-        this.extensaoDirAtivo = extensaoDirAtivo;
+    public void setSupinacaoDir(String supinacaoDir) {
+        this.supinacaoDir = supinacaoDir;
     }
 
-    public String getExtensaoDirPassivo() {
-        return extensaoDirPassivo;
+    public String getSupinacaoEsq() {
+        return supinacaoEsq;
     }
 
-    public void setExtensaoDirPassivo(String extensaoDirPassivo) {
-        this.extensaoDirPassivo = extensaoDirPassivo;
+    public void setSupinacaoEsq(String supinacaoEsq) {
+        this.supinacaoEsq = supinacaoEsq;
     }
 
-    public String getExtensaoEsqAtivo() {
-        return extensaoEsqAtivo;
+    public String getPronacaoDir() {
+        return pronacaoDir;
     }
 
-    public void setExtensaoEsqAtivo(String extensaoEsqAtivo) {
-        this.extensaoEsqAtivo = extensaoEsqAtivo;
+    public void setPronacaoDir(String pronacaoDir) {
+        this.pronacaoDir = pronacaoDir;
     }
 
-    public String getExtensaoEsqPassivo() {
-        return extensaoEsqPassivo;
+    public String getPronacaoEsq() {
+        return pronacaoEsq;
     }
 
-    public void setExtensaoEsqPassivo(String extensaoEsqPassivo) {
-        this.extensaoEsqPassivo = extensaoEsqPassivo;
+    public void setPronacaoEsq(String pronacaoEsq) {
+        this.pronacaoEsq = pronacaoEsq;
     }
 
-    public String getSupinacaoDirAtivo() {
-        return supinacaoDirAtivo;
+    public String getAnguloCarregamentoDir() {
+        return anguloCarregamentoDir;
     }
 
-    public void setSupinacaoDirAtivo(String supinacaoDirAtivo) {
-        this.supinacaoDirAtivo = supinacaoDirAtivo;
+    public void setAnguloCarregamentoDir(String anguloCarregamentoDir) {
+        this.anguloCarregamentoDir = anguloCarregamentoDir;
     }
 
-    public String getSupinacaoDirPassivo() {
-        return supinacaoDirPassivo;
+    public String getAnguloCarregamentoEsq() {
+        return anguloCarregamentoEsq;
     }
 
-    public void setSupinacaoDirPassivo(String supinacaoDirPassivo) {
-        this.supinacaoDirPassivo = supinacaoDirPassivo;
-    }
-
-    public String getSupinacaoEsqAtivo() {
-        return supinacaoEsqAtivo;
-    }
-
-    public void setSupinacaoEsqAtivo(String supinacaoEsqAtivo) {
-        this.supinacaoEsqAtivo = supinacaoEsqAtivo;
-    }
-
-    public String getSupinacaoEsqPassivo() {
-        return supinacaoEsqPassivo;
-    }
-
-    public void setSupinacaoEsqPassivo(String supinacaoEsqPassivo) {
-        this.supinacaoEsqPassivo = supinacaoEsqPassivo;
-    }
-
-    public String getPronacaoDirAtivo() {
-        return pronacaoDirAtivo;
-    }
-
-    public void setPronacaoDirAtivo(String pronacaoDirAtivo) {
-        this.pronacaoDirAtivo = pronacaoDirAtivo;
-    }
-
-    public String getPronacaoDirPassivo() {
-        return pronacaoDirPassivo;
-    }
-
-    public void setPronacaoDirPassivo(String pronacaoDirPassivo) {
-        this.pronacaoDirPassivo = pronacaoDirPassivo;
-    }
-
-    public String getPronacaoEsqAtivo() {
-        return pronacaoEsqAtivo;
-    }
-
-    public void setPronacaoEsqAtivo(String pronacaoEsqAtivo) {
-        this.pronacaoEsqAtivo = pronacaoEsqAtivo;
-    }
-
-    public String getPronacaoEsqPassivo() {
-        return pronacaoEsqPassivo;
-    }
-
-    public void setPronacaoEsqPassivo(String pronacaoEsqPassivo) {
-        this.pronacaoEsqPassivo = pronacaoEsqPassivo;
-    }
-
-
-    public String getAnguloCarregamentoDirPassivo() {
-        return anguloCarregamentoDirPassivo;
-    }
-
-    public void setAnguloCarregamentoDirPassivo(String anguloCarregamentoDirPassivo) {
-        this.anguloCarregamentoDirPassivo = anguloCarregamentoDirPassivo;
-    }
-
-
-    public String getAnguloCarregamentoEsqPassivo() {
-        return anguloCarregamentoEsqPassivo;
-    }
-
-    public void setAnguloCarregamentoEsqPassivo(String anguloCarregamentoEsqPassivo) {
-        this.anguloCarregamentoEsqPassivo = anguloCarregamentoEsqPassivo;
+    public void setAnguloCarregamentoEsq(String anguloCarregamentoEsq) {
+        this.anguloCarregamentoEsq = anguloCarregamentoEsq;
     }
 
     public String getPerimetriaSupDir5() {
@@ -492,44 +421,84 @@ public class Cotovelo {
         this.sensibilidadeLocalAvaliado = sensibilidadeLocalAvaliado;
     }
 
-    public String getTesteCozen() {
-        return testeCozen;
+    public Boolean getTesteCozenDir() {
+        return testeCozenDir;
     }
 
-    public void setTesteCozen(String testeCozen) {
-        this.testeCozen = testeCozen;
+    public void setTesteCozenDir(Boolean testeCozenDir) {
+        this.testeCozenDir = testeCozenDir;
     }
 
-    public String getTesteCotoveloGolfista() {
-        return testeCotoveloGolfista;
+    public Boolean getTesteCozenEsq() {
+        return testeCozenEsq;
     }
 
-    public void setTesteCotoveloGolfista(String testeCotoveloGolfista) {
-        this.testeCotoveloGolfista = testeCotoveloGolfista;
+    public void setTesteCozenEsq(Boolean testeCozenEsq) {
+        this.testeCozenEsq = testeCozenEsq;
     }
 
-    public String getSinalTinel() {
-        return sinalTinel;
+    public Boolean getTesteCotoveloGolfistaDir() {
+        return testeCotoveloGolfistaDir;
     }
 
-    public void setSinalTinel(String sinalTinel) {
-        this.sinalTinel = sinalTinel;
+    public void setTesteCotoveloGolfistaDir(Boolean testeCotoveloGolfistaDir) {
+        this.testeCotoveloGolfistaDir = testeCotoveloGolfistaDir;
     }
 
-    public String getTesteEsforcoVaro() {
-        return testeEsforcoVaro;
+    public Boolean getTesteCotoveloGolfistaEsq() {
+        return testeCotoveloGolfistaEsq;
     }
 
-    public void setTesteEsforcoVaro(String testeEsforcoVaro) {
-        this.testeEsforcoVaro = testeEsforcoVaro;
+    public void setTesteCotoveloGolfistaEsq(Boolean testeCotoveloGolfistaEsq) {
+        this.testeCotoveloGolfistaEsq = testeCotoveloGolfistaEsq;
     }
 
-    public String getTesteEsforcoValgo() {
-        return testeEsforcoValgo;
+    public Boolean getTesteSinalTinelDir() {
+        return testeSinalTinelDir;
     }
 
-    public void setTesteEsforcoValgo(String testeEsforcoValgo) {
-        this.testeEsforcoValgo = testeEsforcoValgo;
+    public void setTesteSinalTinelDir(Boolean testeSinalTinelDir) {
+        this.testeSinalTinelDir = testeSinalTinelDir;
+    }
+
+    public Boolean getTesteSinalTinelEsq() {
+        return testeSinalTinelEsq;
+    }
+
+    public void setTesteSinalTinelEsq(Boolean testeSinalTinelEsq) {
+        this.testeSinalTinelEsq = testeSinalTinelEsq;
+    }
+
+    public Boolean getTesteEsforcoVaroDir() {
+        return testeEsforcoVaroDir;
+    }
+
+    public void setTesteEsforcoVaroDir(Boolean testeEsforcoVaroDir) {
+        this.testeEsforcoVaroDir = testeEsforcoVaroDir;
+    }
+
+    public Boolean getTesteEsforcoVaroEsq() {
+        return testeEsforcoVaroEsq;
+    }
+
+    public void setTesteEsforcoVaroEsq(Boolean testeEsforcoVaroEsq) {
+        this.testeEsforcoVaroEsq = testeEsforcoVaroEsq;
+    }
+
+    public Boolean getTesteEsforcoValgoDir() {
+        return testeEsforcoValgoDir;
+    }
+
+    public void setTesteEsforcoValgoDir(Boolean testeEsforcoValgoDir) {
+        this.testeEsforcoValgoDir = testeEsforcoValgoDir;
+    }
+
+    public Boolean getTesteEsforcoValgoEsq() {
+        return testeEsforcoValgoEsq;
+    }
+
+    public void setTesteEsforcoValgoEsq(Boolean testeEsforcoValgoEsq) {
+        this.testeEsforcoValgoEsq = testeEsforcoValgoEsq;
     }
 
     public Long getDashData() {

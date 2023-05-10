@@ -116,7 +116,7 @@ public class SecaoForcaMuscularOmbroPt2Activity extends AppCompatActivity {
     }
 
     private void salva() {
-        secoes.setForcaMuscular(true);
+        secoes.setForcaMuscular2(true);
         secoesDao.edita(secoes);
 
 
@@ -178,7 +178,7 @@ public class SecaoForcaMuscularOmbroPt2Activity extends AppCompatActivity {
 
 
 
-        if (secoes.isForcaMuscular()) {
+        if (secoes.isForcaMuscular2()) {
             preencheCampos();
         }
     }

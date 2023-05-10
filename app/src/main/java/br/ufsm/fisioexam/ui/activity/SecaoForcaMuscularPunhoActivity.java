@@ -81,7 +81,7 @@ public class SecaoForcaMuscularPunhoActivity extends AppCompatActivity {
     }
 
     private void salva() {
-        secoes.setForcaMuscular(true);
+        secoes.setForcaMuscular1(true);
         secoesDao.edita(secoes);
 
         punho.setForcaMuscularFlexorRadialDir(campoFlexorRadialDir.getText().toString());
@@ -140,7 +140,7 @@ public class SecaoForcaMuscularPunhoActivity extends AppCompatActivity {
 
 
 
-        if (secoes.isForcaMuscular()) {
+        if (secoes.isForcaMuscular1()) {
             preencheCampos();
         }
     }

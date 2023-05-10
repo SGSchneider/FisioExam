@@ -20,27 +20,18 @@ public class Punho {
 
 
     //Amplitude de movimento
-    private String flexaoDirAtivo;
-    private String flexaoDirPassivo;
-    private String flexaoEsqAtivo;
-    private String flexaoEsqPassivo;
-    private String extensaoDirAtivo;
-    private String extensaoDirPassivo;
-    private String extensaoEsqAtivo;
-    private String extensaoEsqPassivo;
-    private String desvioRadialDirAtivo;
-    private String desvioRadialDirPassivo;
-    private String desvioRadialEsqAtivo;
-    private String desvioRadialEsqPassivo;
-    private String desvioUlnarDirAtivo;
-    private String desvioUlnarDirPassivo;
-    private String desvioUlnarEsqAtivo;
-    private String desvioUlnarEsqPassivo;
+    private String flexaoDir;
+    private String flexaoEsq;
+    private String extensaoDir;
+    private String extensaoEsq;
+    private String desvioRadialDir;
+    private String desvioRadialEsq;
+    private String desvioUlnarDir;
+    private String desvioUlnarEsq;
     
 
 
     //Perimetria
-    //TODO ATUALIZAR VERSÃO BD
     private String perimetriaInfDir5;
     private String perimetriaInfDir10;
     private String perimetriaInfDir15;
@@ -73,11 +64,16 @@ public class Punho {
     private String sensibilidadeLocalAvaliado;
 
     //Testes Especiais
-    private String testesEspeciaisPhalen;
-    private String testesEspeciaisPhalenInvertido;
-    private String testesEspeciaisTinel;
-    private String testesEspeciaisFinkelstein;
-    private String testesEspeciaisTriade;
+    private Boolean testesEspeciaisPhalenDir;
+    private Boolean testesEspeciaisPhalenEsq;
+    private Boolean testesEspeciaisPhalenInvertidoDir;
+    private Boolean testesEspeciaisPhalenInvertidoEsq;
+    private Boolean testesEspeciaisTinelDir;
+    private Boolean testesEspeciaisTinelEsq;
+    private Boolean testesEspeciaisFinkelsteinDir;
+    private Boolean testesEspeciaisFinkelsteinEsq;
+    private Boolean testesEspeciaisTriadeDir;
+    private Boolean testesEspeciaisTriadeEsq;
 
     //Escalas Utilizadas
     //DASH
@@ -113,132 +109,68 @@ public class Punho {
         this.exame = exame;
     }
 
-    public String getFlexaoDirAtivo() {
-        return flexaoDirAtivo;
+    public String getFlexaoDir() {
+        return flexaoDir;
     }
 
-    public void setFlexaoDirAtivo(String flexaoDirAtivo) {
-        this.flexaoDirAtivo = flexaoDirAtivo;
+    public void setFlexaoDir(String flexaoDir) {
+        this.flexaoDir = flexaoDir;
     }
 
-    public String getFlexaoDirPassivo() {
-        return flexaoDirPassivo;
+    public String getFlexaoEsq() {
+        return flexaoEsq;
     }
 
-    public void setFlexaoDirPassivo(String flexaoDirPassivo) {
-        this.flexaoDirPassivo = flexaoDirPassivo;
+    public void setFlexaoEsq(String flexaoEsq) {
+        this.flexaoEsq = flexaoEsq;
     }
 
-    public String getFlexaoEsqAtivo() {
-        return flexaoEsqAtivo;
+    public String getExtensaoDir() {
+        return extensaoDir;
     }
 
-    public void setFlexaoEsqAtivo(String flexaoEsqAtivo) {
-        this.flexaoEsqAtivo = flexaoEsqAtivo;
+    public void setExtensaoDir(String extensaoDir) {
+        this.extensaoDir = extensaoDir;
     }
 
-    public String getFlexaoEsqPassivo() {
-        return flexaoEsqPassivo;
+    public String getExtensaoEsq() {
+        return extensaoEsq;
     }
 
-    public void setFlexaoEsqPassivo(String flexaoEsqPassivo) {
-        this.flexaoEsqPassivo = flexaoEsqPassivo;
+    public void setExtensaoEsq(String extensaoEsq) {
+        this.extensaoEsq = extensaoEsq;
     }
 
-    public String getExtensaoDirAtivo() {
-        return extensaoDirAtivo;
+    public String getDesvioRadialDir() {
+        return desvioRadialDir;
     }
 
-    public void setExtensaoDirAtivo(String extensaoDirAtivo) {
-        this.extensaoDirAtivo = extensaoDirAtivo;
+    public void setDesvioRadialDir(String desvioRadialDir) {
+        this.desvioRadialDir = desvioRadialDir;
     }
 
-    public String getExtensaoDirPassivo() {
-        return extensaoDirPassivo;
+    public String getDesvioRadialEsq() {
+        return desvioRadialEsq;
     }
 
-    public void setExtensaoDirPassivo(String extensaoDirPassivo) {
-        this.extensaoDirPassivo = extensaoDirPassivo;
+    public void setDesvioRadialEsq(String desvioRadialEsq) {
+        this.desvioRadialEsq = desvioRadialEsq;
     }
 
-    public String getExtensaoEsqAtivo() {
-        return extensaoEsqAtivo;
+    public String getDesvioUlnarDir() {
+        return desvioUlnarDir;
     }
 
-    public void setExtensaoEsqAtivo(String extensaoEsqAtivo) {
-        this.extensaoEsqAtivo = extensaoEsqAtivo;
+    public void setDesvioUlnarDir(String desvioUlnarDir) {
+        this.desvioUlnarDir = desvioUlnarDir;
     }
 
-    public String getExtensaoEsqPassivo() {
-        return extensaoEsqPassivo;
+    public String getDesvioUlnarEsq() {
+        return desvioUlnarEsq;
     }
 
-    public void setExtensaoEsqPassivo(String extensaoEsqPassivo) {
-        this.extensaoEsqPassivo = extensaoEsqPassivo;
-    }
-
-    public String getDesvioRadialDirAtivo() {
-        return desvioRadialDirAtivo;
-    }
-
-    public void setDesvioRadialDirAtivo(String desvioRadialDirAtivo) {
-        this.desvioRadialDirAtivo = desvioRadialDirAtivo;
-    }
-
-    public String getDesvioRadialDirPassivo() {
-        return desvioRadialDirPassivo;
-    }
-
-    public void setDesvioRadialDirPassivo(String desvioRadialDirPassivo) {
-        this.desvioRadialDirPassivo = desvioRadialDirPassivo;
-    }
-
-    public String getDesvioRadialEsqAtivo() {
-        return desvioRadialEsqAtivo;
-    }
-
-    public void setDesvioRadialEsqAtivo(String desvioRadialEsqAtivo) {
-        this.desvioRadialEsqAtivo = desvioRadialEsqAtivo;
-    }
-
-    public String getDesvioRadialEsqPassivo() {
-        return desvioRadialEsqPassivo;
-    }
-
-    public void setDesvioRadialEsqPassivo(String desvioRadialEsqPassivo) {
-        this.desvioRadialEsqPassivo = desvioRadialEsqPassivo;
-    }
-
-    public String getDesvioUlnarDirAtivo() {
-        return desvioUlnarDirAtivo;
-    }
-
-    public void setDesvioUlnarDirAtivo(String desvioUlnarDirAtivo) {
-        this.desvioUlnarDirAtivo = desvioUlnarDirAtivo;
-    }
-
-    public String getDesvioUlnarDirPassivo() {
-        return desvioUlnarDirPassivo;
-    }
-
-    public void setDesvioUlnarDirPassivo(String desvioUlnarDirPassivo) {
-        this.desvioUlnarDirPassivo = desvioUlnarDirPassivo;
-    }
-
-    public String getDesvioUlnarEsqAtivo() {
-        return desvioUlnarEsqAtivo;
-    }
-
-    public void setDesvioUlnarEsqAtivo(String desvioUlnarEsqAtivo) {
-        this.desvioUlnarEsqAtivo = desvioUlnarEsqAtivo;
-    }
-
-    public String getDesvioUlnarEsqPassivo() {
-        return desvioUlnarEsqPassivo;
-    }
-
-    public void setDesvioUlnarEsqPassivo(String desvioUlnarEsqPassivo) {
-        this.desvioUlnarEsqPassivo = desvioUlnarEsqPassivo;
+    public void setDesvioUlnarEsq(String desvioUlnarEsq) {
+        this.desvioUlnarEsq = desvioUlnarEsq;
     }
 
     public String getPerimetriaEm8Dir() {
@@ -449,44 +381,84 @@ public class Punho {
         this.sensibilidadeLocalAvaliado = sensibilidadeLocalAvaliado;
     }
 
-    public String getTestesEspeciaisPhalen() {
-        return testesEspeciaisPhalen;
+    public Boolean getTestesEspeciaisPhalenDir() {
+        return testesEspeciaisPhalenDir;
     }
 
-    public void setTestesEspeciaisPhalen(String testesEspeciaisPhalen) {
-        this.testesEspeciaisPhalen = testesEspeciaisPhalen;
+    public void setTestesEspeciaisPhalenDir(Boolean testesEspeciaisPhalenDir) {
+        this.testesEspeciaisPhalenDir = testesEspeciaisPhalenDir;
     }
 
-    public String getTestesEspeciaisPhalenInvertido() {
-        return testesEspeciaisPhalenInvertido;
+    public Boolean getTestesEspeciaisPhalenEsq() {
+        return testesEspeciaisPhalenEsq;
     }
 
-    public void setTestesEspeciaisPhalenInvertido(String testesEspeciaisPhalenInvertido) {
-        this.testesEspeciaisPhalenInvertido = testesEspeciaisPhalenInvertido;
+    public void setTestesEspeciaisPhalenEsq(Boolean testesEspeciaisPhalenEsq) {
+        this.testesEspeciaisPhalenEsq = testesEspeciaisPhalenEsq;
     }
 
-    public String getTestesEspeciaisTinel() {
-        return testesEspeciaisTinel;
+    public Boolean getTestesEspeciaisPhalenInvertidoDir() {
+        return testesEspeciaisPhalenInvertidoDir;
     }
 
-    public void setTestesEspeciaisTinel(String testesEspeciaisTinel) {
-        this.testesEspeciaisTinel = testesEspeciaisTinel;
+    public void setTestesEspeciaisPhalenInvertidoDir(Boolean testesEspeciaisPhalenInvertidoDir) {
+        this.testesEspeciaisPhalenInvertidoDir = testesEspeciaisPhalenInvertidoDir;
     }
 
-    public String getTestesEspeciaisFinkelstein() {
-        return testesEspeciaisFinkelstein;
+    public Boolean getTestesEspeciaisPhalenInvertidoEsq() {
+        return testesEspeciaisPhalenInvertidoEsq;
     }
 
-    public void setTestesEspeciaisFinkelstein(String testesEspeciaisFinkelstein) {
-        this.testesEspeciaisFinkelstein = testesEspeciaisFinkelstein;
+    public void setTestesEspeciaisPhalenInvertidoEsq(Boolean testesEspeciaisPhalenInvertidoEsq) {
+        this.testesEspeciaisPhalenInvertidoEsq = testesEspeciaisPhalenInvertidoEsq;
     }
 
-    public String getTestesEspeciaisTriade() {
-        return testesEspeciaisTriade;
+    public Boolean getTestesEspeciaisTinelDir() {
+        return testesEspeciaisTinelDir;
     }
 
-    public void setTestesEspeciaisTriade(String testesEspeciaisTriade) {
-        this.testesEspeciaisTriade = testesEspeciaisTriade;
+    public void setTestesEspeciaisTinelDir(Boolean testesEspeciaisTinelDir) {
+        this.testesEspeciaisTinelDir = testesEspeciaisTinelDir;
+    }
+
+    public Boolean getTestesEspeciaisTinelEsq() {
+        return testesEspeciaisTinelEsq;
+    }
+
+    public void setTestesEspeciaisTinelEsq(Boolean testesEspeciaisTinelEsq) {
+        this.testesEspeciaisTinelEsq = testesEspeciaisTinelEsq;
+    }
+
+    public Boolean getTestesEspeciaisFinkelsteinDir() {
+        return testesEspeciaisFinkelsteinDir;
+    }
+
+    public void setTestesEspeciaisFinkelsteinDir(Boolean testesEspeciaisFinkelsteinDir) {
+        this.testesEspeciaisFinkelsteinDir = testesEspeciaisFinkelsteinDir;
+    }
+
+    public Boolean getTestesEspeciaisFinkelsteinEsq() {
+        return testesEspeciaisFinkelsteinEsq;
+    }
+
+    public void setTestesEspeciaisFinkelsteinEsq(Boolean testesEspeciaisFinkelsteinEsq) {
+        this.testesEspeciaisFinkelsteinEsq = testesEspeciaisFinkelsteinEsq;
+    }
+
+    public Boolean getTestesEspeciaisTriadeDir() {
+        return testesEspeciaisTriadeDir;
+    }
+
+    public void setTestesEspeciaisTriadeDir(Boolean testesEspeciaisTriadeDir) {
+        this.testesEspeciaisTriadeDir = testesEspeciaisTriadeDir;
+    }
+
+    public Boolean getTestesEspeciaisTriadeEsq() {
+        return testesEspeciaisTriadeEsq;
+    }
+
+    public void setTestesEspeciaisTriadeEsq(Boolean testesEspeciaisTriadeEsq) {
+        this.testesEspeciaisTriadeEsq = testesEspeciaisTriadeEsq;
     }
 
     public Long getDashData() {

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <uses-permission android:name ="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true"/>
+    <uses-feature android:name="android.hardware.sensor.gyroscope" android:required="true"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -40,15 +42,13 @@
         <activity android:name=".ui.activity.SecaoDiagnosticoFisioterapeuticoActivity"/>
         <activity android:name=".ui.activity.SecaoObjetivosTratamentoActivity"/>
         <activity android:name=".ui.activity.SecaoPlanoTratamentoActivity"/>
-        <activity android:name=".ui.activity.SecaoAmplitudeMovimentoOmbroPt1Activity"/>
-        <activity android:name=".ui.activity.SecaoAmplitudeMovimentoOmbroPt2Activity"/>
+        <activity android:name=".ui.activity.SecaoAmplitudeMovimentoOmbroActivity"/>
         <activity android:name=".ui.activity.IntermediarioSecoesEspecificasActivity"/>
         <activity android:name=".ui.activity.SecaoPerimetriaOmbroActivity"/>
         <activity android:name=".ui.activity.SecaoForcaMuscularOmbroPt1Activity"/>
         <activity android:name=".ui.activity.SecaoForcaMuscularOmbroPt2Activity"/>
         <activity android:name=".ui.activity.SecaoSensibilidadeOmbroActivity"/>
-        <activity android:name=".ui.activity.SecaoTestesEspeciaisOmbroPt1Activity"/>
-        <activity android:name=".ui.activity.SecaoTestesEspeciaisOmbroPt2Activity"/>
+        <activity android:name=".ui.activity.SecaoTestesEspeciaisOmbroActivity"/>
         <activity android:name=".ui.activity.SecaoAmplitudeMovimentoCotoveloActivity"/>
         <activity android:name=".ui.activity.SecaoPerimetriaCotoveloActivity"/>
         <activity android:name=".ui.activity.SecaoForcaMuscularCotoveloActivity"/>

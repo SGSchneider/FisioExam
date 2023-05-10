@@ -79,7 +79,7 @@ public class SecaoForcaMuscularCotoveloActivity extends AppCompatActivity {
     }
 
     private void salva() {
-        secoes.setForcaMuscular(true);
+        secoes.setForcaMuscular1(true);
         secoesDao.edita(secoes);
 
         cotovelo.setBicepsBraquialDir(campoBicepsBraquialDir.getText().toString());
@@ -134,7 +134,7 @@ public class SecaoForcaMuscularCotoveloActivity extends AppCompatActivity {
 
 
 
-        if (secoes.isForcaMuscular()) {
+        if (secoes.isForcaMuscular1()) {
             preencheCampos();
         }
     }

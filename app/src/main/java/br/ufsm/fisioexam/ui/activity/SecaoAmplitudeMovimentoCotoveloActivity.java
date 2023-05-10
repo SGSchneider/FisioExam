@@ -25,25 +25,17 @@ public class SecaoAmplitudeMovimentoCotoveloActivity extends AppCompatActivity {
     Secoes secoes;
     SecoesDAO secoesDAO;
     
-    EditText campoFlexaoDA;
-    EditText campoFlexaoDP;
-    EditText campoFlexaoEA;
-    EditText campoFlexaoEP;
+    EditText campoFlexaoD;
+    EditText campoFlexaoE;
 
-    EditText campoExtensaoDA;
-    EditText campoExtensaoDP;
-    EditText campoExtensaoEA;
-    EditText campoExtensaoEP;
+    EditText campoExtensaoD;
+    EditText campoExtensaoE;
 
-    EditText campoSupinacaoDA;
-    EditText campoSupinacaoDP;
-    EditText campoSupinacaoEA;
-    EditText campoSupinacaoEP;
+    EditText campoSupinacaoD;
+    EditText campoSupinacaoE;
 
-    EditText campoPronacaoDA;
-    EditText campoPronacaoDP;
-    EditText campoPronacaoEA;
-    EditText campoPronacaoEP;
+    EditText campoPronacaoD;
+    EditText campoPronacaoE;
 
     EditText campoAnguloCarregamentoDP;
     EditText campoAnguloCarregamentoEP;
@@ -80,24 +72,16 @@ public class SecaoAmplitudeMovimentoCotoveloActivity extends AppCompatActivity {
         secoes.setAmplitudeMovimento(true);
         secoesDAO.edita(secoes);
 
-        cotovelo.setFlexaoDirAtivo(campoFlexaoDA.getText().toString());
-        cotovelo.setFlexaoDirPassivo(campoFlexaoDP.getText().toString());
-        cotovelo.setFlexaoEsqAtivo(campoFlexaoEA.getText().toString());
-        cotovelo.setFlexaoEsqPassivo(campoFlexaoEP.getText().toString());
-        cotovelo.setExtensaoDirAtivo(campoExtensaoDA.getText().toString());
-        cotovelo.setExtensaoDirPassivo(campoExtensaoDP.getText().toString());
-        cotovelo.setExtensaoEsqAtivo(campoExtensaoEA.getText().toString());
-        cotovelo.setExtensaoEsqPassivo(campoExtensaoEP.getText().toString());
-        cotovelo.setSupinacaoDirAtivo(campoSupinacaoDA.getText().toString());
-        cotovelo.setSupinacaoDirPassivo(campoSupinacaoDP.getText().toString());
-        cotovelo.setSupinacaoEsqAtivo(campoSupinacaoEA.getText().toString());
-        cotovelo.setSupinacaoEsqPassivo(campoSupinacaoEP.getText().toString());
-        cotovelo.setPronacaoDirAtivo(campoPronacaoDA.getText().toString());
-        cotovelo.setPronacaoDirPassivo(campoPronacaoDP.getText().toString());
-        cotovelo.setPronacaoEsqAtivo(campoPronacaoEA.getText().toString());
-        cotovelo.setPronacaoEsqPassivo(campoPronacaoEP.getText().toString());
-        cotovelo.setAnguloCarregamentoDirPassivo(campoAnguloCarregamentoDP.getText().toString());
-        cotovelo.setAnguloCarregamentoEsqPassivo(campoAnguloCarregamentoEP.getText().toString());
+        cotovelo.setFlexaoDir(campoFlexaoD.getText().toString());
+        cotovelo.setFlexaoEsq(campoFlexaoE.getText().toString());
+        cotovelo.setExtensaoDir(campoExtensaoD.getText().toString());
+        cotovelo.setExtensaoEsq(campoExtensaoE.getText().toString());
+        cotovelo.setSupinacaoDir(campoSupinacaoD.getText().toString());
+        cotovelo.setSupinacaoEsq(campoSupinacaoE.getText().toString());
+        cotovelo.setPronacaoDir(campoPronacaoD.getText().toString());
+        cotovelo.setPronacaoEsq(campoPronacaoE.getText().toString());
+        cotovelo.setAnguloCarregamentoDir(campoAnguloCarregamentoDP.getText().toString());
+        cotovelo.setAnguloCarregamentoEsq(campoAnguloCarregamentoEP.getText().toString());
 
 
         cotoveloDAO.edita(cotovelo);
@@ -116,47 +100,31 @@ public class SecaoAmplitudeMovimentoCotoveloActivity extends AppCompatActivity {
     }
 
     private void inicializacampos() {
-        campoFlexaoDA = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_flexao_ativo_direito);
-        campoFlexaoDP = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_flexao_passivo_direito);
-        campoFlexaoEA = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_flexao_ativo_esquerdo);
-        campoFlexaoEP = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_flexao_passivo_esquerdo);
-        campoExtensaoDA = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_extensao_ativo_direito);
-        campoExtensaoDP = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_extensao_passivo_direito);
-        campoExtensaoEA = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_extensao_ativo_esquerdo);
-        campoExtensaoEP = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_extensao_passivo_esquerdo);
-        campoSupinacaoDA = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_supinacao_ativo_direito);
-        campoSupinacaoDP = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_supinacao_passivo_direito);
-        campoSupinacaoEA = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_supinacao_ativo_esquerdo);
-        campoSupinacaoEP = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_supinacao_passivo_esquerdo);
-        campoPronacaoDA = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_pronacao_ativo_direito);
-        campoPronacaoDP = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_pronacao_passivo_direito);
-        campoPronacaoEA = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_pronacao_ativo_esquerdo);
-        campoPronacaoEP = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_pronacao_passivo_esquerdo);
-        campoAnguloCarregamentoDP = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_angulo_carregamento_passivo_direito);
-        campoAnguloCarregamentoEP = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_angulo_carregamento_passivo_esquerdo);
+        campoFlexaoD = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_flexao_direito);
+        campoFlexaoE = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_flexao_esquerdo);
+        campoExtensaoD = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_extensao_direito);
+        campoExtensaoE = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_extensao_esquerdo);
+        campoSupinacaoD = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_supinacao_direito);
+        campoSupinacaoE = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_supinacao_esquerdo);
+        campoPronacaoD = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_pronacao_direito);
+        campoPronacaoE = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_pronacao_esquerdo);
+        campoAnguloCarregamentoDP = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_angulo_carregamento_direito);
+        campoAnguloCarregamentoEP = findViewById(R.id.activity_secao_amplitude_movimento_cotovelo_angulo_carregamento_esquerdo);
 
         preenchecampos();
     }
 
     private void preenchecampos() {
-        campoFlexaoDA.setText(cotovelo.getFlexaoDirAtivo());
-        campoFlexaoDP.setText(cotovelo.getFlexaoDirPassivo());
-        campoFlexaoEA.setText(cotovelo.getFlexaoEsqAtivo());
-        campoFlexaoEP.setText(cotovelo.getFlexaoEsqPassivo());
-        campoExtensaoDA.setText(cotovelo.getExtensaoDirAtivo());
-        campoExtensaoDP.setText(cotovelo.getExtensaoDirPassivo());
-        campoExtensaoEA.setText(cotovelo.getExtensaoEsqAtivo());
-        campoExtensaoEP.setText(cotovelo.getExtensaoEsqPassivo());
-        campoSupinacaoDA.setText(cotovelo.getSupinacaoDirAtivo());
-        campoSupinacaoDP.setText(cotovelo.getSupinacaoDirPassivo());
-        campoSupinacaoEA.setText(cotovelo.getSupinacaoEsqAtivo());
-        campoSupinacaoEP.setText(cotovelo.getSupinacaoEsqPassivo());
-        campoPronacaoDA.setText(cotovelo.getPronacaoDirAtivo());
-        campoPronacaoDP.setText(cotovelo.getPronacaoDirPassivo());
-        campoPronacaoEA.setText(cotovelo.getPronacaoEsqAtivo());
-        campoPronacaoEP.setText(cotovelo.getPronacaoEsqPassivo());
-        campoAnguloCarregamentoDP.setText(cotovelo.getAnguloCarregamentoDirPassivo());
-        campoAnguloCarregamentoEP.setText(cotovelo.getAnguloCarregamentoEsqPassivo());
+        campoFlexaoD.setText(cotovelo.getFlexaoDir());
+        campoFlexaoE.setText(cotovelo.getFlexaoEsq());
+        campoExtensaoD.setText(cotovelo.getExtensaoDir());
+        campoExtensaoE.setText(cotovelo.getExtensaoEsq());
+        campoSupinacaoD.setText(cotovelo.getSupinacaoDir());
+        campoSupinacaoE.setText(cotovelo.getSupinacaoEsq());
+        campoPronacaoD.setText(cotovelo.getPronacaoDir());
+        campoPronacaoE.setText(cotovelo.getPronacaoEsq());
+        campoAnguloCarregamentoDP.setText(cotovelo.getAnguloCarregamentoDir());
+        campoAnguloCarregamentoEP.setText(cotovelo.getAnguloCarregamentoEsq());
 
     }
 

@@ -109,7 +109,7 @@ public class SecaoForcaMuscularOmbroPt1Activity extends AppCompatActivity {
 
 
     private void salva() {
-        secoes.setForcaMuscular(true);
+        secoes.setForcaMuscular1(true);
         secoesDao.edita(secoes);
 
         ombro.setTrapezioSuperiorLevantadorDaEscapulaDir(campoTrapezioSuperiorDir.getText().toString());
@@ -171,7 +171,7 @@ public class SecaoForcaMuscularOmbroPt1Activity extends AppCompatActivity {
 
 
 
-        if (secoes.isForcaMuscular()) {
+        if (secoes.isForcaMuscular1()) {
             preencheCampos();
         }
     }

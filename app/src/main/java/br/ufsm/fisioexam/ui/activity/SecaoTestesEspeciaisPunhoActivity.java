@@ -1,9 +1,5 @@
 package br.ufsm.fisioexam.ui.activity;
 
-import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_DIR_MAIS;
-import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_DIR_MENOS;
-import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_ESQ_MAIS;
-import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_ESQ_MENOS;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_EXAME;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_SECAO;
 
@@ -11,10 +7,9 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioGroup;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -40,11 +35,16 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
 
     private Calendar dataDash;
 
-    private RadioGroup radioPhalen;
-    private RadioGroup radioPhalenInvertido;
-    private RadioGroup radioTinel;
-    private RadioGroup radioTriade;
-    private RadioGroup radioFinkelstein;
+    private CheckBox campoPhalenDir;
+    private CheckBox campoPhalenEsq;
+    private CheckBox campoPhalenInvertidoDir;
+    private CheckBox campoPhalenInvertidoEsq;
+    private CheckBox campoTinelDir;
+    private CheckBox campoTinelEsq;
+    private CheckBox campoTriadeDir;
+    private CheckBox campoTriadeEsq;
+    private CheckBox campoFinkelsteinDir;
+    private CheckBox campoFinkelsteinEsq;
 
 
     private EditText campoDataDash;
@@ -101,18 +101,19 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
     private void salva() {
         secoes.setTestesEspeciais(true);
         secoesDao.edita(secoes);
-
-        setaPhalen();
-        setaPhalenInvertido();
-        setaTinel();
-        setaTriade();
-        setaFinkelstein();
-
+        punho.setTestesEspeciaisPhalenDir(campoPhalenDir.isChecked());
+        punho.setTestesEspeciaisPhalenEsq(campoPhalenEsq.isChecked());
+        punho.setTestesEspeciaisPhalenInvertidoDir(campoPhalenInvertidoDir.isChecked());
+        punho.setTestesEspeciaisPhalenInvertidoEsq(campoPhalenInvertidoEsq.isChecked());
+        punho.setTestesEspeciaisTinelDir(campoTinelDir.isChecked());
+        punho.setTestesEspeciaisTinelEsq(campoTinelEsq.isChecked());
+        punho.setTestesEspeciaisTriadeDir(campoTriadeDir.isChecked());
+        punho.setTestesEspeciaisTriadeEsq(campoTriadeEsq.isChecked());
+        punho.setTestesEspeciaisFinkelsteinDir(campoFinkelsteinDir.isChecked());
+        punho.setTestesEspeciaisFinkelsteinEsq(campoFinkelsteinEsq.isChecked());
         punho.setDashData(dataDash.getTimeInMillis());
         punho.setDashPontuacao(campoPontoDash.getText().toString());
         punho.setDashResultados(campoResultDash.getText().toString());
-
-
         punhoDao.edita(punho);
     }
 
@@ -148,116 +149,18 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
         campoDataDash.setText(dateFormat.format(dataDash.getTime()));
     }
 
-
-    private void setaPhalen() {
-        String idPhalen;
-        
-            if(radioPhalen.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_punho_radio_direita_mais_phalen){
-                idPhalen = CHAVE_DIR_MAIS;
-                } else
-            if(radioPhalen.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_punho_radio_direita_menos_phalen){
-                idPhalen = CHAVE_DIR_MENOS;
-                } else
-            if(radioPhalen.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_punho_radio_esquerda_mais_phalen){
-                idPhalen = CHAVE_ESQ_MAIS;
-                } else
-            if(radioPhalen.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_punho_radio_esquerda_menos_phalen){
-                idPhalen = CHAVE_ESQ_MENOS;
-                } else
-            {
-                idPhalen = "";
-        }
-        punho.setTestesEspeciaisPhalen(idPhalen);
-    }
-
-    private void setaPhalenInvertido() {
-        String idPhalenInvertido;
-            if(radioPhalenInvertido.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_punho_radio_direita_mais_phalen_invertido){
-                idPhalenInvertido = CHAVE_DIR_MAIS;
-                } else
-            if(radioPhalenInvertido.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_punho_radio_direita_menos_phalen_invertido){
-                idPhalenInvertido = CHAVE_DIR_MENOS;
-                } else
-            if(radioPhalenInvertido.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_punho_radio_esquerda_mais_phalen_invertido){
-                idPhalenInvertido = CHAVE_ESQ_MAIS;
-                } else
-            if(radioPhalenInvertido.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_punho_radio_esquerda_menos_phalen_invertido){
-                idPhalenInvertido = CHAVE_ESQ_MENOS;
-                } else
-            {
-                idPhalenInvertido = "";
-        }
-        punho.setTestesEspeciaisPhalenInvertido(idPhalenInvertido);
-    }
-
-    private void setaTinel() {
-        String idTinel;
-            if(radioTinel.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_punho_radio_direita_mais_tinel){
-                idTinel = CHAVE_DIR_MAIS;
-                } else
-            if(radioTinel.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_punho_radio_direita_menos_tinel){
-                idTinel = CHAVE_DIR_MENOS;
-                } else
-            if(radioTinel.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_punho_radio_esquerda_mais_tinel){
-                idTinel = CHAVE_ESQ_MAIS;
-                } else
-            if(radioTinel.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_punho_radio_esquerda_menos_tinel){
-                idTinel = CHAVE_ESQ_MENOS;
-                } else
-            {
-                idTinel = "";
-        }
-        punho.setTestesEspeciaisTinel(idTinel);
-    }
-
-    private void setaTriade() {
-        String idTriade;
-            if(radioTriade.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_punho_radio_direita_mais_tunel_ulnar){
-                idTriade = CHAVE_DIR_MAIS;
-                } else
-            if(radioTriade.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_punho_radio_direita_menos_tunel_ulnar){
-                idTriade = CHAVE_DIR_MENOS;
-                } else
-            if(radioTriade.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_punho_radio_esquerda_mais_tunel_ulnar){
-                idTriade = CHAVE_ESQ_MAIS;
-                } else
-            if(radioTriade.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_punho_radio_esquerda_menos_tunel_ulnar){
-                idTriade = CHAVE_ESQ_MENOS;
-                } else
-            {
-                idTriade = "";
-        }
-        punho.setTestesEspeciaisTriade(idTriade);
-    }
-
-    private void setaFinkelstein() {
-        String idFinkelstein;
-            if(radioFinkelstein.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_punho_radio_direita_mais_finkelstein){
-                idFinkelstein = CHAVE_DIR_MAIS;
-                } else
-            if(radioFinkelstein.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_punho_radio_direita_menos_finkelstein){
-                idFinkelstein = CHAVE_DIR_MENOS;
-                } else
-            if(radioFinkelstein.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_punho_radio_esquerda_mais_finkelstein){
-                idFinkelstein = CHAVE_ESQ_MAIS;
-                } else
-            if(radioFinkelstein.getCheckedRadioButtonId() == R.id.activity_secao_testes_especiais_punho_radio_esquerda_menos_finkelstein){
-                idFinkelstein = CHAVE_ESQ_MENOS;
-                } else
-            {
-                idFinkelstein = "";
-        }
-        punho.setTestesEspeciaisFinkelstein(idFinkelstein);
-
-    }
-
     private void inicializaFormulario() {
-        radioPhalen = findViewById(R.id.activity_secao_testes_especiais_punho_radio_phalen);
-        radioPhalenInvertido = findViewById(R.id.activity_secao_testes_especiais_punho_radio_phalen_invertido);
-        radioTinel = findViewById(R.id.activity_secao_testes_especiais_punho_radio_tinel);
-        radioTriade = findViewById(R.id.activity_secao_testes_especiais_punho_radio_tunel_ulnar);
-        radioFinkelstein = findViewById(R.id.activity_secao_testes_especiais_punho_radio_finkelstein);
 
+        campoPhalenDir = findViewById(R.id.activity_secao_testes_especiais_punho_direita_phalen);
+        campoPhalenEsq = findViewById(R.id.activity_secao_testes_especiais_punho_esquerda_phalen);
+        campoPhalenInvertidoDir = findViewById(R.id.activity_secao_testes_especiais_punho_direita_phalen_invertido);
+        campoPhalenInvertidoEsq = findViewById(R.id.activity_secao_testes_especiais_punho_esquerda_phalen_invertido);
+        campoTinelDir = findViewById(R.id.activity_secao_testes_especiais_punho_direita_tinel);
+        campoTinelEsq = findViewById(R.id.activity_secao_testes_especiais_punho_esquerda_tinel);
+        campoTriadeDir = findViewById(R.id.activity_secao_testes_especiais_punho_direita_tunel_ulnar);
+        campoTriadeEsq = findViewById(R.id.activity_secao_testes_especiais_punho_esquerda_tunel_ulnar);
+        campoFinkelsteinDir = findViewById(R.id.activity_secao_testes_especiais_punho_direita_finkelstein);
+        campoFinkelsteinEsq = findViewById(R.id.activity_secao_testes_especiais_punho_esquerda_finkelstein);
         campoDataDash = findViewById(R.id.activity_secao_testes_especiais_punho_dash_data);
         campoPontoDash = findViewById(R.id.activity_secao_testes_especiais_punho_dash_pontuacao);
         campoResultDash = findViewById(R.id.activity_secao_testes_especiais_punho_dash_resultados);
@@ -269,40 +172,7 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
         if (secoes.isTestesEspeciais()) {
             dataDash.setTimeInMillis(punho.getDashData());
 
-            getDadosRadio(punho.getTestesEspeciaisPhalen(),
-                    R.id.activity_secao_testes_especiais_punho_radio_direita_mais_phalen,
-                    R.id.activity_secao_testes_especiais_punho_radio_direita_menos_phalen,
-                    R.id.activity_secao_testes_especiais_punho_radio_esquerda_mais_phalen,
-                    R.id.activity_secao_testes_especiais_punho_radio_esquerda_menos_phalen,
-                    radioPhalen);
-
-            getDadosRadio(punho.getTestesEspeciaisPhalenInvertido(),
-                    R.id.activity_secao_testes_especiais_punho_radio_direita_mais_phalen_invertido,
-                    R.id.activity_secao_testes_especiais_punho_radio_direita_menos_phalen_invertido,
-                    R.id.activity_secao_testes_especiais_punho_radio_esquerda_mais_phalen_invertido,
-                    R.id.activity_secao_testes_especiais_punho_radio_esquerda_menos_phalen_invertido,
-                    radioPhalenInvertido);
-
-            getDadosRadio(punho.getTestesEspeciaisTinel(),
-                    R.id.activity_secao_testes_especiais_punho_radio_direita_mais_tinel,
-                    R.id.activity_secao_testes_especiais_punho_radio_direita_menos_tinel,
-                    R.id.activity_secao_testes_especiais_punho_radio_esquerda_mais_tinel,
-                    R.id.activity_secao_testes_especiais_punho_radio_esquerda_menos_tinel,
-                    radioTinel);
-
-            getDadosRadio(punho.getTestesEspeciaisTriade(),
-                    R.id.activity_secao_testes_especiais_punho_radio_direita_mais_tunel_ulnar,
-                    R.id.activity_secao_testes_especiais_punho_radio_direita_menos_tunel_ulnar,
-                    R.id.activity_secao_testes_especiais_punho_radio_esquerda_mais_tunel_ulnar,
-                    R.id.activity_secao_testes_especiais_punho_radio_esquerda_menos_tunel_ulnar,
-                    radioTriade);
-
-            getDadosRadio(punho.getTestesEspeciaisFinkelstein(),
-                    R.id.activity_secao_testes_especiais_punho_radio_direita_mais_finkelstein,
-                    R.id.activity_secao_testes_especiais_punho_radio_direita_menos_finkelstein,
-                    R.id.activity_secao_testes_especiais_punho_radio_esquerda_mais_finkelstein,
-                    R.id.activity_secao_testes_especiais_punho_radio_esquerda_menos_finkelstein,
-                    radioFinkelstein);
+            
 
             atualizaDataDash();
             campoPontoDash.setText(punho.getDashPontuacao());
@@ -311,24 +181,7 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
         }
     }
 
-    private void getDadosRadio(@NonNull String radioChecked, int idDM, int idDm, int idEM, int idEm, RadioGroup radio) {
-        if (radio != null) {
-            switch (radioChecked) {
-                case CHAVE_DIR_MAIS:
-                    radio.check(idDM);
-                    break;
-                case CHAVE_DIR_MENOS:
-                    radio.check(idDm);
-                    break;
-                case CHAVE_ESQ_MAIS:
-                    radio.check(idEM);
-                    break;
-                case CHAVE_ESQ_MENOS:
-                    radio.check(idEm);
-                    break;
-            }
-        }
-    }
+
 
     private void carregaExame() {
         Intent dados = getIntent();
