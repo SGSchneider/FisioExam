@@ -100,7 +100,7 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setTestesEspeciais(true);
-        secoesDao.edita(secoes);
+        secoesDao.update(secoes);
         punho.setTestesEspeciaisPhalenDir(campoPhalenDir.isChecked());
         punho.setTestesEspeciaisPhalenEsq(campoPhalenEsq.isChecked());
         punho.setTestesEspeciaisPhalenInvertidoDir(campoPhalenInvertidoDir.isChecked());
@@ -114,7 +114,7 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
         punho.setDashData(dataDash.getTimeInMillis());
         punho.setDashPontuacao(campoPontoDash.getText().toString());
         punho.setDashResultados(campoResultDash.getText().toString());
-        punhoDao.edita(punho);
+        punhoDao.update(punho);
     }
 
     private void setListenerCalendariosDatas() {
@@ -186,8 +186,8 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
     private void carregaExame() {
         Intent dados = getIntent();
         if (dados.hasExtra(CHAVE_EXAME)) {
-            punho = punhoDao.getPunho((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(punho.getExame());
+            punho = punhoDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            secoes = secoesDao.getOne(punho.getExame());
         }
     }
 

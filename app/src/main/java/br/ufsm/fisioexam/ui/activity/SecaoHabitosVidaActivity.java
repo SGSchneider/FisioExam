@@ -85,7 +85,7 @@ public class SecaoHabitosVidaActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setHistoriaSocial(true);
-        secoesDao.edita(secoes);
+        secoesDao.update(secoes);
 
         //Salva as alterações na variável
         int idMoradia;
@@ -125,7 +125,7 @@ public class SecaoHabitosVidaActivity extends AppCompatActivity {
         }
 
         //Salva no Banco de Dados
-        exameDao.edita(exame);
+        exameDao.update(exame);
     }
 
     private void proximoForm() {
@@ -141,8 +141,8 @@ public class SecaoHabitosVidaActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            exame = exameDao.getExame((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(exame.getId());
+            exame = exameDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            secoes = secoesDao.getOne(exame.getId());
         }
     }
 

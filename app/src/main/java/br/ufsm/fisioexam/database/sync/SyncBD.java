@@ -7,6 +7,9 @@ import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_COTO
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_OMBRO;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_PUNHO;
 
+import androidx.annotation.NonNull;
+
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 
@@ -27,6 +30,8 @@ public class SyncBD {
     private final FisioExamDatabase fisioExamDatabase;
     private final DatabaseReference databaseReference;
 
+    private final FirebaseUser fbUser;
+
     private List<Exame> exames;
     private List<Paciente> pacientes;
     private List<Ombro> ombros;
@@ -35,9 +40,10 @@ public class SyncBD {
 
     private List<Secoes> secoes;
 
-    public SyncBD(FisioExamDatabase fisioExamDatabase, DatabaseReference databaseReference) {
+    public SyncBD(FisioExamDatabase fisioExamDatabase, DatabaseReference databaseReference, @NonNull FirebaseUser user) {
         this.fisioExamDatabase = fisioExamDatabase;
         this.databaseReference = databaseReference;
+        fbUser = user;
     }
 
     public void syncNow() {
@@ -51,9 +57,63 @@ public class SyncBD {
         getFromFirebase();
     }
 
+    public void syncNowAdmin(){
+        final DataSnapshot[] dataSnapshotUsers = new DataSnapshot[1];
+        databaseReference.get().addOnCompleteListener(task -> {
+            dataSnapshotUsers[0] = task.getResult();
+            ExtraiDadosBdAdmin(dataSnapshotUsers[0]);
+        });
+    }
+
+    private void ExtraiDadosBdAdmin(DataSnapshot dataSnapshotUsers) {
+        exames = new ArrayList<>();
+        pacientes = new ArrayList<>();
+        ombros = new ArrayList<>();
+        cotovelos = new ArrayList<>();
+        punhos = new ArrayList<>();
+        secoes = new ArrayList<>();
+
+        for (DataSnapshot dataSnapshot : dataSnapshotUsers.child("users").getChildren()) {
+
+            for (DataSnapshot snapshot : dataSnapshot.child(CHAVE_EXAME).getChildren()) {
+                Exame exame = snapshot.getValue(Exame.class);
+                exames.add(exame);
+            }
+
+            for (DataSnapshot snapshot : dataSnapshot.child(CHAVE_PACIENTE).getChildren()) {
+                Paciente paciente = snapshot.getValue(Paciente.class);
+                pacientes.add(paciente);
+            }
+
+            for (DataSnapshot snapshot : dataSnapshot.child(CHAVE_TIPO_OMBRO).getChildren()) {
+                Ombro ombro = snapshot.getValue(Ombro.class);
+                ombros.add(ombro);
+            }
+
+            for (DataSnapshot snapshot : dataSnapshot.child(CHAVE_TIPO_COTOVELO).getChildren()) {
+                Cotovelo cotovelo = snapshot.getValue(Cotovelo.class);
+                cotovelos.add(cotovelo);
+            }
+
+            for (DataSnapshot snapshot : dataSnapshot.child(CHAVE_TIPO_PUNHO).getChildren()) {
+                Punho punho = snapshot.getValue(Punho.class);
+                punhos.add(punho);
+            }
+
+            for (DataSnapshot snapshot : dataSnapshot.child(CHAVE_SECAO).getChildren()) {
+                Secoes secao = snapshot.getValue(Secoes.class);
+                secoes.add(secao);
+            }
+        }
+
+
+        updateTables();
+    }
+
+
     private void getFromFirebase() {
         final DataSnapshot[] dataSnapshot = new DataSnapshot[1];
-        databaseReference.get().addOnCompleteListener(task -> {
+        databaseReference.child("users").child(fbUser.getUid()).get().addOnCompleteListener(task -> {
             dataSnapshot[0] = task.getResult();
             updateTables(dataSnapshot[0]);
         });
@@ -61,11 +121,11 @@ public class SyncBD {
 
 
     private void syncExclusoes() {
-        if(!fisioExamDatabase.getRoomExclusoesDAO().getExclusoes().isEmpty()){
-            List<Exclusoes> exclusoes = fisioExamDatabase.getRoomExclusoesDAO().getExclusoes();
+        if(!fisioExamDatabase.getRoomExclusoesDAO().getAll().isEmpty()){
+            List<Exclusoes> exclusoes = fisioExamDatabase.getRoomExclusoesDAO().getAll();
             for(Exclusoes exclusao : exclusoes){
-                databaseReference.child(exclusao.getTipo()).child(exclusao.getId()).removeValue();
-                fisioExamDatabase.getRoomExclusoesDAO().remove(exclusao);
+                databaseReference.child("users").child(fbUser.getUid()).child(exclusao.getTipo()).child(exclusao.getId()).removeValue();
+                fisioExamDatabase.getRoomExclusoesDAO().delete(exclusao);
             }
         }
     }
@@ -113,71 +173,69 @@ public class SyncBD {
     }
 
     private void updateTables() {
+        fisioExamDatabase.getRoomSecoesDAO().deleteAll();
+        fisioExamDatabase.getRoomPunhoDAO().deleteAll();
+        fisioExamDatabase.getRoomCotoveloDAO().deleteAll();
+        fisioExamDatabase.getRoomOmbroDAO().deleteAll();
+        fisioExamDatabase.getRoomExameDAO().deleteAll();
+        fisioExamDatabase.getRoomPacienteDAO().deleteAll();
 
 
-        fisioExamDatabase.getRoomSecoesDAO().deleteAllSecoes();
-        fisioExamDatabase.getRoomPunhoDAO().deleteAllPunhos();
-        fisioExamDatabase.getRoomCotoveloDAO().deleteAllCotovelos();
-        fisioExamDatabase.getRoomOmbroDAO().deleteAllOmbros();
-        fisioExamDatabase.getRoomExameDAO().deleteAllExames();
-        fisioExamDatabase.getRoomPacienteDAO().deleteAllPacientes();
-
-
-        fisioExamDatabase.getRoomPacienteDAO().insertAllPacientes(pacientes);
-        fisioExamDatabase.getRoomExameDAO().insertAllExames(exames);
-        fisioExamDatabase.getRoomOmbroDAO().insertAllOmbros(ombros);
-        fisioExamDatabase.getRoomCotoveloDAO().insertAllCotovelos(cotovelos);
-        fisioExamDatabase.getRoomPunhoDAO().insertAllPunhos(punhos);
-        fisioExamDatabase.getRoomSecoesDAO().insertAllSecoes(secoes);
+        fisioExamDatabase.getRoomPacienteDAO().insert(pacientes);
+        fisioExamDatabase.getRoomExameDAO().insert(exames);
+        fisioExamDatabase.getRoomOmbroDAO().insert(ombros);
+        fisioExamDatabase.getRoomCotoveloDAO().insert(cotovelos);
+        fisioExamDatabase.getRoomPunhoDAO().insert(punhos);
+        fisioExamDatabase.getRoomSecoesDAO().insert(secoes);
     }
 
     public void syncExames() {
         List<Exame> exames = fisioExamDatabase.getRoomExameDAO().getAllExames();
 
         for (Exame exame : exames) {
-            databaseReference.child(CHAVE_EXAME).child(exame.getId()).setValue(exame);
+            databaseReference.child("users").child(fbUser.getUid()).child(CHAVE_EXAME).child(exame.getId()).setValue(exame);
         }
 
     }
 
     public void syncOmbros() {
-        List<Ombro> ombros = fisioExamDatabase.getRoomOmbroDAO().getAllOmbros();
+        List<Ombro> ombros = fisioExamDatabase.getRoomOmbroDAO().getAll();
 
         for (Ombro ombro : ombros) {
-            databaseReference.child(CHAVE_TIPO_OMBRO).child(ombro.getId()).setValue(ombro);
+            databaseReference.child("users").child(fbUser.getUid()).child(CHAVE_TIPO_OMBRO).child(ombro.getId()).setValue(ombro);
         }
     }
 
     public void syncCotovelos() {
-        List<Cotovelo> cotovelos = fisioExamDatabase.getRoomCotoveloDAO().getAllCotovelos();
+        List<Cotovelo> cotovelos = fisioExamDatabase.getRoomCotoveloDAO().getAll();
 
         for (Cotovelo cotovelo : cotovelos) {
-            databaseReference.child(CHAVE_TIPO_COTOVELO).child(cotovelo.getId()).setValue(cotovelo);
+            databaseReference.child("users").child(fbUser.getUid()).child(CHAVE_TIPO_COTOVELO).child(cotovelo.getId()).setValue(cotovelo);
         }
 
     }
 
     public void syncPacientes() {
-        List<Paciente> pacientes = fisioExamDatabase.getRoomPacienteDAO().getAllPacientes();
+        List<Paciente> pacientes = fisioExamDatabase.getRoomPacienteDAO().getAll();
 
         for (Paciente paciente : pacientes) {
-            databaseReference.child(CHAVE_PACIENTE).child(paciente.getId()).setValue(paciente);
+            databaseReference.child("users").child(fbUser.getUid()).child(CHAVE_PACIENTE).child(paciente.getId()).setValue(paciente);
         }
     }
 
     public void syncPunhos() {
-        List<Punho> punhos = fisioExamDatabase.getRoomPunhoDAO().getAllPunhos();
+        List<Punho> punhos = fisioExamDatabase.getRoomPunhoDAO().getAll();
 
         for (Punho punho : punhos) {
-            databaseReference.child(CHAVE_TIPO_PUNHO).child(punho.getId()).setValue(punho);
+            databaseReference.child("users").child(fbUser.getUid()).child(CHAVE_TIPO_PUNHO).child(punho.getId()).setValue(punho);
         }
     }
 
     public void syncSecoes() {
-        List<Secoes> secoes = fisioExamDatabase.getRoomSecoesDAO().getAllSecoes();
+        List<Secoes> secoes = fisioExamDatabase.getRoomSecoesDAO().getAll();
 
         for(Secoes secao : secoes){
-            databaseReference.child(CHAVE_SECAO).child(secao.getId()).setValue(secao);
+            databaseReference.child("users").child(fbUser.getUid()).child(CHAVE_SECAO).child(secao.getId()).setValue(secao);
         }
     }
 

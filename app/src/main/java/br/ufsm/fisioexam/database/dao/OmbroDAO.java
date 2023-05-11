@@ -1,44 +1,38 @@
 package br.ufsm.fisioexam.database.dao;
 
 import androidx.room.Dao;
-import androidx.room.Delete;
-import androidx.room.Insert;
 import androidx.room.Query;
-import androidx.room.Update;
 
 import java.util.List;
-import java.lang.String;
 
 import br.ufsm.fisioexam.model.Ombro;
 
 
 @Dao
-public interface OmbroDAO {
-    @Insert
-    void salva(Ombro ombro);
+public interface OmbroDAO extends GenericDAO<Ombro>{
 
+    @Override
     @Query("SELECT * FROM ombro WHERE exame LIKE :registro")
-    List<Ombro> todos(String registro);
+    List<Ombro> search(String registro);
 
-    @Delete
-    void remove(Ombro ombro);
-
+    @Override
     @Query("SELECT * FROM ombro WHERE id LIKE :id")
-    Ombro getOmbro(String id);
+    Ombro getOne(String id);
 
+    @Override
     @Query("SELECT * FROM ombro ")
-    List<Ombro> getAllOmbros();
+    List<Ombro> getAll();
 
-    @Insert
-    void insertAllOmbros(List<Ombro> ombros);
-
+    @Override
     @Query("DELETE FROM ombro ")
-    void deleteAllOmbros();
-
-    @Update
-    void edita(Ombro ombro);
+    void deleteAll();
 
     @Query("SELECT id FROM ombro WHERE exame LIKE :registro ")
     String getIdOmbroPeloExame(String registro);
+
+
+    @Override
+    @Query("SELECT EXISTS (SELECT * FROM ombro WHERE id like :reg)")
+    Boolean CheckID(String reg);
 }
 

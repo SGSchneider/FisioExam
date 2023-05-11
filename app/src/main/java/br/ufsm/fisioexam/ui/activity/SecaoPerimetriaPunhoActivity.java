@@ -76,7 +76,7 @@ public class SecaoPerimetriaPunhoActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setPerimetria(true);
-        secoesDao.edita(secoes);
+        secoesDao.update(secoes);
         punho.setPerimetriaInfDir5(campoInf5Dir.getText().toString());
         punho.setPerimetriaInfDir10(campoInf10Dir.getText().toString());
         punho.setPerimetriaInfDir15(campoInf15Dir.getText().toString());
@@ -86,7 +86,7 @@ public class SecaoPerimetriaPunhoActivity extends AppCompatActivity {
         punho.setPerimetriaEm8Dir(campoEm8Dir.getText().toString());
         punho.setPerimetriaEm8Esq(campoEm8Esq.getText().toString());
 
-        punhoDao.edita(punho);
+        punhoDao.update(punho);
     }
 
     private void proximoForm() {
@@ -103,8 +103,8 @@ public class SecaoPerimetriaPunhoActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            punho = punhoDao.getPunho((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(punho.getExame());
+            punho = punhoDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            secoes = secoesDao.getOne(punho.getExame());
         }
     }
 

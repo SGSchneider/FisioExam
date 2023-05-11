@@ -72,7 +72,7 @@ public class SecaoHistoriaFamiliarActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setHistoriaFamiliar(true);
-        secoesDao.edita(secoes);
+        secoesDao.update(secoes);
 
         //Salva as alterações na variável
         exame.setHistoriaFamiliarHipertensao(campoHipertensao.isChecked());
@@ -84,7 +84,7 @@ public class SecaoHistoriaFamiliarActivity extends AppCompatActivity {
         exame.setOutraHistoriaFamiliar(campoOutraQual.getText().toString());
 
         //Salva no Banco de Dados
-        exameDao.edita(exame);
+        exameDao.update(exame);
     }
 
     private void proximoForm() {
@@ -100,8 +100,8 @@ public class SecaoHistoriaFamiliarActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            exame = exameDao.getExame((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(exame.getId());
+            exame = exameDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            secoes = secoesDao.getOne(exame.getId());
         }
     }
 

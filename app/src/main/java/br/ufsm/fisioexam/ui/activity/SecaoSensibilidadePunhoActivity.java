@@ -79,7 +79,7 @@ public class SecaoSensibilidadePunhoActivity extends AppCompatActivity {
         String idTermica;
         String idDolorosa;
         secoes.setSensibilidade(true);
-        secoesDao.edita(secoes);
+        secoesDao.update(secoes);
 
 
         if (campoTactil.getCheckedRadioButtonId() == R.id.activity_secao_sensibilidade_punho_radio_tactil_presente) {
@@ -124,7 +124,7 @@ public class SecaoSensibilidadePunhoActivity extends AppCompatActivity {
 
         punho.setSensibilidadeLocalAvaliado(campoLocalAvaliado.getText().toString());
 
-        punhoDao.edita(punho);
+        punhoDao.update(punho);
     }
 
     private void proximoForm() {
@@ -141,8 +141,8 @@ public class SecaoSensibilidadePunhoActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            punho = punhoDao.getPunho((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(punho.getExame());
+            punho = punhoDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            secoes = secoesDao.getOne(punho.getExame());
         }
     }
 

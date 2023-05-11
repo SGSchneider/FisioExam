@@ -70,7 +70,7 @@ public class SecaoAmplitudeMovimentoCotoveloActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setAmplitudeMovimento(true);
-        secoesDAO.edita(secoes);
+        secoesDAO.update(secoes);
 
         cotovelo.setFlexaoDir(campoFlexaoD.getText().toString());
         cotovelo.setFlexaoEsq(campoFlexaoE.getText().toString());
@@ -84,7 +84,7 @@ public class SecaoAmplitudeMovimentoCotoveloActivity extends AppCompatActivity {
         cotovelo.setAnguloCarregamentoEsq(campoAnguloCarregamentoEP.getText().toString());
 
 
-        cotoveloDAO.edita(cotovelo);
+        cotoveloDAO.update(cotovelo);
     }
 
     private void activityChange() {
@@ -131,8 +131,8 @@ public class SecaoAmplitudeMovimentoCotoveloActivity extends AppCompatActivity {
     private void carregaExame() {
         Intent dados = getIntent();
         if(dados.hasExtra(CHAVE_EXAME)){
-            cotovelo = cotoveloDAO.getCotovelo(dados.getSerializableExtra(CHAVE_EXAME).toString());
-            secoes = secoesDAO.getSecao(cotovelo.getExame());
+            cotovelo = cotoveloDAO.getOne(dados.getSerializableExtra(CHAVE_EXAME).toString());
+            secoes = secoesDAO.getOne(cotovelo.getExame());
         }
     }
 

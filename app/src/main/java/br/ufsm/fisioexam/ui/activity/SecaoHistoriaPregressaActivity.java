@@ -63,9 +63,9 @@ public class SecaoHistoriaPregressaActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setAntecedentesPessoais(true);
-        secoesDao.edita(secoes);
+        secoesDao.update(secoes);
         exame.setAntecedentesPessoais(campoHistoriaPregressa.getText().toString());
-        exameDao.edita(exame);
+        exameDao.update(exame);
     }
 
     private void proximoForm() {
@@ -81,8 +81,8 @@ public class SecaoHistoriaPregressaActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            exame = exameDao.getExame((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(exame.getId());
+            exame = exameDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            secoes = secoesDao.getOne(exame.getId());
         }
     }
 

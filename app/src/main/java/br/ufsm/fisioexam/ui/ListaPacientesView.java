@@ -47,17 +47,17 @@ public class ListaPacientesView {
         ExclusorDeDados exclusor = new ExclusorDeDados(context);
         exclusor.ExcluiPaciente(paciente.getId());
         exclusor.atualizaRemocoesDB();
-        pacienteDAO.remove(paciente);
+        pacienteDAO.delete(paciente);
         adapter.remove(paciente);
     }
 
     public void atualizaPacientes() {
-        adapter.atualiza(pacienteDAO.todos());
+        adapter.atualiza(pacienteDAO.getAll());
     }
 
     public void configuraAdapter(ListView listaDePacientes) { listaDePacientes.setAdapter(this.adapter);}
 
     public void pesquisaPacientes(String pacientes){
-        adapter.atualiza(pacienteDAO.pesquisa(pacientes));
+        adapter.atualiza(pacienteDAO.search(pacientes));
     }
 }

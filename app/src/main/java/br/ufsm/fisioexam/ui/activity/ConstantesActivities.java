@@ -3,6 +3,9 @@ package br.ufsm.fisioexam.ui.activity;
 public interface ConstantesActivities {
     String CHAVE_PACIENTE = "paciente";
     String CHAVE_EXAME = "exame";
+    String CHAVE_TIPO_OMBRO = "Ombro";
+    String CHAVE_TIPO_COTOVELO = "Cotovelo";
+    String CHAVE_TIPO_PUNHO = "Punho";
     String CHAVE_TIPO_EXAME = "tipo_exame";
     String CHAVE_ID_PACIENTE = "id_paciente";
     String CHAVE_SECAO = "secao";
@@ -10,10 +13,7 @@ public interface ConstantesActivities {
     String CHAVE_DIMINUIDA = "diminuida";
     String CHAVE_AUMENTADA = "aumentada";
     String CHAVE_AUSENTE = "ausente";
-    String CHAVE_DIR_MAIS = "D+";
-    String CHAVE_DIR_MENOS = "D-";
-    String CHAVE_ESQ_MAIS = "E+";
-    String CHAVE_ESQ_MENOS = "E-";
+
 
 
     //Chaves Valores Pacientes
@@ -30,10 +30,7 @@ public interface ConstantesActivities {
     String VIUVO = "Viuvo";
     String AMASIADO = "Amasiado";
 
-    //tipos de exames
-    String CHAVE_TIPO_OMBRO = "Ombro";
-    String CHAVE_TIPO_COTOVELO = "Cotovelo";
-    String CHAVE_TIPO_PUNHO = "Punho";
+
     String CHAVE_TIPO_VAZIO = "";
 
     //Chaves Valores Exames

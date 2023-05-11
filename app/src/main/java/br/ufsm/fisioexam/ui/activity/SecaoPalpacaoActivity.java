@@ -179,7 +179,7 @@ public class SecaoPalpacaoActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setPalpacao(true);
-        secoesDao.edita(secoes);
+        secoesDao.update(secoes);
 
         //coloracao
         exame.setColoracaoPeleSAPalp(campoColoracaoNormal.isChecked());
@@ -270,7 +270,7 @@ public class SecaoPalpacaoActivity extends AppCompatActivity {
             exame.setLocalDorPalp(campoLocalDor.getText().toString());
         }
 
-        exameDao.edita(exame);
+        exameDao.update(exame);
     }
 
     private void proximoForm() {
@@ -287,8 +287,8 @@ public class SecaoPalpacaoActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            exame = exameDao.getExame((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(exame.getId());
+            exame = exameDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            secoes = secoesDao.getOne(exame.getId());
         }
     }
 

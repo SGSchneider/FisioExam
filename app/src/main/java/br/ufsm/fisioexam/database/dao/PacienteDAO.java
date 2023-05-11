@@ -1,42 +1,33 @@
 package br.ufsm.fisioexam.database.dao;
 
 import androidx.room.Dao;
-import androidx.room.Delete;
-import androidx.room.Insert;
 import androidx.room.Query;
-import androidx.room.Update;
 
 import java.util.List;
 
 import br.ufsm.fisioexam.model.Paciente;
 
 @Dao
-public interface PacienteDAO {
+public interface PacienteDAO extends GenericDAO<Paciente>{
 
-    @Insert
-    void salva(Paciente paciente);
 
     @Query("SELECT * FROM paciente ORDER BY nome")
-    List<Paciente> todos();
+    @Override
+    List<Paciente> getAll();
 
-    @Query("SELECT * FROM paciente")
-    List<Paciente> getAllPacientes();
-
-    @Insert
-    void insertAllPacientes(List<Paciente> Pacientes);
-
+    @Override
     @Query("DELETE FROM paciente ")
-    void deleteAllPacientes();
+    void deleteAll();
 
+    @Override
     @Query("SELECT * FROM paciente WHERE nome LIKE :termo ORDER BY nome")
-    List<Paciente> pesquisa(String termo);
+    List<Paciente> search(String termo);
 
-    @Delete
-    void remove(Paciente paciente);
+    @Override
+    @Query("SELECT EXISTS (SELECT* FROM paciente WHERE id like :paciente)")
+    Boolean CheckID(String paciente);
 
-    @Update
-    void edita(Paciente paciente);
-
+    @Override
     @Query("SELECT * FROM paciente WHERE id like :paciente")
-    List<Paciente> CheckID(String paciente);
+    Paciente getOne(String paciente);
 }

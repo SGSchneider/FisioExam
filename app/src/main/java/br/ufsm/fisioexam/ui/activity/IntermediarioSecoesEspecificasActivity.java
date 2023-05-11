@@ -51,7 +51,7 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME) && dados.hasExtra(CHAVE_SECAO)) {
-            exame = exameDao.getExame((String) dados.getSerializableExtra(CHAVE_EXAME));
+            exame = exameDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
             secao = (int) dados.getSerializableExtra(CHAVE_SECAO);
             selecionaFormulario();
         } else {
@@ -202,12 +202,12 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         Ombro ombro;
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         OmbroDAO ombroDAO = database.getRoomOmbroDAO();
-        if (ombroDAO.todos(exame.getId()).isEmpty()) {
+        if (ombroDAO.search(exame.getId()).isEmpty()) {
             ombro = new Ombro(exame.getId());
-            ombroDAO.salva(ombro);
+            ombroDAO.insert(ombro);
             ombro.setId(ombroDAO.getIdOmbroPeloExame(exame.getId()));
         } else {
-            ombro = ombroDAO.getOmbro(ombroDAO.getIdOmbroPeloExame(exame.getId()));
+            ombro = ombroDAO.getOne(ombroDAO.getIdOmbroPeloExame(exame.getId()));
         }
         return ombro;
     }
@@ -216,12 +216,12 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         Cotovelo cotovelo;
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         CotoveloDAO cotoveloDAO = database.getRoomCotoveloDAO();
-        if (cotoveloDAO.todos(exame.getId()).isEmpty()) {
+        if (cotoveloDAO.search(exame.getId()).isEmpty()) {
             cotovelo = new Cotovelo(exame.getId());
-            cotoveloDAO.salva(cotovelo);
+            cotoveloDAO.insert(cotovelo);
             cotovelo.setId(cotoveloDAO.getIdCotoveloPeloExame(exame.getId()));
         } else {
-            cotovelo = cotoveloDAO.getCotovelo(cotoveloDAO.getIdCotoveloPeloExame(exame.getId()));
+            cotovelo = cotoveloDAO.getOne(cotoveloDAO.getIdCotoveloPeloExame(exame.getId()));
         }
         return cotovelo;
     }
@@ -230,12 +230,12 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         Punho punho;
         FisioExamDatabase database  = FisioExamDatabase.getInstance(this);
         PunhoDAO punhoDAO = database.getRoomPunhoDAO();
-        if (punhoDAO.todos(exame.getId()).isEmpty()){
+        if (punhoDAO.search(exame.getId()).isEmpty()){
             punho = new Punho(exame.getId());
-            punhoDAO.salva(punho);
+            punhoDAO.insert(punho);
             punho.setId(punhoDAO.getIdPunhoPeloExame(exame.getId()));
         } else {
-            punho = punhoDAO.getPunho(punhoDAO.getIdPunhoPeloExame(exame.getId()));
+            punho = punhoDAO.getOne(punhoDAO.getIdPunhoPeloExame(exame.getId()));
         }
 
         return punho;

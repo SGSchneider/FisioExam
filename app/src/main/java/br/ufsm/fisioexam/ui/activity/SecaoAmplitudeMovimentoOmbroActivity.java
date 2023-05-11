@@ -113,7 +113,7 @@ public class SecaoAmplitudeMovimentoOmbroActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setAmplitudeMovimento(true);
-        secoesDao.edita(secoes);
+        secoesDao.update(secoes);
 
         ombro.setFlexaoDir(campoFlexaoDir.getText().toString());
         ombro.setFlexaoDir(campoFlexaoDir.getText().toString());
@@ -144,7 +144,7 @@ public class SecaoAmplitudeMovimentoOmbroActivity extends AppCompatActivity {
         ombro.setGrauII(campoGrauAlteracaoII.isChecked());
         ombro.setGrauIII(campoGrauAlteracaoIII.isChecked());
 
-        ombroDao.edita(ombro);
+        ombroDao.update(ombro);
     }
 
 
@@ -154,8 +154,8 @@ public class SecaoAmplitudeMovimentoOmbroActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            ombro = ombroDao.getOmbro((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(ombro.getExame());
+            ombro = ombroDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            secoes = secoesDao.getOne(ombro.getExame());
         }
     }
 

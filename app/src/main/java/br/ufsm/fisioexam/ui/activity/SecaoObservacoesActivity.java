@@ -64,9 +64,9 @@ public class SecaoObservacoesActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setObservacoes(true);
-        secoesDao.edita(secoes);
+        secoesDao.update(secoes);
         exame.setObservacoes(campoObservacoes.getText().toString());
-        exameDao.edita(exame);
+        exameDao.update(exame);
     }
 
     private void proximoForm() {
@@ -82,8 +82,8 @@ public class SecaoObservacoesActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            exame = exameDao.getExame((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(exame.getId());
+            exame = exameDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            secoes = secoesDao.getOne(exame.getId());
         }
     }
 

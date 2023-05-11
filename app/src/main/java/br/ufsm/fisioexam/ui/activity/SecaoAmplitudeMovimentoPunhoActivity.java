@@ -64,7 +64,7 @@ public class SecaoAmplitudeMovimentoPunhoActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setAmplitudeMovimento(true);
-        secoesDAO.edita(secoes);
+        secoesDAO.update(secoes);
 
         punho.setFlexaoDir(campoFlexaoD.getText().toString());
         punho.setFlexaoEsq(campoFlexaoE.getText().toString());
@@ -75,7 +75,7 @@ public class SecaoAmplitudeMovimentoPunhoActivity extends AppCompatActivity {
         punho.setDesvioUlnarDir(campoDesvioUlnarD.getText().toString());
         punho.setDesvioUlnarEsq(campoDesvioUlnarE.getText().toString());
 
-        punhoDAO.edita(punho);
+        punhoDAO.update(punho);
     }
 
     private void activityChange() {
@@ -118,8 +118,8 @@ public class SecaoAmplitudeMovimentoPunhoActivity extends AppCompatActivity {
     private void carregaExame() {
         Intent dados = getIntent();
         if(dados.hasExtra(CHAVE_EXAME)){
-            punho = punhoDAO.getPunho(dados.getSerializableExtra(CHAVE_EXAME).toString());
-            secoes = secoesDAO.getSecao(punho.getExame());
+            punho = punhoDAO.getOne(dados.getSerializableExtra(CHAVE_EXAME).toString());
+            secoes = secoesDAO.getOne(punho.getExame());
         }
     }
 

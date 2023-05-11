@@ -160,7 +160,7 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setTestesEspeciais(true);
-        secoesDao.edita(secoes);
+        secoesDao.update(secoes);
 
 
 
@@ -184,7 +184,7 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
         ombro.setSinalSulcoEsq(campoSinalSulcoEsq.isChecked());
 
 
-        ombroDao.edita(ombro);
+        ombroDao.update(ombro);
     }
 
 
@@ -260,8 +260,8 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
     private void carregaExame() {
         Intent dados = getIntent();
         if (dados.hasExtra(CHAVE_EXAME)) {
-            ombro = ombroDao.getOmbro((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(ombro.getExame());
+            ombro = ombroDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            secoes = secoesDao.getOne(ombro.getExame());
         }
     }
 

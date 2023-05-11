@@ -97,7 +97,7 @@ public class SecaoDorActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setDor(true);
-        secoesDao.edita(secoes);
+        secoesDao.update(secoes);
 
         //Salva as alterações na variável
         exame.setSenteDor(campoSenteDor.isChecked());
@@ -131,7 +131,7 @@ public class SecaoDorActivity extends AppCompatActivity {
         exame.setLocaisDor(campoLocaisDor.getText().toString());
 
         //Salva no Banco de Dados
-        exameDao.edita(exame);
+        exameDao.update(exame);
     }
 
     private void proximoForm() {
@@ -147,8 +147,8 @@ public class SecaoDorActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            exame = exameDao.getExame((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(exame.getId());
+            exame = exameDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            secoes = secoesDao.getOne(exame.getId());
         }
     }
 

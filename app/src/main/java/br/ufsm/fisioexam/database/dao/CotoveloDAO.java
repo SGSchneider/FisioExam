@@ -1,41 +1,38 @@
 package br.ufsm.fisioexam.database.dao;
 
 import androidx.room.Dao;
-import androidx.room.Delete;
-import androidx.room.Insert;
 import androidx.room.Query;
-import androidx.room.Update;
 
 import java.util.List;
 
 import br.ufsm.fisioexam.model.Cotovelo;
 
 @Dao
-public interface CotoveloDAO {
-    @Insert
-    void salva(Cotovelo cotovelo);
-
-    @Query("SELECT * FROM cotovelo WHERE exame LIKE :registro")
-    List<Cotovelo> todos(String registro);
-
-    @Delete
-    void remove(Cotovelo cotovelo);
-
-    @Update
-    void edita(Cotovelo cotovelo);
-
-    @Query("SELECT * FROM cotovelo WHERE id LIKE :registro")
-    Cotovelo getCotovelo(String registro);
-
-    @Query("SELECT * FROM cotovelo")
-    List<Cotovelo> getAllCotovelos();
-
-    @Insert
-    void insertAllCotovelos(List<Cotovelo> cotovelos);
+public interface CotoveloDAO extends GenericDAO<Cotovelo>{
 
     @Query("SELECT id FROM cotovelo WHERE exame LIKE :registro")
     String getIdCotoveloPeloExame(String registro);
 
-    @Query("DELETE FROM cotovelo")
-    void deleteAllCotovelos();
+
+
+    @Override
+    @Query("SELECT * FROM Cotovelo WHERE id LIKE :id")
+    Cotovelo getOne(String id);
+
+    @Override
+    @Query("select * from Cotovelo")
+    List<Cotovelo> getAll();
+
+    @Override
+    @Query("delete from Cotovelo")
+    void deleteAll();
+
+    @Override
+    @Query("SELECT * FROM Cotovelo WHERE exame like :termo")
+    List<Cotovelo> search(String termo);
+
+    @Override
+    @Query("SELECT EXISTS (SELECT* FROM Cotovelo WHERE id like :reg)")
+    Boolean CheckID(String reg);
+
 }

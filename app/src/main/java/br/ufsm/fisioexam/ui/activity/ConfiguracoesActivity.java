@@ -1,12 +1,13 @@
 package br.ufsm.fisioexam.ui.activity;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.util.Base64;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,15 +24,14 @@ import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.AlgorithmParameterSpec;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-import javax.crypto.Cipher;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FirebaseHelper;
@@ -55,6 +55,8 @@ public class ConfiguracoesActivity extends AppCompatActivity {
     private Button buttonSync;
     private Button buttonBack;
     private Button buttonLogin;
+
+    private List<LoginInfo> loginList;
     private LoginInfo loginInfo;
     private LoginInfoDAO lInfoDAO;
 
@@ -96,7 +98,6 @@ public class ConfiguracoesActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         database = FisioExamDatabase.getInstance(this);
         firebase = FirebaseHelper.getInstance();
-        sincronizador = new SyncBD(database, firebase.getDatabaseReference());
     }
 
     private void addListenerBotoes() {
@@ -132,35 +133,95 @@ public class ConfiguracoesActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 // Login bem sucedido
                                 Log.i("LOGIN", "Login Bem Sucedido");
+                                showToast("Login Bem sucedido!", Toast.LENGTH_SHORT);
                                 FirebaseUser user = mAuth.getCurrentUser();
+                                firebase.setFbUser(user);
+                                sincronizador = new SyncBD(database, firebase.getDatabaseReference(), firebase.getFbUser());
                                 // Faça algo com o usuário logado
 
                                 saveLoginInfo();
                             } else {
                                 // Login falhou
                                 Log.e("LOGIN", "Login Falhou");
+                                showToast("Login Falhou!", Toast.LENGTH_SHORT);
                                 // Exiba uma mensagem de erro ao usuário
                             }
                         }
                     });
         } else {
             Log.i("LOGIN", "Campos de Login Vazios");
+            showToast("Credenciais Inválidas!", Toast.LENGTH_LONG);
         }
     }
+
+    private void showToast(String texto, int length) {
+        Toast toast = Toast.makeText(this, texto, length);
+        toast.show();
+    }
+
 
     private void saveLoginInfo() {
         loginInfo.setUser(email);
         loginInfo.setPassword(password);
-        lInfoDAO.remove();
-        lInfoDAO.salva(loginInfo);
+        lInfoDAO.deleteAll();
+        lInfoDAO.insert(loginInfo);
     }
 
     private void syncDB() {
-        sincronizador.syncPacientes();
-        sincronizador.syncExames();
-        sincronizador.syncOmbros();
-        sincronizador.syncNow();
+        if (sincronizador != null) {
+            if (isAdmin(firebase.getFbUser().getUid())) {
+                syncAdmin();
+            } else {
+                sincronizador.syncNow();
+            }
+        } else {
+            showToast("É necessário fazer o login primeiro!", Toast.LENGTH_SHORT);
+        }
     }
+
+    private boolean isAdmin(String uid) {
+        try {
+            String json = null;
+            InputStream inputStream = this.getAssets().open("AdminUIDS.json");
+            int size = inputStream.available();
+            byte[] buffer = new byte[size];
+            inputStream.read(buffer);
+            inputStream.close();
+            json = new String(buffer, "UTF-8");
+
+            try {
+                JSONObject object = new JSONObject(json);
+
+                Iterator<String> keys = object.keys();
+                while (keys.hasNext()) {
+                    String key = keys.next();
+                    String valor = object.getString(key);
+                    if (valor.equals(uid)) {
+                        return true;
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
+
+    private void syncAdmin() {
+        new AlertDialog.Builder(this)
+                .setTitle("Sincronizando como Administrador")
+                .setMessage("Tem certeza que deseja sincronizar como administrador?\n" +
+                        "Ao Sincronizar como administrador os dados não sincronizados previamente serão apagados.\n" +
+                        "Só prossiga caso tenha certeza de que nenhum dado importante será perdido!")
+                .setPositiveButton("Sim", (dialog, which) -> {
+                    sincronizador.syncNowAdmin();
+                })
+                .setNegativeButton("Não", null)
+                .show();
+    }
+
 
     private void inicializaBotoes() {
         buttonBack = findViewById(R.id.activity_configuracoes_button_back);
@@ -170,10 +231,12 @@ public class ConfiguracoesActivity extends AppCompatActivity {
 
     private void carregaInfoLogin() {
         if (lInfoDAO.countSize() > 0) {
-            loginInfo = lInfoDAO.getLoginInfo();
+            loginList = lInfoDAO.getAll();
+            loginInfo = loginList.get(0);
             email = loginInfo.getUser();
             password = loginInfo.getPassword();
         } else {
+            loginList = new ArrayList<>();
             loginInfo = new LoginInfo("", "");
         }
         campoEmail.setText(email);

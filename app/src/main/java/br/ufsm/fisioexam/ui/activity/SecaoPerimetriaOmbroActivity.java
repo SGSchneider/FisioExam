@@ -92,7 +92,7 @@ public class SecaoPerimetriaOmbroActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setPerimetria(true);
-        secoesDao.edita(secoes);
+        secoesDao.update(secoes);
         ombro.setPerimetriaInfDir5(campoInf5Dir.getText().toString());
         ombro.setPerimetriaInfDir10(campoInf10Dir.getText().toString());
         ombro.setPerimetriaInfDir15(campoInf15Dir.getText().toString());
@@ -106,7 +106,7 @@ public class SecaoPerimetriaOmbroActivity extends AppCompatActivity {
         ombro.setPerimetriaSupEsq10(campoSup10Esq.getText().toString());
         ombro.setPerimetriaSupEsq15(campoSup15Esq.getText().toString());
 
-        ombroDao.edita(ombro);
+        ombroDao.update(ombro);
     }
 
     private void proximoForm() {
@@ -123,8 +123,8 @@ public class SecaoPerimetriaOmbroActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            ombro = ombroDao.getOmbro((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(ombro.getExame());
+            ombro = ombroDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            secoes = secoesDao.getOne(ombro.getExame());
         }
     }
 

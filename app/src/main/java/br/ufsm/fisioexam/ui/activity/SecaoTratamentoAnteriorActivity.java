@@ -71,7 +71,7 @@ public class SecaoTratamentoAnteriorActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setTratamentoAnterior(true);
-        secoesDao.edita(secoes);
+        secoesDao.update(secoes);
 
         //Salva as alterações na variável
         exame.setTratamentoPassado(campoTratamentoAnterior.isChecked());
@@ -81,7 +81,7 @@ public class SecaoTratamentoAnteriorActivity extends AppCompatActivity {
         exame.setTratamentoPassadoMelhora(campoHouveMelhora.isChecked());
 
         //Salva no Banco de Dados
-        exameDao.edita(exame);
+        exameDao.update(exame);
     }
 
     private void proximoForm() {
@@ -97,8 +97,8 @@ public class SecaoTratamentoAnteriorActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            exame = exameDao.getExame((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(exame.getId());
+            exame = exameDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            secoes = secoesDao.getOne(exame.getId());
         }
     }
 

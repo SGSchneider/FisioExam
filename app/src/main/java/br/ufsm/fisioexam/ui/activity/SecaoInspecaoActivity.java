@@ -173,7 +173,7 @@ public class SecaoInspecaoActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setInspecao(true);
-        secoesDao.edita(secoes);
+        secoesDao.update(secoes);
 
         //coloracao
         exame.setColoracaoPeleNormalInsp(campoColoracaoNormal.isChecked());
@@ -220,7 +220,7 @@ public class SecaoInspecaoActivity extends AppCompatActivity {
         exame.setPresencaCateteresESondasInsp(campoCateter.isChecked());
         exame.setLocalCateteresESondasInsp(campoLocalCateter.getText().toString());
 
-        exameDao.edita(exame);
+        exameDao.update(exame);
     }
 
     private void proximoForm() {
@@ -236,8 +236,8 @@ public class SecaoInspecaoActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            exame = exameDao.getExame((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(exame.getId());
+            exame = exameDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            secoes = secoesDao.getOne(exame.getId());
         }
     }
 

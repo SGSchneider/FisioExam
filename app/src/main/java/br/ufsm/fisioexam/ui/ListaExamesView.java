@@ -42,7 +42,7 @@ public class ListaExamesView {
         exclusor.ExcluiExame(exame.getId());
         exclusor.atualizaRemocoesDB();
 
-        exameDAO.remove(exame);
+        exameDAO.delete(exame);
         adapter.remove(exame);
     }
 

@@ -66,12 +66,12 @@ public class SecaoSinaisVitaisActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setSinaisVitais(true);
-        secoesDao.edita(secoes);
+        secoesDao.update(secoes);
         exame.setPA(campoPA.getText().toString());
         exame.setFC(campoFC.getText().toString());
         exame.setFR(campoFR.getText().toString());
         exame.setTempCorporal(campoTempCorporal.getText().toString());
-        exameDao.edita(exame);
+        exameDao.update(exame);
     }
 
     private void proximoForm() {
@@ -87,8 +87,8 @@ public class SecaoSinaisVitaisActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            exame = exameDao.getExame((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(exame.getId());
+            exame = exameDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            secoes = secoesDao.getOne(exame.getId());
         }
     }
 

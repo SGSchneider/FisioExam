@@ -68,7 +68,7 @@ public class SecaoAfastamentoDaFuncaoActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setAfastamentoDaFuncao(true);
-        secoesDao.edita(secoes);
+        secoesDao.update(secoes);
 
         //Salva as alterações na variável
         exame.setAfastamentoFuncao(campoAfastamentoDaFuncao.isChecked());
@@ -76,7 +76,7 @@ public class SecaoAfastamentoDaFuncaoActivity extends AppCompatActivity {
         exame.setTempoAfastamento(campoAfastamentoDaFuncaoPorQuantoTempo.getText().toString());
 
         //Salva no Banco de Dados
-        exameDao.edita(exame);
+        exameDao.update(exame);
     }
 
     private void proximoForm() {
@@ -92,8 +92,8 @@ public class SecaoAfastamentoDaFuncaoActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            exame = exameDao.getExame((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(exame.getId());
+            exame = exameDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            secoes = secoesDao.getOne(exame.getId());
         }
     }
 

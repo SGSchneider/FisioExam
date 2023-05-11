@@ -79,7 +79,7 @@ public class SecaoPerimetriaCotoveloActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setPerimetria(true);
-        secoesDao.edita(secoes);
+        secoesDao.update(secoes);
         cotovelo.setPerimetriaInfDir5(campoInf5Dir.getText().toString());
         cotovelo.setPerimetriaInfDir10(campoInf10Dir.getText().toString());
         cotovelo.setPerimetriaInfDir15(campoInf15Dir.getText().toString());
@@ -93,7 +93,7 @@ public class SecaoPerimetriaCotoveloActivity extends AppCompatActivity {
         cotovelo.setPerimetriaSupEsq10(campoSup10Esq.getText().toString());
         cotovelo.setPerimetriaSupEsq15(campoSup15Esq.getText().toString());
 
-        cotoveloDao.edita(cotovelo);
+        cotoveloDao.update(cotovelo);
     }
 
     private void proximoForm() {
@@ -110,8 +110,8 @@ public class SecaoPerimetriaCotoveloActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            cotovelo = cotoveloDao.getCotovelo((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(cotovelo.getExame());
+            cotovelo = cotoveloDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            secoes = secoesDao.getOne(cotovelo.getExame());
         }
     }
 

@@ -64,7 +64,7 @@ public class SecaoHistoriaOcupacionalActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setHistoriaOcupacional(true);
-        secoesDao.edita(secoes);
+        secoesDao.update(secoes);
 
         //Salva as alterações na variável
         exame.setOcupacaoAtual(campoLocalAtual.getText().toString());
@@ -73,7 +73,7 @@ public class SecaoHistoriaOcupacionalActivity extends AppCompatActivity {
         exame.setTempoTrabalhoAnterior(campoTempoAnterior.getText().toString());
 
         //Salva no Banco de Dados
-        exameDao.edita(exame);
+        exameDao.update(exame);
     }
 
     private void proximoForm() {
@@ -89,8 +89,8 @@ public class SecaoHistoriaOcupacionalActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            exame = exameDao.getExame((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(exame.getId());
+            exame = exameDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            secoes = secoesDao.getOne(exame.getId());
         }
     }
 

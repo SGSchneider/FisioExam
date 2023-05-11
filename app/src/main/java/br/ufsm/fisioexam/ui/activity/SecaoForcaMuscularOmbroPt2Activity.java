@@ -117,7 +117,7 @@ public class SecaoForcaMuscularOmbroPt2Activity extends AppCompatActivity {
 
     private void salva() {
         secoes.setForcaMuscular2(true);
-        secoesDao.edita(secoes);
+        secoesDao.update(secoes);
 
 
         ombro.setRedondoMaiorDir(campoRedondoMaiorDir.getText().toString());
@@ -137,7 +137,7 @@ public class SecaoForcaMuscularOmbroPt2Activity extends AppCompatActivity {
 
 
 
-        ombroDao.edita(ombro);
+        ombroDao.update(ombro);
     }
 
     private void proximoForm() {
@@ -154,8 +154,8 @@ public class SecaoForcaMuscularOmbroPt2Activity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            ombro = ombroDao.getOmbro((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(ombro.getExame());
+            ombro = ombroDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            secoes = secoesDao.getOne(ombro.getExame());
         }
     }
 

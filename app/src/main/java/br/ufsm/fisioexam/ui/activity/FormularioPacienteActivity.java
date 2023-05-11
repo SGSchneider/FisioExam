@@ -81,7 +81,8 @@ public class FormularioPacienteActivity extends AppCompatActivity {
     private EditText campoParentesco;
     private EditText campoMedico;
     Calendar dataSelecionada = Calendar.getInstance();
-    private PacienteDAO dao;
+    private PacienteDAO pacienteDAO;
+
     private Paciente paciente;
 
     @Override
@@ -89,7 +90,7 @@ public class FormularioPacienteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_paciente);
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
-        dao = database.getRoomPacienteDAO();
+        pacienteDAO = database.getRoomPacienteDAO();
         inicializacaoDosCampos();
         carregaPaciente();
         setListenerCalendarioNascimento();
@@ -323,13 +324,13 @@ public class FormularioPacienteActivity extends AppCompatActivity {
 
     private void finalizaFormulario() {
         preenchePaciente();
-        if (!dao.CheckID(paciente.getId()).isEmpty()) {
+        Log.e("ERRO", "Paciente e DAO Não Nulas");
+        if (pacienteDAO.CheckID(paciente.getId())) {
             Log.i("ID", "Tem ID");
-            dao.edita(paciente);
+            pacienteDAO.update(paciente);
         } else {
-
             Log.i("ID", "Não Tem ID");
-            dao.salva(paciente);
+            pacienteDAO.insert(paciente);
         }
         finish();
     }

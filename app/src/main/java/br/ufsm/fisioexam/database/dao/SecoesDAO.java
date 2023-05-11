@@ -1,10 +1,7 @@
 package br.ufsm.fisioexam.database.dao;
 
 import androidx.room.Dao;
-import androidx.room.Delete;
-import androidx.room.Insert;
 import androidx.room.Query;
-import androidx.room.Update;
 
 import java.util.List;
 
@@ -12,25 +9,25 @@ import br.ufsm.fisioexam.model.Secoes;
 
 
 @Dao
-public interface SecoesDAO {
-    @Insert
-    void salva(Secoes secoes);
+public interface SecoesDAO extends GenericDAO<Secoes>{
 
-    @Insert
-    void insertAllSecoes(List<Secoes> secoes);
-
-    @Delete
-    void remove(Secoes secoes);
-
-    @Update
-    void edita(Secoes secoes);
-
+    @Override
     @Query("SELECT * FROM secoes WHERE id LIKE :id")
-    Secoes getSecao(String id);
+    Secoes getOne(String id);
 
+    @Override
     @Query("select * from secoes")
-    List<Secoes> getAllSecoes();
+    List<Secoes> getAll();
 
+    @Override
     @Query("delete from secoes")
-    void deleteAllSecoes();
+    void deleteAll();
+
+    @Override
+    @Query("SELECT * FROM secoes WHERE id like :termo")
+    List<Secoes> search(String termo);
+
+    @Override
+    @Query("SELECT EXISTS (SELECT* FROM secoes WHERE id like :reg)")
+    Boolean CheckID(String reg);
 }

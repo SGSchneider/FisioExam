@@ -21,13 +21,13 @@ public class SecoesExameView {
 
     public void atualizaSecoes() {
         Secoes secao;
-        secao = dao.getSecao(id_exame);
+        secao = dao.getOne(id_exame);
         if(secao!=null) {
             adapter.atualiza(secao);
         }
         else{
             secao = new Secoes(id_exame);
-            dao.salva(secao);
+            dao.insert(secao);
             adapter.atualiza(secao);
         }
     }

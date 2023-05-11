@@ -80,7 +80,7 @@ public class SecaoForcaMuscularCotoveloActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setForcaMuscular1(true);
-        secoesDao.edita(secoes);
+        secoesDao.update(secoes);
 
         cotovelo.setBicepsBraquialDir(campoBicepsBraquialDir.getText().toString());
         cotovelo.setBicepsBraquialEsq(campoBicepsBraquialEsq.getText().toString());
@@ -95,7 +95,7 @@ public class SecaoForcaMuscularCotoveloActivity extends AppCompatActivity {
         cotovelo.setPronadorQuadradoERedondoDir(campoPronadorDir.getText().toString());
         cotovelo.setPronadorQuadradoERedondoEsq(campoPronadorEsq.getText().toString());
 
-        cotoveloDao.edita(cotovelo);
+        cotoveloDao.update(cotovelo);
     }
 
     private void proximoForm() {
@@ -112,8 +112,8 @@ public class SecaoForcaMuscularCotoveloActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            cotovelo = cotoveloDao.getCotovelo((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(cotovelo.getExame());
+            cotovelo = cotoveloDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            secoes = secoesDao.getOne(cotovelo.getExame());
         }
     }
 

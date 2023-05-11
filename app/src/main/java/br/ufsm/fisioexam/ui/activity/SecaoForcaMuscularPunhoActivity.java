@@ -82,7 +82,7 @@ public class SecaoForcaMuscularPunhoActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setForcaMuscular1(true);
-        secoesDao.edita(secoes);
+        secoesDao.update(secoes);
 
         punho.setForcaMuscularFlexorRadialDir(campoFlexorRadialDir.getText().toString());
         punho.setForcaMuscularFlexorRadialEsq(campoFlexorRadialEsq.getText().toString());
@@ -99,7 +99,7 @@ public class SecaoForcaMuscularPunhoActivity extends AppCompatActivity {
         punho.setForcaMuscularExtensorUlnarDoCarpoDir(campoExtensorUlnarDir.getText().toString());
         punho.setForcaMuscularExtensorUlnarDoCarpoEsq(campoExtensorUlnarEsq.getText().toString());
 
-        punhoDao.edita(punho);
+        punhoDao.update(punho);
     }
 
     private void proximoForm() {
@@ -116,8 +116,8 @@ public class SecaoForcaMuscularPunhoActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            punho = punhoDao.getPunho((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getSecao(punho.getExame());
+            punho = punhoDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            secoes = secoesDao.getOne(punho.getExame());
         }
     }
 

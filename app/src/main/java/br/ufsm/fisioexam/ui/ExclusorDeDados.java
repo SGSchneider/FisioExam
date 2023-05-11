@@ -35,8 +35,7 @@ public class ExclusorDeDados {
 
     public void ExcluiPaciente(String key) {
         PacienteDAO pacienteDAO = database.getRoomPacienteDAO();
-        List<Paciente> pacientes = pacienteDAO.CheckID(key);
-        Paciente paciente = pacientes.get(0);
+        Paciente paciente = pacienteDAO.getOne(key);
         List<Exame> exames = database.getRoomExameDAO().todos(paciente.getId());
         for (Exame exame : exames) {
             ExcluiExame(exame.getId());
@@ -46,7 +45,7 @@ public class ExclusorDeDados {
 
     public void ExcluiExame(String key) {
         ExameDAO exameDAO = database.getRoomExameDAO();
-        Exame exame = exameDAO.getExame(key);
+        Exame exame = exameDAO.getOne(key);
         switch (exame.getTipo()) {
             case CHAVE_TIPO_OMBRO:
                 OmbroDAO ombroDAO = database.getRoomOmbroDAO();
@@ -67,6 +66,6 @@ public class ExclusorDeDados {
 
     public void atualizaRemocoesDB(){
         ExclusoesDAO exclusoesDAO = database.getRoomExclusoesDAO();
-        exclusoesDAO.insere(exclusoes);
+        exclusoesDAO.insert(exclusoes);
     }
 }

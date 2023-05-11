@@ -205,7 +205,7 @@ public class SecoesExameActivity extends AppCompatActivity {
                 vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
                 startActivity(vaiParaFormularioSecaoActivity);
             }
-            exame = exameDao.getExame(exame.getId());
+            exame = exameDao.getOne(exame.getId());
             secoesExameView.atualizaSecoes();
         });
     }
@@ -257,21 +257,21 @@ public class SecoesExameActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            exame = exameDao.getExame((String) dados.getSerializableExtra(CHAVE_EXAME));
+            exame = exameDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
             preencheTitulo();
             preencheCampos();
             setTitle(TITULO_APPBAR_EDITA_EXAME);
-            secoes = secoesDao.getSecao(exame.getId());
+            secoes = secoesDao.getOne(exame.getId());
         } else {
             if (dados.hasExtra(CHAVE_TIPO_EXAME)) {
                 setTitle(TITULO_APPBAR_NOVO_EXAME);
                 tipo = (String) dados.getSerializableExtra(CHAVE_TIPO_EXAME);
                 String idPaciente = (String) dados.getSerializableExtra(CHAVE_ID_PACIENTE);
                 exame = new Exame(idPaciente, tipo, geraChaveCriacao());
-                exameDao.salva(exame);
+                exameDao.insert(exame);
                 exame.setId(exameDao.getIdNovoExame(idPaciente, exame.getCreationKey()));
                 secoes = new Secoes(exame.getId());
-                secoesDao.salva(secoes);
+                secoesDao.insert(secoes);
                 preencheTitulo();
             }
         }
@@ -303,8 +303,8 @@ public class SecoesExameActivity extends AppCompatActivity {
 
     private void preencheCampos() { //carrega os valores do banco para o formulario em caso de edição.
         preencheData();
-        exame = exameDao.getExame(exame.getId());
-        secoes = secoesDao.getSecao(exame.getId());
+        exame = exameDao.getOne(exame.getId());
+        secoes = secoesDao.getOne(exame.getId());
     }
 
     private void atualizaDataExame() { //formata a data para exibição
@@ -331,7 +331,7 @@ public class SecoesExameActivity extends AppCompatActivity {
         exame.setTipo(tipo);
         exame.setData(data.getTimeInMillis());
 
-        exameDao.edita(exame);
+        exameDao.update(exame);
 
     }
 }

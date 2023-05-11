@@ -25,12 +25,14 @@ public class fisioExamMenuActivity extends AppCompatActivity {
 
     private void configuraBotoes() {
         pacientes = findViewById(R.id.button_pacientes);
-        pacientes.setOnClickListener(v -> abreListaPacientes());
-
-
         configuracoes = findViewById(R.id.button_config);
-        configuracoes.setOnClickListener(v -> abreConfiguracoes());
 
+        setaListenerDeClique();
+    }
+
+    private void setaListenerDeClique() {
+        pacientes.setOnClickListener(v -> abreListaPacientes());
+        configuracoes.setOnClickListener(v -> abreConfiguracoes());
     }
 
     private void abreListaPacientes() {
