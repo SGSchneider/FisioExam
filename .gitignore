@@ -33,5 +33,5 @@ google-services.json
 *.mp4
 
 #UUIDs
-app/src/main/assets/AdminUIDS.json
+app/src/main/assets/*
 
