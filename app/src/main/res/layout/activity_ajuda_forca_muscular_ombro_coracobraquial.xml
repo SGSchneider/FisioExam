@@ -131,6 +131,16 @@
 
             </LinearLayout>
 
+            <com.google.android.exoplayer2.ui.StyledPlayerView
+                android:id="@+id/activity_ajuda_forca_muscular_ombro_coracobraquial_video_a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/video_demonstrativo"
+                android:layout_gravity="top"
+                app:resize_mode="fit"
+                app:show_timeout="0"
+                app:surface_type="texture_view"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -158,17 +168,6 @@
                     android:layout_weight="2" />
 
             </LinearLayout>
-
-
-            <com.google.android.exoplayer2.ui.StyledPlayerView
-                android:id="@+id/activity_ajuda_forca_muscular_ombro_coracobraquial_video_a"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/video_demonstrativo"
-                android:layout_gravity="top"
-                app:resize_mode="fit"
-                app:show_timeout="0"
-                app:surface_type="texture_view"/>
 
             <com.google.android.exoplayer2.ui.StyledPlayerView
                 android:id="@+id/activity_ajuda_forca_muscular_ombro_coracobraquial_video_b"
