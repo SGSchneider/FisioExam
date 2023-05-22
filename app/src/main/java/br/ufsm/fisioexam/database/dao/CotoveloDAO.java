@@ -10,10 +10,9 @@ import br.ufsm.fisioexam.model.Cotovelo;
 @Dao
 public interface CotoveloDAO extends GenericDAO<Cotovelo>{
 
+    @Override
     @Query("SELECT id FROM cotovelo WHERE exame LIKE :registro")
-    String getIdCotoveloPeloExame(String registro);
-
-
+    String getIdByForeign(String registro);
 
     @Override
     @Query("SELECT * FROM Cotovelo WHERE id LIKE :id")
@@ -35,4 +34,8 @@ public interface CotoveloDAO extends GenericDAO<Cotovelo>{
     @Query("SELECT EXISTS (SELECT* FROM Cotovelo WHERE id like :reg)")
     Boolean CheckID(String reg);
 
+
+    @Override
+    @Query("SELECT COUNT() FROM cotovelo")
+    int countSize();
 }

@@ -42,4 +42,13 @@ public interface GenericDAO<T> {
     @Query("SELECT * FROM paciente WHERE id like :reg")
     T getOne(String reg);
 
+    @Query("SELECT id FROM cotovelo WHERE exame LIKE :registro")
+    String getIdByForeign(String registro);
+
+    @Query("SELECT id FROM exame WHERE paciente LIKE :registro AND creationKey LIKE :chave")
+    String getIdNovoExame(String registro, String chave);
+
+    @Query("SELECT COUNT() FROM paciente")
+    int countSize();
+
 }

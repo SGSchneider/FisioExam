@@ -15,13 +15,16 @@ import java.util.List;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.CotoveloDAO;
 import br.ufsm.fisioexam.database.dao.ExameDAO;
-import br.ufsm.fisioexam.database.dao.ExclusoesDAO;
 import br.ufsm.fisioexam.database.dao.OmbroDAO;
 import br.ufsm.fisioexam.database.dao.PacienteDAO;
 import br.ufsm.fisioexam.database.dao.PunhoDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
+import br.ufsm.fisioexam.model.Cotovelo;
 import br.ufsm.fisioexam.model.Exame;
 import br.ufsm.fisioexam.model.Exclusoes;
+import br.ufsm.fisioexam.model.Ombro;
 import br.ufsm.fisioexam.model.Paciente;
+import br.ufsm.fisioexam.model.Punho;
 
 public class ExclusorDeDados {
     private final List<Exclusoes> exclusoes;
@@ -34,9 +37,11 @@ public class ExclusorDeDados {
     }
 
     public void ExcluiPaciente(String key) {
+        QueryManager<Paciente> queryManagerPaciente = new QueryManager<>();
+        QueryManager<Exame> queryManagerExame = new QueryManager<>();
         PacienteDAO pacienteDAO = database.getRoomPacienteDAO();
-        Paciente pacientes = pacienteDAO.getOne(key);
-        List<Exame> exames = database.getRoomExameDAO().todos(pacientes.getId());
+        Paciente pacientes =  queryManagerPaciente.getOne(key, pacienteDAO);
+        List<Exame> exames = queryManagerExame.atualizaLista(pacientes.getId() ,database.getRoomExameDAO());
         for (Exame exame : exames) {
             ExcluiExame(exame.getId());
         }
@@ -48,16 +53,22 @@ public class ExclusorDeDados {
         Exame exame = exameDAO.getOne(key);
         switch (exame.getTipo()) {
             case CHAVE_TIPO_OMBRO -> {
-                OmbroDAO ombroDAO = database.getRoomOmbroDAO();
-                exclusoes.add(new Exclusoes(ombroDAO.getIdOmbroPeloExame(exame.getId()), CHAVE_TIPO_OMBRO));
+                OmbroDAO dao;
+                QueryManager<Ombro> queryManagerEspecifica= new QueryManager<>();
+                dao = database.getRoomOmbroDAO();
+                exclusoes.add(new Exclusoes(queryManagerEspecifica.getIdByForeign(key,dao), exame.getTipo()));
             }
             case CHAVE_TIPO_COTOVELO -> {
-                CotoveloDAO cotoveloDAO = database.getRoomCotoveloDAO();
-                exclusoes.add(new Exclusoes(cotoveloDAO.getIdCotoveloPeloExame(exame.getId()), CHAVE_TIPO_COTOVELO));
+                CotoveloDAO dao;
+                QueryManager<Cotovelo> queryManagerEspecifica= new QueryManager<>();
+                dao = database.getRoomCotoveloDAO();
+                exclusoes.add(new Exclusoes(queryManagerEspecifica.getIdByForeign(key,dao), exame.getTipo()));
             }
             case CHAVE_TIPO_PUNHO -> {
-                PunhoDAO punhoDAO = database.getRoomPunhoDAO();
-                exclusoes.add(new Exclusoes(punhoDAO.getIdPunhoPeloExame(exame.getId()), CHAVE_TIPO_PUNHO));
+                PunhoDAO dao;
+                QueryManager<Punho> queryManagerEspecifica= new QueryManager<>();
+                dao = database.getRoomPunhoDAO();
+                exclusoes.add(new Exclusoes(queryManagerEspecifica.getIdByForeign(key,dao), exame.getTipo()));
             }
         }
         exclusoes.add(new Exclusoes(key,CHAVE_SECAO));
@@ -65,7 +76,7 @@ public class ExclusorDeDados {
     }
 
     public void atualizaRemocoesDB(){
-        ExclusoesDAO exclusoesDAO = database.getRoomExclusoesDAO();
-        exclusoesDAO.insert(exclusoes);
+        QueryManager<Exclusoes> queryManager = new QueryManager<>();
+        queryManager.insert(exclusoes,database.getRoomExclusoesDAO());
     }
 }

@@ -21,9 +21,6 @@ public interface PunhoDAO extends GenericDAO<Punho>{
     @Query("DELETE FROM punho")
     void deleteAll();
 
-    @Query("SELECT id FROM punho WHERE exame LIKE :exame")
-    String getIdPunhoPeloExame(String exame);
-
     @Override
     @Query("SELECT * FROM punho WHERE id LIKE :registro")
     Punho getOne(String registro);
@@ -31,4 +28,12 @@ public interface PunhoDAO extends GenericDAO<Punho>{
     @Override
     @Query("SELECT EXISTS (SELECT * FROM punho WHERE id like :reg)")
     Boolean CheckID(String reg);
+
+    @Override
+    @Query("SELECT id FROM punho WHERE exame LIKE :registro")
+    String getIdByForeign(String registro);
+
+    @Override
+    @Query("SELECT COUNT() FROM punho")
+    int countSize();
 }

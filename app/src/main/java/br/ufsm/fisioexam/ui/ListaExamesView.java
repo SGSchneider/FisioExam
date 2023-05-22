@@ -6,9 +6,6 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.ExameDAO;
 import br.ufsm.fisioexam.database.thread.QueryManager;
@@ -21,15 +18,13 @@ public class ListaExamesView {
     private final Context context;
     private final String id_paciente;
 
-    private List<Exame> exames;
-    private QueryManager<Exame> queryManager;
+    private final QueryManager<Exame> queryManager;
 
     public ListaExamesView(Context context, String id_paciente) {
         this.context = context;
         this.adapter = new ListaExamesAdapter(context);
         this.id_paciente = id_paciente;
         exameDAO = FisioExamDatabase.getInstance(context).getRoomExameDAO();
-        exames = new ArrayList<>();
         queryManager = new QueryManager<>();
     }
 
@@ -51,7 +46,7 @@ public class ListaExamesView {
         exclusor.ExcluiExame(exame.getId());
         exclusor.atualizaRemocoesDB();
 
-        exameDAO.delete(exame);//TODO Add Thread
+        queryManager.delete(exame,exameDAO);
         adapter.remove(exame);
     }
 
@@ -60,7 +55,7 @@ public class ListaExamesView {
     }
 
     private void AtualizaLista(String pesquisa) {
-        //adapter.atualiza(queryManager.atualizaLista(pesquisa,exameDAO));
+        adapter.atualiza(queryManager.atualizaLista(pesquisa,exameDAO));
     }
 
     public void configuraAdapter(ListView listaDeExames) {

@@ -30,4 +30,13 @@ public interface SecoesDAO extends GenericDAO<Secoes>{
     @Override
     @Query("SELECT EXISTS (SELECT* FROM secoes WHERE id like :reg)")
     Boolean CheckID(String reg);
+
+    @Override
+    @Query("SELECT id FROM secoes WHERE id LIKE :registro")
+    String getIdByForeign(String registro);
+
+
+    @Override
+    @Query("SELECT COUNT() FROM secoes")
+    int countSize();
 }

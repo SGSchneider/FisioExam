@@ -29,4 +29,12 @@ public interface ExclusoesDAO extends GenericDAO<Exclusoes>{
     @Override
     @Query("SELECT EXISTS (SELECT * FROM exclusoes WHERE tipo like :reg)")
     Boolean CheckID(String reg);
+
+    @Override
+    @Query("SELECT id FROM exclusoes WHERE id LIKE :registro")
+    String getIdByForeign(String registro);
+
+    @Override
+    @Query("SELECT COUNT() FROM exclusoes")
+    int countSize();
 }

@@ -10,17 +10,6 @@ import br.ufsm.fisioexam.model.Exame;
 @Dao
 public interface ExameDAO extends GenericDAO<Exame>{
 
-    @Query("SELECT * FROM exame WHERE paciente LIKE :registro ORDER BY tipo")
-    List<Exame> todos(String registro);
-
-    @Query("SELECT * FROM exame")
-    List<Exame> getAllExames();
-
-
-    @Query("SELECT id FROM exame WHERE paciente LIKE :registro AND creationKey LIKE :chave")
-    String getIdNovoExame(String registro, String chave);
-
-
     @Override
     @Query("SELECT * From exame")
     List<Exame> getAll();
@@ -40,4 +29,12 @@ public interface ExameDAO extends GenericDAO<Exame>{
     @Override
     @Query("SELECT * FROM exame WHERE id like :reg")
     Exame getOne(String reg);
+
+    @Override
+    @Query("SELECT id FROM exame WHERE id like :registro")
+    String getIdByForeign(String registro);
+
+    @Override
+    @Query("SELECT COUNT() FROM exame")
+    int countSize();
 }

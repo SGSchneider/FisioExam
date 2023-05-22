@@ -5,6 +5,7 @@ import android.widget.ListView;
 
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Secoes;
 import br.ufsm.fisioexam.ui.adapter.SecoesExamesAdapter;
 
@@ -27,7 +28,8 @@ public class SecoesExameView {
         }
         else{
             secao = new Secoes(id_exame);
-            dao.insert(secao);
+            QueryManager<Secoes> queryManager = new QueryManager<>();
+            queryManager.insert(secao, dao);
             adapter.atualiza(secao);
         }
     }

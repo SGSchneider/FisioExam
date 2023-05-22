@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufsm.fisioexam.database.FisioExamDatabase;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Cotovelo;
 import br.ufsm.fisioexam.model.Exame;
 import br.ufsm.fisioexam.model.Exclusoes;
@@ -173,24 +174,35 @@ public class SyncBD {
     }
 
     private void updateTables() {
-        fisioExamDatabase.getRoomSecoesDAO().deleteAll();
-        fisioExamDatabase.getRoomPunhoDAO().deleteAll();
-        fisioExamDatabase.getRoomCotoveloDAO().deleteAll();
-        fisioExamDatabase.getRoomOmbroDAO().deleteAll();
-        fisioExamDatabase.getRoomExameDAO().deleteAll();
-        fisioExamDatabase.getRoomPacienteDAO().deleteAll();
+        //Definição dos QueryManagers
+        QueryManager<Secoes> queryManagerSecoes = new QueryManager<>();
+        QueryManager<Ombro> queryManagerOmbro = new QueryManager<>();
+        QueryManager<Cotovelo> queryManagerCotovelo = new QueryManager<>();
+        QueryManager<Punho> queryManagerPunho = new QueryManager<>();
+        QueryManager<Exame> queryManagerExame = new QueryManager<>();
+        QueryManager<Paciente> queryManagerPaciente = new QueryManager<>();
 
 
-        fisioExamDatabase.getRoomPacienteDAO().insert(pacientes);
-        fisioExamDatabase.getRoomExameDAO().insert(exames);
-        fisioExamDatabase.getRoomOmbroDAO().insert(ombros);
-        fisioExamDatabase.getRoomCotoveloDAO().insert(cotovelos);
-        fisioExamDatabase.getRoomPunhoDAO().insert(punhos);
-        fisioExamDatabase.getRoomSecoesDAO().insert(secoes);
+        //DeleteAll
+        queryManagerSecoes.deleteAll(fisioExamDatabase.getRoomSecoesDAO());
+        queryManagerOmbro.deleteAll(fisioExamDatabase.getRoomOmbroDAO());
+        queryManagerCotovelo.deleteAll(fisioExamDatabase.getRoomCotoveloDAO());
+        queryManagerPunho.deleteAll(fisioExamDatabase.getRoomPunhoDAO());
+        queryManagerExame.deleteAll(fisioExamDatabase.getRoomExameDAO());
+        queryManagerPaciente.deleteAll(fisioExamDatabase.getRoomPacienteDAO());
+
+        //InsertAll
+        queryManagerPaciente.insert(pacientes,fisioExamDatabase.getRoomPacienteDAO());
+        queryManagerExame.insert(exames,fisioExamDatabase.getRoomExameDAO());
+        queryManagerSecoes.insert(secoes,fisioExamDatabase.getRoomSecoesDAO());
+        queryManagerOmbro.insert(ombros,fisioExamDatabase.getRoomOmbroDAO());
+        queryManagerCotovelo.insert(cotovelos,fisioExamDatabase.getRoomCotoveloDAO());
+        queryManagerPunho.insert(punhos,fisioExamDatabase.getRoomPunhoDAO());
+
     }
 
     public void syncExames() {
-        List<Exame> exames = fisioExamDatabase.getRoomExameDAO().getAllExames();
+        List<Exame> exames = fisioExamDatabase.getRoomExameDAO().getAll();
 
         for (Exame exame : exames) {
             databaseReference.child("users").child(fbUser.getUid()).child(CHAVE_EXAME).child(exame.getId()).setValue(exame);

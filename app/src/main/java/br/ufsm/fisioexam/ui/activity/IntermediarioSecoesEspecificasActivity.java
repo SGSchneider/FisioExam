@@ -61,32 +61,31 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
 
     private void selecionaFormulario() {
         switch (secao) {
-            case 1:
+            case 1 -> {
                 amplitudeMovimento();
                 finish();
-                break;
-            case 2:
+            }
+            case 2 -> {
                 perimetria();
                 finish();
-                break;
-            case 3:
+            }
+            case 3 -> {
                 forcaMuscular();
                 finish();
-                break;
-            case 4:
+            }
+            case 4 -> {
                 sensibilidade();
                 finish();
-                break;
-            case 5:
+            }
+            case 5 -> {
                 testesEspeciais();
                 finish();
-                break;
-            case 6:
+            }
+            case 6 -> {
                 observacoes();
                 finish();
-                break;
-            default:
-                finish();
+            }
+            default -> finish();
         }
     }
 
@@ -99,17 +98,18 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
     private void testesEspeciais() {
         tipo = exame.getTipo();
         switch (tipo) {
-            case CHAVE_TIPO_OMBRO:
+            case CHAVE_TIPO_OMBRO -> {
                 Ombro ombro = getOmbro();
                 vaiParaSecaoEspecifica(ombro.getId(), SecaoTestesEspeciaisOmbroActivity.class);
-                break;
-            case CHAVE_TIPO_COTOVELO:
+            }
+            case CHAVE_TIPO_COTOVELO -> {
                 Cotovelo cotovelo = getCotovelo();
                 vaiParaSecaoEspecifica(cotovelo.getId(), SecaoTestesEspeciaisCotoveloActivity.class);
-                break;
-            case CHAVE_TIPO_PUNHO:
+            }
+            case CHAVE_TIPO_PUNHO -> {
                 Punho punho = getPunho();
                 vaiParaSecaoEspecifica(punho.getId(), SecaoTestesEspeciaisPunhoActivity.class);
+            }
         }
     }
 
@@ -122,72 +122,72 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
     private void sensibilidade() {
         tipo = exame.getTipo();
         switch (tipo) {
-            case CHAVE_TIPO_OMBRO:
+            case CHAVE_TIPO_OMBRO -> {
                 Ombro ombro = getOmbro();
                 vaiParaSecaoEspecifica(ombro.getId(), SecaoSensibilidadeOmbroActivity.class);
-                break;
-            case CHAVE_TIPO_COTOVELO:
+            }
+            case CHAVE_TIPO_COTOVELO -> {
                 Cotovelo cotovelo = getCotovelo();
                 vaiParaSecaoEspecifica(cotovelo.getId(), SecaoSensibilidadeCotoveloActivity.class);
-                break;
-            case CHAVE_TIPO_PUNHO:
+            }
+            case CHAVE_TIPO_PUNHO -> {
                 Punho punho = getPunho();
                 vaiParaSecaoEspecifica(punho.getId(), SecaoSensibilidadePunhoActivity.class);
-                break;
+            }
         }
     }
 
     private void forcaMuscular() {
         tipo = exame.getTipo();
         switch (tipo) {
-            case CHAVE_TIPO_OMBRO:
+            case CHAVE_TIPO_OMBRO -> {
                 Ombro ombro = getOmbro();
                 vaiParaSecaoEspecifica(ombro.getId(), SecaoForcaMuscularOmbroPt1Activity.class);
-                break;
-            case CHAVE_TIPO_COTOVELO:
+            }
+            case CHAVE_TIPO_COTOVELO -> {
                 Cotovelo cotovelo = getCotovelo();
                 vaiParaSecaoEspecifica(cotovelo.getId(), SecaoForcaMuscularCotoveloActivity.class);
-                break;
-            case CHAVE_TIPO_PUNHO:
+            }
+            case CHAVE_TIPO_PUNHO -> {
                 Punho punho = getPunho();
                 vaiParaSecaoEspecifica(punho.getId(), SecaoForcaMuscularPunhoActivity.class);
-                break;
+            }
         }
     }
 
     private void perimetria() {
         tipo = exame.getTipo();
         switch (tipo) {
-            case CHAVE_TIPO_OMBRO:
+            case CHAVE_TIPO_OMBRO -> {
                 Ombro ombro = getOmbro();
                 vaiParaSecaoEspecifica(ombro.getId(), SecaoPerimetriaOmbroActivity.class);
-                break;
-            case CHAVE_TIPO_COTOVELO:
+            }
+            case CHAVE_TIPO_COTOVELO -> {
                 Cotovelo cotovelo = getCotovelo();
                 vaiParaSecaoEspecifica(cotovelo.getId(), SecaoPerimetriaCotoveloActivity.class);
-                break;
-            case CHAVE_TIPO_PUNHO:
+            }
+            case CHAVE_TIPO_PUNHO -> {
                 Punho punho = getPunho();
                 vaiParaSecaoEspecifica(punho.getId(), SecaoPerimetriaPunhoActivity.class);
-                break;
+            }
         }
     }
 
     private void amplitudeMovimento() {
         tipo = exame.getTipo();
         switch (tipo) {
-            case CHAVE_TIPO_OMBRO:
+            case CHAVE_TIPO_OMBRO -> {
                 Ombro ombro = getOmbro();
                 vaiParaSecaoEspecifica(ombro.getId(), SecaoAmplitudeMovimentoOmbroActivity.class);
-                break;
-            case CHAVE_TIPO_COTOVELO:
+            }
+            case CHAVE_TIPO_COTOVELO -> {
                 Cotovelo cotovelo = getCotovelo();
                 vaiParaSecaoEspecifica(cotovelo.getId(), SecaoAmplitudeMovimentoCotoveloActivity.class);
-                break;
-            case CHAVE_TIPO_PUNHO:
+            }
+            case CHAVE_TIPO_PUNHO -> {
                 Punho punho = getPunho();
                 vaiParaSecaoEspecifica(punho.getId(), SecaoAmplitudeMovimentoPunhoActivity.class);
-                break;
+            }
         }
     }
 
@@ -205,9 +205,9 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         if (ombroDAO.search(exame.getId()).isEmpty()) {
             ombro = new Ombro(exame.getId());
             ombroDAO.insert(ombro);
-            ombro.setId(ombroDAO.getIdOmbroPeloExame(exame.getId()));
+            ombro.setId(ombroDAO.getIdByForeign(exame.getId()));
         } else {
-            ombro = ombroDAO.getOne(ombroDAO.getIdOmbroPeloExame(exame.getId()));
+            ombro = ombroDAO.getOne(ombroDAO.getIdByForeign(exame.getId()));
         }
         return ombro;
     }
@@ -219,9 +219,9 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         if (cotoveloDAO.search(exame.getId()).isEmpty()) {
             cotovelo = new Cotovelo(exame.getId());
             cotoveloDAO.insert(cotovelo);
-            cotovelo.setId(cotoveloDAO.getIdCotoveloPeloExame(exame.getId()));
+            cotovelo.setId(cotoveloDAO.getIdByForeign(exame.getId()));
         } else {
-            cotovelo = cotoveloDAO.getOne(cotoveloDAO.getIdCotoveloPeloExame(exame.getId()));
+            cotovelo = cotoveloDAO.getOne(cotoveloDAO.getIdByForeign(exame.getId()));
         }
         return cotovelo;
     }
@@ -233,9 +233,9 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         if (punhoDAO.search(exame.getId()).isEmpty()){
             punho = new Punho(exame.getId());
             punhoDAO.insert(punho);
-            punho.setId(punhoDAO.getIdPunhoPeloExame(exame.getId()));
+            punho.setId(punhoDAO.getIdByForeign(exame.getId()));
         } else {
-            punho = punhoDAO.getOne(punhoDAO.getIdPunhoPeloExame(exame.getId()));
+            punho = punhoDAO.getOne(punhoDAO.getIdByForeign(exame.getId()));
         }
 
         return punho;

@@ -10,6 +10,7 @@ import br.ufsm.fisioexam.model.LoginInfo;
 @Dao
 public interface LoginInfoDAO extends GenericDAO<LoginInfo>{
 
+    @Override
     @Query("SELECT COUNT() FROM loginInfo")
     int countSize();
 
@@ -33,4 +34,8 @@ public interface LoginInfoDAO extends GenericDAO<LoginInfo>{
     @Override
     @Query("SELECT EXISTS (SELECT * FROM LoginInfo WHERE user like :reg)")
     Boolean CheckID(String reg);
+
+    @Override
+    @Query("SELECT user FROM logininfo WHERE user LIKE :registro")
+    String getIdByForeign(String registro);
 }

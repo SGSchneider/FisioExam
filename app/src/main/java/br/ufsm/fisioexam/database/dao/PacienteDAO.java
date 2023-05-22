@@ -30,4 +30,12 @@ public interface PacienteDAO extends GenericDAO<Paciente>{
     @Override
     @Query("SELECT * FROM paciente WHERE id like :paciente")
     Paciente getOne(String paciente);
+
+    @Override
+    @Query("SELECT id FROM paciente WHERE id LIKE :registro")
+    String getIdByForeign(String registro);
+
+    @Override
+    @Query("SELECT COUNT() FROM paciente")
+    int countSize();
 }

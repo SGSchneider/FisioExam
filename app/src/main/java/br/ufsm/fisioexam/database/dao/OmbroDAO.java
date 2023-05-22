@@ -27,12 +27,16 @@ public interface OmbroDAO extends GenericDAO<Ombro>{
     @Query("DELETE FROM ombro ")
     void deleteAll();
 
-    @Query("SELECT id FROM ombro WHERE exame LIKE :registro ")
-    String getIdOmbroPeloExame(String registro);
-
-
     @Override
     @Query("SELECT EXISTS (SELECT * FROM ombro WHERE id like :reg)")
     Boolean CheckID(String reg);
+
+    @Override
+    @Query("SELECT id FROM ombro WHERE exame LIKE :registro")
+    String getIdByForeign(String registro);
+
+    @Override
+    @Query("SELECT COUNT() FROM ombro")
+    int countSize();
 }
 
