@@ -48,7 +48,6 @@ public abstract class FisioExamDatabase extends RoomDatabase {
     public static FisioExamDatabase getInstance(Context context){
         return Room.databaseBuilder(context, FisioExamDatabase.class, NOME_DATABASE)
                 .fallbackToDestructiveMigration()
-                .allowMainThreadQueries()
                 .build();
     }
 }

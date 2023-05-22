@@ -42,7 +42,7 @@ public class QueryManager<T> {
             return result;
         });
 
-        return queryManager.blockingSingle();
+        return queryManager.subscribeOn(Schedulers.io()).blockingSingle();
     }
 
     public List<T> atualizaLista(String search, GenericDAO<T> dao) {
@@ -60,7 +60,9 @@ public class QueryManager<T> {
             return resultado;
         });
 
-        return queryManager.blockingFirst();
+
+
+        return queryManager.subscribeOn(Schedulers.io()).blockingSingle();
     }
 
     public void delete(T objeto, GenericDAO<T> dao) {
