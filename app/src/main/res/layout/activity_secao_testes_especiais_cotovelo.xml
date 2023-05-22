@@ -38,7 +38,6 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -74,9 +73,6 @@
                 android:textSize="18sp"
                 tools:ignore="DuplicateSpeakableTextCheck" />
 
-                
-
-            
 
             <TextView
                 android:layout_width="match_parent"
@@ -85,26 +81,23 @@
                 android:text="@string/teste_golfista"
                 android:textSize="18sp"
                 android:textStyle="bold" />
-            
 
-                <CheckBox
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_esquerda_teste_golfista"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/esquerda"
-                    android:textSize="18sp" />
 
-                
-                <CheckBox
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_direita_teste_golfista"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/direita"
-                    android:textSize="18sp" />
+            <CheckBox
+                android:id="@+id/activity_secao_testes_especiais_cotovelo_esquerda_teste_golfista"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/esquerda"
+                android:textSize="18sp" />
 
-                
 
-            
+            <CheckBox
+                android:id="@+id/activity_secao_testes_especiais_cotovelo_direita_teste_golfista"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/direita"
+                android:textSize="18sp" />
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -122,27 +115,23 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            
 
-                <CheckBox
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_esquerda_tinel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/esquerda"
-                    android:textSize="18sp" />
+            <CheckBox
+                android:id="@+id/activity_secao_testes_especiais_cotovelo_esquerda_tinel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/esquerda"
+                android:textSize="18sp" />
 
-                
-                <CheckBox
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_direita_tinel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/direita"
-                    android:textSize="18sp" />
 
-                
+            <CheckBox
+                android:id="@+id/activity_secao_testes_especiais_cotovelo_direita_tinel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/direita"
+                android:textSize="18sp" />
 
-            
-            
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -159,27 +148,22 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            
 
-                <CheckBox
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_esquerda_lcl"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/esquerda"
-                    android:textSize="18sp" />
+            <CheckBox
+                android:id="@+id/activity_secao_testes_especiais_cotovelo_esquerda_lcl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/esquerda"
+                android:textSize="18sp" />
 
-                
 
-                <CheckBox
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_direita_lcl"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/direita"
-                    android:textSize="18sp" />
+            <CheckBox
+                android:id="@+id/activity_secao_testes_especiais_cotovelo_direita_lcl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/direita"
+                android:textSize="18sp" />
 
-                
-
-            
 
             <TextView
                 android:layout_width="match_parent"
@@ -189,27 +173,21 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-           
 
-                <CheckBox
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_esquerda_lcm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/esquerda"
-                    android:textSize="18sp" />
+            <CheckBox
+                android:id="@+id/activity_secao_testes_especiais_cotovelo_esquerda_lcm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/esquerda"
+                android:textSize="18sp" />
 
-                
 
-                <CheckBox
-                    android:id="@+id/activity_secao_testes_especiais_cotovelo_direita_lcm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/direita"
-                    android:textSize="18sp" />
-
-               
-
-            
+            <CheckBox
+                android:id="@+id/activity_secao_testes_especiais_cotovelo_direita_lcm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/direita"
+                android:textSize="18sp" />
 
 
             <TextView
@@ -228,7 +206,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
 
 
             <TextView
@@ -271,8 +248,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
                 android:hint="@string/pontuacao"
-                tools:ignore="TextFields,VisualLintTextFieldSize"
-                android:importantForAutofill="no" />
+                android:importantForAutofill="no"
+                tools:ignore="TextFields,VisualLintTextFieldSize" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -331,8 +308,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
                 android:hint="@string/pontuacao"
-                tools:ignore="TextFields,VisualLintTextFieldSize"
-                android:importantForAutofill="no" />
+                android:importantForAutofill="no"
+                tools:ignore="TextFields,VisualLintTextFieldSize" />
 
             <TextView
                 android:layout_width="match_parent"

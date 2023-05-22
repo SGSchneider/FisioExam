@@ -24,8 +24,8 @@ public interface PacienteDAO extends GenericDAO<Paciente>{
     List<Paciente> search(String termo);
 
     @Override
-    @Query("SELECT EXISTS (SELECT* FROM paciente WHERE id like :paciente)")
-    Boolean CheckID(String paciente);
+    @Query("SELECT EXISTS (SELECT* FROM paciente WHERE id like :reg)")
+    Boolean CheckID(String reg);
 
     @Override
     @Query("SELECT * FROM paciente WHERE id like :paciente")

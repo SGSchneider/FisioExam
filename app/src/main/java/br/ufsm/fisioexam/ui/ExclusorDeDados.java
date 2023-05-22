@@ -35,30 +35,30 @@ public class ExclusorDeDados {
 
     public void ExcluiPaciente(String key) {
         PacienteDAO pacienteDAO = database.getRoomPacienteDAO();
-        Paciente paciente = pacienteDAO.getOne(key);
-        List<Exame> exames = database.getRoomExameDAO().todos(paciente.getId());
+        Paciente pacientes = pacienteDAO.getOne(key);
+        List<Exame> exames = database.getRoomExameDAO().todos(pacientes.getId());
         for (Exame exame : exames) {
             ExcluiExame(exame.getId());
         }
-        exclusoes.add(new Exclusoes(paciente.getId(), CHAVE_PACIENTE));
+        exclusoes.add(new Exclusoes(pacientes.getId(), CHAVE_PACIENTE));
     }
 
     public void ExcluiExame(String key) {
         ExameDAO exameDAO = database.getRoomExameDAO();
         Exame exame = exameDAO.getOne(key);
         switch (exame.getTipo()) {
-            case CHAVE_TIPO_OMBRO:
+            case CHAVE_TIPO_OMBRO -> {
                 OmbroDAO ombroDAO = database.getRoomOmbroDAO();
                 exclusoes.add(new Exclusoes(ombroDAO.getIdOmbroPeloExame(exame.getId()), CHAVE_TIPO_OMBRO));
-                break;
-            case CHAVE_TIPO_COTOVELO:
+            }
+            case CHAVE_TIPO_COTOVELO -> {
                 CotoveloDAO cotoveloDAO = database.getRoomCotoveloDAO();
                 exclusoes.add(new Exclusoes(cotoveloDAO.getIdCotoveloPeloExame(exame.getId()), CHAVE_TIPO_COTOVELO));
-                break;
-            case CHAVE_TIPO_PUNHO:
+            }
+            case CHAVE_TIPO_PUNHO -> {
                 PunhoDAO punhoDAO = database.getRoomPunhoDAO();
                 exclusoes.add(new Exclusoes(punhoDAO.getIdPunhoPeloExame(exame.getId()), CHAVE_TIPO_PUNHO));
-                break;
+            }
         }
         exclusoes.add(new Exclusoes(key,CHAVE_SECAO));
         exclusoes.add(new Exclusoes(exame.getId(), CHAVE_EXAME));

@@ -3,12 +3,14 @@ package br.ufsm.fisioexam.ui;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.PacienteDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Paciente;
 import br.ufsm.fisioexam.ui.adapter.ListaPacientesAdapter;
 
@@ -18,10 +20,14 @@ public class ListaPacientesView {
     private final PacienteDAO pacienteDAO;
     private final Context context;
 
+    private final QueryManager<Paciente> queryManager;
+
+
     public ListaPacientesView(Context context) {
         this.context = context;
         this.adapter = new ListaPacientesAdapter(context);
         pacienteDAO = FisioExamDatabase.getInstance(context).getRoomPacienteDAO();
+        queryManager = new QueryManager<>();
 
     }
 
@@ -38,26 +44,30 @@ public class ListaPacientesView {
                 .show();
     }
 
-    public Paciente retornaPaciente(final MenuItem item){
+    public Paciente retornaPaciente(final MenuItem item) {
         AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        return(adapter.getItem(menuInfo.position));
+        return (adapter.getItem(menuInfo.position));
     }
 
     private void removePaciente(Paciente paciente) {
         ExclusorDeDados exclusor = new ExclusorDeDados(context);
         exclusor.ExcluiPaciente(paciente.getId());
         exclusor.atualizaRemocoesDB();
-        pacienteDAO.delete(paciente);
+        queryManager.delete(paciente,pacienteDAO);
         adapter.remove(paciente);
     }
 
     public void atualizaPacientes() {
-        adapter.atualiza(pacienteDAO.getAll());
+        Log.i("ListaPacientesView", "Atualizando Lista Pacientes");
+        adapter.atualiza(queryManager.atualizaLista(null, pacienteDAO));
     }
 
-    public void configuraAdapter(ListView listaDePacientes) { listaDePacientes.setAdapter(this.adapter);}
 
-    public void pesquisaPacientes(String pacientes){
-        adapter.atualiza(pacienteDAO.search(pacientes));
+    public void configuraAdapter(ListView listaDePacientes) {
+        listaDePacientes.setAdapter(this.adapter);
+    }
+
+    public void pesquisaPacientes(String pacientes) {
+        adapter.atualiza(queryManager.atualizaLista(pacientes, pacienteDAO));
     }
 }

@@ -31,7 +31,4 @@ google-services.json
 
 #Video Files
 *.mp4
-
-#UUIDs
-app/src/main/assets/*
-
+app/main/assets/

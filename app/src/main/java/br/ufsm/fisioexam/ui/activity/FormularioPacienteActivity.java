@@ -18,7 +18,6 @@ import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.speech.RecognizerIntent;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -29,11 +28,9 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.Objects;
@@ -41,6 +38,7 @@ import java.util.Objects;
 import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.PacienteDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Paciente;
 
 public class FormularioPacienteActivity extends AppCompatActivity {
@@ -83,6 +81,7 @@ public class FormularioPacienteActivity extends AppCompatActivity {
     Calendar dataSelecionada = Calendar.getInstance();
     private PacienteDAO pacienteDAO;
 
+    private QueryManager<Paciente> queryManager;
     private Paciente paciente;
 
     @Override
@@ -91,6 +90,7 @@ public class FormularioPacienteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_formulario_paciente);
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         pacienteDAO = database.getRoomPacienteDAO();
+        queryManager = new QueryManager<>();
         inicializacaoDosCampos();
         carregaPaciente();
         setListenerCalendarioNascimento();
@@ -101,15 +101,7 @@ public class FormularioPacienteActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1) {
-            if (resultCode == RESULT_OK && data != null) {
-                ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-            }
-        }
-    }
+
 
     private void configuraToastCliqueIdade() {
         Toast toast = Toast.makeText(this, "A idade do paciente é preenchida automaticamente a partir da data de nascimento", Toast.LENGTH_LONG);
@@ -324,13 +316,17 @@ public class FormularioPacienteActivity extends AppCompatActivity {
 
     private void finalizaFormulario() {
         preenchePaciente();
-        Log.e("ERRO", "Paciente e DAO Não Nulas");
-        if (pacienteDAO.CheckID(paciente.getId())) {
-            Log.i("ID", "Tem ID");
-            pacienteDAO.update(paciente);
-        } else {
-            Log.i("ID", "Não Tem ID");
-            pacienteDAO.insert(paciente);
+        if(paciente != null && pacienteDAO != null && queryManager != null) {
+            Log.e("ERRO", "Paciente e DAO Não Nulas");
+            if (queryManager.checkID(paciente.getId(),pacienteDAO)) {
+                Log.i("ID", "Tem ID");
+                queryManager.update(paciente, pacienteDAO);
+            } else {
+                Log.i("ID", "Não Tem ID");
+                queryManager.insert(paciente, pacienteDAO);
+            }
+        }else{
+            Log.e("ERRO", "Paciente ou DAO Nula");
         }
         finish();
     }
