@@ -50,7 +50,8 @@ public class ExclusorDeDados {
 
     public void ExcluiExame(String key) {
         ExameDAO exameDAO = database.getRoomExameDAO();
-        Exame exame = exameDAO.getOne(key);
+        QueryManager<Exame> exameQueryManager = new QueryManager<>();
+        Exame exame = exameQueryManager.getOne(key, exameDAO);
         switch (exame.getTipo()) {
             case CHAVE_TIPO_OMBRO -> {
                 OmbroDAO dao;

@@ -326,7 +326,7 @@ public class FormularioPacienteActivity extends AppCompatActivity {
                 queryManager.insert(paciente, pacienteDAO);
             }
         }else{
-            Log.e("ERRO", "Paciente ou DAO Nula");
+            Log.e("ERRO", "Paciente, DAO ou Query Manager Nula");
         }
         finish();
     }

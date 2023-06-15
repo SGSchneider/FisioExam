@@ -22,6 +22,7 @@ import br.ufsm.fisioexam.database.dao.CotoveloDAO;
 import br.ufsm.fisioexam.database.dao.ExameDAO;
 import br.ufsm.fisioexam.database.dao.OmbroDAO;
 import br.ufsm.fisioexam.database.dao.PunhoDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Cotovelo;
 import br.ufsm.fisioexam.model.Exame;
 import br.ufsm.fisioexam.model.Ombro;
@@ -32,6 +33,7 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
     private String tipo;
     private int secao;
     private ExameDAO exameDao;
+    private QueryManager<Exame> queryManagerExame;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,13 +47,14 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
     private void inicializaDAOs() {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         exameDao = database.getRoomExameDAO();
+        queryManagerExame = new QueryManager<>();
     }
 
     private void inicializaCampos() {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME) && dados.hasExtra(CHAVE_SECAO)) {
-            exame = exameDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            exame = queryManagerExame.getOne((String) dados.getSerializableExtra(CHAVE_EXAME), exameDao);
             secao = (int) dados.getSerializableExtra(CHAVE_SECAO);
             selecionaFormulario();
         } else {
@@ -202,12 +205,13 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         Ombro ombro;
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         OmbroDAO ombroDAO = database.getRoomOmbroDAO();
-        if (ombroDAO.search(exame.getId()).isEmpty()) {
+        QueryManager<Ombro> queryManager = new QueryManager<>();
+        if (queryManager.atualizaLista(exame.getId(), ombroDAO).isEmpty()) {
             ombro = new Ombro(exame.getId());
-            ombroDAO.insert(ombro);
-            ombro.setId(ombroDAO.getIdByForeign(exame.getId()));
+            queryManager.insert(ombro, ombroDAO);
+            ombro.setId(queryManager.getIdByForeign(exame.getId(), ombroDAO));
         } else {
-            ombro = ombroDAO.getOne(ombroDAO.getIdByForeign(exame.getId()));
+            ombro = queryManager.getOne(queryManager.getIdByForeign(exame.getId(), ombroDAO), ombroDAO);
         }
         return ombro;
     }
@@ -216,26 +220,28 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         Cotovelo cotovelo;
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         CotoveloDAO cotoveloDAO = database.getRoomCotoveloDAO();
-        if (cotoveloDAO.search(exame.getId()).isEmpty()) {
+        QueryManager<Cotovelo> queryManager = new QueryManager<>();
+        if (queryManager.atualizaLista(exame.getId(), cotoveloDAO).isEmpty()) {
             cotovelo = new Cotovelo(exame.getId());
-            cotoveloDAO.insert(cotovelo);
-            cotovelo.setId(cotoveloDAO.getIdByForeign(exame.getId()));
+            queryManager.insert(cotovelo, cotoveloDAO);
+            cotovelo.setId(queryManager.getIdByForeign(exame.getId(), cotoveloDAO));
         } else {
-            cotovelo = cotoveloDAO.getOne(cotoveloDAO.getIdByForeign(exame.getId()));
+            cotovelo = queryManager.getOne(queryManager.getIdByForeign(exame.getId(), cotoveloDAO), cotoveloDAO);
         }
         return cotovelo;
     }
 
     private Punho getPunho() {
         Punho punho;
-        FisioExamDatabase database  = FisioExamDatabase.getInstance(this);
+        FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         PunhoDAO punhoDAO = database.getRoomPunhoDAO();
-        if (punhoDAO.search(exame.getId()).isEmpty()){
+        QueryManager<Punho> queryManager = new QueryManager<>();
+        if (queryManager.atualizaLista(exame.getId(), punhoDAO).isEmpty()) {
             punho = new Punho(exame.getId());
-            punhoDAO.insert(punho);
-            punho.setId(punhoDAO.getIdByForeign(exame.getId()));
+            queryManager.insert(punho, punhoDAO);
+            punho.setId(queryManager.getIdByForeign(exame.getId(), punhoDAO));
         } else {
-            punho = punhoDAO.getOne(punhoDAO.getIdByForeign(exame.getId()));
+            punho = queryManager.getOne(queryManager.getIdByForeign(exame.getId(), punhoDAO), punhoDAO);
         }
 
         return punho;

@@ -15,6 +15,7 @@ import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.OmbroDAO;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Ombro;
 import br.ufsm.fisioexam.model.Secoes;
 
@@ -51,8 +52,10 @@ public class SecaoForcaMuscularOmbroPt1Activity extends AppCompatActivity {
     private Button proximo;
     private Ombro ombro;
     private OmbroDAO ombroDao;
+    private QueryManager<Ombro> ombroQueryManager;
     private Secoes secoes;
     private SecoesDAO secoesDao;
+    private QueryManager<Secoes> secoesQueryManager;
 
 
     @Override
@@ -70,6 +73,8 @@ public class SecaoForcaMuscularOmbroPt1Activity extends AppCompatActivity {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         ombroDao = database.getRoomOmbroDAO();
         secoesDao = database.getRoomSecoesDAO();
+        ombroQueryManager = new QueryManager<>();
+        secoesQueryManager = new QueryManager<>();
     }
 
     private void inicializaBotoes() {
@@ -103,14 +108,14 @@ public class SecaoForcaMuscularOmbroPt1Activity extends AppCompatActivity {
     }
 
     private void vaiParaAjuda(Class<?> classe) {
-        Intent intent  = new Intent(this,classe);
+        Intent intent = new Intent(this, classe);
         startActivity(intent);
     }
 
 
     private void salva() {
         secoes.setForcaMuscular1(true);
-        secoesDao.update(secoes);
+        secoesQueryManager.update(secoes, secoesDao);
 
         ombro.setTrapezioSuperiorLevantadorDaEscapulaDir(campoTrapezioSuperiorDir.getText().toString());
         ombro.setTrapezioSuperiorLevantadorDaEscapulaEsq(campoTrapezioSuperiorEsq.getText().toString());
@@ -129,7 +134,7 @@ public class SecaoForcaMuscularOmbroPt1Activity extends AppCompatActivity {
         ombro.setGrandeDorsalDir(campoGrandeDorsalDir.getText().toString());
         ombro.setGrandeDorsalEsq(campoGrandeDorsalEsq.getText().toString());
 
-        ombroDao.update(ombro);
+        ombroQueryManager.update(ombro, ombroDao);
     }
 
     private void proximoForm() {
@@ -145,8 +150,8 @@ public class SecaoForcaMuscularOmbroPt1Activity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            ombro = ombroDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getOne(ombro.getExame());
+            ombro = ombroQueryManager.getOne((String) dados.getSerializableExtra(CHAVE_EXAME), ombroDao);
+            secoes = secoesQueryManager.getOne(ombro.getExame(), secoesDao);
         }
     }
 
@@ -168,7 +173,6 @@ public class SecaoForcaMuscularOmbroPt1Activity extends AppCompatActivity {
         campoCoracobraquialEsq = findViewById(R.id.activity_secao_forca_muscular_ombro_coracobraquial_ombro_esq);
         campoGrandeDorsalDir = findViewById(R.id.activity_secao_forca_muscular_ombro_grande_dorsal_ombro_dir);
         campoGrandeDorsalEsq = findViewById(R.id.activity_secao_forca_muscular_ombro_grande_dorsal_ombro_esq);
-
 
 
         if (secoes.isForcaMuscular1()) {

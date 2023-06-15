@@ -21,6 +21,7 @@ import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.ExameDAO;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Exame;
 import br.ufsm.fisioexam.model.Secoes;
 
@@ -29,8 +30,10 @@ public class SecaoHabitosVidaActivity extends AppCompatActivity {
     private Button salvarESair;
     private Exame exame;
     private ExameDAO exameDao;
+    private QueryManager<Exame> exameQueryManager;
     private Secoes secoes;
     private SecoesDAO secoesDao;
+    private QueryManager<Secoes> secoesQueryManager;
 
 
     private RadioGroup campoMoradia;
@@ -64,6 +67,8 @@ public class SecaoHabitosVidaActivity extends AppCompatActivity {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         exameDao = database.getRoomExameDAO();
         secoesDao = database.getRoomSecoesDAO();
+        exameQueryManager = new QueryManager<>();
+        secoesQueryManager = new QueryManager<>();
     }
 
     private void inicializaBotoes() {
@@ -85,7 +90,7 @@ public class SecaoHabitosVidaActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setHistoriaSocial(true);
-        secoesDao.update(secoes);
+        secoesQueryManager.update(secoes, secoesDao);
 
         //Salva as alterações na variável
         int idMoradia;
@@ -125,7 +130,7 @@ public class SecaoHabitosVidaActivity extends AppCompatActivity {
         }
 
         //Salva no Banco de Dados
-        exameDao.update(exame);
+        exameQueryManager.update(exame, exameDao);
     }
 
     private void proximoForm() {
@@ -141,8 +146,8 @@ public class SecaoHabitosVidaActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            exame = exameDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getOne(exame.getId());
+            exame = exameQueryManager.getOne((String) dados.getSerializableExtra(CHAVE_EXAME), exameDao);
+            secoes = secoesQueryManager.getOne(exame.getId(), secoesDao);
         }
     }
 
@@ -220,22 +225,16 @@ public class SecaoHabitosVidaActivity extends AppCompatActivity {
     }
 
     private void preencheCampos() {
-
-
         String moradia = exame.getMoradia();
         int idMoradia;
         if (moradia != null) {
             switch (moradia) {
-                case CASA:
-                    idMoradia = R.id.activity_secao_habitos_vida_radio_moradia_casa;
-                    break;
-                case APTO:
-                    idMoradia = R.id.activity_secao_habitos_vida_radio_moradia_apartamento;
-                    break;
-                default:
+                case CASA -> idMoradia = R.id.activity_secao_habitos_vida_radio_moradia_casa;
+                case APTO -> idMoradia = R.id.activity_secao_habitos_vida_radio_moradia_apartamento;
+                default -> {
                     idMoradia = R.id.activity_secao_habitos_vida_radio_moradia_outra;
                     campoOutraMoradia.setText(moradia);
-                    break;
+                }
             }
             campoMoradia.check(idMoradia);
         }

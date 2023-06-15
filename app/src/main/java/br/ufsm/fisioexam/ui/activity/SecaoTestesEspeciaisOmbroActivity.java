@@ -22,14 +22,17 @@ import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.OmbroDAO;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Ombro;
 import br.ufsm.fisioexam.model.Secoes;
 
 public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
     private Ombro ombro;
     private OmbroDAO ombroDao;
+    private QueryManager<Ombro> ombroQueryManager;
     private Secoes secoes;
     private SecoesDAO secoesDao;
+    private QueryManager<Secoes> secoesQueryManager;
 
     private CheckBox campoJobeDir;
     private CheckBox campoJobeEsq;
@@ -160,8 +163,7 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setTestesEspeciais(true);
-        secoesDao.update(secoes);
-
+        secoesQueryManager.update(secoes, secoesDao);
 
 
         ombro.setJobeDir(campoJobeDir.isChecked());
@@ -184,7 +186,7 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
         ombro.setSinalSulcoEsq(campoSinalSulcoEsq.isChecked());
 
 
-        ombroDao.update(ombro);
+        ombroQueryManager.update(ombro, ombroDao);
     }
 
 
@@ -208,11 +210,6 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
         campoApreensaoEsq = findViewById(R.id.activity_secao_testes_especiais_ombro_esquerda_apreensao_anterior);
         campoSinalSulcoDir = findViewById(R.id.activity_secao_testes_especiais_ombro_direita_sinal_de_sulco);
         campoSinalSulcoEsq = findViewById(R.id.activity_secao_testes_especiais_ombro_esquerda_sinal_de_sulco);
-
-
-
-
-
         campoDataDash = findViewById(R.id.activity_secao_testes_especiais_ombro_dash_data);
         campoPontoDash = findViewById(R.id.activity_secao_testes_especiais_ombro_dash_pontuacao);
         campoResultDash = findViewById(R.id.activity_secao_testes_especiais_ombro_dash_resultados);
@@ -260,8 +257,8 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
     private void carregaExame() {
         Intent dados = getIntent();
         if (dados.hasExtra(CHAVE_EXAME)) {
-            ombro = ombroDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getOne(ombro.getExame());
+            ombro = ombroQueryManager.getOne((String) dados.getSerializableExtra(CHAVE_EXAME), ombroDao);
+            secoes = secoesQueryManager.getOne(ombro.getExame(), secoesDao);
         }
     }
 
@@ -269,8 +266,9 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         ombroDao = database.getRoomOmbroDAO();
         secoesDao = database.getRoomSecoesDAO();
+        ombroQueryManager = new QueryManager<>();
+        secoesQueryManager = new QueryManager<>();
     }
-
 
 
     private void setListenerCalendariosDatas() {

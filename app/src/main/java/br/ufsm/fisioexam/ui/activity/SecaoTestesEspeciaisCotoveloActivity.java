@@ -21,14 +21,17 @@ import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.CotoveloDAO;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Cotovelo;
 import br.ufsm.fisioexam.model.Secoes;
 
 public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
     private Cotovelo cotovelo;
     private CotoveloDAO cotoveloDao;
+    private QueryManager<Cotovelo> cotoveloQueryManager;
     private Secoes secoes;
     private SecoesDAO secoesDao;
+    private QueryManager<Secoes> secoesQueryManager;
 
     private Button buttonSalvar;
     private Button buttonProximo;
@@ -105,7 +108,7 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setTestesEspeciais(true);
-        secoesDao.update(secoes);
+        secoesQueryManager.update(secoes, secoesDao);
 
         cotovelo.setTesteCozenDir(campoCozenDir.isChecked());
         cotovelo.setTesteCozenEsq(campoCozenEsq.isChecked());
@@ -127,7 +130,7 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
         cotovelo.setAsesResultados(cotoveloResultAses.getText().toString());
 
 
-        cotoveloDao.update(cotovelo);
+        cotoveloQueryManager.update(cotovelo, cotoveloDao);
     }
 
     private void setListenerCalendariosDatas() {
@@ -234,8 +237,8 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
     private void carregaExame() {
         Intent dados = getIntent();
         if (dados.hasExtra(CHAVE_EXAME)) {
-            cotovelo = cotoveloDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getOne(cotovelo.getExame());
+            cotovelo = cotoveloQueryManager.getOne((String) dados.getSerializableExtra(CHAVE_EXAME), cotoveloDao);
+            secoes = secoesQueryManager.getOne(cotovelo.getExame(), secoesDao);
         }
     }
 
@@ -243,5 +246,7 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         cotoveloDao = database.getRoomCotoveloDAO();
         secoesDao = database.getRoomSecoesDAO();
+        cotoveloQueryManager = new QueryManager<>();
+        secoesQueryManager = new QueryManager<>();
     }
 }

@@ -20,6 +20,7 @@ import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.PunhoDAO;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Punho;
 import br.ufsm.fisioexam.model.Secoes;
 
@@ -35,8 +36,10 @@ public class SecaoSensibilidadePunhoActivity extends AppCompatActivity {
     private Button salvarESair;
     private Punho punho;
     private PunhoDAO punhoDao;
+    private QueryManager<Punho> punhoQueryManager;
     private Secoes secoes;
     private SecoesDAO secoesDao;
+    private QueryManager<Secoes> secoesQueryManager;
 
 
     @Override
@@ -54,6 +57,8 @@ public class SecaoSensibilidadePunhoActivity extends AppCompatActivity {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         punhoDao = database.getRoomPunhoDAO();
         secoesDao = database.getRoomSecoesDAO();
+        secoesQueryManager = new QueryManager<>();
+        punhoQueryManager = new QueryManager<>();
     }
 
     private void inicializaBotoes() {
@@ -79,7 +84,7 @@ public class SecaoSensibilidadePunhoActivity extends AppCompatActivity {
         String idTermica;
         String idDolorosa;
         secoes.setSensibilidade(true);
-        secoesDao.update(secoes);
+        secoesQueryManager.update(secoes, secoesDao);
 
 
         if (campoTactil.getCheckedRadioButtonId() == R.id.activity_secao_sensibilidade_punho_radio_tactil_presente) {
@@ -124,7 +129,7 @@ public class SecaoSensibilidadePunhoActivity extends AppCompatActivity {
 
         punho.setSensibilidadeLocalAvaliado(campoLocalAvaliado.getText().toString());
 
-        punhoDao.update(punho);
+        punhoQueryManager.update(punho, punhoDao);
     }
 
     private void proximoForm() {
@@ -141,8 +146,8 @@ public class SecaoSensibilidadePunhoActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            punho = punhoDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getOne(punho.getExame());
+            punho = punhoQueryManager.getOne((String) dados.getSerializableExtra(CHAVE_EXAME), punhoDao);
+            secoes = secoesQueryManager.getOne(punho.getExame(), secoesDao);
         }
     }
 
@@ -166,22 +171,16 @@ public class SecaoSensibilidadePunhoActivity extends AppCompatActivity {
 
 
         if (punho.getSensibilidadeTactil() != null) {
-            switch (punho.getSensibilidadeTactil()) {
-                case CHAVE_PRESENTE:
-                    idTactil = R.id.activity_secao_sensibilidade_punho_radio_tactil_presente;
-                    break;
-                case CHAVE_DIMINUIDA:
-                    idTactil = R.id.activity_secao_sensibilidade_punho_radio_tactil_diminuida;
-                    break;
-                case CHAVE_AUMENTADA:
-                    idTactil = R.id.activity_secao_sensibilidade_punho_radio_tactil_aumentada;
-                    break;
-                case CHAVE_AUSENTE:
-                    idTactil = R.id.activity_secao_sensibilidade_punho_radio_tactil_ausente;
-                    break;
-                default:
-                    idTactil = 0;
-            }
+            idTactil = switch (punho.getSensibilidadeTactil()) {
+                case CHAVE_PRESENTE ->
+                        R.id.activity_secao_sensibilidade_punho_radio_tactil_presente;
+                case CHAVE_DIMINUIDA ->
+                        R.id.activity_secao_sensibilidade_punho_radio_tactil_diminuida;
+                case CHAVE_AUMENTADA ->
+                        R.id.activity_secao_sensibilidade_punho_radio_tactil_aumentada;
+                case CHAVE_AUSENTE -> R.id.activity_secao_sensibilidade_punho_radio_tactil_ausente;
+                default -> 0;
+            };
             if (idTactil != 0) {
                 campoTactil.check(idTactil);
             }
@@ -189,22 +188,16 @@ public class SecaoSensibilidadePunhoActivity extends AppCompatActivity {
 
 
         if (punho.getSensibilidadeTermica() != null) {
-            switch (punho.getSensibilidadeTermica()) {
-                case CHAVE_PRESENTE:
-                    idTermica = R.id.activity_secao_sensibilidade_punho_radio_termica_presente;
-                    break;
-                case CHAVE_DIMINUIDA:
-                    idTermica = R.id.activity_secao_sensibilidade_punho_radio_termica_diminuida;
-                    break;
-                case CHAVE_AUMENTADA:
-                    idTermica = R.id.activity_secao_sensibilidade_punho_radio_termica_aumentada;
-                    break;
-                case CHAVE_AUSENTE:
-                    idTermica = R.id.activity_secao_sensibilidade_punho_radio_termica_ausente;
-                    break;
-                default:
-                    idTermica = 0;
-            }
+            idTermica = switch (punho.getSensibilidadeTermica()) {
+                case CHAVE_PRESENTE ->
+                        R.id.activity_secao_sensibilidade_punho_radio_termica_presente;
+                case CHAVE_DIMINUIDA ->
+                        R.id.activity_secao_sensibilidade_punho_radio_termica_diminuida;
+                case CHAVE_AUMENTADA ->
+                        R.id.activity_secao_sensibilidade_punho_radio_termica_aumentada;
+                case CHAVE_AUSENTE -> R.id.activity_secao_sensibilidade_punho_radio_termica_ausente;
+                default -> 0;
+            };
             if (idTermica != 0) {
                 campoTermica.check(idTermica);
             }
@@ -212,22 +205,17 @@ public class SecaoSensibilidadePunhoActivity extends AppCompatActivity {
 
 
         if (punho.getSensibilidadeDolorosa() != null) {
-            switch (punho.getSensibilidadeDolorosa()) {
-                case CHAVE_PRESENTE:
-                    idDolorosa = R.id.activity_secao_sensibilidade_punho_radio_dolorosa_presente;
-                    break;
-                case CHAVE_DIMINUIDA:
-                    idDolorosa = R.id.activity_secao_sensibilidade_punho_radio_dolorosa_diminuida;
-                    break;
-                case CHAVE_AUMENTADA:
-                    idDolorosa = R.id.activity_secao_sensibilidade_punho_radio_dolorosa_aumentada;
-                    break;
-                case CHAVE_AUSENTE:
-                    idDolorosa = R.id.activity_secao_sensibilidade_punho_radio_dolorosa_ausente;
-                    break;
-                default:
-                    idDolorosa = 0;
-            }
+            idDolorosa = switch (punho.getSensibilidadeDolorosa()) {
+                case CHAVE_PRESENTE ->
+                        R.id.activity_secao_sensibilidade_punho_radio_dolorosa_presente;
+                case CHAVE_DIMINUIDA ->
+                        R.id.activity_secao_sensibilidade_punho_radio_dolorosa_diminuida;
+                case CHAVE_AUMENTADA ->
+                        R.id.activity_secao_sensibilidade_punho_radio_dolorosa_aumentada;
+                case CHAVE_AUSENTE ->
+                        R.id.activity_secao_sensibilidade_punho_radio_dolorosa_ausente;
+                default -> 0;
+            };
             if (idDolorosa != 0) {
                 campoTactil.check(idDolorosa);
             }

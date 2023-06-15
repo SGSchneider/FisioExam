@@ -16,6 +16,7 @@ import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.OmbroDAO;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Ombro;
 import br.ufsm.fisioexam.model.Secoes;
 
@@ -41,8 +42,10 @@ public class SecaoPerimetriaOmbroActivity extends AppCompatActivity {
     private Button salvarESair;
     private Ombro ombro;
     private OmbroDAO ombroDao;
+    private QueryManager<Ombro> ombroQueryManager;
     private Secoes secoes;
     private SecoesDAO secoesDao;
+    private QueryManager<Secoes> secoesQueryManager;
 
 
     @Override
@@ -60,6 +63,8 @@ public class SecaoPerimetriaOmbroActivity extends AppCompatActivity {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         ombroDao = database.getRoomOmbroDAO();
         secoesDao = database.getRoomSecoesDAO();
+        ombroQueryManager = new QueryManager<>();
+        secoesQueryManager = new QueryManager<>();
     }
 
     private void inicializaBotoes() {
@@ -92,7 +97,7 @@ public class SecaoPerimetriaOmbroActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setPerimetria(true);
-        secoesDao.update(secoes);
+        secoesQueryManager.update(secoes, secoesDao);
         ombro.setPerimetriaInfDir5(campoInf5Dir.getText().toString());
         ombro.setPerimetriaInfDir10(campoInf10Dir.getText().toString());
         ombro.setPerimetriaInfDir15(campoInf15Dir.getText().toString());
@@ -106,7 +111,7 @@ public class SecaoPerimetriaOmbroActivity extends AppCompatActivity {
         ombro.setPerimetriaSupEsq10(campoSup10Esq.getText().toString());
         ombro.setPerimetriaSupEsq15(campoSup15Esq.getText().toString());
 
-        ombroDao.update(ombro);
+        ombroQueryManager.update(ombro, ombroDao);
     }
 
     private void proximoForm() {
@@ -123,8 +128,8 @@ public class SecaoPerimetriaOmbroActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            ombro = ombroDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getOne(ombro.getExame());
+            ombro = ombroQueryManager.getOne((String) dados.getSerializableExtra(CHAVE_EXAME), ombroDao);
+            secoes = secoesQueryManager.getOne(ombro.getExame(), secoesDao);
         }
     }
 

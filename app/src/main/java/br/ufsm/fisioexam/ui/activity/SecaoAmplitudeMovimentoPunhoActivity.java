@@ -15,27 +15,29 @@ import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.PunhoDAO;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Punho;
 import br.ufsm.fisioexam.model.Secoes;
 
 public class SecaoAmplitudeMovimentoPunhoActivity extends AppCompatActivity {
 
-    Punho punho;
-    PunhoDAO punhoDAO;
-    Secoes secoes;
-    SecoesDAO secoesDAO;
+    private Punho punho;
+    private PunhoDAO punhoDAO;
+    private QueryManager<Punho> punhoQueryManager;
+    private Secoes secoes;
+    private SecoesDAO secoesDAO;
+    private QueryManager<Secoes> secoesQueryManager;
+    private EditText campoFlexaoD;
+    private EditText campoFlexaoE;
+    private EditText campoExtensaoD;
+    private EditText campoExtensaoE;
+    private EditText campoDesvioRadialD;
+    private EditText campoDesvioRadialE;
+    private EditText campoDesvioUlnarD;
+    private EditText campoDesvioUlnarE;
 
-    EditText campoFlexaoD;
-    EditText campoFlexaoE;
-    EditText campoExtensaoD;
-    EditText campoExtensaoE;
-    EditText campoDesvioRadialD;
-    EditText campoDesvioRadialE;
-    EditText campoDesvioUlnarD;
-    EditText campoDesvioUlnarE;
-    
-    Button buttonSalvar;
-    Button buttonProximo;
+    private Button buttonSalvar;
+    private Button buttonProximo;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState){
@@ -52,6 +54,10 @@ public class SecaoAmplitudeMovimentoPunhoActivity extends AppCompatActivity {
         buttonProximo = findViewById(R.id.activity_secao_amplitude_movimento_punho_button_proximo);
         buttonSalvar = findViewById(R.id.activity_secao_amplitude_movimento_punho_button_salvar_e_sair);
 
+        InicializaListenerDeClique();
+    }
+
+    private void InicializaListenerDeClique() {
         buttonProximo.setOnClickListener(v -> proximoForm());
         buttonSalvar.setOnClickListener(v-> salvarESair());
     }
@@ -64,7 +70,7 @@ public class SecaoAmplitudeMovimentoPunhoActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setAmplitudeMovimento(true);
-        secoesDAO.update(secoes);
+        secoesQueryManager.update(secoes, secoesDAO);
 
         punho.setFlexaoDir(campoFlexaoD.getText().toString());
         punho.setFlexaoEsq(campoFlexaoE.getText().toString());
@@ -75,7 +81,7 @@ public class SecaoAmplitudeMovimentoPunhoActivity extends AppCompatActivity {
         punho.setDesvioUlnarDir(campoDesvioUlnarD.getText().toString());
         punho.setDesvioUlnarEsq(campoDesvioUlnarE.getText().toString());
 
-        punhoDAO.update(punho);
+        punhoQueryManager.update(punho, punhoDAO);
     }
 
     private void activityChange() {
@@ -118,8 +124,8 @@ public class SecaoAmplitudeMovimentoPunhoActivity extends AppCompatActivity {
     private void carregaExame() {
         Intent dados = getIntent();
         if(dados.hasExtra(CHAVE_EXAME)){
-            punho = punhoDAO.getOne(dados.getSerializableExtra(CHAVE_EXAME).toString());
-            secoes = secoesDAO.getOne(punho.getExame());
+            punho = punhoQueryManager.getOne(dados.getSerializableExtra(CHAVE_EXAME).toString(), punhoDAO);
+            secoes = secoesQueryManager.getOne(punho.getExame(), secoesDAO);
         }
     }
 
@@ -127,6 +133,8 @@ public class SecaoAmplitudeMovimentoPunhoActivity extends AppCompatActivity {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         punhoDAO = database.getRoomPunhoDAO();
         secoesDAO = database.getRoomSecoesDAO();
+        punhoQueryManager = new QueryManager<>();
+        secoesQueryManager = new QueryManager<>();
     }
 
 

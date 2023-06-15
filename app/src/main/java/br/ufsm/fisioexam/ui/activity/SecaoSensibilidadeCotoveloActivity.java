@@ -20,6 +20,7 @@ import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.CotoveloDAO;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Cotovelo;
 import br.ufsm.fisioexam.model.Secoes;
 
@@ -35,8 +36,10 @@ public class SecaoSensibilidadeCotoveloActivity extends AppCompatActivity {
     private Button salvarESair;
     private Cotovelo cotovelo;
     private CotoveloDAO cotoveloDao;
+    private QueryManager<Cotovelo> cotoveloQueryManager;
     private Secoes secoes;
     private SecoesDAO secoesDao;
+    private QueryManager<Secoes> secoesQueryManager;
 
 
     @Override
@@ -54,6 +57,8 @@ public class SecaoSensibilidadeCotoveloActivity extends AppCompatActivity {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         cotoveloDao = database.getRoomCotoveloDAO();
         secoesDao = database.getRoomSecoesDAO();
+        cotoveloQueryManager = new QueryManager<>();
+        secoesQueryManager = new QueryManager<>();
     }
 
     private void inicializaBotoes() {
@@ -79,7 +84,7 @@ public class SecaoSensibilidadeCotoveloActivity extends AppCompatActivity {
         String idTermica;
         String idDolorosa;
         secoes.setSensibilidade(true);
-        secoesDao.update(secoes);
+        secoesQueryManager.update(secoes, secoesDao);
 
 
         if (campoTactil.getCheckedRadioButtonId() == R.id.activity_secao_sensibilidade_cotovelo_radio_tactil_presente) {
@@ -127,7 +132,7 @@ public class SecaoSensibilidadeCotoveloActivity extends AppCompatActivity {
 
         cotovelo.setSensibilidadeLocalAvaliado(campoLocalAvaliado.getText().toString());
 
-        cotoveloDao.update(cotovelo);
+        cotoveloQueryManager.update(cotovelo, cotoveloDao);
     }
 
     private void proximoForm() {
@@ -144,8 +149,8 @@ public class SecaoSensibilidadeCotoveloActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            cotovelo = cotoveloDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getOne(cotovelo.getExame());
+            cotovelo = cotoveloQueryManager.getOne((String) dados.getSerializableExtra(CHAVE_EXAME), cotoveloDao);
+            secoes = secoesQueryManager.getOne(cotovelo.getExame(), secoesDao);
         }
     }
 
@@ -169,22 +174,17 @@ public class SecaoSensibilidadeCotoveloActivity extends AppCompatActivity {
 
 
         if (cotovelo.getSensibilidadeTactil() != null) {
-            switch (cotovelo.getSensibilidadeTactil()) {
-                case CHAVE_PRESENTE:
-                    idTactil = R.id.activity_secao_sensibilidade_cotovelo_radio_tactil_presente;
-                    break;
-                case CHAVE_DIMINUIDA:
-                    idTactil = R.id.activity_secao_sensibilidade_cotovelo_radio_tactil_diminuida;
-                    break;
-                case CHAVE_AUMENTADA:
-                    idTactil = R.id.activity_secao_sensibilidade_cotovelo_radio_tactil_aumentada;
-                    break;
-                case CHAVE_AUSENTE:
-                    idTactil = R.id.activity_secao_sensibilidade_cotovelo_radio_tactil_ausente;
-                    break;
-                default:
-                    idTactil = 0;
-            }
+            idTactil = switch (cotovelo.getSensibilidadeTactil()) {
+                case CHAVE_PRESENTE ->
+                        R.id.activity_secao_sensibilidade_cotovelo_radio_tactil_presente;
+                case CHAVE_DIMINUIDA ->
+                        R.id.activity_secao_sensibilidade_cotovelo_radio_tactil_diminuida;
+                case CHAVE_AUMENTADA ->
+                        R.id.activity_secao_sensibilidade_cotovelo_radio_tactil_aumentada;
+                case CHAVE_AUSENTE ->
+                        R.id.activity_secao_sensibilidade_cotovelo_radio_tactil_ausente;
+                default -> 0;
+            };
             if (idTactil != 0) {
                 campoTactil.check(idTactil);
             }
@@ -192,22 +192,17 @@ public class SecaoSensibilidadeCotoveloActivity extends AppCompatActivity {
 
 
         if (cotovelo.getSensibilidadeTermica() != null) {
-            switch (cotovelo.getSensibilidadeTermica()) {
-                case CHAVE_PRESENTE:
-                    idTermica = R.id.activity_secao_sensibilidade_cotovelo_radio_termica_presente;
-                    break;
-                case CHAVE_DIMINUIDA:
-                    idTermica = R.id.activity_secao_sensibilidade_cotovelo_radio_termica_diminuida;
-                    break;
-                case CHAVE_AUMENTADA:
-                    idTermica = R.id.activity_secao_sensibilidade_cotovelo_radio_termica_aumentada;
-                    break;
-                case CHAVE_AUSENTE:
-                    idTermica = R.id.activity_secao_sensibilidade_cotovelo_radio_termica_ausente;
-                    break;
-                default:
-                    idTermica = 0;
-            }
+            idTermica = switch (cotovelo.getSensibilidadeTermica()) {
+                case CHAVE_PRESENTE ->
+                        R.id.activity_secao_sensibilidade_cotovelo_radio_termica_presente;
+                case CHAVE_DIMINUIDA ->
+                        R.id.activity_secao_sensibilidade_cotovelo_radio_termica_diminuida;
+                case CHAVE_AUMENTADA ->
+                        R.id.activity_secao_sensibilidade_cotovelo_radio_termica_aumentada;
+                case CHAVE_AUSENTE ->
+                        R.id.activity_secao_sensibilidade_cotovelo_radio_termica_ausente;
+                default -> 0;
+            };
             if (idTermica != 0) {
                 campoTermica.check(idTermica);
             }
@@ -215,29 +210,22 @@ public class SecaoSensibilidadeCotoveloActivity extends AppCompatActivity {
 
 
         if (cotovelo.getSensibilidadeDolorosa() != null) {
-            switch (cotovelo.getSensibilidadeDolorosa()) {
-                case CHAVE_PRESENTE:
-                    idDolorosa = R.id.activity_secao_sensibilidade_cotovelo_radio_dolorosa_presente;
-                    break;
-                case CHAVE_DIMINUIDA:
-                    idDolorosa = R.id.activity_secao_sensibilidade_cotovelo_radio_dolorosa_diminuida;
-                    break;
-                case CHAVE_AUMENTADA:
-                    idDolorosa = R.id.activity_secao_sensibilidade_cotovelo_radio_dolorosa_aumentada;
-                    break;
-                case CHAVE_AUSENTE:
-                    idDolorosa = R.id.activity_secao_sensibilidade_cotovelo_radio_dolorosa_ausente;
-                    break;
-                default:
-                    idDolorosa = 0;
-            }
+            idDolorosa = switch (cotovelo.getSensibilidadeDolorosa()) {
+                case CHAVE_PRESENTE ->
+                        R.id.activity_secao_sensibilidade_cotovelo_radio_dolorosa_presente;
+                case CHAVE_DIMINUIDA ->
+                        R.id.activity_secao_sensibilidade_cotovelo_radio_dolorosa_diminuida;
+                case CHAVE_AUMENTADA ->
+                        R.id.activity_secao_sensibilidade_cotovelo_radio_dolorosa_aumentada;
+                case CHAVE_AUSENTE ->
+                        R.id.activity_secao_sensibilidade_cotovelo_radio_dolorosa_ausente;
+                default -> 0;
+            };
             if (idDolorosa != 0) {
                 campoTactil.check(idDolorosa);
             }
         }
         campoLocalAvaliado.setText(cotovelo.getSensibilidadeLocalAvaliado());
-
-
     }
 }
 

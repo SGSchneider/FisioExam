@@ -20,6 +20,7 @@ import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.OmbroDAO;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Ombro;
 import br.ufsm.fisioexam.model.Secoes;
 
@@ -35,8 +36,10 @@ public class SecaoSensibilidadeOmbroActivity extends AppCompatActivity {
     private Button salvarESair;
     private Ombro ombro;
     private OmbroDAO ombroDao;
+    private QueryManager<Ombro> ombroQueryManager;
     private Secoes secoes;
     private SecoesDAO secoesDao;
+    private QueryManager<Secoes> secoesQueryManager;
 
 
     @Override
@@ -54,6 +57,8 @@ public class SecaoSensibilidadeOmbroActivity extends AppCompatActivity {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         ombroDao = database.getRoomOmbroDAO();
         secoesDao = database.getRoomSecoesDAO();
+        ombroQueryManager = new QueryManager<>();
+        secoesQueryManager = new QueryManager<>();
     }
 
     private void inicializaBotoes() {
@@ -79,7 +84,7 @@ public class SecaoSensibilidadeOmbroActivity extends AppCompatActivity {
         String idTermica;
         String idDolorosa;
         secoes.setSensibilidade(true);
-        secoesDao.update(secoes);
+        secoesQueryManager.update(secoes, secoesDao);
 
 
         if (campoTactil.getCheckedRadioButtonId() == R.id.activity_secao_sensibilidade_ombro_radio_tactil_presente) {
@@ -121,7 +126,7 @@ public class SecaoSensibilidadeOmbroActivity extends AppCompatActivity {
         }
         ombro.setSensibilidadeDolorosa(idDolorosa);
 
-        ombroDao.update(ombro);
+        ombroQueryManager.update(ombro, ombroDao);
     }
 
     private void proximoForm() {
@@ -138,8 +143,8 @@ public class SecaoSensibilidadeOmbroActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            ombro = ombroDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getOne(ombro.getExame());
+            ombro = ombroQueryManager.getOne((String) dados.getSerializableExtra(CHAVE_EXAME), ombroDao);
+            secoes = secoesQueryManager.getOne(ombro.getExame(), secoesDao);
         }
     }
 
@@ -163,22 +168,16 @@ public class SecaoSensibilidadeOmbroActivity extends AppCompatActivity {
 
 
         if (ombro.getSensibilidadeTactil() != null) {
-            switch (ombro.getSensibilidadeTactil()) {
-                case CHAVE_PRESENTE:
-                    idTactil = R.id.activity_secao_sensibilidade_ombro_radio_tactil_presente;
-                    break;
-                case CHAVE_DIMINUIDA:
-                    idTactil = R.id.activity_secao_sensibilidade_ombro_radio_tactil_diminuida;
-                    break;
-                case CHAVE_AUMENTADA:
-                    idTactil = R.id.activity_secao_sensibilidade_ombro_radio_tactil_aumentada;
-                    break;
-                case CHAVE_AUSENTE:
-                    idTactil = R.id.activity_secao_sensibilidade_ombro_radio_tactil_ausente;
-                    break;
-                default:
-                    idTactil = 0;
-            }
+            idTactil = switch (ombro.getSensibilidadeTactil()) {
+                case CHAVE_PRESENTE ->
+                        R.id.activity_secao_sensibilidade_ombro_radio_tactil_presente;
+                case CHAVE_DIMINUIDA ->
+                        R.id.activity_secao_sensibilidade_ombro_radio_tactil_diminuida;
+                case CHAVE_AUMENTADA ->
+                        R.id.activity_secao_sensibilidade_ombro_radio_tactil_aumentada;
+                case CHAVE_AUSENTE -> R.id.activity_secao_sensibilidade_ombro_radio_tactil_ausente;
+                default -> 0;
+            };
             if (idTactil != 0) {
                 campoTactil.check(idTactil);
             }
@@ -186,22 +185,16 @@ public class SecaoSensibilidadeOmbroActivity extends AppCompatActivity {
 
 
         if (ombro.getSensibilidadeTermica() != null) {
-            switch (ombro.getSensibilidadeTermica()) {
-                case CHAVE_PRESENTE:
-                    idTermica = R.id.activity_secao_sensibilidade_ombro_radio_termica_presente;
-                    break;
-                case CHAVE_DIMINUIDA:
-                    idTermica = R.id.activity_secao_sensibilidade_ombro_radio_termica_diminuida;
-                    break;
-                case CHAVE_AUMENTADA:
-                    idTermica = R.id.activity_secao_sensibilidade_ombro_radio_termica_aumentada;
-                    break;
-                case CHAVE_AUSENTE:
-                    idTermica = R.id.activity_secao_sensibilidade_ombro_radio_termica_ausente;
-                    break;
-                default:
-                    idTermica = 0;
-            }
+            idTermica = switch (ombro.getSensibilidadeTermica()) {
+                case CHAVE_PRESENTE ->
+                        R.id.activity_secao_sensibilidade_ombro_radio_termica_presente;
+                case CHAVE_DIMINUIDA ->
+                        R.id.activity_secao_sensibilidade_ombro_radio_termica_diminuida;
+                case CHAVE_AUMENTADA ->
+                        R.id.activity_secao_sensibilidade_ombro_radio_termica_aumentada;
+                case CHAVE_AUSENTE -> R.id.activity_secao_sensibilidade_ombro_radio_termica_ausente;
+                default -> 0;
+            };
             if (idTermica != 0) {
                 campoTermica.check(idTermica);
             }
@@ -209,22 +202,17 @@ public class SecaoSensibilidadeOmbroActivity extends AppCompatActivity {
 
 
         if (ombro.getSensibilidadeDolorosa() != null) {
-            switch (ombro.getSensibilidadeDolorosa()) {
-                case CHAVE_PRESENTE:
-                    idDolorosa = R.id.activity_secao_sensibilidade_ombro_radio_dolorosa_presente;
-                    break;
-                case CHAVE_DIMINUIDA:
-                    idDolorosa = R.id.activity_secao_sensibilidade_ombro_radio_dolorosa_diminuida;
-                    break;
-                case CHAVE_AUMENTADA:
-                    idDolorosa = R.id.activity_secao_sensibilidade_ombro_radio_dolorosa_aumentada;
-                    break;
-                case CHAVE_AUSENTE:
-                    idDolorosa = R.id.activity_secao_sensibilidade_ombro_radio_dolorosa_ausente;
-                    break;
-                default:
-                    idDolorosa = 0;
-            }
+            idDolorosa = switch (ombro.getSensibilidadeDolorosa()) {
+                case CHAVE_PRESENTE ->
+                        R.id.activity_secao_sensibilidade_ombro_radio_dolorosa_presente;
+                case CHAVE_DIMINUIDA ->
+                        R.id.activity_secao_sensibilidade_ombro_radio_dolorosa_diminuida;
+                case CHAVE_AUMENTADA ->
+                        R.id.activity_secao_sensibilidade_ombro_radio_dolorosa_aumentada;
+                case CHAVE_AUSENTE ->
+                        R.id.activity_secao_sensibilidade_ombro_radio_dolorosa_ausente;
+                default -> 0;
+            };
             if (idDolorosa != 0) {
                 campoTactil.check(idDolorosa);
             }

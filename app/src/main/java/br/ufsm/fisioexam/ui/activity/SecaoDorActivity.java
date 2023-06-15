@@ -27,6 +27,7 @@ import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.ExameDAO;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Exame;
 import br.ufsm.fisioexam.model.Secoes;
 
@@ -36,8 +37,10 @@ public class SecaoDorActivity extends AppCompatActivity {
     private Button salvarESair;
     private Exame exame;
     private ExameDAO exameDao;
+    private QueryManager<Exame> exameQueryManager;
     private Secoes secoes;
     private SecoesDAO secoesDao;
+    private QueryManager<Secoes> secoesQueryManager;
     private SwitchCompat campoSenteDor;
     private EditText campoDorHaQuantoTempo;
     private TextView textoTipoDor;
@@ -76,6 +79,8 @@ public class SecaoDorActivity extends AppCompatActivity {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         exameDao = database.getRoomExameDAO();
         secoesDao = database.getRoomSecoesDAO();
+        exameQueryManager = new QueryManager<>();
+        secoesQueryManager = new QueryManager<>();
     }
 
     private void inicializaBotoes() {
@@ -97,7 +102,7 @@ public class SecaoDorActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setDor(true);
-        secoesDao.update(secoes);
+        secoesQueryManager.update(secoes, secoesDao);
 
         //Salva as alterações na variável
         exame.setSenteDor(campoSenteDor.isChecked());
@@ -131,7 +136,7 @@ public class SecaoDorActivity extends AppCompatActivity {
         exame.setLocaisDor(campoLocaisDor.getText().toString());
 
         //Salva no Banco de Dados
-        exameDao.update(exame);
+        exameQueryManager.update(exame, exameDao);
     }
 
     private void proximoForm() {
@@ -147,8 +152,8 @@ public class SecaoDorActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            exame = exameDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getOne(exame.getId());
+            exame = exameQueryManager.getOne((String) dados.getSerializableExtra(CHAVE_EXAME), exameDao);
+            secoes = secoesQueryManager.getOne(exame.getId(), secoesDao);
         }
     }
 
@@ -193,39 +198,17 @@ public class SecaoDorActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 textoValorIntensidadeDor.setText(String.valueOf(progress));
                 switch (progress) {
-                    case 0:
-                        textoValorIntensidadeDor.setBackgroundColor(getColor(R.color.dor0));
-                        break;
-                    case 1:
-                        textoValorIntensidadeDor.setBackgroundColor(getColor(R.color.dor1));
-                        break;
-                    case 2:
-                        textoValorIntensidadeDor.setBackgroundColor(getColor(R.color.dor2));
-                        break;
-                    case 3:
-                        textoValorIntensidadeDor.setBackgroundColor(getColor(R.color.dor3));
-                        break;
-                    case 4:
-                        textoValorIntensidadeDor.setBackgroundColor(getColor(R.color.dor4));
-                        break;
-                    case 5:
-                        textoValorIntensidadeDor.setBackgroundColor(getColor(R.color.dor5));
-                        break;
-                    case 6:
-                        textoValorIntensidadeDor.setBackgroundColor(getColor(R.color.dor6));
-                        break;
-                    case 7:
-                        textoValorIntensidadeDor.setBackgroundColor(getColor(R.color.dor7));
-                        break;
-                    case 8:
-                        textoValorIntensidadeDor.setBackgroundColor(getColor(R.color.dor8));
-                        break;
-                    case 9:
-                        textoValorIntensidadeDor.setBackgroundColor(getColor(R.color.dor9));
-                        break;
-                    case 10:
-                        textoValorIntensidadeDor.setBackgroundColor(getColor(R.color.dor10));
-                        break;
+                    case 0 -> textoValorIntensidadeDor.setBackgroundColor(getColor(R.color.dor0));
+                    case 1 -> textoValorIntensidadeDor.setBackgroundColor(getColor(R.color.dor1));
+                    case 2 -> textoValorIntensidadeDor.setBackgroundColor(getColor(R.color.dor2));
+                    case 3 -> textoValorIntensidadeDor.setBackgroundColor(getColor(R.color.dor3));
+                    case 4 -> textoValorIntensidadeDor.setBackgroundColor(getColor(R.color.dor4));
+                    case 5 -> textoValorIntensidadeDor.setBackgroundColor(getColor(R.color.dor5));
+                    case 6 -> textoValorIntensidadeDor.setBackgroundColor(getColor(R.color.dor6));
+                    case 7 -> textoValorIntensidadeDor.setBackgroundColor(getColor(R.color.dor7));
+                    case 8 -> textoValorIntensidadeDor.setBackgroundColor(getColor(R.color.dor8));
+                    case 9 -> textoValorIntensidadeDor.setBackgroundColor(getColor(R.color.dor9));
+                    case 10 -> textoValorIntensidadeDor.setBackgroundColor(getColor(R.color.dor10));
                 }
             }
 
@@ -297,22 +280,13 @@ public class SecaoDorActivity extends AppCompatActivity {
         campoDorHaQuantoTempo.setText(exame.getDorHaQuantoTempo());
         int idAparicaoDor;
         if (exame.getAparicaoDor() != null) {
-            switch (exame.getAparicaoDor()) {
-                case ACORDAR:
-                    idAparicaoDor = R.id.activity_secao_dor_radio_acordar;
-                    break;
-                case DECORRER:
-                    idAparicaoDor = R.id.activity_secao_dor_radio_decorrer_dia;
-                    break;
-                case FINALDIA:
-                    idAparicaoDor = R.id.activity_secao_dor_radio_fim_dia;
-                    break;
-                case CONSTANTE:
-                    idAparicaoDor = R.id.activity_secao_dor_radio_constante;
-                    break;
-                default:
-                    idAparicaoDor = 0;
-            }
+            idAparicaoDor = switch (exame.getAparicaoDor()) {
+                case ACORDAR -> R.id.activity_secao_dor_radio_acordar;
+                case DECORRER -> R.id.activity_secao_dor_radio_decorrer_dia;
+                case FINALDIA -> R.id.activity_secao_dor_radio_fim_dia;
+                case CONSTANTE -> R.id.activity_secao_dor_radio_constante;
+                default -> 0;
+            };
             if (idAparicaoDor != 0) {
                 campoAparicaoDor.check(idAparicaoDor);
             }

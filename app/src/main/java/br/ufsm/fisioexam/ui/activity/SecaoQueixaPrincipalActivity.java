@@ -14,6 +14,7 @@ import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.ExameDAO;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Exame;
 import br.ufsm.fisioexam.model.Secoes;
 
@@ -23,8 +24,10 @@ public class SecaoQueixaPrincipalActivity extends AppCompatActivity {
     private Button salvarESair;
     private Exame exame;
     private ExameDAO exameDao;
+    private QueryManager<Exame> exameQueryManager;
     private Secoes secoes;
     private SecoesDAO secoesDao;
+    private QueryManager<Secoes> secoesQueryManager;
 
 
     @Override
@@ -41,6 +44,8 @@ public class SecaoQueixaPrincipalActivity extends AppCompatActivity {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         exameDao = database.getRoomExameDAO();
         secoesDao = database.getRoomSecoesDAO();
+        exameQueryManager = new QueryManager<>();
+        secoesQueryManager = new QueryManager<>();
     }
 
     private void inicializaBotoes() {
@@ -62,9 +67,9 @@ public class SecaoQueixaPrincipalActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setQueixaPrincipal(true);
-        secoesDao.update(secoes);
+        secoesQueryManager.update(secoes, secoesDao);
         exame.setQueixaPrincipal(campoQueixaPrincipal.getText().toString());
-        exameDao.update(exame);
+        exameQueryManager.update(exame, exameDao);
     }
 
     private void proximoForm() {
@@ -80,8 +85,8 @@ public class SecaoQueixaPrincipalActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            exame = exameDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getOne(exame.getId());
+            exame = exameQueryManager.getOne((String) dados.getSerializableExtra(CHAVE_EXAME),exameDao);
+            secoes = secoesQueryManager.getOne(exame.getId(), secoesDao);
         }
     }
 

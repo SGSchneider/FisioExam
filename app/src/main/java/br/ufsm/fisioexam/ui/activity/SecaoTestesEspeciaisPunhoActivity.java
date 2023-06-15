@@ -21,14 +21,17 @@ import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.PunhoDAO;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Punho;
 import br.ufsm.fisioexam.model.Secoes;
 
 public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
     private Punho punho;
     private PunhoDAO punhoDao;
+    private QueryManager<Punho> punhoQueryManager;
     private Secoes secoes;
     private SecoesDAO secoesDao;
+    private QueryManager<Secoes> secoesQueryManager;
 
     private Button buttonSalvar;
     private Button buttonProximo;
@@ -100,7 +103,7 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setTestesEspeciais(true);
-        secoesDao.update(secoes);
+        secoesQueryManager.update(secoes, secoesDao);
         punho.setTestesEspeciaisPhalenDir(campoPhalenDir.isChecked());
         punho.setTestesEspeciaisPhalenEsq(campoPhalenEsq.isChecked());
         punho.setTestesEspeciaisPhalenInvertidoDir(campoPhalenInvertidoDir.isChecked());
@@ -114,7 +117,7 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
         punho.setDashData(dataDash.getTimeInMillis());
         punho.setDashPontuacao(campoPontoDash.getText().toString());
         punho.setDashResultados(campoResultDash.getText().toString());
-        punhoDao.update(punho);
+        punhoQueryManager.update(punho, punhoDao);
     }
 
     private void setListenerCalendariosDatas() {
@@ -195,5 +198,7 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         punhoDao = database.getRoomPunhoDAO();
         secoesDao = database.getRoomSecoesDAO();
+        punhoQueryManager = new QueryManager<>();
+        secoesQueryManager = new QueryManager<>();
     }
 }

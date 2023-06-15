@@ -29,6 +29,7 @@ import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.ExameDAO;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Exame;
 import br.ufsm.fisioexam.model.Secao;
 import br.ufsm.fisioexam.model.Secoes;
@@ -43,7 +44,9 @@ public class SecoesExameActivity extends AppCompatActivity {
     private SecoesExameView secoesExameView;
     Calendar dataSelecionada = Calendar.getInstance();
     private ExameDAO exameDao;
+    private QueryManager<Exame> exameQueryManager;
     private SecoesDAO secoesDao;
+    private QueryManager<Secoes> secoesQueryManager;
     private Exame exame;
     private Secoes secoes;
 
@@ -51,9 +54,7 @@ public class SecoesExameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_secoes_exame);
-        FisioExamDatabase database = FisioExamDatabase.getInstance(this);
-        exameDao = database.getRoomExameDAO();
-        secoesDao = database.getRoomSecoesDAO();
+        InicializaDaos();
         inicializacaoDosCampos();
         carregaExame();
         secoesExameView = new SecoesExameView(this, exame.getId());
@@ -62,6 +63,14 @@ public class SecoesExameActivity extends AppCompatActivity {
         configuraBotaoSalvar();
         configuraLista();
         preencheExame();
+    }
+
+    private void InicializaDaos() {
+        FisioExamDatabase database = FisioExamDatabase.getInstance(this);
+        exameDao = database.getRoomExameDAO();
+        secoesDao = database.getRoomSecoesDAO();
+        exameQueryManager = new QueryManager<>();
+        secoesQueryManager = new QueryManager<>();
     }
 
     @Override
@@ -205,7 +214,7 @@ public class SecoesExameActivity extends AppCompatActivity {
                 vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
                 startActivity(vaiParaFormularioSecaoActivity);
             }
-            exame = exameDao.getOne(exame.getId());
+            exame = exameQueryManager.getOne(exame.getId(), exameDao);
             secoesExameView.atualizaSecoes();
         });
     }
@@ -257,21 +266,21 @@ public class SecoesExameActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            exame = exameDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
+            exame = exameQueryManager.getOne((String) dados.getSerializableExtra(CHAVE_EXAME), exameDao);
             preencheTitulo();
             preencheCampos();
             setTitle(TITULO_APPBAR_EDITA_EXAME);
-            secoes = secoesDao.getOne(exame.getId());
+            secoes = secoesQueryManager.getOne(exame.getId(), secoesDao);
         } else {
             if (dados.hasExtra(CHAVE_TIPO_EXAME)) {
                 setTitle(TITULO_APPBAR_NOVO_EXAME);
                 tipo = (String) dados.getSerializableExtra(CHAVE_TIPO_EXAME);
                 String idPaciente = (String) dados.getSerializableExtra(CHAVE_ID_PACIENTE);
                 exame = new Exame(idPaciente, tipo, geraChaveCriacao());
-                exameDao.insert(exame);
-                exame.setId(exameDao.getIdNovoExame(idPaciente, exame.getCreationKey()));
+                exameQueryManager.insert(exame, exameDao);
+                exame.setId(exameQueryManager.getIdNovoExame(idPaciente, exame.getCreationKey(), exameDao));
                 secoes = new Secoes(exame.getId());
-                secoesDao.insert(secoes);
+                secoesQueryManager.insert(secoes, secoesDao);
                 preencheTitulo();
             }
         }
@@ -303,8 +312,8 @@ public class SecoesExameActivity extends AppCompatActivity {
 
     private void preencheCampos() { //carrega os valores do banco para o formulario em caso de edição.
         preencheData();
-        exame = exameDao.getOne(exame.getId());
-        secoes = secoesDao.getOne(exame.getId());
+        exame = exameQueryManager.getOne(exame.getId(), exameDao);
+        secoes = secoesQueryManager.getOne(exame.getId(), secoesDao);
     }
 
     private void atualizaDataExame() { //formata a data para exibição
@@ -331,7 +340,7 @@ public class SecoesExameActivity extends AppCompatActivity {
         exame.setTipo(tipo);
         exame.setData(data.getTimeInMillis());
 
-        exameDao.update(exame);
+        exameQueryManager.update(exame, exameDao);
 
     }
 }

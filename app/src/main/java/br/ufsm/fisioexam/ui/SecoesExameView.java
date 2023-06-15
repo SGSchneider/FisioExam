@@ -13,23 +13,24 @@ public class SecoesExameView {
     private final SecoesExamesAdapter adapter;
     private final SecoesDAO dao;
     private final String id_exame;
+    private final QueryManager<Secoes> secoesQueryManager;
 
     public SecoesExameView(Context context, String id_exame) {
         this.adapter = new SecoesExamesAdapter(context);
         this.id_exame = id_exame;
         dao = FisioExamDatabase.getInstance(context).getRoomSecoesDAO();
+        secoesQueryManager = new QueryManager<>();
     }
 
     public void atualizaSecoes() {
         Secoes secao;
-        secao = dao.getOne(id_exame);
+        secao = secoesQueryManager.getOne(id_exame, dao);
         if(secao!=null) {
             adapter.atualiza(secao);
         }
         else{
             secao = new Secoes(id_exame);
-            QueryManager<Secoes> queryManager = new QueryManager<>();
-            queryManager.insert(secao, dao);
+            secoesQueryManager.insert(secao, dao);
             adapter.atualiza(secao);
         }
     }

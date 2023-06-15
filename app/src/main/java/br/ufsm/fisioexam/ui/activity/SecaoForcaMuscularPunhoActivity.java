@@ -15,6 +15,7 @@ import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.PunhoDAO;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Punho;
 import br.ufsm.fisioexam.model.Secoes;
 
@@ -41,8 +42,10 @@ public class SecaoForcaMuscularPunhoActivity extends AppCompatActivity {
     private Button salvarESair;
     private Punho punho;
     private PunhoDAO punhoDao;
+    private QueryManager<Punho> punhoQueryManager;
     private Secoes secoes;
     private SecoesDAO secoesDao;
+    private QueryManager<Secoes> secoesQueryManager;
 
 
     @Override
@@ -60,6 +63,8 @@ public class SecaoForcaMuscularPunhoActivity extends AppCompatActivity {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         punhoDao = database.getRoomPunhoDAO();
         secoesDao = database.getRoomSecoesDAO();
+        punhoQueryManager = new QueryManager<>();
+        secoesQueryManager = new QueryManager<>();
     }
 
     private void inicializaBotoes() {
@@ -82,7 +87,7 @@ public class SecaoForcaMuscularPunhoActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setForcaMuscular1(true);
-        secoesDao.update(secoes);
+        secoesQueryManager.update(secoes, secoesDao);
 
         punho.setForcaMuscularFlexorRadialDir(campoFlexorRadialDir.getText().toString());
         punho.setForcaMuscularFlexorRadialEsq(campoFlexorRadialEsq.getText().toString());
@@ -99,7 +104,7 @@ public class SecaoForcaMuscularPunhoActivity extends AppCompatActivity {
         punho.setForcaMuscularExtensorUlnarDoCarpoDir(campoExtensorUlnarDir.getText().toString());
         punho.setForcaMuscularExtensorUlnarDoCarpoEsq(campoExtensorUlnarEsq.getText().toString());
 
-        punhoDao.update(punho);
+        punhoQueryManager.update(punho, punhoDao);
     }
 
     private void proximoForm() {
@@ -116,8 +121,8 @@ public class SecaoForcaMuscularPunhoActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            punho = punhoDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getOne(punho.getExame());
+            punho = punhoQueryManager.getOne((String) dados.getSerializableExtra(CHAVE_EXAME), punhoDao);
+            secoes = secoesQueryManager.getOne(punho.getExame(), secoesDao);
         }
     }
 
@@ -137,8 +142,6 @@ public class SecaoForcaMuscularPunhoActivity extends AppCompatActivity {
         campoExtensorRadialCurtoEsq = findViewById(R.id.activity_secao_forca_muscular_punho_extensor_radial_curto_punho_esq);
         campoExtensorUlnarDir = findViewById(R.id.activity_secao_forca_muscular_punho_extensor_ulnar_punho_dir);
         campoExtensorUlnarEsq = findViewById(R.id.activity_secao_forca_muscular_punho_extensor_ulnar_punho_esq);
-
-
 
         if (secoes.isForcaMuscular1()) {
             preencheCampos();

@@ -15,6 +15,7 @@ import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.CotoveloDAO;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Cotovelo;
 import br.ufsm.fisioexam.model.Secoes;
 
@@ -38,8 +39,10 @@ public class SecaoPerimetriaCotoveloActivity extends AppCompatActivity {
     private Button salvarESair;
     private Cotovelo cotovelo;
     private CotoveloDAO cotoveloDao;
+    private QueryManager<Cotovelo> cotoveloQueryManager;
     private Secoes secoes;
     private SecoesDAO secoesDao;
+    private QueryManager<Secoes> secoesQueryManager;
 
 
     @Override
@@ -57,6 +60,8 @@ public class SecaoPerimetriaCotoveloActivity extends AppCompatActivity {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         cotoveloDao = database.getRoomCotoveloDAO();
         secoesDao = database.getRoomSecoesDAO();
+        cotoveloQueryManager = new QueryManager<>();
+        secoesQueryManager = new QueryManager<>();
     }
 
     private void inicializaBotoes() {
@@ -79,7 +84,7 @@ public class SecaoPerimetriaCotoveloActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setPerimetria(true);
-        secoesDao.update(secoes);
+        secoesQueryManager.update(secoes, secoesDao);
         cotovelo.setPerimetriaInfDir5(campoInf5Dir.getText().toString());
         cotovelo.setPerimetriaInfDir10(campoInf10Dir.getText().toString());
         cotovelo.setPerimetriaInfDir15(campoInf15Dir.getText().toString());
@@ -93,7 +98,7 @@ public class SecaoPerimetriaCotoveloActivity extends AppCompatActivity {
         cotovelo.setPerimetriaSupEsq10(campoSup10Esq.getText().toString());
         cotovelo.setPerimetriaSupEsq15(campoSup15Esq.getText().toString());
 
-        cotoveloDao.update(cotovelo);
+        cotoveloQueryManager.update(cotovelo, cotoveloDao);
     }
 
     private void proximoForm() {
@@ -110,8 +115,8 @@ public class SecaoPerimetriaCotoveloActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            cotovelo = cotoveloDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getOne(cotovelo.getExame());
+            cotovelo = cotoveloQueryManager.getOne((String) dados.getSerializableExtra(CHAVE_EXAME), cotoveloDao);
+            secoes = secoesQueryManager.getOne(cotovelo.getExame(), secoesDao);
         }
     }
 

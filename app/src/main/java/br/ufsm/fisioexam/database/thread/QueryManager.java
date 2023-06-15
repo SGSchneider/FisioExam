@@ -140,4 +140,7 @@ public class QueryManager<T> {
         return queryManager.subscribeOn(Schedulers.io()).blockingSingle();
     }
 
+    public List<T> getAll(GenericDAO<T> dao) {
+        return atualizaLista(null, dao);
+    }
 }

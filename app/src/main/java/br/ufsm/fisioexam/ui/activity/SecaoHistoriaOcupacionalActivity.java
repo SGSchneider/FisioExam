@@ -14,6 +14,7 @@ import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.ExameDAO;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Exame;
 import br.ufsm.fisioexam.model.Secoes;
 
@@ -22,8 +23,10 @@ public class SecaoHistoriaOcupacionalActivity extends AppCompatActivity {
     private Button salvarESair;
     private Exame exame;
     private ExameDAO exameDao;
+    private QueryManager<Exame> exameQueryManager;
     private Secoes secoes;
     private SecoesDAO secoesDao;
+    private QueryManager<Secoes> secoesQueryManager;
     private EditText campoLocalAtual;
     private EditText campoTempoAtual;
     private EditText campoLocalAnterior;
@@ -43,6 +46,8 @@ public class SecaoHistoriaOcupacionalActivity extends AppCompatActivity {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         exameDao = database.getRoomExameDAO();
         secoesDao = database.getRoomSecoesDAO();
+        exameQueryManager = new QueryManager<>();
+        secoesQueryManager = new QueryManager<>();
     }
 
     private void inicializaBotoes() {
@@ -64,7 +69,7 @@ public class SecaoHistoriaOcupacionalActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setHistoriaOcupacional(true);
-        secoesDao.update(secoes);
+        secoesQueryManager.update(secoes, secoesDao);
 
         //Salva as alterações na variável
         exame.setOcupacaoAtual(campoLocalAtual.getText().toString());
@@ -73,7 +78,7 @@ public class SecaoHistoriaOcupacionalActivity extends AppCompatActivity {
         exame.setTempoTrabalhoAnterior(campoTempoAnterior.getText().toString());
 
         //Salva no Banco de Dados
-        exameDao.update(exame);
+        exameQueryManager.update(exame, exameDao);
     }
 
     private void proximoForm() {
@@ -89,8 +94,8 @@ public class SecaoHistoriaOcupacionalActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            exame = exameDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getOne(exame.getId());
+            exame = exameQueryManager.getOne((String) dados.getSerializableExtra(CHAVE_EXAME), exameDao);
+            secoes = secoesQueryManager.getOne(exame.getId(), secoesDao);
         }
     }
 

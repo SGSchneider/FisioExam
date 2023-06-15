@@ -38,6 +38,7 @@ import br.ufsm.fisioexam.database.FirebaseHelper;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.LoginInfoDAO;
 import br.ufsm.fisioexam.database.sync.SyncBD;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.LoginInfo;
 
 public class ConfiguracoesActivity extends AppCompatActivity {
@@ -59,6 +60,7 @@ public class ConfiguracoesActivity extends AppCompatActivity {
     private List<LoginInfo> loginList;
     private LoginInfo loginInfo;
     private LoginInfoDAO lInfoDAO;
+    private QueryManager<LoginInfo> qManager;
 
 
     @Override
@@ -80,6 +82,7 @@ public class ConfiguracoesActivity extends AppCompatActivity {
     private void inicializaBancoLogin() {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         lInfoDAO = database.getRoomLoginInfoDAO();
+        qManager = new QueryManager<>();
     }
 
     private void checkPermissoes() {
@@ -163,8 +166,8 @@ public class ConfiguracoesActivity extends AppCompatActivity {
     private void saveLoginInfo() {
         loginInfo.setUser(email);
         loginInfo.setPassword(password);
-        lInfoDAO.deleteAll();
-        lInfoDAO.insert(loginInfo);
+        qManager.deleteAll(lInfoDAO);
+        qManager.insert(loginInfo, lInfoDAO);
     }
 
     private void syncDB() {
@@ -230,8 +233,8 @@ public class ConfiguracoesActivity extends AppCompatActivity {
     }
 
     private void carregaInfoLogin() {
-        if (lInfoDAO.countSize() > 0) {
-            loginList = lInfoDAO.getAll();
+        if (qManager.countSize(lInfoDAO) > 0) {
+            loginList = qManager.getAll(lInfoDAO);
             loginInfo = loginList.get(0);
             email = loginInfo.getUser();
             password = loginInfo.getPassword();

@@ -15,6 +15,7 @@ import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.CotoveloDAO;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Cotovelo;
 import br.ufsm.fisioexam.model.Secoes;
 
@@ -22,8 +23,10 @@ public class SecaoAmplitudeMovimentoCotoveloActivity extends AppCompatActivity {
 
     Cotovelo cotovelo;
     CotoveloDAO cotoveloDAO;
-    Secoes secoes;
-    SecoesDAO secoesDAO;
+    private QueryManager<Cotovelo> cotoveloQueryManager;
+    private Secoes secoes;
+    private SecoesDAO secoesDAO;
+    private QueryManager<Secoes> secaoQueryManager;
     
     EditText campoFlexaoD;
     EditText campoFlexaoE;
@@ -70,7 +73,7 @@ public class SecaoAmplitudeMovimentoCotoveloActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setAmplitudeMovimento(true);
-        secoesDAO.update(secoes);
+        secaoQueryManager.update(secoes, secoesDAO);
 
         cotovelo.setFlexaoDir(campoFlexaoD.getText().toString());
         cotovelo.setFlexaoEsq(campoFlexaoE.getText().toString());
@@ -84,7 +87,7 @@ public class SecaoAmplitudeMovimentoCotoveloActivity extends AppCompatActivity {
         cotovelo.setAnguloCarregamentoEsq(campoAnguloCarregamentoEP.getText().toString());
 
 
-        cotoveloDAO.update(cotovelo);
+        cotoveloQueryManager.update(cotovelo, cotoveloDAO);
     }
 
     private void activityChange() {
@@ -131,8 +134,8 @@ public class SecaoAmplitudeMovimentoCotoveloActivity extends AppCompatActivity {
     private void carregaExame() {
         Intent dados = getIntent();
         if(dados.hasExtra(CHAVE_EXAME)){
-            cotovelo = cotoveloDAO.getOne(dados.getSerializableExtra(CHAVE_EXAME).toString());
-            secoes = secoesDAO.getOne(cotovelo.getExame());
+            cotovelo = cotoveloQueryManager.getOne(dados.getSerializableExtra(CHAVE_EXAME).toString(), cotoveloDAO);
+            secoes = secaoQueryManager.getOne(cotovelo.getExame(), secoesDAO);
         }
     }
 
@@ -140,7 +143,8 @@ public class SecaoAmplitudeMovimentoCotoveloActivity extends AppCompatActivity {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         cotoveloDAO = database.getRoomCotoveloDAO();
         secoesDAO = database.getRoomSecoesDAO();
+        cotoveloQueryManager = new QueryManager<>();
+        secaoQueryManager = new QueryManager<>();
+
     }
-
-
 }

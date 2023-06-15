@@ -15,6 +15,7 @@ import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.CotoveloDAO;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Cotovelo;
 import br.ufsm.fisioexam.model.Secoes;
 
@@ -34,13 +35,14 @@ public class SecaoForcaMuscularCotoveloActivity extends AppCompatActivity {
     private EditText campoPronadorEsq;
 
 
-
     private Button proximo;
     private Button salvarESair;
     private Cotovelo cotovelo;
     private CotoveloDAO cotoveloDao;
+    private QueryManager<Cotovelo> cotoveloQueryManager;
     private Secoes secoes;
     private SecoesDAO secoesDao;
+    private QueryManager<Secoes> secoesQueryManager;
 
 
     @Override
@@ -58,6 +60,8 @@ public class SecaoForcaMuscularCotoveloActivity extends AppCompatActivity {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         cotoveloDao = database.getRoomCotoveloDAO();
         secoesDao = database.getRoomSecoesDAO();
+        cotoveloQueryManager = new QueryManager<>();
+        secoesQueryManager = new QueryManager<>();
     }
 
     private void inicializaBotoes() {
@@ -80,7 +84,7 @@ public class SecaoForcaMuscularCotoveloActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setForcaMuscular1(true);
-        secoesDao.update(secoes);
+        secoesQueryManager.update(secoes, secoesDao);
 
         cotovelo.setBicepsBraquialDir(campoBicepsBraquialDir.getText().toString());
         cotovelo.setBicepsBraquialEsq(campoBicepsBraquialEsq.getText().toString());
@@ -95,7 +99,7 @@ public class SecaoForcaMuscularCotoveloActivity extends AppCompatActivity {
         cotovelo.setPronadorQuadradoERedondoDir(campoPronadorDir.getText().toString());
         cotovelo.setPronadorQuadradoERedondoEsq(campoPronadorEsq.getText().toString());
 
-        cotoveloDao.update(cotovelo);
+        cotoveloQueryManager.update(cotovelo, cotoveloDao);
     }
 
     private void proximoForm() {
@@ -112,8 +116,8 @@ public class SecaoForcaMuscularCotoveloActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            cotovelo = cotoveloDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getOne(cotovelo.getExame());
+            cotovelo = cotoveloQueryManager.getOne((String) dados.getSerializableExtra(CHAVE_EXAME), cotoveloDao);
+            secoes = secoesQueryManager.getOne(cotovelo.getExame(), secoesDao);
         }
     }
 
@@ -131,7 +135,6 @@ public class SecaoForcaMuscularCotoveloActivity extends AppCompatActivity {
         campoSupinadorEsq = findViewById(R.id.activity_secao_forca_muscular_cotovelo_supinador_cotovelo_esq);
         campoPronadorDir = findViewById(R.id.activity_secao_forca_muscular_cotovelo_pronador_cotovelo_dir);
         campoPronadorEsq = findViewById(R.id.activity_secao_forca_muscular_cotovelo_pronador_cotovelo_esq);
-
 
 
         if (secoes.isForcaMuscular1()) {

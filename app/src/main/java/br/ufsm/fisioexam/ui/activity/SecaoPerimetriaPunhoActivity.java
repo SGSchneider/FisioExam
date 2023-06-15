@@ -15,6 +15,7 @@ import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.PunhoDAO;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
+import br.ufsm.fisioexam.database.thread.QueryManager;
 import br.ufsm.fisioexam.model.Punho;
 import br.ufsm.fisioexam.model.Secoes;
 
@@ -35,8 +36,10 @@ public class SecaoPerimetriaPunhoActivity extends AppCompatActivity {
     private Button salvarESair;
     private Punho punho;
     private PunhoDAO punhoDao;
+    private QueryManager<Punho> punhoQueryManager;
     private Secoes secoes;
     private SecoesDAO secoesDao;
+    private QueryManager<Secoes> secoesQueryManager;
 
 
     @Override
@@ -54,6 +57,8 @@ public class SecaoPerimetriaPunhoActivity extends AppCompatActivity {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         punhoDao = database.getRoomPunhoDAO();
         secoesDao = database.getRoomSecoesDAO();
+        punhoQueryManager = new QueryManager<>();
+        secoesQueryManager = new QueryManager<>();
     }
 
     private void inicializaBotoes() {
@@ -76,7 +81,7 @@ public class SecaoPerimetriaPunhoActivity extends AppCompatActivity {
 
     private void salva() {
         secoes.setPerimetria(true);
-        secoesDao.update(secoes);
+        secoesQueryManager.update(secoes, secoesDao);
         punho.setPerimetriaInfDir5(campoInf5Dir.getText().toString());
         punho.setPerimetriaInfDir10(campoInf10Dir.getText().toString());
         punho.setPerimetriaInfDir15(campoInf15Dir.getText().toString());
@@ -86,7 +91,7 @@ public class SecaoPerimetriaPunhoActivity extends AppCompatActivity {
         punho.setPerimetriaEm8Dir(campoEm8Dir.getText().toString());
         punho.setPerimetriaEm8Esq(campoEm8Esq.getText().toString());
 
-        punhoDao.update(punho);
+        punhoQueryManager.update(punho, punhoDao);
     }
 
     private void proximoForm() {
@@ -103,8 +108,8 @@ public class SecaoPerimetriaPunhoActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            punho = punhoDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getOne(punho.getExame());
+            punho = punhoQueryManager.getOne((String) dados.getSerializableExtra(CHAVE_EXAME), punhoDao);
+            secoes = secoesQueryManager.getOne(punho.getExame(), secoesDao);
         }
     }
 
