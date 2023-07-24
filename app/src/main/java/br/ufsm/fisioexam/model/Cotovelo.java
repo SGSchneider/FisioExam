@@ -21,8 +21,7 @@ public class Cotovelo {
     String id;
 
     // chave estrangeira
-    private @NonNull
-    String exame;
+    private String exame;
 
     //Amplitude de movimento
     private String flexaoDir;
@@ -81,7 +80,6 @@ public class Cotovelo {
     private Boolean testeEsforcoVaroEsq;
     private Boolean testeEsforcoValgoDir;
     private Boolean testeEsforcoValgoEsq;
-
 
 
     //DASH

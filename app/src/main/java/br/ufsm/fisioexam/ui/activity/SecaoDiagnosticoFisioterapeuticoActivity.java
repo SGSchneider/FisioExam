@@ -70,9 +70,9 @@ public class SecaoDiagnosticoFisioterapeuticoActivity extends AppCompatActivity 
 
     private void salva() {
         secoes.setDiagnosticoFisio(true);
-        secoesDao.update(secoes);
+        secoesQueryManager.update(secoes, secoesDao);
         exame.setDiagnosticoFisioterapeutico(campoDiagnosticoFisioterapeutico.getText().toString());
-        exameDao.update(exame);
+        exameQueryManager.update(exame, exameDao);
     }
 
     private void proximoForm() {

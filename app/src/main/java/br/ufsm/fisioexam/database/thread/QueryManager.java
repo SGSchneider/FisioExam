@@ -2,6 +2,8 @@ package br.ufsm.fisioexam.database.thread;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,29 +13,32 @@ import io.reactivex.schedulers.Schedulers;
 
 public class QueryManager<T> {
 
-    public void insert(List<T> lista, GenericDAO<T> dao) {
+    public Boolean insert(List<T> lista, GenericDAO<T> dao) {
         Observable<Boolean> queryManager = Observable.fromCallable(() -> {
             dao.insert(lista);
+            Log.i("QueryManager", "List Insert: Inserido com Sucesso");
             return true;
         });
-        queryManager.subscribeOn(Schedulers.newThread()).subscribe();
+        return(queryManager.subscribeOn(Schedulers.io()).blockingSingle());
     }
 
-    public void insert(T objeto, GenericDAO<T> dao) {
+    public Boolean insert(T objeto, GenericDAO<T> dao) {
         Observable<Boolean> queryManager = Observable.fromCallable(() -> {
             dao.insert(objeto);
+            Log.i("QueryManager", "Insert: Inserido com Sucesso");
             return true;
         });
-        queryManager.subscribeOn(Schedulers.newThread()).subscribe();
+        return(queryManager.subscribeOn(Schedulers.io()).blockingSingle());
     }
 
     public void update(T objeto, GenericDAO<T> dao) {
         Observable<Boolean> queryManager = Observable.fromCallable(() -> {
             dao.update(objeto);
+            Log.i("QueryManager", "Update: Atualizado com Sucesso");
             return true;
         });
 
-        queryManager.subscribeOn(Schedulers.newThread()).subscribe();
+        queryManager.subscribeOn(Schedulers.io()).subscribe();
     }
 
     public boolean checkID(String id, GenericDAO<T> dao) {
@@ -52,10 +57,10 @@ public class QueryManager<T> {
             resultado.clear();
             if (search != null) {
                 resultado.addAll(dao.search(search));
-                Log.i("QueryManager", String.valueOf(resultado.size()));
+                Log.i("QueryManager", "Pesquisa: Resultou em " + resultado.size() + " linhas para retornar");
             } else {
                 resultado.addAll(dao.getAll());
-                Log.i("QueryManager", String.valueOf(resultado.size()));
+                Log.i("QueryManager", "Get All: Resultou em " + resultado.size() + " linhas para retornar");
             }
             return resultado;
         });
@@ -67,67 +72,59 @@ public class QueryManager<T> {
     public void delete(T objeto, GenericDAO<T> dao) {
         Observable<Boolean> queryManager = Observable.fromCallable(() -> {
             dao.delete(objeto);
+            Log.i("QueryManager", "Delete: Deletado com Sucesso");
             return true;
         });
 
-        queryManager.subscribeOn(Schedulers.newThread()).subscribe();
+        queryManager.subscribeOn(Schedulers.io()).subscribe();
     }
 
     public void delete(List<T> objeto, GenericDAO<T> dao) {
         Observable<Boolean> queryManager = Observable.fromCallable(() -> {
             dao.delete(objeto);
+            Log.i("QueryManager", "List Delete: Deletado com Sucesso");
             return true;
         });
 
-        queryManager.subscribeOn(Schedulers.newThread()).subscribe();
+        queryManager.subscribeOn(Schedulers.io()).subscribe();
     }
 
 
     public void deleteAll(GenericDAO<T> dao) {
         Observable<Boolean> queryManager = Observable.fromCallable(() -> {
             dao.deleteAll();
+            Log.i("QueryManager", "Delete All: Deletado com Sucesso");
             return true;
         });
 
-        queryManager.subscribeOn(Schedulers.newThread()).subscribe();
+        queryManager.subscribeOn(Schedulers.io()).subscribe();
     }
 
-    public T getOne(String search, GenericDAO<T> dao) {
+    public T getOne(@NonNull String search, GenericDAO<T> dao) {
         List<T> resultado = new ArrayList<>();
         Observable<T> queryManager = Observable.fromCallable(() -> {
             resultado.clear();
-            if (search != null) {
-                resultado.add(dao.getOne(search));
-                Log.i("QueryManager", String.valueOf(resultado.size()));
-            }
+            resultado.add(dao.getOne(search));
+            Log.i("QueryManager", "Get One: Resultou em " + resultado.size() + " linhas para retornar");
             return resultado.get(0);
         });
 
         return queryManager.subscribeOn(Schedulers.io()).blockingSingle();
     }
 
-    public String getIdByForeign(String search, GenericDAO<T> dao) {
-        List<String> resultado = new ArrayList<>();
-        Observable<String> queryManager = Observable.fromCallable(() -> {
-            resultado.clear();
-            if (search != null) {
-                resultado.add(dao.getIdByForeign(search));
-                Log.i("QueryManager", String.valueOf(resultado.size()));
-            }
-            return resultado.get(0);
-        });
+    public String getIdByForeign(@NonNull String search, GenericDAO<T> dao) {
+
+        Observable<String> queryManager = Observable.fromCallable(() -> dao.getIdByForeign(search));
 
         return queryManager.subscribeOn(Schedulers.io()).blockingSingle();
     }
 
-    public String getIdNovoExame(String reg, String creationKey, GenericDAO<T> dao) {
+    public String getIdNovoExame(@NonNull String reg, @NonNull String creationKey, GenericDAO<T> dao) {
         List<String> resultado = new ArrayList<>();
         Observable<String> queryManager = Observable.fromCallable(() -> {
             resultado.clear();
-            if (reg != null && creationKey != null) {
-                resultado.add(dao.getIdNovoExame(reg, creationKey));
-                Log.i("QueryManager", String.valueOf(resultado.size()));
-            }
+            resultado.add(dao.getIdNovoExame(reg, creationKey));
+            Log.i("QueryManager", "Id novo Exame: Resultou em " + resultado.size() + " linhas para retornar");
             return resultado.get(0);
         });
 

@@ -3,19 +3,15 @@ package br.ufsm.fisioexam.ui.activity;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_EXAME;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_SECAO;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Locale;
 
 import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
@@ -50,14 +46,6 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
     private CheckBox campoLcmDir;
     private CheckBox campoLcmEsq;
 
-
-    private EditText cotoveloDataDash;
-    private EditText cotoveloPontoDash;
-    private EditText cotoveloResultDash;
-    private EditText cotoveloDataAses;
-    private EditText cotoveloPontoAses;
-    private EditText cotoveloResultAses;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +55,6 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
         carregaExame();
         inicializaBotoes();
         inicializaFormulario();
-        setListenerCalendariosDatas();
     }
 
     private void inicializaCalendars() {
@@ -121,67 +108,10 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
         cotovelo.setTesteEsforcoValgoDir(campoLcmDir.isChecked());
         cotovelo.setTesteEsforcoValgoEsq(campoLcmEsq.isChecked());
 
-        cotovelo.setDashData(dataDash.getTimeInMillis());
-        cotovelo.setDashPontuacao(cotoveloPontoDash.getText().toString());
-        cotovelo.setDashResultados(cotoveloResultDash.getText().toString());
-
-        cotovelo.setAsesData(dataAses.getTimeInMillis());
-        cotovelo.setAsesPontuacao(cotoveloPontoAses.getText().toString());
-        cotovelo.setAsesResultados(cotoveloResultAses.getText().toString());
-
-
         cotoveloQueryManager.update(cotovelo, cotoveloDao);
     }
 
-    private void setListenerCalendariosDatas() {
 
-        DatePickerDialog.OnDateSetListener dateDash = instanciaSeletorData(dataDash);
-        DatePickerDialog.OnDateSetListener dateAses = instanciaSeletorData(dataAses);
-
-
-        atualizaDataAses();
-        atualizaDataDash();
-
-        cotoveloDataDash.setOnFocusChangeListener((v, hasFocus) -> {
-            if (hasFocus) {
-                new DatePickerDialog(SecaoTestesEspeciaisCotoveloActivity.this, dateDash,
-                        dataDash.get(Calendar.YEAR),
-                        dataDash.get(Calendar.MONTH),
-                        dataDash.get(Calendar.DAY_OF_MONTH)).show();
-            }
-        });
-
-        cotoveloDataAses.setOnFocusChangeListener((v, hasFocus) -> {
-            if (hasFocus) {
-                new DatePickerDialog(SecaoTestesEspeciaisCotoveloActivity.this, dateAses,
-                        dataAses.get(Calendar.YEAR),
-                        dataAses.get(Calendar.MONTH),
-                        dataAses.get(Calendar.DAY_OF_MONTH)).show();
-            }
-        });
-    }
-
-    private DatePickerDialog.OnDateSetListener instanciaSeletorData(Calendar data) {
-        return (view, year, month, dayOfMonth) -> {
-            data.set(Calendar.YEAR, year);
-            data.set(Calendar.MONTH, month);
-            data.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        };
-    }
-
-    private void atualizaDataDash() {
-        String formatoData = "dd/MM/yyyy";
-        SimpleDateFormat dateFormat = new SimpleDateFormat(formatoData, new Locale("pt", "BR"));
-
-        cotoveloDataDash.setText(dateFormat.format(dataDash.getTime()));
-    }
-
-    private void atualizaDataAses() {
-        String formatoData = "dd/MM/yyyy";
-        SimpleDateFormat dateFormat = new SimpleDateFormat(formatoData, new Locale("pt", "BR"));
-
-        cotoveloDataAses.setText(dateFormat.format(dataAses.getTime()));
-    }
 
     private void inicializaFormulario() {
         campoCozenDir = findViewById(R.id.activity_secao_testes_especiais_cotovelo_direita_cozen);
@@ -195,12 +125,6 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
         campoLcmDir = findViewById(R.id.activity_secao_testes_especiais_cotovelo_direita_lcm);
         campoLcmEsq = findViewById(R.id.activity_secao_testes_especiais_cotovelo_esquerda_lcm);
 
-        cotoveloDataDash = findViewById(R.id.activity_secao_testes_especiais_cotovelo_dash_data);
-        cotoveloPontoDash = findViewById(R.id.activity_secao_testes_especiais_cotovelo_dash_pontuacao);
-        cotoveloResultDash = findViewById(R.id.activity_secao_testes_especiais_cotovelo_dash_resultados);
-        cotoveloDataAses = findViewById(R.id.activity_secao_testes_especiais_cotovelo_ases_data);
-        cotoveloPontoAses = findViewById(R.id.activity_secao_testes_especiais_cotovelo_ases_pontuacao);
-        cotoveloResultAses = findViewById(R.id.activity_secao_testes_especiais_cotovelo_ases_resultados);
 
         preencheFormulario();
     }
@@ -220,14 +144,6 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
             campoLclEsq.setChecked(cotovelo.getTesteEsforcoVaroEsq());
             campoLcmDir.setChecked(cotovelo.getTesteEsforcoValgoDir());
             campoLcmEsq.setChecked(cotovelo.getTesteEsforcoValgoEsq());
-
-            atualizaDataDash();
-            cotoveloPontoDash.setText(cotovelo.getDashPontuacao());
-            cotoveloResultDash.setText(cotovelo.getDashResultados());
-
-            atualizaDataAses();
-            cotoveloPontoAses.setText(cotovelo.getAsesPontuacao());
-            cotoveloResultAses.setText(cotovelo.getAsesResultados());
 
         }
     }

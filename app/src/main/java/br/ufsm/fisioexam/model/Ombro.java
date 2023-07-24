@@ -16,6 +16,7 @@ public class Ombro {
     private @NonNull
     String id;
     //chave estrangeira
+    @NonNull
     private String exame;
 
 
@@ -132,7 +133,7 @@ public class Ombro {
     private String asesPontuacao;
     private String asesResultados;
 
-    public Ombro(String exame) {
+    public Ombro(@NonNull String exame) {
         this.exame = exame;
         id = UUID.randomUUID().toString();
     }
@@ -140,6 +141,7 @@ public class Ombro {
 
     @Ignore
     public Ombro() {
+        exame = UUID.randomUUID().toString();
         id = UUID.randomUUID().toString();
     }
 
@@ -152,11 +154,12 @@ public class Ombro {
         this.id = id;
     }
 
+    @NonNull
     public String getExame() {
         return exame;
     }
 
-    public void setExame(String exame) {
+    public void setExame(@NonNull String exame) {
         this.exame = exame;
     }
 

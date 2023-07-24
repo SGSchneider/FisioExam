@@ -3,19 +3,13 @@ package br.ufsm.fisioexam.ui.activity;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_EXAME;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_SECAO;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Locale;
 
 import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
@@ -36,7 +30,6 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
     private Button buttonSalvar;
     private Button buttonProximo;
 
-    private Calendar dataDash;
 
     private CheckBox campoPhalenDir;
     private CheckBox campoPhalenEsq;
@@ -49,26 +42,16 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
     private CheckBox campoFinkelsteinDir;
     private CheckBox campoFinkelsteinEsq;
 
-
-    private EditText campoDataDash;
-    private EditText campoPontoDash;
-    private EditText campoResultDash;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_secao_testes_especiais_punho);
-        inicializaCalendars();
         inicializaDAOS();
         carregaExame();
         inicializaBotoes();
         inicializaFormulario();
-        setListenerCalendariosDatas();
     }
 
-    private void inicializaCalendars() {
-        dataDash = Calendar.getInstance();
-    }
 
     private void inicializaBotoes() {
         buttonProximo = findViewById(R.id.activity_secao_testes_especiais_punho_button_proximo);
@@ -114,43 +97,9 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
         punho.setTestesEspeciaisTriadeEsq(campoTriadeEsq.isChecked());
         punho.setTestesEspeciaisFinkelsteinDir(campoFinkelsteinDir.isChecked());
         punho.setTestesEspeciaisFinkelsteinEsq(campoFinkelsteinEsq.isChecked());
-        punho.setDashData(dataDash.getTimeInMillis());
-        punho.setDashPontuacao(campoPontoDash.getText().toString());
-        punho.setDashResultados(campoResultDash.getText().toString());
         punhoQueryManager.update(punho, punhoDao);
     }
 
-    private void setListenerCalendariosDatas() {
-
-        DatePickerDialog.OnDateSetListener dateDash = instanciaSeletorData(dataDash);
-        atualizaDataDash();
-
-        campoDataDash.setOnFocusChangeListener((v, hasFocus) -> {
-            if (hasFocus) {
-                new DatePickerDialog(SecaoTestesEspeciaisPunhoActivity.this, dateDash,
-                        dataDash.get(Calendar.YEAR),
-                        dataDash.get(Calendar.MONTH),
-                        dataDash.get(Calendar.DAY_OF_MONTH)).show();
-            }
-        });
-
-
-    }
-
-    private DatePickerDialog.OnDateSetListener instanciaSeletorData(Calendar data) {
-        return (view, year, month, dayOfMonth) -> {
-            data.set(Calendar.YEAR, year);
-            data.set(Calendar.MONTH, month);
-            data.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        };
-    }
-
-    private void atualizaDataDash() {
-        String formatoData = "dd/MM/yyyy";
-        SimpleDateFormat dateFormat = new SimpleDateFormat(formatoData, new Locale("pt", "BR"));
-
-        campoDataDash.setText(dateFormat.format(dataDash.getTime()));
-    }
 
     private void inicializaFormulario() {
 
@@ -164,23 +113,22 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
         campoTriadeEsq = findViewById(R.id.activity_secao_testes_especiais_punho_esquerda_tunel_ulnar);
         campoFinkelsteinDir = findViewById(R.id.activity_secao_testes_especiais_punho_direita_finkelstein);
         campoFinkelsteinEsq = findViewById(R.id.activity_secao_testes_especiais_punho_esquerda_finkelstein);
-        campoDataDash = findViewById(R.id.activity_secao_testes_especiais_punho_dash_data);
-        campoPontoDash = findViewById(R.id.activity_secao_testes_especiais_punho_dash_pontuacao);
-        campoResultDash = findViewById(R.id.activity_secao_testes_especiais_punho_dash_resultados);
 
         preencheFormulario();
     }
 
     private void preencheFormulario() {
         if (secoes.isTestesEspeciais()) {
-            dataDash.setTimeInMillis(punho.getDashData());
-
-            
-
-            atualizaDataDash();
-            campoPontoDash.setText(punho.getDashPontuacao());
-            campoResultDash.setText(punho.getDashResultados());
-
+            campoPhalenDir.setChecked(punho.getTestesEspeciaisPhalenDir());
+            campoPhalenEsq.setChecked(punho.getTestesEspeciaisPhalenEsq());
+            campoPhalenInvertidoDir.setChecked(punho.getTestesEspeciaisPhalenInvertidoDir());
+            campoPhalenInvertidoEsq.setChecked(punho.getTestesEspeciaisPhalenInvertidoEsq());
+            campoTinelDir.setChecked(punho.getTestesEspeciaisTinelDir());
+            campoTinelEsq.setChecked(punho.getTestesEspeciaisTinelEsq());
+            campoTriadeDir.setChecked(punho.getTestesEspeciaisTriadeDir());
+            campoTriadeEsq.setChecked(punho.getTestesEspeciaisTriadeEsq());
+            campoFinkelsteinDir.setChecked(punho.getTestesEspeciaisFinkelsteinDir());
+            campoFinkelsteinEsq.setChecked(punho.getTestesEspeciaisFinkelsteinEsq());
         }
     }
 
@@ -189,8 +137,8 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
     private void carregaExame() {
         Intent dados = getIntent();
         if (dados.hasExtra(CHAVE_EXAME)) {
-            punho = punhoDao.getOne((String) dados.getSerializableExtra(CHAVE_EXAME));
-            secoes = secoesDao.getOne(punho.getExame());
+            punho = punhoQueryManager.getOne((String) dados.getSerializableExtra(CHAVE_EXAME), punhoDao);
+            secoes = secoesQueryManager.getOne(punho.getExame(), secoesDao);
         }
     }
 

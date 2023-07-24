@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <ScrollView
-        android:id="@+id/activity_ajuda_amplitude_movimento_ombro_flexao_scroll_view"
+        android:id="@+id/activity_ajuda_amplitude_movimento_cotovelo_pronacao_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="96dp"
@@ -40,7 +40,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:text="@string/flexao"
+                    android:text="@string/pronacao"
                     android:textSize="24sp" />
 
             </LinearLayout>
@@ -67,7 +67,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:text="@string/sentado_ou_decubito_dorsal"
+                    android:text="@string/sentado_cotovelo_a_90_antebraco_neutro_segurando_caneta"
 
                     android:textSize="24sp" />
 
@@ -95,7 +95,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:text="@string/eixo_articular_cabeca_umero"
+                    android:text="@string/direcao_cabeca_3_metacarpo"
 
                     android:textSize="24sp" />
 
@@ -123,7 +123,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:text="@string/linha_media_lateral_do_tronco"
+                    android:text="@string/paralelo_ao_umero"
 
                     android:textSize="24sp" />
 
@@ -151,7 +151,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:text="@string/paralelo_ao_umero"
+                    android:text="@string/alinhado_a_linha_formada_pelos_dedos_e_a_caneta"
 
                     android:textSize="24sp" />
 
@@ -178,14 +178,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:text="@string/normalidade_flexao_ampmov_ombro"
+                    android:text="@string/normalidade_pronacao_ampmov_cotovelo"
 
                     android:textSize="24sp" />
 
             </LinearLayout>
 
             <com.google.android.exoplayer2.ui.StyledPlayerView
-                android:id="@+id/activity_ajuda_amplitude_movimento_ombro_flexao_video"
+                android:id="@+id/activity_ajuda_amplitude_movimento_cotovelo_pronacao_video"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
@@ -201,7 +201,7 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/activity_ajuda_amplitude_movimento_ombro_flexao_button_sair"
+        android:id="@+id/activity_ajuda_amplitude_movimento_cotovelo_pronacao_button_sair"
         android:layout_width="160dp"
         android:layout_height="64dp"
         android:layout_margin="8dp"
@@ -209,7 +209,7 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activity_ajuda_amplitude_movimento_ombro_flexao_scroll_view"
+        app:layout_constraintTop_toBottomOf="@id/activity_ajuda_amplitude_movimento_cotovelo_pronacao_scroll_view"
         app:layout_constraintVertical_bias="1" />
 
 

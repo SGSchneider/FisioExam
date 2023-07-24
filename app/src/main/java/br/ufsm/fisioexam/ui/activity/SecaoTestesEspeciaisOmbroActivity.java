@@ -3,20 +3,14 @@ package br.ufsm.fisioexam.ui.activity;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_EXAME;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_SECAO;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Locale;
 
 import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
@@ -52,7 +46,6 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
     private CheckBox campoApreensaoEsq;
     private CheckBox campoSinalSulcoDir;
     private CheckBox campoSinalSulcoEsq;
-
     private ImageButton buttonHelpJobe;
     private ImageButton buttonHelpPatte;
     private ImageButton buttonHelpGerber;
@@ -62,39 +55,22 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
     private ImageButton buttonHelpYergason;
     private ImageButton buttonHelpApreensao;
     private ImageButton buttonHelpSinalSulco;
-    private ImageButton buttonHelpDash;
-    private ImageButton buttonHelpAses;
 
     private Button buttonSalvar;
     private Button buttonProximo;
 
-    private Calendar dataDash;
-    private Calendar dataAses;
-
-    private EditText campoDataDash;
-    private EditText campoPontoDash;
-    private EditText campoResultDash;
-    private EditText campoDataAses;
-    private EditText campoPontoAses;
-    private EditText campoResultAses;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_secao_testes_especiais_ombro);
-        inicializaCalendars();
         inicializaDAOS();
         carregaExame();
         inicializaBotoes();
         inicializaFormulario();
-        setListenerCalendariosDatas();
     }
 
-    private void inicializaCalendars() {
-        dataDash = Calendar.getInstance();
-        dataAses = Calendar.getInstance();
-    }
 
     private void inicializaBotoes() {
         buttonProximo = findViewById(R.id.activity_secao_testes_especiais_ombro_button_proximo);
@@ -102,8 +78,6 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
 
         buttonHelpApreensao = findViewById(R.id.activity_secao_testes_especiais_ombro_apreensao_anterior_button_help);
         buttonHelpSinalSulco = findViewById(R.id.activity_secao_testes_especiais_ombro_sinal_sulco_button_help);
-        buttonHelpDash = findViewById(R.id.activity_secao_testes_especiais_ombro_dash_button_help);
-        buttonHelpAses = findViewById(R.id.activity_secao_testes_especiais_ombro_ases_button_help);
 
         buttonHelpJobe = findViewById(R.id.activity_secao_testes_especiais_ombro_jobe_button_help);
         buttonHelpPatte = findViewById(R.id.activity_secao_testes_especiais_ombro_patte_button_help);
@@ -122,8 +96,6 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
 
         buttonHelpApreensao.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisOmbroApreensaoActivity.class));
         buttonHelpSinalSulco.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisOmbroSinalSulcoActivity.class));
-        buttonHelpDash.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisDashOmbroActivity.class));
-        buttonHelpAses.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisAsesOmbroActivity.class));
 
         buttonHelpJobe.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisOmbroJobeActivity.class));
         buttonHelpPatte.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisOmbroPatteActivity.class));
@@ -210,12 +182,6 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
         campoApreensaoEsq = findViewById(R.id.activity_secao_testes_especiais_ombro_esquerda_apreensao_anterior);
         campoSinalSulcoDir = findViewById(R.id.activity_secao_testes_especiais_ombro_direita_sinal_de_sulco);
         campoSinalSulcoEsq = findViewById(R.id.activity_secao_testes_especiais_ombro_esquerda_sinal_de_sulco);
-        campoDataDash = findViewById(R.id.activity_secao_testes_especiais_ombro_dash_data);
-        campoPontoDash = findViewById(R.id.activity_secao_testes_especiais_ombro_dash_pontuacao);
-        campoResultDash = findViewById(R.id.activity_secao_testes_especiais_ombro_dash_resultados);
-        campoDataAses = findViewById(R.id.activity_secao_testes_especiais_ombro_ases_data);
-        campoPontoAses = findViewById(R.id.activity_secao_testes_especiais_ombro_ases_pontuacao);
-        campoResultAses = findViewById(R.id.activity_secao_testes_especiais_ombro_ases_resultados);
 
         preencheFormulario();
     }
@@ -241,15 +207,6 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
             campoApreensaoEsq.setChecked(ombro.isApreensaoAnteriorEsq());
             campoSinalSulcoDir.setChecked(ombro.isSinalSulcoDir());
             campoSinalSulcoEsq.setChecked(ombro.isSinalSulcoEsq());
-
-            dataDash.setTimeInMillis(ombro.getDashData());
-            dataAses.setTimeInMillis(ombro.getAsesData());
-            atualizaDataDash();
-            campoPontoDash.setText(ombro.getDashPontuacao());
-            campoResultDash.setText(ombro.getDashResultados());
-            atualizaDataAses();
-            campoPontoAses.setText(ombro.getAsesPontuacao());
-            campoResultAses.setText(ombro.getAsesResultados());
         }
     }
 
@@ -269,55 +226,5 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
         ombroQueryManager = new QueryManager<>();
         secoesQueryManager = new QueryManager<>();
     }
-
-
-    private void setListenerCalendariosDatas() {
-
-        DatePickerDialog.OnDateSetListener dateDash = instanciaSeletorData(dataDash);
-        DatePickerDialog.OnDateSetListener dateAses = instanciaSeletorData(dataAses);
-
-
-        atualizaDataAses();
-        atualizaDataDash();
-
-        campoDataDash.setOnFocusChangeListener((v, hasFocus) -> {
-            if (hasFocus) {
-                new DatePickerDialog(SecaoTestesEspeciaisOmbroActivity.this, dateDash,
-                        dataDash.get(Calendar.YEAR),
-                        dataDash.get(Calendar.MONTH),
-                        dataDash.get(Calendar.DAY_OF_MONTH)).show();
-            }
-        });
-
-        campoDataAses.setOnFocusChangeListener((v, hasFocus) -> {
-            if (hasFocus) {
-                new DatePickerDialog(SecaoTestesEspeciaisOmbroActivity.this, dateAses,
-                        dataAses.get(Calendar.YEAR),
-                        dataAses.get(Calendar.MONTH),
-                        dataAses.get(Calendar.DAY_OF_MONTH)).show();
-            }
-        });
-    }
-
-    private DatePickerDialog.OnDateSetListener instanciaSeletorData(Calendar data) {
-        return (view, year, month, dayOfMonth) -> {
-            data.set(Calendar.YEAR, year);
-            data.set(Calendar.MONTH, month);
-            data.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        };
-    }
-
-    private void atualizaDataDash() {
-        String formatoData = "dd/MM/yyyy";
-        SimpleDateFormat dateFormat = new SimpleDateFormat(formatoData, new Locale("pt", "BR"));
-        campoDataDash.setText(dateFormat.format(dataDash.getTime()));
-    }
-
-    private void atualizaDataAses() {
-        String formatoData = "dd/MM/yyyy";
-        SimpleDateFormat dateFormat = new SimpleDateFormat(formatoData, new Locale("pt", "BR"));
-        campoDataAses.setText(dateFormat.format(dataAses.getTime()));
-    }
-
 
 }

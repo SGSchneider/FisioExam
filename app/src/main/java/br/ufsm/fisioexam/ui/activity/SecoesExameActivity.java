@@ -3,7 +3,10 @@ package br.ufsm.fisioexam.ui.activity;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_EXAME;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_ID_PACIENTE;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_SECAO;
+import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_COTOVELO;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_EXAME;
+import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_OMBRO;
+import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_TIPO_PUNHO;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -27,10 +30,16 @@ import java.util.Random;
 
 import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
+import br.ufsm.fisioexam.database.dao.CotoveloDAO;
 import br.ufsm.fisioexam.database.dao.ExameDAO;
+import br.ufsm.fisioexam.database.dao.OmbroDAO;
+import br.ufsm.fisioexam.database.dao.PunhoDAO;
 import br.ufsm.fisioexam.database.dao.SecoesDAO;
 import br.ufsm.fisioexam.database.thread.QueryManager;
+import br.ufsm.fisioexam.model.Cotovelo;
 import br.ufsm.fisioexam.model.Exame;
+import br.ufsm.fisioexam.model.Ombro;
+import br.ufsm.fisioexam.model.Punho;
 import br.ufsm.fisioexam.model.Secao;
 import br.ufsm.fisioexam.model.Secoes;
 import br.ufsm.fisioexam.ui.SecoesExameView;
@@ -273,15 +282,42 @@ public class SecoesExameActivity extends AppCompatActivity {
             secoes = secoesQueryManager.getOne(exame.getId(), secoesDao);
         } else {
             if (dados.hasExtra(CHAVE_TIPO_EXAME)) {
+                boolean flag;
                 setTitle(TITULO_APPBAR_NOVO_EXAME);
                 tipo = (String) dados.getSerializableExtra(CHAVE_TIPO_EXAME);
                 String idPaciente = (String) dados.getSerializableExtra(CHAVE_ID_PACIENTE);
                 exame = new Exame(idPaciente, tipo, geraChaveCriacao());
-                exameQueryManager.insert(exame, exameDao);
+                flag = exameQueryManager.insert(exame, exameDao);
                 exame.setId(exameQueryManager.getIdNovoExame(idPaciente, exame.getCreationKey(), exameDao));
                 secoes = new Secoes(exame.getId());
                 secoesQueryManager.insert(secoes, secoesDao);
+                if(flag){
+                    criaEspecifica();
+                }
                 preencheTitulo();
+            }
+        }
+    }
+
+    private void criaEspecifica() {
+        switch (exame.getTipo()){
+            case CHAVE_TIPO_OMBRO -> {
+                Ombro ombro = new Ombro(exame.getId());
+                QueryManager<Ombro> ombroQueryManager = new QueryManager<>();
+                OmbroDAO ombroDAO = FisioExamDatabase.getInstance(this).getRoomOmbroDAO();
+                ombroQueryManager.insert(ombro, ombroDAO);
+            }
+            case CHAVE_TIPO_COTOVELO -> {
+                Cotovelo cotovelo = new Cotovelo(exame.getId());
+                QueryManager<Cotovelo> cotoveloQueryManager = new QueryManager<>();
+                CotoveloDAO cotoveloDAO = FisioExamDatabase.getInstance(this).getRoomCotoveloDAO();
+                cotoveloQueryManager.insert(cotovelo, cotoveloDAO);
+            }
+            case CHAVE_TIPO_PUNHO -> {
+                Punho punho = new Punho(exame.getId());
+                QueryManager<Punho> punhoQueryManager = new QueryManager<>();
+                PunhoDAO punhoDAO = FisioExamDatabase.getInstance(this).getRoomPunhoDAO();
+                punhoQueryManager.insert(punho,punhoDAO);
             }
         }
     }

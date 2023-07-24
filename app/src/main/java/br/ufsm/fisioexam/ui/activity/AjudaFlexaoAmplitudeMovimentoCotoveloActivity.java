@@ -2,7 +2,7 @@ package br.ufsm.fisioexam.ui.activity;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.ViewGroup.LayoutParams;
+import android.view.ViewGroup;
 import android.view.WindowMetrics;
 import android.widget.Button;
 
@@ -19,19 +19,18 @@ import com.google.android.exoplayer2.upstream.DefaultDataSource;
 
 import br.ufsm.fisioexam.R;
 
-public class AjudaAmplitudeMovimentoOmbroAbducaoActivity extends AppCompatActivity {
-    private ExoPlayer exoPlayer;
+public class AjudaFlexaoAmplitudeMovimentoCotoveloActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ajuda_amplitude_movimento_ombro_abducao);
+        setContentView(R.layout.activity_ajuda_amplitude_movimento_cotovelo_flexao);
         inicializaButtons();
         rodaVideoEmLoop();
     }
 
     private void rodaVideoEmLoop() {
-        StyledPlayerView video = findViewById(R.id.activity_ajuda_amplitude_movimento_ombro_abducao_video);
+        StyledPlayerView video = findViewById(R.id.activity_ajuda_amplitude_movimento_cotovelo_flexao_video);
 
         //Display display = getWindowManager().getDefaultDisplay();
         WindowMetrics size;
@@ -39,15 +38,15 @@ public class AjudaAmplitudeMovimentoOmbroAbducaoActivity extends AppCompatActivi
         //display.getMetrics(size);
         int width = size.getBounds().width();
         int height = (int) (width * (9.0f / 16.0f)); // assumindo uma proporção de aspecto de 16:9
-        LayoutParams params = (LayoutParams) video.getLayoutParams();
+        ViewGroup.LayoutParams params = (ViewGroup.LayoutParams) video.getLayoutParams();
         params.width = width;
         params.height = height;
         video.setLayoutParams(params);
 
 
-        exoPlayer = new ExoPlayer.Builder(this).build();
+        ExoPlayer exoPlayer = new ExoPlayer.Builder(this).build();
 
-        Uri videoUri = Uri.parse("asset:///videos_ombro/amplitude_movimento_abducao.mp4");
+        Uri videoUri = Uri.parse("asset:///videos_cotovelo/amplitude_movimento_flexao.mp4");
 
         MediaSource mediaSource = new ProgressiveMediaSource.Factory(new DefaultDataSource.Factory(this)).createMediaSource(MediaItem.fromUri(videoUri));
 
@@ -61,12 +60,8 @@ public class AjudaAmplitudeMovimentoOmbroAbducaoActivity extends AppCompatActivi
     }
 
     private void inicializaButtons() {
-        Button sair = findViewById(R.id.activity_ajuda_amplitude_movimento_ombro_abducao_button_sair);
-        sair.setOnClickListener(v -> finalizaAjuda());
-    }
-
-    private void finalizaAjuda() {
-        exoPlayer.release();
-        finish();
+        Button sair;
+        sair = findViewById(R.id.activity_ajuda_amplitude_movimento_cotovelo_flexao_button_sair);
+        sair.setOnClickListener(v -> finish());
     }
 }

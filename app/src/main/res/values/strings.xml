@@ -272,7 +272,7 @@
     <string name="posicao_do_paciente">Posição do Paciente :</string>
     <string name="sentado">Sentado</string>
     <string name="eixo">Eixo :</string>
-    <string name="eixo_articular">Eixo articular (cabeça do úmero lateralmente)</string>
+    <string name="eixo_articular_cabeca_umero">Eixo articular (cabeça do úmero lateralmente)</string>
     <string name="braco_fixo">Braço Fixo :</string>
     <string name="linha_media_lateral_do_tronco">Linha média lateral do tronco</string>
     <string name="braco_movel">Braço Móvel :</string>
@@ -343,4 +343,19 @@
     <string name="exame_de_cotovelo">Exame de Cotovelo</string>
     <string name="exame_de_punho">Exame de Punho</string>
     <string name="lista_de_exames">Lista de Exames</string>
+    <string name="eixo_articular_lateralmente">Eixo articular (lateralmente)</string>
+    <string name="linha_media_lateral_do_umero">Linha Média lateral do úmero</string>
+    <string name="linha_media_lateral_do_radio">Linha Média lateral do rádio</string>
+    <string name="normalidade_flexao_ampmov_cotovelo">0–140°/150°</string>
+    <string name="normalidade_extensao_ampmov_cotovelo">0–140°/150°</string>
+    <string name="sentado_cotovelo_a_90_antebraco_neutro_segurando_caneta">Sentado, cotovelo a 90°, antebraço neutro, segurando uma caneta.</string>
+    <string name="direcao_cabeca_3_metacarpo">Direção cabeça 3º metacarpo</string>
+    <string name="alinhado_a_linha_formada_pelos_dedos_e_a_caneta">Alinhado à linha formada pelos dedos e a caneta</string>
+    <string name="normalidade_pronacao_ampmov_cotovelo">0–85°/90°</string>
+    <string name="normalidade_supinacao_ampmov_cotovelo">0–85°/90°</string>
+    <string name="normalidade_angulo_carregamento_ampmov_cotovelo">Homens: 5–10°\nMulheres: 10–15°</string>
+    <string name="paralelo_ao_antebraco_anterior">Paralelo ao antebraço (anterior)</string>
+    <string name="paralelo_ao_umero_anterior">Paralelo ao úmero (anterior)</string>
+    <string name="linha_antecubial">Na Linha Antecubial</string>
+    <string name="sentado_cotovelo_em_extensao">Sentado, Cotovelo em extensão</string>
 </resources>

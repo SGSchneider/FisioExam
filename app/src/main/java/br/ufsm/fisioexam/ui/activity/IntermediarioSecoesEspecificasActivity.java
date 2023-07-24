@@ -206,13 +206,9 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         OmbroDAO ombroDAO = database.getRoomOmbroDAO();
         QueryManager<Ombro> queryManager = new QueryManager<>();
-        if (queryManager.atualizaLista(exame.getId(), ombroDAO).isEmpty()) {
-            ombro = new Ombro(exame.getId());
-            queryManager.insert(ombro, ombroDAO);
-            ombro.setId(queryManager.getIdByForeign(exame.getId(), ombroDAO));
-        } else {
-            ombro = queryManager.getOne(queryManager.getIdByForeign(exame.getId(), ombroDAO), ombroDAO);
-        }
+        String id;
+        id = queryManager.getIdByForeign(exame.getId(), ombroDAO);
+        ombro = queryManager.getOne(id, ombroDAO);
         return ombro;
     }
 
@@ -221,13 +217,9 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         CotoveloDAO cotoveloDAO = database.getRoomCotoveloDAO();
         QueryManager<Cotovelo> queryManager = new QueryManager<>();
-        if (queryManager.atualizaLista(exame.getId(), cotoveloDAO).isEmpty()) {
-            cotovelo = new Cotovelo(exame.getId());
-            queryManager.insert(cotovelo, cotoveloDAO);
-            cotovelo.setId(queryManager.getIdByForeign(exame.getId(), cotoveloDAO));
-        } else {
-            cotovelo = queryManager.getOne(queryManager.getIdByForeign(exame.getId(), cotoveloDAO), cotoveloDAO);
-        }
+        String id;
+        id = queryManager.getIdByForeign(exame.getId(), cotoveloDAO);
+        cotovelo = queryManager.getOne(id, cotoveloDAO);
         return cotovelo;
     }
 
@@ -236,14 +228,9 @@ public class IntermediarioSecoesEspecificasActivity extends AppCompatActivity {
         FisioExamDatabase database = FisioExamDatabase.getInstance(this);
         PunhoDAO punhoDAO = database.getRoomPunhoDAO();
         QueryManager<Punho> queryManager = new QueryManager<>();
-        if (queryManager.atualizaLista(exame.getId(), punhoDAO).isEmpty()) {
-            punho = new Punho(exame.getId());
-            queryManager.insert(punho, punhoDAO);
-            punho.setId(queryManager.getIdByForeign(exame.getId(), punhoDAO));
-        } else {
-            punho = queryManager.getOne(queryManager.getIdByForeign(exame.getId(), punhoDAO), punhoDAO);
-        }
-
+        String id;
+        id = queryManager.getIdByForeign(exame.getId(), punhoDAO);
+        punho = queryManager.getOne(id, punhoDAO);
         return punho;
     }
 
