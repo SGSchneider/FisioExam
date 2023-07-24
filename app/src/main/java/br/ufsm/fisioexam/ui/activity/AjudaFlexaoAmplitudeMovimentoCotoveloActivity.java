@@ -32,16 +32,7 @@ public class AjudaFlexaoAmplitudeMovimentoCotoveloActivity extends AppCompatActi
     private void rodaVideoEmLoop() {
         StyledPlayerView video = findViewById(R.id.activity_ajuda_amplitude_movimento_cotovelo_flexao_video);
 
-        //Display display = getWindowManager().getDefaultDisplay();
-        WindowMetrics size;
-        size = getWindowManager().getMaximumWindowMetrics();
-        //display.getMetrics(size);
-        int width = size.getBounds().width();
-        int height = (int) (width * (9.0f / 16.0f)); // assumindo uma proporção de aspecto de 16:9
-        ViewGroup.LayoutParams params = (ViewGroup.LayoutParams) video.getLayoutParams();
-        params.width = width;
-        params.height = height;
-        video.setLayoutParams(params);
+        RedimensionaPlayerVideo(video);
 
 
         ExoPlayer exoPlayer = new ExoPlayer.Builder(this).build();
@@ -59,6 +50,16 @@ public class AjudaFlexaoAmplitudeMovimentoCotoveloActivity extends AppCompatActi
         video.setPlayer(exoPlayer);
     }
 
+    private void RedimensionaPlayerVideo(StyledPlayerView video) {
+        WindowMetrics size;
+        size = getWindowManager().getMaximumWindowMetrics();
+        int width = size.getBounds().width();
+        int height = (int) (width * (9.0f / 16.0f)); // assumindo uma proporção de aspecto de 16:9
+        ViewGroup.LayoutParams params = (ViewGroup.LayoutParams) video.getLayoutParams();
+        params.width = width;
+        params.height = height;
+        video.setLayoutParams(params);
+    }
     private void inicializaButtons() {
         Button sair;
         sair = findViewById(R.id.activity_ajuda_amplitude_movimento_cotovelo_flexao_button_sair);

@@ -2,7 +2,7 @@ package br.ufsm.fisioexam.ui.activity;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.ViewGroup.LayoutParams;
+import android.view.ViewGroup;
 import android.view.WindowMetrics;
 import android.widget.Button;
 
@@ -33,16 +33,7 @@ public class AjudaAmplitudeMovimentoOmbroAbducaoActivity extends AppCompatActivi
     private void rodaVideoEmLoop() {
         StyledPlayerView video = findViewById(R.id.activity_ajuda_amplitude_movimento_ombro_abducao_video);
 
-        //Display display = getWindowManager().getDefaultDisplay();
-        WindowMetrics size;
-        size = getWindowManager().getMaximumWindowMetrics();
-        //display.getMetrics(size);
-        int width = size.getBounds().width();
-        int height = (int) (width * (9.0f / 16.0f)); // assumindo uma proporção de aspecto de 16:9
-        LayoutParams params = (LayoutParams) video.getLayoutParams();
-        params.width = width;
-        params.height = height;
-        video.setLayoutParams(params);
+        RedimensionaPlayerVideo(video);
 
 
         exoPlayer = new ExoPlayer.Builder(this).build();
@@ -58,6 +49,17 @@ public class AjudaAmplitudeMovimentoOmbroAbducaoActivity extends AppCompatActivi
         exoPlayer.setPlayWhenReady(true);
 
         video.setPlayer(exoPlayer);
+    }
+
+    private void RedimensionaPlayerVideo(StyledPlayerView video) {
+        WindowMetrics size;
+        size = getWindowManager().getMaximumWindowMetrics();
+        int width = size.getBounds().width();
+        int height = (int) (width * (9.0f / 16.0f)); // assumindo uma proporção de aspecto de 16:9
+        ViewGroup.LayoutParams params = (ViewGroup.LayoutParams) video.getLayoutParams();
+        params.width = width;
+        params.height = height;
+        video.setLayoutParams(params);
     }
 
     private void inicializaButtons() {

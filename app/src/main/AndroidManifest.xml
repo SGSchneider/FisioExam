@@ -90,6 +90,7 @@
         <activity android:name=".ui.activity.AjudaTestesEspeciaisOmbroSpeedActivity"/>
         <activity android:name=".ui.activity.AjudaTestesEspeciaisOmbroYergasonActivity"/>
         <activity android:name=".ui.activity.AjudaFlexaoAmplitudeMovimentoCotoveloActivity"/>
+        <activity android:name=".ui.activity.AjudaAnguloCarregamentoAmplitudeMovimentoCotoveloActivity"/>
     </application>
 
 
