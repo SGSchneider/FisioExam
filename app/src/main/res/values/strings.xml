@@ -294,8 +294,9 @@
     <string name="dd_ou_dv">Decúbito dorsal (DD) ou decúbito ventral (DV)</string>
     <string name="pacientes">Pacientes</string>
     <string name="configuracoes">Configurações</string>
-    <string name="explicacao_ajuda_perimetria_ombro">A partir de um ponto fixo na linha da fossa antecubital, marcar (no braço e no antebraço) distâncias lineares a cada 5 cm. Nestas posições realizar a medida da circunferência do membro.</string>
+    <string name="explicacao_ajuda_perimetria">A partir de um ponto fixo na linha da fossa antecubital, marcar (no braço e no antebraço) distâncias lineares a cada 5 cm. Nestas posições realizar a medida da circunferência do membro.</string>
     <string name="sentado_ou_decubito_dorsal">Sentado ou decúbito dorsal</string>
+    <string name="sentado_ou_decubito_dorsal_cotovelo_90_pronacao">Sentado ou decúbito dorsal, cotovelo a 90°, pronação</string>
     <string name="sentado_ou_decubito_ventral">Sentado ou decúbito ventral</string>
     <string name="valor_de_normalidade">Valor de Normalidade :</string>
     <string name="normalidade_flexao_ampmov_ombro">0–170°/180°</string>
@@ -358,4 +359,25 @@
     <string name="paralelo_ao_umero_anterior">Paralelo ao úmero (anterior)</string>
     <string name="linha_antecubial">Na Linha Antecubial</string>
     <string name="sentado_cotovelo_em_extensao">Sentado, Cotovelo em extensão</string>
+    <string name="sentado_membro_apoiado_abducao_ombro_90_extensao_supinacao_cotovelo">Sentado, membro apoiado, abdução do ombro a 90°, extensão e supinação de cotovelo</string>
+    <string name="acima_articulacao_punho">Acima da articulação do punho</string>
+    <string name="flexao_do_cotovelo">Flexão do cotovelo</string>
+    <string name="sentado_flexao_de_cotovelo_90_supinacao_antebraco">Sentado, flexão de cotovelo a 90°, supinação do antebraço</string>
+    <string name="biceps_braquial">Bíceps Braquial</string>
+    <string name="braquial">Braquial</string>
+    <string name="sentado_flexao_de_cotovelo_90_pronacao_antebraco">Sentado, flexão de cotovelo a 90°, pronação do antebraço</string>
+    <string name="braquiorradial">Braquiorradial</string>
+    <string name="sentado_flexao_de_cotovelo_90_antebraco_neutro">Sentado, flexão de cotovelo a 90°, antebraço neutro</string>
+    <string name="triceps_braquial_anconeo">Tríceps Braquial e Ânconeo</string>
+    <string name="decubito_dorsal_flexao_ombro_cotovelo">Decúbito dorsal (DD), flexão de ombro e cotovelo</string>
+    <string name="extensao_do_cotovelo">Extensão do cotovelo</string>
+    <string name="posterior_articulacao_punho">Posterior na articulação do punho</string>
+    <string name="sentado_membro_apoiado_flexao_ombro_90_flexao_cotovelo">Sentado, membro apoiado, flexão de ombro a 90°, flexão de cotovelo</string>
+    <string name="supinador">Supinador</string>
+    <string name="supinar_antebraco">Supinar o antebraço</string>
+    <string name="anteriormente_articulacao_punho">Anteriormente na articulação do punho</string>
+    <string name="sentado_decubito_ventral_abducao_ombro_cotovelo_fletido_borda_maca">Sentado ou decúbito ventral, abdução de ombro, cotovelo fletido à borda da maca</string>
+    <string name="pronador_redondo_e_quadrado">Pronador Redondo e Pronador Quadrado</string>
+    <string name="sentado_decubito_dorsal_cotovelo_90_supinacao">Sentado ou decúbito dorsal, cotovelo a 90°, supinação</string>
+    <string name="pronar_antebraco">Pronar o antebraço</string>
 </resources>

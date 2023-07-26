@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <ScrollView
-        android:id="@+id/activity_ajuda_perimetria_ombro_scroll_view"
+        android:id="@+id/activity_ajuda_perimetria_cotovelo_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="96dp"
@@ -25,9 +26,8 @@
                     android:elegantTextHeight="true"/>
         </LinearLayout>
     </ScrollView>
-
     <Button
-        android:id="@+id/activity_ajuda_perimetria_ombro_button_sair"
+        android:id="@+id/activity_ajuda_perimetria_cotovelo_button_sair"
         android:layout_width="160dp"
         android:layout_height="64dp"
         android:layout_margin="8dp"
@@ -35,7 +35,8 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activity_ajuda_perimetria_ombro_scroll_view"
+        app:layout_constraintTop_toBottomOf="@id/activity_ajuda_perimetria_cotovelo_scroll_view"
         app:layout_constraintVertical_bias="1" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
