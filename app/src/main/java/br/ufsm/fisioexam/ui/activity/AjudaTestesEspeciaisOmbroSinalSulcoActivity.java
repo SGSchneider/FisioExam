@@ -27,7 +27,7 @@ public class AjudaTestesEspeciaisOmbroSinalSulcoActivity extends AppCompatActivi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajuda_testes_especiais_ombro_sinal_sulco);
         inicializaButtons();
-        //rodaVideoEmLoop();TODO Vídeo inexistente até o momento
+        rodaVideoEmLoop();
 
     }
 
@@ -58,7 +58,7 @@ public class AjudaTestesEspeciaisOmbroSinalSulcoActivity extends AppCompatActivi
         size = getWindowManager().getMaximumWindowMetrics();
         int width = size.getBounds().width();
         int height = (int) (width * (9.0f / 16.0f)); // assumindo uma proporção de aspecto de 16:9
-        ViewGroup.LayoutParams params = (ViewGroup.LayoutParams) video.getLayoutParams();
+        ViewGroup.LayoutParams params = video.getLayoutParams();
         params.width = width;
         params.height = height;
         video.setLayoutParams(params);

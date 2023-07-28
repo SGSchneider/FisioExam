@@ -21,6 +21,7 @@ import br.ufsm.fisioexam.R;
 
 public class AjudaAmplitudeMovimentoOmbroAducaoHorizontalActivity extends AppCompatActivity {
     private ExoPlayer exoPlayer;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +58,7 @@ public class AjudaAmplitudeMovimentoOmbroAducaoHorizontalActivity extends AppCom
         size = getWindowManager().getMaximumWindowMetrics();
         int width = size.getBounds().width();
         int height = (int) (width * (9.0f / 16.0f)); // assumindo uma proporção de aspecto de 16:9
-        ViewGroup.LayoutParams params = (ViewGroup.LayoutParams) video.getLayoutParams();
+        ViewGroup.LayoutParams params = video.getLayoutParams();
         params.width = width;
         params.height = height;
         video.setLayoutParams(params);

@@ -19,25 +19,25 @@ import com.google.android.exoplayer2.upstream.DefaultDataSource;
 
 import br.ufsm.fisioexam.R;
 
-public class AjudaFlexaoAmplitudeMovimentoCotoveloActivity extends AppCompatActivity {
+public class AjudaAmplitudeMovimentoCotoveloSupinacaoActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState){
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ajuda_amplitude_movimento_cotovelo_flexao);
+        setContentView(R.layout.activity_ajuda_amplitude_movimento_cotovelo_supinacao);
         inicializaButtons();
         rodaVideoEmLoop();
     }
 
     private void rodaVideoEmLoop() {
-        StyledPlayerView video = findViewById(R.id.activity_ajuda_amplitude_movimento_cotovelo_flexao_video);
+        StyledPlayerView video = findViewById(R.id.activity_ajuda_amplitude_movimento_cotovelo_supinacao_video);
 
         RedimensionaPlayerVideo(video);
 
 
         ExoPlayer exoPlayer = new ExoPlayer.Builder(this).build();
 
-        Uri videoUri = Uri.parse("asset:///videos_cotovelo/amplitude_movimento_flexao.mp4");
+        Uri videoUri = Uri.parse("asset:///videos_cotovelo/amplitude_movimento_supinacao.mp4");
 
         MediaSource mediaSource = new ProgressiveMediaSource.Factory(new DefaultDataSource.Factory(this)).createMediaSource(MediaItem.fromUri(videoUri));
 
@@ -55,14 +55,15 @@ public class AjudaFlexaoAmplitudeMovimentoCotoveloActivity extends AppCompatActi
         size = getWindowManager().getMaximumWindowMetrics();
         int width = size.getBounds().width();
         int height = (int) (width * (9.0f / 16.0f)); // assumindo uma proporção de aspecto de 16:9
-        ViewGroup.LayoutParams params = (ViewGroup.LayoutParams) video.getLayoutParams();
+        ViewGroup.LayoutParams params = video.getLayoutParams();
         params.width = width;
         params.height = height;
         video.setLayoutParams(params);
     }
+
     private void inicializaButtons() {
         Button sair;
-        sair = findViewById(R.id.activity_ajuda_amplitude_movimento_cotovelo_flexao_button_sair);
+        sair = findViewById(R.id.activity_ajuda_amplitude_movimento_cotovelo_supinacao_button_sair);
         sair.setOnClickListener(v -> finish());
     }
 }

@@ -79,11 +79,11 @@ public class SecaoAmplitudeMovimentoCotoveloActivity extends AppCompatActivity {
         buttonProximo.setOnClickListener(v -> proximoForm());
         buttonSalvar.setOnClickListener(v-> salvarESair());
 
-        buttonHelpFlexao.setOnClickListener(v -> vaiParaAjuda(AjudaFlexaoAmplitudeMovimentoCotoveloActivity.class));
-        buttonHelpExtensao.setOnClickListener(v -> vaiParaAjuda(AjudaExtensaoAmplitudeMovimentoCotoveloActivity.class));
-        buttonHelpSupinacao.setOnClickListener(v -> vaiParaAjuda(AjudaSupinacaoAmplitudeMovimentoCotoveloActivity.class));
-        buttonHelpPronacao.setOnClickListener(v -> vaiParaAjuda(AjudaPronacaoAmplitudeMovimentoCotoveloActivity.class));
-        buttonHelpAnguloCarregamento.setOnClickListener(v -> vaiParaAjuda(AjudaAnguloCarregamentoAmplitudeMovimentoCotoveloActivity.class));
+        buttonHelpFlexao.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoCotoveloFlexaoActivity.class));
+        buttonHelpExtensao.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoCotoveloExtensaoActivity.class));
+        buttonHelpSupinacao.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoCotoveloSupinacaoActivity.class));
+        buttonHelpPronacao.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoCotoveloPronacaoActivity.class));
+        buttonHelpAnguloCarregamento.setOnClickListener(v -> vaiParaAjuda(AjudaAmplitudeMovimentoCotoveloAnguloCarregamentoActivity.class));
 
     }
 

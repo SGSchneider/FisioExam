@@ -19,10 +19,10 @@ import com.google.android.exoplayer2.upstream.DefaultDataSource;
 
 import br.ufsm.fisioexam.R;
 
-public class AjudaPronacaoAmplitudeMovimentoCotoveloActivity extends AppCompatActivity {
+public class AjudaAmplitudeMovimentoCotoveloPronacaoActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState){
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajuda_amplitude_movimento_cotovelo_pronacao);
         inicializaButtons();
@@ -55,11 +55,12 @@ public class AjudaPronacaoAmplitudeMovimentoCotoveloActivity extends AppCompatAc
         size = getWindowManager().getMaximumWindowMetrics();
         int width = size.getBounds().width();
         int height = (int) (width * (9.0f / 16.0f)); // assumindo uma proporção de aspecto de 16:9
-        ViewGroup.LayoutParams params = (ViewGroup.LayoutParams) video.getLayoutParams();
+        ViewGroup.LayoutParams params = video.getLayoutParams();
         params.width = width;
         params.height = height;
         video.setLayoutParams(params);
     }
+
     private void inicializaButtons() {
         Button sair;
         sair = findViewById(R.id.activity_ajuda_amplitude_movimento_cotovelo_pronacao_button_sair);

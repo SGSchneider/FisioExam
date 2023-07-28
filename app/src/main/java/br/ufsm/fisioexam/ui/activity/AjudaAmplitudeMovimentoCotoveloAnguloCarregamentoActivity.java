@@ -19,13 +19,16 @@ import com.google.android.exoplayer2.upstream.DefaultDataSource;
 
 import br.ufsm.fisioexam.R;
 
-public class AjudaTestesEspeciaisOmbroPatteActivity extends AppCompatActivity {
+public class AjudaAmplitudeMovimentoCotoveloAnguloCarregamentoActivity extends AppCompatActivity {
+
     private ExoPlayer exoPlayer;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ajuda_testes_especiais_ombro_patte);
+        setContentView(R.layout.activity_ajuda_amplitude_movimento_cotovelo_angulo_carregamento);
+        InicializaExoPlayers();
         inicializaButtons();
         rodaVideoEmLoop();
 
@@ -33,24 +36,25 @@ public class AjudaTestesEspeciaisOmbroPatteActivity extends AppCompatActivity {
 
 
     private void rodaVideoEmLoop() {
-        StyledPlayerView video = findViewById(R.id.activity_ajuda_testes_especiais_ombro_patte_video);
+        StyledPlayerView video = findViewById(R.id.activity_ajuda_amplitude_movimento_cotovelo_angulo_carregamento_video);
 
         RedimensionaPlayerVideo(video);
 
+        DefineExoPlayer(exoPlayer);
+        video.setPlayer(exoPlayer);
+    }
 
+    private void InicializaExoPlayers() {
         exoPlayer = new ExoPlayer.Builder(this).build();
+    }
 
-        Uri videoUri = Uri.parse("asset:///videos_ombro/testes_especiais_patte.mp4");
-
-        MediaSource mediaSource = new ProgressiveMediaSource.Factory(new DefaultDataSource.Factory(this)).createMediaSource(MediaItem.fromUri(videoUri));
-
-
-        exoPlayer.setMediaSource(mediaSource);
+    private void DefineExoPlayer(ExoPlayer exoPlayer) {
+        Uri videoUriA = Uri.parse("asset:///videos_cotovelo/amplitude_movimento_angulo_carregamento.mp4");
+        MediaSource mediaSourceA = new ProgressiveMediaSource.Factory(new DefaultDataSource.Factory(this)).createMediaSource(MediaItem.fromUri(videoUriA));
+        exoPlayer.setMediaSource(mediaSourceA);
         exoPlayer.setRepeatMode(Player.REPEAT_MODE_ALL);
         exoPlayer.prepare();
         exoPlayer.setPlayWhenReady(true);
-
-        video.setPlayer(exoPlayer);
     }
 
     private void RedimensionaPlayerVideo(StyledPlayerView video) {
@@ -65,7 +69,7 @@ public class AjudaTestesEspeciaisOmbroPatteActivity extends AppCompatActivity {
     }
 
     private void inicializaButtons() {
-        Button sair = findViewById(R.id.activity_ajuda_testes_especiais_ombro_patte_button_sair);
+        Button sair = findViewById(R.id.activity_ajuda_amplitude_movimento_cotovelo_angulo_carregamento_button_sair);
         sair.setOnClickListener(v -> finalizaAjuda());
     }
 

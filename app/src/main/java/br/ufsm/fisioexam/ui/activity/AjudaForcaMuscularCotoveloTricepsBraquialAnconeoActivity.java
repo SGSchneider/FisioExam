@@ -19,15 +19,14 @@ import com.google.android.exoplayer2.upstream.DefaultDataSource;
 
 import br.ufsm.fisioexam.R;
 
-public class AjudaAnguloCarregamentoAmplitudeMovimentoCotoveloActivity  extends AppCompatActivity {
-
-    private ExoPlayer exoPlayer;
-
+public class AjudaForcaMuscularCotoveloTricepsBraquialAnconeoActivity extends AppCompatActivity {
+    private ExoPlayer exoPlayerA;
+    private ExoPlayer exoPlayerB;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ajuda_amplitude_movimento_cotovelo_angulo_carregamento);
+        setContentView(R.layout.activity_ajuda_forca_muscular_cotovelo_triceps_braquial_anconeo);
         InicializaExoPlayers();
         inicializaButtons();
         rodaVideoEmLoop();
@@ -36,20 +35,28 @@ public class AjudaAnguloCarregamentoAmplitudeMovimentoCotoveloActivity  extends 
 
 
     private void rodaVideoEmLoop() {
-        StyledPlayerView video = findViewById(R.id.activity_ajuda_amplitude_movimento_cotovelo_angulo_carregamento_video);
+        StyledPlayerView videoA = findViewById(R.id.activity_ajuda_forca_muscular_cotovelo_triceps_braquial_anconeo_video_a);
+        StyledPlayerView videoB = findViewById(R.id.activity_ajuda_forca_muscular_cotovelo_triceps_braquial_anconeo_video_b);
 
-        RedimensionaPlayerVideo(video);
+        RedimensionaPlayerVideo(videoA);
+        RedimensionaPlayerVideo(videoB);
 
-        DefineExoPlayer(exoPlayer);
-        video.setPlayer(exoPlayer);
+
+        DefineExoPlayer(exoPlayerA, "asset:///videos_cotovelo/forca_muscular_triceps_braquial_anconeo_a.mp4");
+        videoA.setPlayer(exoPlayerA);
+
+
+        DefineExoPlayer(exoPlayerB, "asset:///videos_cotovelo/forca_muscular_triceps_braquial_anconeo_b.mp4");
+        videoB.setPlayer(exoPlayerB);
     }
 
     private void InicializaExoPlayers() {
-        exoPlayer = new ExoPlayer.Builder(this).build();
+        exoPlayerA = new ExoPlayer.Builder(this).build();
+        exoPlayerB = new ExoPlayer.Builder(this).build();
     }
 
-    private void DefineExoPlayer(ExoPlayer exoPlayer) {
-        Uri videoUriA = Uri.parse("asset:///videos_cotovelo/amplitude_movimento_angulo_carregamento.mp4");
+    private void DefineExoPlayer(ExoPlayer exoPlayer, String path) {
+        Uri videoUriA = Uri.parse(path);
         MediaSource mediaSourceA = new ProgressiveMediaSource.Factory(new DefaultDataSource.Factory(this)).createMediaSource(MediaItem.fromUri(videoUriA));
         exoPlayer.setMediaSource(mediaSourceA);
         exoPlayer.setRepeatMode(Player.REPEAT_MODE_ALL);
@@ -62,19 +69,20 @@ public class AjudaAnguloCarregamentoAmplitudeMovimentoCotoveloActivity  extends 
         size = getWindowManager().getMaximumWindowMetrics();
         int width = size.getBounds().width();
         int height = (int) (width * (9.0f / 16.0f)); // assumindo uma proporção de aspecto de 16:9
-        ViewGroup.LayoutParams params = (ViewGroup.LayoutParams) video.getLayoutParams();
+        ViewGroup.LayoutParams params = video.getLayoutParams();
         params.width = width;
         params.height = height;
         video.setLayoutParams(params);
     }
 
     private void inicializaButtons() {
-        Button sair = findViewById(R.id.activity_ajuda_amplitude_movimento_cotovelo_angulo_carregamento_button_sair);
+        Button sair = findViewById(R.id.activity_ajuda_forca_muscular_cotovelo_triceps_braquial_anconeo_button_sair);
         sair.setOnClickListener(v -> finalizaAjuda());
     }
 
     private void finalizaAjuda() {
-        exoPlayer.release();
+        exoPlayerA.release();
+        exoPlayerB.release();
         finish();
     }
 }

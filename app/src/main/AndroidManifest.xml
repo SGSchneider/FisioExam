@@ -16,11 +16,25 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+
+<!--        Paciente
+-->
         <activity android:name=".ui.activity.ListaPacientesActivity"/>
         <activity android:name=".ui.activity.FormularioPacienteActivity"/>
+
+<!--        Configurações
+-->
         <activity android:name=".ui.activity.ConfiguracoesActivity"/>
+
+<!--        Exame
+-->
         <activity android:name=".ui.activity.ListaExamesActivity"/>
         <activity android:name=".ui.activity.SecoesExameActivity"/>
+        <activity android:name=".ui.activity.IntermediarioSecoesEspecificasActivity"/>
+
+<!--        Seções Gerais
+-->
         <activity android:name=".ui.activity.SecaoDiagnosticoMedicoActivity"/>
         <activity android:name=".ui.activity.SecaoQueixaPrincipalActivity"/>
         <activity android:name=".ui.activity.SecaoHistoriaDoencaAtualActivity"/>
@@ -41,23 +55,34 @@
         <activity android:name=".ui.activity.SecaoDiagnosticoFisioterapeuticoActivity"/>
         <activity android:name=".ui.activity.SecaoObjetivosTratamentoActivity"/>
         <activity android:name=".ui.activity.SecaoPlanoTratamentoActivity"/>
+
+<!--        Seções Ombro
+-->
         <activity android:name=".ui.activity.SecaoAmplitudeMovimentoOmbroActivity"/>
-        <activity android:name=".ui.activity.IntermediarioSecoesEspecificasActivity"/>
         <activity android:name=".ui.activity.SecaoPerimetriaOmbroActivity"/>
         <activity android:name=".ui.activity.SecaoForcaMuscularOmbroPt1Activity"/>
         <activity android:name=".ui.activity.SecaoForcaMuscularOmbroPt2Activity"/>
         <activity android:name=".ui.activity.SecaoSensibilidadeOmbroActivity"/>
         <activity android:name=".ui.activity.SecaoTestesEspeciaisOmbroActivity"/>
+
+<!--        Seções Cotovelo
+-->
         <activity android:name=".ui.activity.SecaoAmplitudeMovimentoCotoveloActivity"/>
         <activity android:name=".ui.activity.SecaoPerimetriaCotoveloActivity"/>
         <activity android:name=".ui.activity.SecaoForcaMuscularCotoveloActivity"/>
         <activity android:name=".ui.activity.SecaoSensibilidadeCotoveloActivity"/>
         <activity android:name=".ui.activity.SecaoTestesEspeciaisCotoveloActivity"/>
+
+<!--        Seções Punho
+-->
         <activity android:name=".ui.activity.SecaoAmplitudeMovimentoPunhoActivity"/>
         <activity android:name=".ui.activity.SecaoPerimetriaPunhoActivity"/>
         <activity android:name=".ui.activity.SecaoForcaMuscularPunhoActivity"/>
         <activity android:name=".ui.activity.SecaoSensibilidadePunhoActivity"/>
         <activity android:name=".ui.activity.SecaoTestesEspeciaisPunhoActivity"/>
+
+<!--        Ajuda Ombro
+-->
         <activity android:name=".ui.activity.AjudaAmplitudeMovimentoOmbroFlexaoActivity"/>
         <activity android:name=".ui.activity.AjudaAmplitudeMovimentoOmbroExtensaoActivity"/>
         <activity android:name=".ui.activity.AjudaAmplitudeMovimentoOmbroAbducaoActivity"/>
@@ -89,8 +114,20 @@
         <activity android:name=".ui.activity.AjudaTestesEspeciaisOmbroPatteActivity"/>
         <activity android:name=".ui.activity.AjudaTestesEspeciaisOmbroSpeedActivity"/>
         <activity android:name=".ui.activity.AjudaTestesEspeciaisOmbroYergasonActivity"/>
-        <activity android:name=".ui.activity.AjudaFlexaoAmplitudeMovimentoCotoveloActivity"/>
-        <activity android:name=".ui.activity.AjudaAnguloCarregamentoAmplitudeMovimentoCotoveloActivity"/>
+
+<!--        Ajuda Cotovelo
+-->
+        <activity android:name=".ui.activity.AjudaAmplitudeMovimentoCotoveloFlexaoActivity"/>
+        <activity android:name=".ui.activity.AjudaAmplitudeMovimentoCotoveloExtensaoActivity"/>
+        <activity android:name=".ui.activity.AjudaAmplitudeMovimentoCotoveloSupinacaoActivity"/>
+        <activity android:name=".ui.activity.AjudaAmplitudeMovimentoCotoveloPronacaoActivity"/>
+        <activity android:name=".ui.activity.AjudaAmplitudeMovimentoCotoveloAnguloCarregamentoActivity"/>
+        <activity android:name=".ui.activity.AjudaForcaMuscularCotoveloBicepsBraquialActivity"/>
+        <activity android:name=".ui.activity.AjudaForcaMuscularCotoveloBraquialActivity"/>
+        <activity android:name=".ui.activity.AjudaForcaMuscularCotoveloPronadorRedondoEQuadradoActivity"/>
+        <activity android:name=".ui.activity.AjudaForcaMuscularCotoveloSupinadorActivity"/>
+        <activity android:name=".ui.activity.AjudaForcaMuscularCotoveloTricepsBraquialAnconeoActivity"/>
+        <activity android:name=".ui.activity.AjudaPerimetriaCotoveloActivity"/>
     </application>
 
 

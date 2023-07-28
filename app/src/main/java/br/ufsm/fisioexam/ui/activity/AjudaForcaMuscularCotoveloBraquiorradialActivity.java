@@ -19,13 +19,15 @@ import com.google.android.exoplayer2.upstream.DefaultDataSource;
 
 import br.ufsm.fisioexam.R;
 
-public class AjudaTestesEspeciaisOmbroPatteActivity extends AppCompatActivity {
-    private ExoPlayer exoPlayer;
+public class AjudaForcaMuscularCotoveloBraquiorradialActivity extends AppCompatActivity {
+    private ExoPlayer exoPlayerA;
+    private ExoPlayer exoPlayerB;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ajuda_testes_especiais_ombro_patte);
+        setContentView(R.layout.activity_ajuda_forca_muscular_cotovelo_braquiorradial);
+        InicializaExoPlayers();
         inicializaButtons();
         rodaVideoEmLoop();
 
@@ -33,24 +35,33 @@ public class AjudaTestesEspeciaisOmbroPatteActivity extends AppCompatActivity {
 
 
     private void rodaVideoEmLoop() {
-        StyledPlayerView video = findViewById(R.id.activity_ajuda_testes_especiais_ombro_patte_video);
+        StyledPlayerView videoA = findViewById(R.id.activity_ajuda_forca_muscular_cotovelo_braquiorradial_video_a);
+        StyledPlayerView videoB = findViewById(R.id.activity_ajuda_forca_muscular_cotovelo_braquiorradial_video_b);
 
-        RedimensionaPlayerVideo(video);
-
-
-        exoPlayer = new ExoPlayer.Builder(this).build();
-
-        Uri videoUri = Uri.parse("asset:///videos_ombro/testes_especiais_patte.mp4");
-
-        MediaSource mediaSource = new ProgressiveMediaSource.Factory(new DefaultDataSource.Factory(this)).createMediaSource(MediaItem.fromUri(videoUri));
+        RedimensionaPlayerVideo(videoA);
+        RedimensionaPlayerVideo(videoB);
 
 
-        exoPlayer.setMediaSource(mediaSource);
+        DefineExoPlayer(exoPlayerA, "asset:///videos_cotovelo/forca_muscular_braquiorradial_a.mp4");
+        videoA.setPlayer(exoPlayerA);
+
+
+        DefineExoPlayer(exoPlayerB, "asset:///videos_cotovelo/forca_muscular_braquiorradial_b.mp4");
+        videoB.setPlayer(exoPlayerB);
+    }
+
+    private void InicializaExoPlayers() {
+        exoPlayerA = new ExoPlayer.Builder(this).build();
+        exoPlayerB = new ExoPlayer.Builder(this).build();
+    }
+
+    private void DefineExoPlayer(ExoPlayer exoPlayer, String path) {
+        Uri videoUriA = Uri.parse(path);
+        MediaSource mediaSourceA = new ProgressiveMediaSource.Factory(new DefaultDataSource.Factory(this)).createMediaSource(MediaItem.fromUri(videoUriA));
+        exoPlayer.setMediaSource(mediaSourceA);
         exoPlayer.setRepeatMode(Player.REPEAT_MODE_ALL);
         exoPlayer.prepare();
         exoPlayer.setPlayWhenReady(true);
-
-        video.setPlayer(exoPlayer);
     }
 
     private void RedimensionaPlayerVideo(StyledPlayerView video) {
@@ -65,12 +76,13 @@ public class AjudaTestesEspeciaisOmbroPatteActivity extends AppCompatActivity {
     }
 
     private void inicializaButtons() {
-        Button sair = findViewById(R.id.activity_ajuda_testes_especiais_ombro_patte_button_sair);
+        Button sair = findViewById(R.id.activity_ajuda_forca_muscular_cotovelo_braquiorradial_button_sair);
         sair.setOnClickListener(v -> finalizaAjuda());
     }
 
     private void finalizaAjuda() {
-        exoPlayer.release();
+        exoPlayerA.release();
+        exoPlayerB.release();
         finish();
     }
 }
