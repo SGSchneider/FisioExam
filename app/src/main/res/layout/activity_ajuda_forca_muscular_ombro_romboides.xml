@@ -66,7 +66,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/sentado"
+                    android:text="@string/posicao_forca_muscular_ombro_romboides"
                     android:textSize="24sp"
 
                     android:layout_weight="2" />
@@ -94,7 +94,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/elevacao_dos_ombros"
+                    android:text="@string/movimento_forca_muscular_ombro_romboides"
                     android:textSize="24sp"
 
                     android:layout_weight="2" />
@@ -122,12 +122,25 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/acima_do_acromio_oposto_movimento"
+                    android:text="@string/resistencia_forca_muscular_ombro_romboides"
                     android:textSize="24sp"
 
                     android:layout_weight="2" />
 
             </LinearLayout>
+
+
+
+
+            <com.google.android.exoplayer2.ui.StyledPlayerView
+                android:id="@+id/activity_ajuda_forca_muscular_ombro_romboides_video_a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/video_demonstrativo"
+                android:layout_gravity="top"
+                app:resize_mode="fit"
+                app:show_timeout="0"
+                app:surface_type="texture_view"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -144,29 +157,18 @@
                     android:minWidth="64dp"
                     android:text="@string/gravidade_minimizada"
                     android:textSize="24sp"
-                    
+
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/dd_ou_dv"
+                    android:text="@string/gravidade_minimizada_forca_muscular_ombro_romboides"
                     android:textSize="24sp"
 
                     android:layout_weight="2" />
 
             </LinearLayout>
-
-
-            <com.google.android.exoplayer2.ui.StyledPlayerView
-                android:id="@+id/activity_ajuda_forca_muscular_ombro_romboides_video_a"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/video_demonstrativo"
-                android:layout_gravity="top"
-                app:resize_mode="fit"
-                app:show_timeout="0"
-                app:surface_type="texture_view"/>
 
             <com.google.android.exoplayer2.ui.StyledPlayerView
                 android:id="@+id/activity_ajuda_forca_muscular_ombro_romboides_video_b"

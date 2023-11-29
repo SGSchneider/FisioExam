@@ -33,13 +33,35 @@
                 android:textSize="18sp"
                 android:textStyle="bold"/>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/biceps_braquial_cotovelo"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/biceps_braquial_cotovelo"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_forca_muscular_cotovelo_button_help_biceps_braquial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -77,13 +99,36 @@
                 android:importantForAutofill="no"
                 android:inputType="text"/>
 
-            <TextView
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/braquial_cotovelo"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/braquial_cotovelo"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_forca_muscular_cotovelo_button_help_braquial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -121,13 +166,36 @@
                 android:importantForAutofill="no"
                 android:inputType="text"/>
 
-            <TextView
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/braquirradial_cotovelo"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/braquirradial_cotovelo"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_forca_muscular_cotovelo_button_help_braquirradial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -165,13 +233,36 @@
                 android:importantForAutofill="no"
                 android:inputType="text"/>
 
-            <TextView
+            
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/triceps_braquial_cotovelo"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/triceps_braquial_cotovelo"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_forca_muscular_cotovelo_button_help_triceps_braquial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -209,13 +300,36 @@
                 android:importantForAutofill="no"
                 android:inputType="text"/>
 
-            <TextView
+            
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/supinador_cotovelo"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/supinador_cotovelo"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_forca_muscular_cotovelo_button_help_supinador"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -253,13 +367,36 @@
                 android:importantForAutofill="no"
                 android:inputType="text"/>
 
-            <TextView
+            
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/pronador_cotovelo"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/pronador_cotovelo"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_forca_muscular_cotovelo_button_help_pronador"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"

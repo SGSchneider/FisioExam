@@ -19,40 +19,30 @@ import com.google.android.exoplayer2.upstream.DefaultDataSource;
 
 import br.ufsm.fisioexam.R;
 
-public class AjudaForcaMuscularCotoveloPronadorRedondoEQuadradoActivity extends AppCompatActivity {
-    private ExoPlayer exoPlayerA;
-    private ExoPlayer exoPlayerB;
+public class AjudaTestesEspeciaisPunhoFinkelsteinActivity extends AppCompatActivity {
 
+    private ExoPlayer exoPlayerA;
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ajuda_forca_muscular_cotovelo_pronador_redondo_e_quadrado);
+        setContentView(R.layout.activity_ajuda_testes_especiais_punho_finkelstein);
         InicializaExoPlayers();
         inicializaButtons();
         rodaVideoEmLoop();
-
     }
 
-
     private void rodaVideoEmLoop() {
-        StyledPlayerView videoA = findViewById(R.id.activity_ajuda_forca_muscular_cotovelo_pronador_redondo_e_quadrado_video_a);
-        StyledPlayerView videoB = findViewById(R.id.activity_ajuda_forca_muscular_cotovelo_pronador_redondo_e_quadrado_video_b);
+        StyledPlayerView videoA = findViewById(R.id.activity_ajuda_testes_especiais_punho_finkelstein_video);
 
         RedimensionaPlayerVideo(videoA);
-        RedimensionaPlayerVideo(videoB);
 
 
-        DefineExoPlayer(exoPlayerA, "asset:///videos_cotovelo/forca_muscular_pronador_a.mp4");
+        DefineExoPlayer(exoPlayerA, "asset:///videos_punho/testes_especiais_finkelstein.mp4");
         videoA.setPlayer(exoPlayerA);
-
-
-        DefineExoPlayer(exoPlayerB, "asset:///videos_cotovelo/forca_muscular_pronador_b.mp4");
-        videoB.setPlayer(exoPlayerB);
     }
 
     private void InicializaExoPlayers() {
         exoPlayerA = new ExoPlayer.Builder(this).build();
-        exoPlayerB = new ExoPlayer.Builder(this).build();
     }
 
     private void DefineExoPlayer(ExoPlayer exoPlayer, String path) {
@@ -76,13 +66,12 @@ public class AjudaForcaMuscularCotoveloPronadorRedondoEQuadradoActivity extends 
     }
 
     private void inicializaButtons() {
-        Button sair = findViewById(R.id.activity_ajuda_forca_muscular_cotovelo_pronador_redondo_e_quadrado_button_sair);
+        Button sair = findViewById(R.id.activity_ajuda_testes_especiais_punho_finkelstein_button_sair);
         sair.setOnClickListener(v -> finalizaAjuda());
     }
 
     private void finalizaAjuda() {
         exoPlayerA.release();
-        exoPlayerB.release();
         finish();
     }
 }

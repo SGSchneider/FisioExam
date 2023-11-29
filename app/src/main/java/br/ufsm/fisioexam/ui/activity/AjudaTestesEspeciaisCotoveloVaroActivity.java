@@ -19,15 +19,13 @@ import com.google.android.exoplayer2.upstream.DefaultDataSource;
 
 import br.ufsm.fisioexam.R;
 
-public class AjudaForcaMuscularCotoveloPronadorRedondoEQuadradoActivity extends AppCompatActivity {
-    private ExoPlayer exoPlayerA;
-    private ExoPlayer exoPlayerB;
+public class AjudaTestesEspeciaisCotoveloVaroActivity extends AppCompatActivity {
+    private ExoPlayer exoPlayer;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ajuda_forca_muscular_cotovelo_pronador_redondo_e_quadrado);
-        InicializaExoPlayers();
+        setContentView(R.layout.activity_ajuda_testes_especiais_cotovelo_varo);
         inicializaButtons();
         rodaVideoEmLoop();
 
@@ -35,33 +33,24 @@ public class AjudaForcaMuscularCotoveloPronadorRedondoEQuadradoActivity extends 
 
 
     private void rodaVideoEmLoop() {
-        StyledPlayerView videoA = findViewById(R.id.activity_ajuda_forca_muscular_cotovelo_pronador_redondo_e_quadrado_video_a);
-        StyledPlayerView videoB = findViewById(R.id.activity_ajuda_forca_muscular_cotovelo_pronador_redondo_e_quadrado_video_b);
+        StyledPlayerView video = findViewById(R.id.activity_ajuda_testes_especiais_cotovelo_varo_video);
 
-        RedimensionaPlayerVideo(videoA);
-        RedimensionaPlayerVideo(videoB);
+        RedimensionaPlayerVideo(video);
 
 
-        DefineExoPlayer(exoPlayerA, "asset:///videos_cotovelo/forca_muscular_pronador_a.mp4");
-        videoA.setPlayer(exoPlayerA);
+        exoPlayer = new ExoPlayer.Builder(this).build();
+
+        Uri videoUri = Uri.parse("asset:///videos_cotovelo/testes_especiais_varo.mp4");
+
+        MediaSource mediaSource = new ProgressiveMediaSource.Factory(new DefaultDataSource.Factory(this)).createMediaSource(MediaItem.fromUri(videoUri));
 
 
-        DefineExoPlayer(exoPlayerB, "asset:///videos_cotovelo/forca_muscular_pronador_b.mp4");
-        videoB.setPlayer(exoPlayerB);
-    }
-
-    private void InicializaExoPlayers() {
-        exoPlayerA = new ExoPlayer.Builder(this).build();
-        exoPlayerB = new ExoPlayer.Builder(this).build();
-    }
-
-    private void DefineExoPlayer(ExoPlayer exoPlayer, String path) {
-        Uri videoUriA = Uri.parse(path);
-        MediaSource mediaSourceA = new ProgressiveMediaSource.Factory(new DefaultDataSource.Factory(this)).createMediaSource(MediaItem.fromUri(videoUriA));
-        exoPlayer.setMediaSource(mediaSourceA);
+        exoPlayer.setMediaSource(mediaSource);
         exoPlayer.setRepeatMode(Player.REPEAT_MODE_ALL);
         exoPlayer.prepare();
         exoPlayer.setPlayWhenReady(true);
+
+        video.setPlayer(exoPlayer);
     }
 
     private void RedimensionaPlayerVideo(StyledPlayerView video) {
@@ -76,13 +65,12 @@ public class AjudaForcaMuscularCotoveloPronadorRedondoEQuadradoActivity extends 
     }
 
     private void inicializaButtons() {
-        Button sair = findViewById(R.id.activity_ajuda_forca_muscular_cotovelo_pronador_redondo_e_quadrado_button_sair);
+        Button sair = findViewById(R.id.activity_ajuda_testes_especiais_cotovelo_varo_button_sair);
         sair.setOnClickListener(v -> finalizaAjuda());
     }
 
     private void finalizaAjuda() {
-        exoPlayerA.release();
-        exoPlayerB.release();
+        exoPlayer.release();
         finish();
     }
 }

@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <ScrollView
-        android:id="@+id/activity_ajuda_forca_muscular_cotovelo_braquiorradial_scroll_view"
+        android:id="@+id/activity_ajuda_testes_especiais_punho_phalen_invertido_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="96dp"
@@ -30,20 +30,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
                     android:layout_weight="0"
-                    android:maxWidth="164dp"
+                    android:maxWidth="168dp"
                     android:minWidth="64dp"
-                    android:text="@string/musculo"
+                    android:text="@string/teste"
                     android:textSize="24sp"
-                    
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/braquiorradial"
-                    android:textSize="24sp"
-                    
-                    android:layout_weight="2" />
+                    android:layout_weight="2"
+                    android:text="@string/phalen_invertido"
+                    android:textSize="24sp" />
 
             </LinearLayout>
 
@@ -58,19 +56,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
                     android:layout_weight="0"
-                    android:maxWidth="164dp"
+                    android:maxWidth="168dp"
                     android:minWidth="64dp"
                     android:text="@string/posicao_do_paciente"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/sentado_flexao_de_cotovelo_90_antebraco_neutro"
-                    android:textSize="24sp"
-                    
-                    android:layout_weight="2" />
+                    android:layout_weight="2"
+                    android:text="@string/posicao_phalen_invertido_punho"
+                    android:textSize="24sp" />
 
             </LinearLayout>
 
@@ -85,20 +82,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
                     android:layout_weight="0"
-                    android:maxWidth="164dp"
+                    android:maxWidth="168dp"
                     android:minWidth="64dp"
-                    android:text="@string/movimento"
+                    android:text="@string/procedimento"
                     android:textSize="24sp"
-                    
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/flexao_do_cotovelo"
-                    android:textSize="24sp"
-                    
-                    android:layout_weight="2" />
+                    android:layout_weight="2"
+                    android:text="@string/procedimento_phalen_invertido_punho"
+                    android:textSize="24sp" />
 
             </LinearLayout>
 
@@ -113,72 +108,30 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
                     android:layout_weight="0"
-                    android:maxWidth="164dp"
+                    android:maxWidth="168dp"
                     android:minWidth="64dp"
-                    android:text="@string/local_da_resistencia"
+                    android:text="@string/teste_positivo"
                     android:textSize="24sp"
-                    
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/acima_articulacao_punho"
-                    android:textSize="24sp"
-                    
-                    android:layout_weight="2" />
-
-            </LinearLayout>
-            
-
-            <com.google.android.exoplayer2.ui.StyledPlayerView
-                android:id="@+id/activity_ajuda_forca_muscular_cotovelo_braquiorradial_video_a"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/video_demonstrativo"
-                android:layout_gravity="top"
-                app:resize_mode="fit"
-                app:show_timeout="0"
-                app:surface_type="texture_view"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="8dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:layout_weight="0"
-                    android:maxWidth="164dp"
-                    android:minWidth="64dp"
-                    android:text="@string/gravidade_minimizada"
-                    android:textSize="24sp"
-
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/sentado_membro_apoiado_abducao_ombro_90_extensao_supinacao_cotovelo"
-                    android:textSize="24sp"
-
-                    android:layout_weight="2" />
+                    android:layout_weight="2"
+                    android:text="@string/teste_positivo_punho_phalen_invertido"
+                    android:textSize="24sp" />
 
             </LinearLayout>
 
             <com.google.android.exoplayer2.ui.StyledPlayerView
-                android:id="@+id/activity_ajuda_forca_muscular_cotovelo_braquiorradial_video_b"
+                android:id="@+id/activity_ajuda_testes_especiais_punho_phalen_invertido_video"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/video_demonstrativo"
                 android:layout_gravity="top"
-                android:layout_marginTop="24dp"
+                android:contentDescription="@string/video_demonstrativo"
                 app:resize_mode="fit"
                 app:show_timeout="0"
-                app:surface_type="texture_view"/>
+                app:surface_type="texture_view" />
 
 
         </LinearLayout>
@@ -187,15 +140,15 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/activity_ajuda_forca_muscular_cotovelo_braquiorradial_button_sair"
-        android:layout_width="168dp"
+        android:id="@+id/activity_ajuda_testes_especiais_punho_phalen_invertido_button_sair"
+        android:layout_width="160dp"
         android:layout_height="64dp"
         android:layout_margin="8dp"
         android:text="@string/sair"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activity_ajuda_forca_muscular_cotovelo_braquiorradial_scroll_view"
+        app:layout_constraintTop_toBottomOf="@id/activity_ajuda_testes_especiais_punho_phalen_invertido_scroll_view"
         app:layout_constraintVertical_bias="1" />
 
 

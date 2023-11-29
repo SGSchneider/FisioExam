@@ -67,6 +67,11 @@ public class SecaoPerimetriaPunhoActivity extends AppCompatActivity {
         configuraListenersDeClique();
     }
 
+    private void vaiParaAjuda(Class<?> classe) {
+        Intent vaiParaAjudaActivity = new Intent(this, classe);
+        startActivity(vaiParaAjudaActivity);
+    }
+
     private void configuraListenersDeClique() {
         proximo.setOnClickListener(v -> proximoForm());
 

@@ -124,10 +124,17 @@
         <activity android:name=".ui.activity.AjudaAmplitudeMovimentoCotoveloAnguloCarregamentoActivity"/>
         <activity android:name=".ui.activity.AjudaForcaMuscularCotoveloBicepsBraquialActivity"/>
         <activity android:name=".ui.activity.AjudaForcaMuscularCotoveloBraquialActivity"/>
+        <activity android:name=".ui.activity.AjudaForcaMuscularCotoveloBraquiorradialActivity"/>
         <activity android:name=".ui.activity.AjudaForcaMuscularCotoveloPronadorRedondoEQuadradoActivity"/>
         <activity android:name=".ui.activity.AjudaForcaMuscularCotoveloSupinadorActivity"/>
         <activity android:name=".ui.activity.AjudaForcaMuscularCotoveloTricepsBraquialAnconeoActivity"/>
         <activity android:name=".ui.activity.AjudaPerimetriaCotoveloActivity"/>
+        <activity android:name=".ui.activity.AjudaTestesEspeciaisCotoveloCozenActivity"/>
+        <activity android:name=".ui.activity.AjudaTestesEspeciaisCotoveloGolfistaActivity"/>
+        <activity android:name=".ui.activity.AjudaTestesEspeciaisCotoveloVaroActivity"/>
+        <activity android:name=".ui.activity.AjudaTestesEspeciaisCotoveloValgoActivity"/>
+        <activity android:name=".ui.activity.AjudaTestesEspeciaisCotoveloSinalTinelActivity"/>
+
     </application>
 
 

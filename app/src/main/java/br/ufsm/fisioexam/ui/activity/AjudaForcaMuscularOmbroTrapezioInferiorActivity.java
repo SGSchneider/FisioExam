@@ -30,7 +30,6 @@ public class AjudaForcaMuscularOmbroTrapezioInferiorActivity extends AppCompatAc
         InicializaExoPlayers();
         inicializaButtons();
         rodaVideoEmLoop();
-
     }
 
 

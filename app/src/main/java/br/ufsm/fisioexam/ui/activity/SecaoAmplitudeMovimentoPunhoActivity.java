@@ -96,6 +96,11 @@ public class SecaoAmplitudeMovimentoPunhoActivity extends AppCompatActivity {
         finish();
     }
 
+    private void vaiParaAjuda(Class<?> classe) {
+        Intent vaiParaAjudaActivity = new Intent(this, classe);
+        startActivity(vaiParaAjudaActivity);
+    }
+
     private void inicializacampos() {
         campoFlexaoD = findViewById(R.id.activity_secao_amplitude_movimento_punho_flexao_direito);
         campoFlexaoE = findViewById(R.id.activity_secao_amplitude_movimento_punho_flexao_esquerdo);

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,6 +35,13 @@ public class SecaoForcaMuscularCotoveloActivity extends AppCompatActivity {
     private EditText campoPronadorDir;
     private EditText campoPronadorEsq;
 
+
+    private ImageButton buttonHelpBicepsBraquial;
+    private ImageButton buttonHelpBraquial;
+    private ImageButton buttonHelpBraquirradial;
+    private ImageButton buttonHelpTricepsBraquial;
+    private ImageButton buttonHelpSupinador;
+    private ImageButton buttonHelpPronador;
 
     private Button proximo;
     private Button salvarESair;
@@ -65,15 +73,34 @@ public class SecaoForcaMuscularCotoveloActivity extends AppCompatActivity {
     }
 
     private void inicializaBotoes() {
+        buttonHelpBicepsBraquial = findViewById(R.id.activity_secao_forca_muscular_cotovelo_button_help_biceps_braquial);
+        buttonHelpBraquial = findViewById(R.id.activity_secao_forca_muscular_cotovelo_button_help_braquial);
+        buttonHelpBraquirradial = findViewById(R.id.activity_secao_forca_muscular_cotovelo_button_help_braquirradial);
+        buttonHelpTricepsBraquial = findViewById(R.id.activity_secao_forca_muscular_cotovelo_button_help_triceps_braquial);
+        buttonHelpSupinador = findViewById(R.id.activity_secao_forca_muscular_cotovelo_button_help_supinador);
+        buttonHelpPronador = findViewById(R.id.activity_secao_forca_muscular_cotovelo_button_help_pronador);
+
+
         proximo = findViewById(R.id.activity_secao_forca_muscular_cotovelo_button_proximo);
         salvarESair = findViewById(R.id.activity_secao_forca_muscular_cotovelo_button_salvar_e_sair);
         configuraListenersDeClique();
     }
 
+    private void vaiParaAjuda(Class<?> classe) {
+        Intent vaiParaAjudaActivity = new Intent(this, classe);
+        startActivity(vaiParaAjudaActivity);
+    }
+
     private void configuraListenersDeClique() {
         proximo.setOnClickListener(v -> proximoForm());
-
         salvarESair.setOnClickListener(v -> finalizaForm());
+
+        buttonHelpBicepsBraquial.setOnClickListener(v -> vaiParaAjuda(AjudaForcaMuscularCotoveloBicepsBraquialActivity.class));
+        buttonHelpBraquial.setOnClickListener(v -> vaiParaAjuda(AjudaForcaMuscularCotoveloBraquialActivity.class));
+        buttonHelpBraquirradial.setOnClickListener(v -> vaiParaAjuda(AjudaForcaMuscularCotoveloBraquiorradialActivity.class));
+        buttonHelpTricepsBraquial.setOnClickListener(v -> vaiParaAjuda(AjudaForcaMuscularCotoveloTricepsBraquialAnconeoActivity.class));
+        buttonHelpSupinador.setOnClickListener(v -> vaiParaAjuda(AjudaForcaMuscularCotoveloSupinadorActivity.class));
+        buttonHelpPronador.setOnClickListener(v -> vaiParaAjuda(AjudaForcaMuscularCotoveloPronadorRedondoEQuadradoActivity.class));
     }
 
 

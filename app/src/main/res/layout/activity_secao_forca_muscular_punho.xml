@@ -32,14 +32,36 @@
                 android:textAlignment="center"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
-
-            <TextView
+            
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/flexor_radial_punho"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/flexor_radial_punho"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_forca_muscular_punho_button_help_flexor_radial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -77,13 +99,36 @@
                 android:importantForAutofill="no"
                 android:inputType="text"/>
 
-            <TextView
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/palmar_longo_punho"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/palmar_longo_punho"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_forca_muscular_punho_button_help_palmar_longo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -121,13 +166,36 @@
                 android:importantForAutofill="no"
                 android:inputType="text"/>
 
-            <TextView
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/flexor_ulnar_punho"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/flexor_ulnar_punho"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_forca_muscular_punho_button_help_flexor_ulnar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -165,13 +233,36 @@
                 android:importantForAutofill="no"
                 android:inputType="text"/>
 
-            <TextView
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/dinamometro"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/dinamometro"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_forca_muscular_punho_button_help_dinamometro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -209,13 +300,36 @@
                 android:importantForAutofill="no"
                 android:inputType="text"/>
 
-            <TextView
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/extensor_radial_longo_punho"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/extensor_radial_longo_punho"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_forca_muscular_punho_button_help_extensor_radial_longo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -253,13 +367,36 @@
                 android:importantForAutofill="no"
                 android:inputType="text"/>
 
-            <TextView
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/extensor_radial_curto_punho"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/extensor_radial_curto_punho"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_forca_muscular_punho_button_help_extensor_radial_curto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -297,13 +434,36 @@
                 android:importantForAutofill="no"
                 android:inputType="text"/>
 
-            <TextView
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/extensor_ulnar_punho"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/extensor_ulnar_punho"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/activity_secao_forca_muscular_punho_button_help_extensor_ulnar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="#0000"
+                    android:contentDescription="@string/ajuda"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/ic_action_help"
+                    app:tint="?attr/colorControlNormal" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"

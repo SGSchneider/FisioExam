@@ -7,9 +7,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Objects;
 
 import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
@@ -37,10 +40,18 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
     private CheckBox campoPhalenInvertidoEsq;
     private CheckBox campoTinelDir;
     private CheckBox campoTinelEsq;
-    private CheckBox campoTriadeDir;
-    private CheckBox campoTriadeEsq;
+    private CheckBox campoTunelUlnarDir;
+    private CheckBox campoTunelUlnarEsq;
     private CheckBox campoFinkelsteinDir;
     private CheckBox campoFinkelsteinEsq;
+
+
+    private ImageButton ajudaPhalen;
+    private ImageButton ajudaPhalenInvertido;
+    private ImageButton ajudaTinel;
+    private ImageButton ajudaTunelUlnar;
+    private ImageButton ajudaFinkelstein;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,12 +67,30 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
     private void inicializaBotoes() {
         buttonProximo = findViewById(R.id.activity_secao_testes_especiais_punho_button_proximo);
         buttonSalvar = findViewById(R.id.activity_secao_testes_especiais_punho_button_salvar_e_sair);
+
+        ajudaPhalen = findViewById(R.id.activity_secao_testes_especiais_punho_button_help_phalen);
+        ajudaPhalenInvertido = findViewById(R.id.activity_secao_testes_especiais_punho_button_help_phalen_invertido);
+        ajudaTinel = findViewById(R.id.activity_secao_testes_especiais_punho_button_help_tinel);
+        ajudaTunelUlnar = findViewById(R.id.activity_secao_testes_especiais_punho_button_help_tunel_ulnar);
+        ajudaFinkelstein = findViewById(R.id.activity_secao_testes_especiais_punho_button_help_finkelstein);
+
         setListenerBotoes();
+    }
+
+    private void vaiParaAjuda(Class<?> classe) {
+        Intent vaiParaAjudaActivity = new Intent(this, classe);
+        startActivity(vaiParaAjudaActivity);
     }
 
     private void setListenerBotoes() {
         buttonProximo.setOnClickListener(v -> proximoForm());
         buttonSalvar.setOnClickListener(v -> salvarESair());
+
+        ajudaPhalen.setOnClickListener(v -> vaiParaAjuda(AjudaTestesEspeciaisPunhoPhalenActivity.class));
+        ajudaPhalenInvertido.setOnClickListener(v -> vaiParaAjuda(AjudaTestesEspeciaisPunhoPhalenInvertidoActivity.class));
+        ajudaTinel.setOnClickListener(v -> vaiParaAjuda(AjudaTestesEspeciaisPunhoTinelActivity.class));
+        ajudaTunelUlnar.setOnClickListener(v -> vaiParaAjuda(AjudaTestesEspeciaisPunhoTunelUlnarActivity.class));
+        ajudaFinkelstein.setOnClickListener(v -> vaiParaAjuda(AjudaTestesEspeciaisPunhoFinkelsteinActivity.class));
     }
 
     private void salvarESair() {
@@ -93,8 +122,8 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
         punho.setTestesEspeciaisPhalenInvertidoEsq(campoPhalenInvertidoEsq.isChecked());
         punho.setTestesEspeciaisTinelDir(campoTinelDir.isChecked());
         punho.setTestesEspeciaisTinelEsq(campoTinelEsq.isChecked());
-        punho.setTestesEspeciaisTriadeDir(campoTriadeDir.isChecked());
-        punho.setTestesEspeciaisTriadeEsq(campoTriadeEsq.isChecked());
+        punho.setTestesEspeciaisTriadeDir(campoTunelUlnarDir.isChecked());
+        punho.setTestesEspeciaisTriadeEsq(campoTunelUlnarEsq.isChecked());
         punho.setTestesEspeciaisFinkelsteinDir(campoFinkelsteinDir.isChecked());
         punho.setTestesEspeciaisFinkelsteinEsq(campoFinkelsteinEsq.isChecked());
         punhoQueryManager.update(punho, punhoDao);
@@ -109,8 +138,8 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
         campoPhalenInvertidoEsq = findViewById(R.id.activity_secao_testes_especiais_punho_esquerda_phalen_invertido);
         campoTinelDir = findViewById(R.id.activity_secao_testes_especiais_punho_direita_tinel);
         campoTinelEsq = findViewById(R.id.activity_secao_testes_especiais_punho_esquerda_tinel);
-        campoTriadeDir = findViewById(R.id.activity_secao_testes_especiais_punho_direita_tunel_ulnar);
-        campoTriadeEsq = findViewById(R.id.activity_secao_testes_especiais_punho_esquerda_tunel_ulnar);
+        campoTunelUlnarDir = findViewById(R.id.activity_secao_testes_especiais_punho_direita_tunel_ulnar);
+        campoTunelUlnarEsq = findViewById(R.id.activity_secao_testes_especiais_punho_esquerda_tunel_ulnar);
         campoFinkelsteinDir = findViewById(R.id.activity_secao_testes_especiais_punho_direita_finkelstein);
         campoFinkelsteinEsq = findViewById(R.id.activity_secao_testes_especiais_punho_esquerda_finkelstein);
 
@@ -125,8 +154,8 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
             campoPhalenInvertidoEsq.setChecked(punho.getTestesEspeciaisPhalenInvertidoEsq());
             campoTinelDir.setChecked(punho.getTestesEspeciaisTinelDir());
             campoTinelEsq.setChecked(punho.getTestesEspeciaisTinelEsq());
-            campoTriadeDir.setChecked(punho.getTestesEspeciaisTriadeDir());
-            campoTriadeEsq.setChecked(punho.getTestesEspeciaisTriadeEsq());
+            campoTunelUlnarDir.setChecked(punho.getTestesEspeciaisTriadeDir());
+            campoTunelUlnarEsq.setChecked(punho.getTestesEspeciaisTriadeEsq());
             campoFinkelsteinDir.setChecked(punho.getTestesEspeciaisFinkelsteinDir());
             campoFinkelsteinEsq.setChecked(punho.getTestesEspeciaisFinkelsteinEsq());
         }
@@ -137,7 +166,7 @@ public class SecaoTestesEspeciaisPunhoActivity extends AppCompatActivity {
     private void carregaExame() {
         Intent dados = getIntent();
         if (dados.hasExtra(CHAVE_EXAME)) {
-            punho = punhoQueryManager.getOne((String) dados.getSerializableExtra(CHAVE_EXAME), punhoDao);
+            punho = punhoQueryManager.getOne((String) Objects.requireNonNull(dados.getSerializableExtra(CHAVE_EXAME)), punhoDao);
             secoes = secoesQueryManager.getOne(punho.getExame(), secoesDao);
         }
     }

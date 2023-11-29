@@ -323,13 +323,14 @@
                 android:textSize="18sp"
                 android:text="@string/antalgica" />
 
+            <!--TODO AUTOMATIC TEXT CHANGE-->
             <CheckBox
                 android:id="@+id/activity_secao_inspecao_checkBox_marcha_dor_ombro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:textSize="18sp"
-                android:text="@string/dor_no_ombro_durante_a_marcha" />
+                android:text="@string/dor_durante_a_marcha" />
 
             <TextView
                 android:layout_width="match_parent"

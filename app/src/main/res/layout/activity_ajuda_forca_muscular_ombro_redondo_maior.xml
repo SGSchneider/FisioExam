@@ -34,16 +34,16 @@
                     android:minWidth="64dp"
                     android:text="@string/musculo"
                     android:textSize="24sp"
-                    
+
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="2"
                     android:text="@string/redondo_maior_ombro"
-                    android:textSize="24sp"
 
-                    android:layout_weight="2" />
+                    android:textSize="24sp" />
 
             </LinearLayout>
 
@@ -62,16 +62,16 @@
                     android:minWidth="64dp"
                     android:text="@string/posicao_do_paciente"
                     android:textSize="24sp"
-                    
+
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/sentado"
-                    android:textSize="24sp"
+                    android:layout_weight="2"
+                    android:text="@string/posicao_forca_muscular_ombro_redondo_maior"
 
-                    android:layout_weight="2" />
+                    android:textSize="24sp" />
 
             </LinearLayout>
 
@@ -90,16 +90,16 @@
                     android:minWidth="64dp"
                     android:text="@string/movimento"
                     android:textSize="24sp"
-                    
+
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/elevacao_dos_ombros"
-                    android:textSize="24sp"
+                    android:layout_weight="2"
+                    android:text="@string/movimento_forca_muscular_ombro_redondo_maior"
 
-                    android:layout_weight="2" />
+                    android:textSize="24sp" />
 
             </LinearLayout>
 
@@ -118,44 +118,16 @@
                     android:minWidth="64dp"
                     android:text="@string/local_da_resistencia"
                     android:textSize="24sp"
-                    
+
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/acima_do_acromio_oposto_movimento"
-                    android:textSize="24sp"
+                    android:layout_weight="2"
+                    android:text="@string/resistencia_forca_muscular_ombro_redondo_maior"
 
-                    android:layout_weight="2" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="8dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:layout_weight="0"
-                    android:maxWidth="164dp"
-                    android:minWidth="64dp"
-                    android:text="@string/gravidade_minimizada"
-                    android:textSize="24sp"
-                    
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dd_ou_dv"
-                    android:textSize="24sp"
-
-                    android:layout_weight="2" />
+                    android:textSize="24sp" />
 
             </LinearLayout>
 
@@ -164,11 +136,11 @@
                 android:id="@+id/activity_ajuda_forca_muscular_ombro_redondo_maior_video"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/video_demonstrativo"
                 android:layout_gravity="top"
+                android:contentDescription="@string/video_demonstrativo"
                 app:resize_mode="fit"
                 app:show_timeout="0"
-                app:surface_type="texture_view"/>
+                app:surface_type="texture_view" />
 
         </LinearLayout>
 

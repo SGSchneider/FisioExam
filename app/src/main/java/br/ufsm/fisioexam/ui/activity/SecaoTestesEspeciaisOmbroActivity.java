@@ -34,10 +34,12 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
     private CheckBox campoPatteEsq;
     private CheckBox campoGerberDir;
     private CheckBox campoGerberEsq;
-    private CheckBox campoNeerDir;
-    private CheckBox campoNeerEsq;
-    private CheckBox campoHawkinsDir;
-    private CheckBox campoHawkinsEsq;
+
+    //TODO REMOVED FOR NOW
+//    private CheckBox campoNeerDir;
+//    private CheckBox campoNeerEsq;
+//    private CheckBox campoHawkinsDir;
+//    private CheckBox campoHawkinsEsq;
     private CheckBox campoSpeedDir;
     private CheckBox campoSpeedEsq;
     private CheckBox campoYergasonDir;
@@ -49,8 +51,10 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
     private ImageButton buttonHelpJobe;
     private ImageButton buttonHelpPatte;
     private ImageButton buttonHelpGerber;
-    private ImageButton buttonHelpNeer;
-    private ImageButton buttonHelpHawkins;
+
+    //TODO REMOVED FOR NOW
+//    private ImageButton buttonHelpNeer;
+//    private ImageButton buttonHelpHawkins;
     private ImageButton buttonHelpSpeed;
     private ImageButton buttonHelpYergason;
     private ImageButton buttonHelpApreensao;
@@ -82,8 +86,9 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
         buttonHelpJobe = findViewById(R.id.activity_secao_testes_especiais_ombro_jobe_button_help);
         buttonHelpPatte = findViewById(R.id.activity_secao_testes_especiais_ombro_patte_button_help);
         buttonHelpGerber = findViewById(R.id.activity_secao_testes_especiais_ombro_gerber_button_help);
-        buttonHelpNeer = findViewById(R.id.activity_secao_testes_especiais_ombro_neer_button_help);
-        buttonHelpHawkins = findViewById(R.id.activity_secao_testes_especiais_ombro_hawkins_button_help);
+        //TODO  REMOVED FOR NOW
+//        buttonHelpNeer = findViewById(R.id.activity_secao_testes_especiais_ombro_neer_button_help);
+//        buttonHelpHawkins = findViewById(R.id.activity_secao_testes_especiais_ombro_hawkins_button_help);
         buttonHelpSpeed = findViewById(R.id.activity_secao_testes_especiais_ombro_speed_button_help);
         buttonHelpYergason = findViewById(R.id.activity_secao_testes_especiais_ombro_yergason_button_help);
 
@@ -100,8 +105,9 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
         buttonHelpJobe.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisOmbroJobeActivity.class));
         buttonHelpPatte.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisOmbroPatteActivity.class));
         buttonHelpGerber.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisOmbroGerberActivity.class));
-        buttonHelpNeer.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisOmbroNeerActivity.class));
-        buttonHelpHawkins.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisOmbroHawkinsActivity.class));
+//        TODO REMOVED FOR NOW
+//        buttonHelpNeer.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisOmbroNeerActivity.class));
+//        buttonHelpHawkins.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisOmbroHawkinsActivity.class));
         buttonHelpSpeed.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisOmbroSpeedActivity.class));
         buttonHelpYergason.setOnClickListener(v -> vaiParaSecaoAjuda(AjudaTestesEspeciaisOmbroYergasonActivity.class));
 
@@ -144,10 +150,15 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
         ombro.setPatteEsq(campoPatteEsq.isChecked());
         ombro.setGerberLiftOffDir(campoGerberDir.isChecked());
         ombro.setGerberLiftOffEsq(campoGerberEsq.isChecked());
-        ombro.setNeerDir(campoNeerDir.isChecked());
-        ombro.setNeerEsq(campoNeerEsq.isChecked());
-        ombro.setHawkinsDir(campoHawkinsDir.isChecked());
-        ombro.setHawkinsEsq(campoHawkinsEsq.isChecked());
+        //TODO REMOVED FOR NOW
+        ombro.setNeerDir(//campoNeerDir.isChecked()
+                false);
+        ombro.setNeerEsq(//campoNeerEsq.isChecked()
+                false);
+        ombro.setHawkinsDir(//campoHawkinsDir.isChecked()
+                false);
+        ombro.setHawkinsEsq(//campoHawkinsEsq.isChecked()
+                false);
         ombro.setPalmUpSpeedDir(campoSpeedDir.isChecked());
         ombro.setPalmUpSpeedEsq(campoSpeedEsq.isChecked());
         ombro.setYergasonDir(campoYergasonDir.isChecked());
@@ -170,10 +181,11 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
         campoPatteEsq = findViewById(R.id.activity_secao_testes_especiais_ombro_esquerda_patte);
         campoGerberDir = findViewById(R.id.activity_secao_testes_especiais_ombro_direita_gerber);
         campoGerberEsq = findViewById(R.id.activity_secao_testes_especiais_ombro_esquerda_gerber);
-        campoNeerDir = findViewById(R.id.activity_secao_testes_especiais_ombro_direita_neer);
-        campoNeerEsq = findViewById(R.id.activity_secao_testes_especiais_ombro_esquerda_neer);
-        campoHawkinsDir = findViewById(R.id.activity_secao_testes_especiais_ombro_direita_hk);
-        campoHawkinsEsq = findViewById(R.id.activity_secao_testes_especiais_ombro_esquerda_hk);
+        //TODO REMOVED FOR NOW
+//        campoNeerDir = findViewById(R.id.activity_secao_testes_especiais_ombro_direita_neer);
+//        campoNeerEsq = findViewById(R.id.activity_secao_testes_especiais_ombro_esquerda_neer);
+//        campoHawkinsDir = findViewById(R.id.activity_secao_testes_especiais_ombro_direita_hk);
+//        campoHawkinsEsq = findViewById(R.id.activity_secao_testes_especiais_ombro_esquerda_hk);
         campoSpeedDir = findViewById(R.id.activity_secao_testes_especiais_ombro_direita_speed);
         campoSpeedEsq = findViewById(R.id.activity_secao_testes_especiais_ombro_esquerda_speed);
         campoYergasonDir = findViewById(R.id.activity_secao_testes_especiais_ombro_direita_yergason);
@@ -195,10 +207,11 @@ public class SecaoTestesEspeciaisOmbroActivity extends AppCompatActivity {
             campoPatteEsq.setChecked(ombro.isPatteEsq());
             campoGerberDir.setChecked(ombro.isGerberLiftOffDir());
             campoGerberEsq.setChecked(ombro.isGerberLiftOffEsq());
-            campoNeerDir.setChecked(ombro.isNeerDir());
-            campoNeerEsq.setChecked(ombro.isNeerEsq());
-            campoHawkinsDir.setChecked(ombro.isHawkinsDir());
-            campoHawkinsEsq.setChecked(ombro.isHawkinsEsq());
+            //TODO REMOVED FOR NOW
+//            campoNeerDir.setChecked(ombro.isNeerDir());
+//            campoNeerEsq.setChecked(ombro.isNeerEsq());
+//            campoHawkinsDir.setChecked(ombro.isHawkinsDir());
+//            campoHawkinsEsq.setChecked(ombro.isHawkinsEsq());
             campoSpeedDir.setChecked(ombro.isPalmUpSpeedDir());
             campoSpeedEsq.setChecked(ombro.isPalmUpSpeedEsq());
             campoYergasonDir.setChecked(ombro.isYergasonDir());

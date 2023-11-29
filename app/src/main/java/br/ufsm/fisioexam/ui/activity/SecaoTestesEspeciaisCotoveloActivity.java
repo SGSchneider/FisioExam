@@ -7,11 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.Calendar;
 
 import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
@@ -32,8 +31,14 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
     private Button buttonSalvar;
     private Button buttonProximo;
 
-    private Calendar dataDash;
-    private Calendar dataAses;
+    private ImageButton buttonHelpCozen;
+    private ImageButton buttonHelpGolfista;
+    private ImageButton buttonHelpValgo;
+    private ImageButton buttonHelpVaro;
+    private ImageButton buttonHelpTinel;
+
+//    private Calendar dataDash;
+//    private Calendar dataAses;
 
     private CheckBox campoCozenDir;
     private CheckBox campoCozenEsq;
@@ -50,25 +55,45 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_secao_testes_especiais_cotovelo);
-        inicializaCalendars();
+//        inicializaCalendars();
         inicializaDAOS();
         carregaExame();
         inicializaBotoes();
         inicializaFormulario();
     }
 
-    private void inicializaCalendars() {
-        dataDash = Calendar.getInstance();
-        dataAses = Calendar.getInstance();
-    }
+//    private void inicializaCalendars() {
+//        dataDash = Calendar.getInstance();
+//        dataAses = Calendar.getInstance();
+//    }
 
     private void inicializaBotoes() {
+
+        buttonHelpCozen     = findViewById(R.id.activity_secao_testes_especiais_cotovelo_cozen_button_help);
+        buttonHelpGolfista  = findViewById(R.id.activity_secao_testes_especiais_cotovelo_teste_golfista_button_help);
+        buttonHelpValgo     = findViewById(R.id.activity_secao_testes_especiais_cotovelo_valgo_button_help);
+        buttonHelpVaro      = findViewById(R.id.activity_secao_testes_especiais_cotovelo_varo_button_help);
+        buttonHelpTinel     = findViewById(R.id.activity_secao_testes_especiais_cotovelo_tinel_button_help);
+
         buttonProximo = findViewById(R.id.activity_secao_testes_especiais_cotovelo_button_proximo);
         buttonSalvar = findViewById(R.id.activity_secao_testes_especiais_cotovelo_button_salvar_e_sair);
         setListenerBotoes();
     }
 
+    private void vaiParaAjuda(Class<?> classe) {
+        Intent vaiParaAjudaActivity = new Intent(this, classe);
+        startActivity(vaiParaAjudaActivity);
+    }
+
     private void setListenerBotoes() {
+
+        buttonHelpCozen.setOnClickListener(v -> vaiParaAjuda(AjudaTestesEspeciaisCotoveloCozenActivity.class));
+        buttonHelpGolfista.setOnClickListener(v -> vaiParaAjuda(AjudaTestesEspeciaisCotoveloGolfistaActivity.class));
+        buttonHelpValgo.setOnClickListener(v -> vaiParaAjuda(AjudaTestesEspeciaisCotoveloValgoActivity.class));
+        buttonHelpVaro.setOnClickListener(v -> vaiParaAjuda(AjudaTestesEspeciaisCotoveloVaroActivity.class));
+        buttonHelpTinel.setOnClickListener(v -> vaiParaAjuda(AjudaTestesEspeciaisCotoveloSinalTinelActivity.class));
+
+
         buttonProximo.setOnClickListener(v -> proximoForm());
         buttonSalvar.setOnClickListener(v -> salvarESair());
     }
@@ -131,8 +156,8 @@ public class SecaoTestesEspeciaisCotoveloActivity extends AppCompatActivity {
 
     private void preencheFormulario() {
         if(secoes.isTestesEspeciais()){
-            dataDash.setTimeInMillis(cotovelo.getDashData());
-            dataAses.setTimeInMillis(cotovelo.getAsesData());
+//            dataDash.setTimeInMillis(cotovelo.getDashData());
+//            dataAses.setTimeInMillis(cotovelo.getAsesData());
 
             campoCozenDir.setChecked(cotovelo.getTesteCozenDir());
             campoCozenEsq.setChecked(cotovelo.getTesteCozenEsq());
