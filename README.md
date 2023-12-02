@@ -3,4 +3,4 @@ Aplicativo de Fisioterapia voltado para o auxílio de fisioterapeutas em formaç
 
 
 
-Phisiotherapy App focused on helping physiotherapists in training to provide they first consultations.
+Phisiotherapy App focused on helping physiotherapists in training to carry out their services.
