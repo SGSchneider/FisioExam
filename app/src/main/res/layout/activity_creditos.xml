@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/textoDev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp"
+        android:text="@string/DevName"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="18sp"
+        />
+    <TextView
+        android:id="@+id/textoContactDev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="@string/email_dev"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@id/textoDev"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <TextView
+        android:id="@+id/textoGit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@id/textoContactDev"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/devGit"/>
+
+    <TextView
+        android:id="@+id/textoDra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textoGit"
+        android:layout_marginStart="16dp"
+        android:text="@string/Idealizacao"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="18sp"
+        />
+    <TextView
+        android:id="@+id/textoContactDra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="@string/email_dra"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@id/textoDra"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+
+
+    <TextView
+        android:id="@+id/textoVersion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@id/VersionNumber"
+        android:textAlignment="textEnd"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/versao"/>
+    <TextView
+        android:id="@+id/VersionNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@id/button_sair"
+        android:textAlignment="textEnd"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/VersionNumber"/>
+
+    <Button
+        android:id="@+id/button_sair"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:padding="8dp"
+        android:text="@string/sair"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

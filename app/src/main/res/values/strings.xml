@@ -465,4 +465,12 @@
     <string name="print">Imprimir</string>
     <string name="exportar_exame">Exportar Exame</string>
     <string name="secoes_a_exportar">Seções a Exportar</string>
+    <string name="creditos">Créditos</string>
+    <string name="email_dev">stefanschneiderdev@gmail.com</string>
+    <string name="devGit">github.com/SGSchneider</string>
+    <string name="VersionNumber">a1.0.1.40</string>
+    <string name="versao">Versão</string>
+    <string name="DevName">Desenvolvido por: Stefan G. Schneider</string>
+    <string name="email_dra">eloayamada@gmail.com</string>
+    <string name="Idealizacao">Idealizado por: Dra. Eloá Ferreira Yamada</string>
 </resources>

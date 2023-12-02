@@ -42,6 +42,7 @@ import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,7 +54,6 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -89,6 +89,7 @@ public class ExportaExameActivity extends AppCompatActivity {
     private QueryManager<Paciente> pacienteQueryManager;
     private Exame exame;
     private Secoes secoes;
+    private Uri uri;
     private Paciente paciente;
 
     private boolean secoesAExportar[];
@@ -132,18 +133,24 @@ public class ExportaExameActivity extends AppCompatActivity {
         salvar.setOnClickListener(v -> {
             try {
                 exportaExame();
+                showToast("O exame foi exportado em PDF para a pasta Documentos/Exames." , Toast.LENGTH_LONG);
             } catch (FileNotFoundException | NullPointerException | DocumentException e) {
                 throw new RuntimeException(e);
             }
+
+            finish();
         });
     }
 
+    private void showToast(String texto, int length) {
+        Toast toast = Toast.makeText(this, texto, length);
+        toast.show();
+    }
     private void exportaExame() throws FileNotFoundException, NullPointerException, DocumentException {
+        uri = null;
         String formatoData = "dd-MM-yyyy";
         SimpleDateFormat dateFormat = new SimpleDateFormat(formatoData, new Locale("pt", "BR"));
         OutputStream outputStream;
-        File pdf = null;
-        Uri uri = null;
 
         Document document = new Document();
         PdfCreator pdfCreator = new PdfCreator();
@@ -185,6 +192,12 @@ public class ExportaExameActivity extends AppCompatActivity {
         estruturaPdf(document);
 
 
+//        File file = new File(Environment.DIRECTORY_DOCUMENTS);
+//        Uri uriPasta = FileProvider.getUriForFile(this,this.getApplicationContext().getPackageName()+".provider",file);
+//        Intent intent = new Intent(Intent.ACTION_PICK);
+//        intent.setData(uriPasta);
+//        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+//        this.startActivity(intent);
 
     }
 
