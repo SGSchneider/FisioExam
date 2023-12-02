@@ -13,6 +13,7 @@ public class fisioExamMenuActivity extends AppCompatActivity {
 
     private Button pacientes;
     private Button configuracoes;
+    private Button creditos;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class fisioExamMenuActivity extends AppCompatActivity {
     private void configuraBotoes() {
         pacientes = findViewById(R.id.button_pacientes);
         configuracoes = findViewById(R.id.button_config);
+        creditos = findViewById(R.id.button_credits);
 
         setaListenerDeClique();
     }
@@ -33,6 +35,11 @@ public class fisioExamMenuActivity extends AppCompatActivity {
     private void setaListenerDeClique() {
         pacientes.setOnClickListener(v -> abreListaPacientes());
         configuracoes.setOnClickListener(v -> abreConfiguracoes());
+        creditos.setOnClickListener(v -> abreCreditos());
+    }
+
+    private void abreCreditos() {
+        startActivity(new Intent(this, CreditosActivity.class));
     }
 
     private void abreListaPacientes() {

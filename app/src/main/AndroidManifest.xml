@@ -26,6 +26,7 @@
 <!--        Configurações
 -->
         <activity android:name=".ui.activity.ConfiguracoesActivity"/>
+        <activity android:name=".ui.activity.CreditosActivity"/>
 
 <!--        Ferramentas
 -->
