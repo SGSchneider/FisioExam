@@ -37,7 +37,7 @@
     <string name="ha_quanto_tempo_sente_dor">Há quanto tempo sente dor?</string>
     <string name="sente_dor_ou_incomodo">Sente Dor ou Incômodo?</string>
     <string name="dor_desaparece_com_repouso">A dor/incômodo desaparece com o repouso:</string>
-    <string name="proximo">Próximo</string>
+    <string name="next">Próximo</string>
     <string name="ja_fez_tratamento">Já fez tratamento?</string>
     <string name="qual">Qual?</string>
     <string name="ha_quanto_tempo_fez_tratamento">Há quanto tempo fez tratamento?</string>
@@ -462,4 +462,7 @@
     <string name="movimento_forca_muscular_ombro_serratil">Deslizar o ombro para frente</string>
     <string name="resistencia_forca_muscular_ombro_serratil">Aplicada ao cotovelo na direção contrária ao movimento</string>
     <string name="gravidade_minimizada_forca_muscular_ombro_serratil">Sentado, com membros apoiados e flexão de ombro e cotovelo a 90°</string>
+    <string name="print">Imprimir</string>
+    <string name="exportar_exame">Exportar Exame</string>
+    <string name="secoes_a_exportar">Seções a Exportar</string>
 </resources>

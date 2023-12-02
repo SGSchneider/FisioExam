@@ -8,11 +8,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
+
+import java.util.Objects;
 
 import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
@@ -57,7 +60,7 @@ public class SecaoInspecaoActivity extends AppCompatActivity {
     private CheckBox campoTecidoOsseoDeformidade;
     private CheckBox campoMarchaNormal;
     private CheckBox campoMarchaAntalgica;
-    private CheckBox campoMarchaComDorNoOmbro;
+    private CheckBox campoMarchaComDor;
     private SwitchCompat campoProtese;
     private EditText campoQualProtese;
     private SwitchCompat campoOrtese;
@@ -142,13 +145,131 @@ public class SecaoInspecaoActivity extends AppCompatActivity {
     private void setListenerCheckSwitch() {
         campoCicatrizes.setOnCheckedChangeListener((buttonView, isChecked) -> EscondeFormulario());
         campoFeridas.setOnCheckedChangeListener((buttonView, isChecked) -> EscondeFormulario());
-        campoTrofismoEutrofico.setOnCheckedChangeListener((buttonView, isChecked) -> EscondeFormulario());
-        campoTrofismoHipotrofico.setOnCheckedChangeListener((buttonView, isChecked) -> EscondeFormulario());
-        campoTrofismoHipertrofico.setOnCheckedChangeListener((buttonView, isChecked) -> EscondeFormulario());
         campoEdema.setOnCheckedChangeListener((buttonView, isChecked) -> EscondeFormulario());
         campoProtese.setOnCheckedChangeListener((buttonView, isChecked) -> EscondeFormulario());
         campoOrtese.setOnCheckedChangeListener((buttonView, isChecked) -> EscondeFormulario());
         campoCateter.setOnCheckedChangeListener((buttonView, isChecked) -> EscondeFormulario());
+
+        campoTrofismoEutrofico.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                tripleCheckboxSwitch(campoTrofismoEutrofico, campoTrofismoHipertrofico, campoTrofismoHipotrofico);
+                EscondeFormulario();
+            }
+        });
+        campoTrofismoHipotrofico.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                tripleCheckboxSwitch(campoTrofismoHipotrofico, campoTrofismoEutrofico, campoTrofismoHipertrofico);
+                EscondeFormulario();
+            }
+        });
+        campoTrofismoHipertrofico.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                tripleCheckboxSwitch(campoTrofismoHipertrofico, campoTrofismoHipotrofico, campoTrofismoEutrofico);
+                EscondeFormulario();
+            }
+        });
+
+        campoColoracaoNormal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                tripleCheckboxSwitch(campoColoracaoNormal, campoColoracaoCianose, campoColoracaoVermelhidao);
+            }
+        });
+        campoColoracaoCianose.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                tripleCheckboxSwitch(campoColoracaoCianose, campoColoracaoNormal, campoColoracaoVermelhidao);
+            }
+        });
+        campoColoracaoVermelhidao.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                tripleCheckboxSwitch(campoColoracaoVermelhidao, campoColoracaoCianose, campoColoracaoNormal);
+            }
+        });
+        campoHidratacaoHidratada.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                doubleCheckboxSwitch(campoHidratacaoHidratada,campoHidratacaoDesidratada);
+            }
+        });
+        campoHidratacaoDesidratada.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                doubleCheckboxSwitch(campoHidratacaoDesidratada, campoHidratacaoHidratada);
+            }
+        });
+        campoEspessuraNormal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                tripleCheckboxSwitch(campoEspessuraNormal, campoEspessuraEspessa, campoEspessuraFina);
+            }
+        });
+        campoEspessuraFina.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                tripleCheckboxSwitch(campoEspessuraFina, campoEspessuraNormal, campoEspessuraEspessa);
+            }
+        });
+        campoEspessuraEspessa.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                tripleCheckboxSwitch(campoEspessuraEspessa, campoEspessuraFina, campoEspessuraNormal);
+            }
+        });
+        campoMarchaNormal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                tripleCheckboxSwitch(campoMarchaNormal, campoMarchaComDor, campoMarchaAntalgica);
+            }
+        });
+        campoMarchaAntalgica.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                tripleCheckboxSwitch(campoMarchaAntalgica, campoMarchaNormal, campoMarchaComDor);
+            }
+        });
+        campoMarchaComDor.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                tripleCheckboxSwitch(campoMarchaComDor, campoMarchaAntalgica, campoMarchaNormal);
+            }
+        });
+        campoTecidoOsseoNormal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                tripleCheckboxSwitch(campoTecidoOsseoNormal, campoTecidoOsseoCalo, campoTecidoOsseoDeformidade);
+            }
+        });
+        campoTecidoOsseoCalo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                tripleCheckboxSwitch(campoTecidoOsseoCalo, campoTecidoOsseoNormal, campoTecidoOsseoDeformidade);
+            }
+        });
+        campoTecidoOsseoDeformidade.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                tripleCheckboxSwitch(campoTecidoOsseoDeformidade, campoTecidoOsseoNormal, campoTecidoOsseoCalo);
+            }
+        });
+
+    }
+
+    private void tripleCheckboxSwitch(CheckBox campoTrue, CheckBox campoFalse1, CheckBox campoFalse2) {
+        if (campoTrue.isChecked()) {
+            campoFalse1.setChecked(false);
+            campoFalse2.setChecked(false);
+        }
+    }
+
+    private void doubleCheckboxSwitch(CheckBox campoTrue, CheckBox campoFalse) {
+        if (campoTrue.isChecked()) {
+            campoFalse.setChecked(false);
+        }
     }
 
     private void inicializaDaos() {
@@ -214,7 +335,7 @@ public class SecaoInspecaoActivity extends AppCompatActivity {
         //marcha
         exame.setMarchaNormalInsp(campoMarchaNormal.isChecked());
         exame.setMarchaAntargicaInsp(campoMarchaAntalgica.isChecked());
-        exame.setMarchaComDorOmbroInsp(campoMarchaComDorNoOmbro.isChecked());
+        exame.setMarchaComDorOmbroInsp(campoMarchaComDor.isChecked());
         //protese
         exame.setPresencaProtesesInsp(campoProtese.isChecked());
         exame.setLocalProtesesInsp(campoQualProtese.getText().toString());
@@ -241,7 +362,7 @@ public class SecaoInspecaoActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            exame = exameQueryManager.getOne((String) dados.getSerializableExtra(CHAVE_EXAME), exameDao);
+            exame = exameQueryManager.getOne((String) Objects.requireNonNull(dados.getSerializableExtra(CHAVE_EXAME)), exameDao);
             secoes = secoesQueryManager.getOne(exame.getId(), secoesDao);
         }
     }
@@ -273,7 +394,7 @@ public class SecaoInspecaoActivity extends AppCompatActivity {
         campoTecidoOsseoDeformidade = findViewById(R.id.activity_secao_inspecao_checkBox_tecido_osseo_desalinhamento_deformidade);
         campoMarchaNormal = findViewById(R.id.activity_secao_inspecao_checkBox_marcha_normal);
         campoMarchaAntalgica = findViewById(R.id.activity_secao_inspecao_checkBox_marcha_antalgica);
-        campoMarchaComDorNoOmbro = findViewById(R.id.activity_secao_inspecao_checkBox_marcha_dor_ombro);
+        campoMarchaComDor = findViewById(R.id.activity_secao_inspecao_checkBox_marcha_dor_ombro);
         campoProtese = findViewById(R.id.activity_secao_inspecao_switch_protese);
         campoQualProtese = findViewById(R.id.activity_secao_inspecao_qual_protese);
         campoOrtese = findViewById(R.id.activity_secao_inspecao_switch_orteses);
@@ -313,7 +434,7 @@ public class SecaoInspecaoActivity extends AppCompatActivity {
         campoTecidoOsseoDeformidade.setChecked(exame.isTecidoOsseoDeformInsp());
         campoMarchaNormal.setChecked(exame.isMarchaNormalInsp());
         campoMarchaAntalgica.setChecked(exame.isMarchaAntargicaInsp());
-        campoMarchaComDorNoOmbro.setChecked(exame.isMarchaComDorOmbroInsp());
+        campoMarchaComDor.setChecked(exame.isMarchaComDorOmbroInsp());
         campoProtese.setChecked(exame.isPresencaProtesesInsp());
         campoQualProtese.setText(exame.getLocalProtesesInsp());
         campoOrtese.setChecked(exame.isPresencaOrtesesInsp());

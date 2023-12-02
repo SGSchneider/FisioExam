@@ -115,7 +115,21 @@ public class SecaoDorActivity extends AppCompatActivity {
         if (campoDorOutra.isChecked()) {
             exame.setTipoDeDor(campoTipoDeDor.getText().toString());
         } else {
-            exame.setTipoDeDor(null);
+            if(campoDorIrradiada.isChecked()){
+                exame.setTipoDeDor("Irradiada");
+            }
+            if(campoDorQueimacao.isChecked()){
+                exame.setTipoDeDor("Queimação");
+            }
+            if(campoDorPontada.isChecked()){
+                exame.setTipoDeDor("Pontada");
+            }
+            if(campoDorPeso.isChecked()){
+                exame.setTipoDeDor("Peso");
+            }
+            if(campoDorFormigamento.isChecked()){
+                exame.setTipoDeDor("Formigamento");
+            }
         }
         exame.setDorHaQuantoTempo(campoDorHaQuantoTempo.getText().toString());
         int idAparicaoDor = campoAparicaoDor.getCheckedRadioButtonId();

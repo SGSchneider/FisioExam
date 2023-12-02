@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Nome da Seção"
+        android:hint="Nome da Seção"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@id/item_form_preenchido"
         app:layout_constraintHorizontal_bias="1.0"

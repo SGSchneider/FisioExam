@@ -9,9 +9,9 @@ import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.FEMININO;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.FUNDAMENTAL;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.MASCULINO;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.MEDIO;
-import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.POSGRADUACAO;
+import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_POSGRADUACAO;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.SOLTEIRO;
-import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.SUPERIOR;
+import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.CHAVE_SUPERIOR;
 import static br.ufsm.fisioexam.ui.activity.ConstantesActivities.VIUVO;
 
 import android.annotation.SuppressLint;
@@ -216,11 +216,11 @@ public class FormularioPacienteActivity extends AppCompatActivity {
                     haFormacao(View.VISIBLE);
                 } else {
                     if (campoGrauInstrucaoSuperior.isChecked()) {
-                        campoGrauInstrucao = SUPERIOR;
+                        campoGrauInstrucao = CHAVE_SUPERIOR;
                         haFormacao(View.VISIBLE);
                     } else {
                         if (campoGrauInstrucaoPosGrad.isChecked()) {
-                            campoGrauInstrucao = POSGRADUACAO;
+                            campoGrauInstrucao = CHAVE_POSGRADUACAO;
                             haFormacao(View.VISIBLE);
                         } else {
                             haFormacao(View.GONE);
@@ -233,7 +233,7 @@ public class FormularioPacienteActivity extends AppCompatActivity {
 
     private void haFormacao(int visibilidade) {
         campoInstrucaoCompleta.setVisibility(visibilidade);
-        if (Objects.equals(campoGrauInstrucao, SUPERIOR) || Objects.equals(campoGrauInstrucao, POSGRADUACAO)) {
+        if (Objects.equals(campoGrauInstrucao, CHAVE_SUPERIOR) || Objects.equals(campoGrauInstrucao, CHAVE_POSGRADUACAO)) {
             textoFormacao.setVisibility(View.VISIBLE);
             campoFormacao.setVisibility(View.VISIBLE);
         } else {
@@ -252,10 +252,10 @@ public class FormularioPacienteActivity extends AppCompatActivity {
         if (Objects.equals(campoGrauInstrucao, MEDIO)) {
             campoGrauInstrucaoMedio.setChecked(true);
         }
-        if (Objects.equals(campoGrauInstrucao, SUPERIOR)) {
+        if (Objects.equals(campoGrauInstrucao, CHAVE_SUPERIOR)) {
             campoGrauInstrucaoSuperior.setChecked(true);
         }
-        if (Objects.equals(campoGrauInstrucao, POSGRADUACAO)) {
+        if (Objects.equals(campoGrauInstrucao, CHAVE_POSGRADUACAO)) {
             campoGrauInstrucaoPosGrad.setChecked(true);
         }
     }

@@ -103,84 +103,52 @@ public class SecoesExameActivity extends AppCompatActivity {
         listaDeSecoes.setOnItemClickListener((adapterView, view, position, id) -> {
             Secao secaoEscolhida = (Secao) adapterView.getItemAtPosition(position);
             if (secaoEscolhida.getId() == 1) {
-                Intent vaiParaFormularioSecaoActivity = new Intent(this, SecaoDiagnosticoMedicoActivity.class);
-                vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
-                startActivity(vaiParaFormularioSecaoActivity);
+                vaiParaActivity(SecaoDiagnosticoMedicoActivity.class);
             }
             if (secaoEscolhida.getId() == 2) {
-                Intent vaiParaFormularioSecaoActivity = new Intent(this, SecaoQueixaPrincipalActivity.class);
-                vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
-                startActivity(vaiParaFormularioSecaoActivity);
+                vaiParaActivity(SecaoQueixaPrincipalActivity.class);
             }
             if (secaoEscolhida.getId() == 3) {
-                Intent vaiParaFormularioSecaoActivity = new Intent(this, SecaoHistoriaDoencaAtualActivity.class);
-                vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
-                startActivity(vaiParaFormularioSecaoActivity);
+                vaiParaActivity(SecaoHistoriaDoencaAtualActivity.class);
             }
             if (secaoEscolhida.getId() == 4) {
-                Intent vaiParaFormularioSecaoActivity = new Intent(this, SecaoDorActivity.class);
-                vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
-                startActivity(vaiParaFormularioSecaoActivity);
+                vaiParaActivity(SecaoDorActivity.class);
             }
             if (secaoEscolhida.getId() == 5) {
-                Intent vaiParaFormularioSecaoActivity = new Intent(this, SecaoTratamentoAnteriorActivity.class);
-                vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
-                startActivity(vaiParaFormularioSecaoActivity);
+                vaiParaActivity(SecaoTratamentoAnteriorActivity.class);
             }
             if (secaoEscolhida.getId() == 6) {
-                Intent vaiParaFormularioSecaoActivity = new Intent(this, SecaoAfastamentoDaFuncaoActivity.class);
-                vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
-                startActivity(vaiParaFormularioSecaoActivity);
+                vaiParaActivity(SecaoAfastamentoDaFuncaoActivity.class);
             }
             if (secaoEscolhida.getId() == 7) {
-                Intent vaiParaFormularioSecaoActivity = new Intent(this, SecaoHistoriaPregressaActivity.class);
-                vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
-                startActivity(vaiParaFormularioSecaoActivity);
+                vaiParaActivity(SecaoHistoriaPregressaActivity.class);
             }
             if (secaoEscolhida.getId() == 8) {
-                Intent vaiParaFormularioSecaoActivity = new Intent(this, SecaoDoencasAssociadasActivity.class);
-                vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
-                startActivity(vaiParaFormularioSecaoActivity);
+                vaiParaActivity(SecaoDoencasAssociadasActivity.class);
             }
             if (secaoEscolhida.getId() == 9) {
-                Intent vaiParaFormularioSecaoActivity = new Intent(this, SecaoMedicamentosEmUsoActivity.class);
-                vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
-                startActivity(vaiParaFormularioSecaoActivity);
+                vaiParaActivity(SecaoMedicamentosEmUsoActivity.class);
             }
             if (secaoEscolhida.getId() == 10) {
-                Intent vaiParaFormularioSecaoActivity = new Intent(this, SecaoHistoriaFamiliarActivity.class);
-                vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
-                startActivity(vaiParaFormularioSecaoActivity);
+                vaiParaActivity(SecaoHistoriaFamiliarActivity.class);
             }
             if (secaoEscolhida.getId() == 11) {
-                Intent vaiParaFormularioSecaoActivity = new Intent(this, SecaoHistoriaOcupacionalActivity.class);
-                vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
-                startActivity(vaiParaFormularioSecaoActivity);
+                vaiParaActivity(SecaoHistoriaOcupacionalActivity.class);
             }
             if (secaoEscolhida.getId() == 12) {
-                Intent vaiParaFormularioSecaoActivity = new Intent(this, SecaoHabitosVidaActivity.class);
-                vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
-                startActivity(vaiParaFormularioSecaoActivity);
+                vaiParaActivity(SecaoHabitosVidaActivity.class);
             }
             if (secaoEscolhida.getId() == 13) {
-                Intent vaiParaFormularioSecaoActivity = new Intent(this, SecaoExamesComplementaresActivity.class);
-                vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
-                startActivity(vaiParaFormularioSecaoActivity);
+                vaiParaActivity(SecaoExamesComplementaresActivity.class);
             }
             if (secaoEscolhida.getId() == 14) {
-                Intent vaiParaFormularioSecaoActivity = new Intent(this, SecaoSinaisVitaisActivity.class);
-                vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
-                startActivity(vaiParaFormularioSecaoActivity);
+                vaiParaActivity(SecaoSinaisVitaisActivity.class);
             }
             if (secaoEscolhida.getId() == 15) {
-                Intent vaiParaFormularioSecaoActivity = new Intent(this, SecaoInspecaoActivity.class);
-                vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
-                startActivity(vaiParaFormularioSecaoActivity);
+                vaiParaActivity(SecaoInspecaoActivity.class);
             }
             if (secaoEscolhida.getId() == 16) {
-                Intent vaiParaFormularioSecaoActivity = new Intent(this, SecaoPalpacaoActivity.class);
-                vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
-                startActivity(vaiParaFormularioSecaoActivity);
+                vaiParaActivity(SecaoPalpacaoActivity.class);
             }
 
 
@@ -204,28 +172,26 @@ public class SecoesExameActivity extends AppCompatActivity {
 
 
             if (secaoEscolhida.getId() == 22) {
-                Intent vaiParaFormularioSecaoActivity = new Intent(this, SecaoObservacoesActivity.class);
-                vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
-                startActivity(vaiParaFormularioSecaoActivity);
+                vaiParaActivity(SecaoObservacoesActivity.class);
             }
             if (secaoEscolhida.getId() == 23) {
-                Intent vaiParaFormularioSecaoActivity = new Intent(this, SecaoDiagnosticoFisioterapeuticoActivity.class);
-                vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
-                startActivity(vaiParaFormularioSecaoActivity);
+                vaiParaActivity(SecaoDiagnosticoFisioterapeuticoActivity.class);
             }
             if (secaoEscolhida.getId() == 24) {
-                Intent vaiParaFormularioSecaoActivity = new Intent(this, SecaoObjetivosTratamentoActivity.class);
-                vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
-                startActivity(vaiParaFormularioSecaoActivity);
+                vaiParaActivity(SecaoObjetivosTratamentoActivity.class);
             }
             if (secaoEscolhida.getId() == 25) {
-                Intent vaiParaFormularioSecaoActivity = new Intent(this, SecaoPlanoTratamentoActivity.class);
-                vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
-                startActivity(vaiParaFormularioSecaoActivity);
+                vaiParaActivity(SecaoPlanoTratamentoActivity.class);
             }
             exame = exameQueryManager.getOne(exame.getId(), exameDao);
             secoesExameView.atualizaSecoes();
         });
+    }
+
+    private void vaiParaActivity(Class activity) {
+        Intent vaiParaFormularioSecaoActivity = new Intent(this, activity);
+        vaiParaFormularioSecaoActivity.putExtra(CHAVE_EXAME, exame.getId());
+        startActivity(vaiParaFormularioSecaoActivity);
     }
 
     private void vaiParaIntermediario(int secao) {
@@ -249,8 +215,11 @@ public class SecoesExameActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.activity_formulario_exame_menu_proximo) {
+        if (item.getItemId() == R.id.activity_formulario_exame_menu_next) {
             finalizaExame();
+        }
+        if (item.getItemId() == R.id.activity_formulario_exame_menu_print) {
+            vaiParaActivity(ExportaExameActivity.class);
         }
         return super.onOptionsItemSelected(item);
     }
