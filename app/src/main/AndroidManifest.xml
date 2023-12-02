@@ -27,6 +27,20 @@
 -->
         <activity android:name=".ui.activity.ConfiguracoesActivity"/>
 
+<!--        Ferramentas
+-->
+        <activity android:name=".ui.activity.ExportaExameActivity"/>
+        <provider
+            android:authorities=".ui.activity.ExportaExameActivity"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider"/>
+
+        </provider>
+
 <!--        Exame
 -->
         <activity android:name=".ui.activity.ListaExamesActivity"/>

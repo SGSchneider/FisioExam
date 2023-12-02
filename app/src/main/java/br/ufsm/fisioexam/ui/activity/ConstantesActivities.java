@@ -9,19 +9,19 @@ public interface ConstantesActivities {
     String CHAVE_TIPO_EXAME = "tipo_exame";
     String CHAVE_ID_PACIENTE = "id_paciente";
     String CHAVE_SECAO = "secao";
-    String CHAVE_PRESENTE = "presente";
-    String CHAVE_DIMINUIDA = "diminuida";
-    String CHAVE_AUMENTADA = "aumentada";
-    String CHAVE_AUSENTE = "ausente";
+    String CHAVE_PRESENTE = "Presente";
+    String CHAVE_DIMINUIDA = "Diminuida";
+    String CHAVE_AUMENTADA = "Aumentada";
+    String CHAVE_AUSENTE = "Ausente";
 
 
 
     //Chaves Valores Pacientes
     String ANALFABETO = "Analfabeto";
-    String FUNDAMENTAL = "Fundamental";
-    String MEDIO = "Medio";
-    String SUPERIOR = "Superior";
-    String POSGRADUACAO = "PosGraduacao";
+    String FUNDAMENTAL = "Ensino Fundamental";
+    String MEDIO = "Ensino Medio";
+    String CHAVE_SUPERIOR = "Ensino Superior";
+    String CHAVE_POSGRADUACAO = "PosGraduacao";
     String MASCULINO = "Masculino";
     String FEMININO = "Feminino";
     String SOLTEIRO = "Solteiro";
@@ -34,10 +34,10 @@ public interface ConstantesActivities {
     String CHAVE_TIPO_VAZIO = "";
 
     //Chaves Valores Exames
-    String ACORDAR = "ACORDAR";
-    String DECORRER = "DECORRER";
-    String FINALDIA = "FINALDIA";
-    String CONSTANTE = "CONSTANTE";
+    String ACORDAR = "ao Acordar";
+    String DECORRER = "no Decorrer do Dia";
+    String FINALDIA = "ao Final do Dia";
+    String CONSTANTE = "Constante";
 
     //Chaves Secoes
     String DIAGNOSTICOMEDICO = "Diagnóstico Médico";

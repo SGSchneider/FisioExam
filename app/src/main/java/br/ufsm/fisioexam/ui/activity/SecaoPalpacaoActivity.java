@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
@@ -152,9 +153,34 @@ public class SecaoPalpacaoActivity extends AppCompatActivity {
         campoTemperatura.setOnCheckedChangeListener((buttonView, isChecked) -> EscondeFormulario());
         campoEdema.setOnCheckedChangeListener((buttonView, isChecked) -> EscondeFormulario());
         campoCicatrizes.setOnCheckedChangeListener((buttonView, isChecked) -> EscondeFormulario());
-        campoColoracaoEquimose.setOnCheckedChangeListener((buttonView, isChecked) -> EscondeFormulario());
-        campoColoracaoVermelhidao.setOnCheckedChangeListener((buttonView, isChecked) -> EscondeFormulario());
-        campoColoracaoNormal.setOnCheckedChangeListener((buttonView, isChecked) -> EscondeFormulario());
+        campoColoracaoNormal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                tripleCheckboxSwitch(campoColoracaoNormal, campoColoracaoEquimose, campoColoracaoVermelhidao);
+                EscondeFormulario();
+            }
+        });
+        campoColoracaoEquimose.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                tripleCheckboxSwitch(campoColoracaoEquimose, campoColoracaoNormal, campoColoracaoVermelhidao);
+                EscondeFormulario();
+            }
+        });
+        campoColoracaoVermelhidao.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                tripleCheckboxSwitch(campoColoracaoVermelhidao, campoColoracaoEquimose, campoColoracaoNormal);
+                EscondeFormulario();
+            }
+        });
+    }
+
+    private void tripleCheckboxSwitch(CheckBox campoTrue, CheckBox campoFalse1, CheckBox campoFalse2) {
+        if (campoTrue.isChecked()) {
+            campoFalse1.setChecked(false);
+            campoFalse2.setChecked(false);
+        }
     }
 
     private void inicializaDaos() {

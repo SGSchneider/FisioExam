@@ -17,6 +17,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
+import java.util.Objects;
+
 import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.ExameDAO;
@@ -111,7 +113,7 @@ public class SecaoHabitosVidaActivity extends AppCompatActivity {
 
         exame.setEtilista(campoEtilista.isChecked());
         if (exame.isEtilista()) {
-            exame.setQuantoCigarro(campoQuantoAlcool.getText().toString());
+            exame.setQuantoAlcool(campoQuantoAlcool.getText().toString());
         }
 
         exame.setAtividadeFisica(campoAtividadeFisica.isChecked());
@@ -146,7 +148,7 @@ public class SecaoHabitosVidaActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            exame = exameQueryManager.getOne((String) dados.getSerializableExtra(CHAVE_EXAME), exameDao);
+            exame = exameQueryManager.getOne((String) Objects.requireNonNull(dados.getSerializableExtra(CHAVE_EXAME)), exameDao);
             secoes = secoesQueryManager.getOne(exame.getId(), secoesDao);
         }
     }

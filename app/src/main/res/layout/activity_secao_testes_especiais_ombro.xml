@@ -39,13 +39,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/integridade_manguito_rotador"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="8dp"-->
+<!--                android:text="@string/integridade_manguito_rotador"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textStyle="bold" />-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -193,13 +193,13 @@
                 android:textSize="18sp" />
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/irritativos"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="8dp"-->
+<!--                android:text="@string/irritativos"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textStyle="bold" />-->
 
 <!--            TODO REMOVED FOR NOW-->
 <!--            <LinearLayout-->
@@ -294,13 +294,13 @@
 <!--                android:textSize="18sp" />-->
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/porcao_longa_biceps_braquial"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="8dp"-->
+<!--                android:text="@string/porcao_longa_biceps_braquial"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textStyle="bold" />-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -511,7 +511,7 @@
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_margin="8dp"
-        android:text="@string/proximo"
+        android:text="@string/next"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

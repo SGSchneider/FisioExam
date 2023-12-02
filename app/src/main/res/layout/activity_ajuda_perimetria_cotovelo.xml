@@ -24,6 +24,17 @@
                     android:text="@string/explicacao_ajuda_perimetria"
                     android:textSize="24sp"
                     android:elegantTextHeight="true"/>
+
+                <com.google.android.exoplayer2.ui.StyledPlayerView
+                    android:id="@+id/activity_ajuda_perimetria_cotovelo_video"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:contentDescription="@string/video_demonstrativo"
+                    app:resize_mode="fit"
+                    app:show_timeout="0"
+                    app:surface_type="texture_view" />
+
         </LinearLayout>
     </ScrollView>
     <Button
