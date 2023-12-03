@@ -12,6 +12,8 @@ import android.widget.ImageButton;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Objects;
+
 import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
 import br.ufsm.fisioexam.database.dao.CotoveloDAO;
@@ -26,8 +28,8 @@ public class SecaoForcaMuscularCotoveloActivity extends AppCompatActivity {
     private EditText campoBicepsBraquialEsq;
     private EditText campoBraquialDir;
     private EditText campoBraquialEsq;
-    private EditText campoBraquirradialDir;
-    private EditText campoBraquirradialEsq;
+    private EditText campoBraquiorradialDir;
+    private EditText campoBraquiorradialEsq;
     private EditText campoTricepsBraquialDir;
     private EditText campoTricepsBraquialEsq;
     private EditText campoSupinadorDir;
@@ -118,7 +120,7 @@ public class SecaoForcaMuscularCotoveloActivity extends AppCompatActivity {
         cotovelo.setBraquialDir(campoBraquialDir.getText().toString());
         cotovelo.setBraquialEsq(campoBraquialEsq.getText().toString());
         cotovelo.setBraquirradialDir(campoBraquialDir.getText().toString());
-        cotovelo.setBraquirradialEsq(campoBraquirradialEsq.getText().toString());
+        cotovelo.setBraquirradialEsq(campoBraquiorradialEsq.getText().toString());
         cotovelo.setTricepsBraquialEAnconeoDir(campoTricepsBraquialDir.getText().toString());
         cotovelo.setTricepsBraquialEAnconeoEsq(campoTricepsBraquialEsq.getText().toString());
         cotovelo.setSupinadorDir(campoSupinadorDir.getText().toString());
@@ -143,7 +145,7 @@ public class SecaoForcaMuscularCotoveloActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            cotovelo = cotoveloQueryManager.getOne((String) dados.getSerializableExtra(CHAVE_EXAME), cotoveloDao);
+            cotovelo = cotoveloQueryManager.getOne((String) Objects.requireNonNull(dados.getSerializableExtra(CHAVE_EXAME)), cotoveloDao);
             secoes = secoesQueryManager.getOne(cotovelo.getExame(), secoesDao);
         }
     }
@@ -154,8 +156,8 @@ public class SecaoForcaMuscularCotoveloActivity extends AppCompatActivity {
         campoBicepsBraquialEsq = findViewById(R.id.activity_secao_forca_muscular_cotovelo_biceps_braquial_cotovelo_esq);
         campoBraquialDir = findViewById(R.id.activity_secao_forca_muscular_cotovelo_braquial_cotovelo_dir);
         campoBraquialEsq = findViewById(R.id.activity_secao_forca_muscular_cotovelo_braquial_cotovelo_esq);
-        campoBraquirradialDir = findViewById(R.id.activity_secao_forca_muscular_cotovelo_braquirradial_cotovelo_dir);
-        campoBraquirradialEsq = findViewById(R.id.activity_secao_forca_muscular_cotovelo_braquirradial_cotovelo_esq);
+        campoBraquiorradialDir = findViewById(R.id.activity_secao_forca_muscular_cotovelo_braquirradial_cotovelo_dir);
+        campoBraquiorradialEsq = findViewById(R.id.activity_secao_forca_muscular_cotovelo_braquirradial_cotovelo_esq);
         campoTricepsBraquialDir = findViewById(R.id.activity_secao_forca_muscular_cotovelo_triceps_braquial_cotovelo_dir);
         campoTricepsBraquialEsq = findViewById(R.id.activity_secao_forca_muscular_cotovelo_triceps_braquial_cotovelo_esq);
         campoSupinadorDir = findViewById(R.id.activity_secao_forca_muscular_cotovelo_supinador_cotovelo_dir);
@@ -174,8 +176,8 @@ public class SecaoForcaMuscularCotoveloActivity extends AppCompatActivity {
         campoBicepsBraquialEsq.setText(cotovelo.getBicepsBraquialEsq());
         campoBraquialDir.setText(cotovelo.getBraquialDir());
         campoBraquialEsq.setText(cotovelo.getBraquialEsq());
-        campoBraquirradialDir.setText(cotovelo.getBraquirradialDir());
-        campoBraquirradialEsq.setText(cotovelo.getBraquirradialEsq());
+        campoBraquiorradialDir.setText(cotovelo.getBraquirradialDir());
+        campoBraquiorradialEsq.setText(cotovelo.getBraquirradialEsq());
         campoTricepsBraquialDir.setText(cotovelo.getTricepsBraquialEAnconeoDir());
         campoTricepsBraquialEsq.setText(cotovelo.getTricepsBraquialEAnconeoEsq());
         campoSupinadorDir.setText(cotovelo.getSupinadorDir());
