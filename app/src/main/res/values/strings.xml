@@ -239,7 +239,7 @@
     <string name="perimetria_cotovelo">Interlinha da Fossa Antecubial</string>
     <string name="biceps_braquial_cotovelo">Bíceps Braquial ( flexão de cotovelo com supinação)</string>
     <string name="braquial_cotovelo">Braquial (flexão de cotovelo com pronação)</string>
-    <string name="braquirradial_cotovelo">Braquirradial (flexão de cotovelo)</string>
+    <string name="braquiorradial_cotovelo">Braquiorradial (flexão de cotovelo)</string>
     <string name="triceps_braquial_cotovelo">Tríceps braquial e Ânconeo (extensão de cotovelo)</string>
     <string name="supinador_cotovelo">Supinador</string>
     <string name="pronador_cotovelo">Pronador Quadrado e Redondo</string>
@@ -468,9 +468,11 @@
     <string name="creditos">Créditos</string>
     <string name="email_dev">stefanschneiderdev@gmail.com</string>
     <string name="devGit">github.com/SGSchneider</string>
-    <string name="VersionNumber">a1.0.1.40</string>
+    <string name="VersionNumber">a1.0.2.40</string>
     <string name="versao">Versão</string>
     <string name="DevName">Desenvolvido por: Stefan G. Schneider</string>
     <string name="email_dra">eloayamada@gmail.com</string>
     <string name="Idealizacao">Idealizado por: Dra. Eloá Ferreira Yamada</string>
+    <string name="Orientacao">Orientado por: Dr. Daniel Welfer</string>
+    <string name="email_orient">welfer@gmail.com</string>
 </resources>

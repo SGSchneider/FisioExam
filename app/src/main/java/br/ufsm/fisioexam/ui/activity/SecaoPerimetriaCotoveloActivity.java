@@ -7,9 +7,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Objects;
 
 import br.ufsm.fisioexam.R;
 import br.ufsm.fisioexam.database.FisioExamDatabase;
@@ -37,6 +40,7 @@ public class SecaoPerimetriaCotoveloActivity extends AppCompatActivity {
 
     private Button proximo;
     private Button salvarESair;
+    private ImageButton help;
     private Cotovelo cotovelo;
     private CotoveloDAO cotoveloDao;
     private QueryManager<Cotovelo> cotoveloQueryManager;
@@ -67,6 +71,7 @@ public class SecaoPerimetriaCotoveloActivity extends AppCompatActivity {
     private void inicializaBotoes() {
         proximo = findViewById(R.id.activity_secao_perimetria_cotovelo_button_proximo);
         salvarESair = findViewById(R.id.activity_secao_perimetria_cotovelo_button_salvar_e_sair);
+        help = findViewById(R.id.activity_secao_perimetria_cotovelo_button_help);
         configuraListenersDeClique();
     }
 
@@ -77,7 +82,7 @@ public class SecaoPerimetriaCotoveloActivity extends AppCompatActivity {
 
     private void configuraListenersDeClique() {
         proximo.setOnClickListener(v -> proximoForm());
-
+        help.setOnClickListener(v-> vaiParaAjuda(AjudaPerimetriaCotoveloActivity.class));
         salvarESair.setOnClickListener(v -> finalizaForm());
     }
 
@@ -120,7 +125,7 @@ public class SecaoPerimetriaCotoveloActivity extends AppCompatActivity {
         Intent dados = getIntent();
 
         if (dados.hasExtra(CHAVE_EXAME)) {
-            cotovelo = cotoveloQueryManager.getOne((String) dados.getSerializableExtra(CHAVE_EXAME), cotoveloDao);
+            cotovelo = cotoveloQueryManager.getOne((String) Objects.requireNonNull(dados.getSerializableExtra(CHAVE_EXAME)), cotoveloDao);
             secoes = secoesQueryManager.getOne(cotovelo.getExame(), secoesDao);
         }
     }

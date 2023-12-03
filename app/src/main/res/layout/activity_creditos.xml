@@ -59,6 +59,29 @@
         app:layout_constraintStart_toStartOf="parent"
         />
 
+    <TextView
+        android:id="@+id/textoOrient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textoContactDra"
+        android:layout_marginStart="16dp"
+        android:text="@string/Orientacao"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="18sp"
+        />
+    <TextView
+        android:id="@+id/textoContactOrient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="@string/email_orient"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@id/textoOrient"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
 
 
     <TextView
