@@ -7,7 +7,7 @@ Phisiotherapy App focused on helping physiotherapists in training to carry out t
 
 
 Funções:
-Cadastro de Pacientes
+Cadastro de Pacientes.
 Fichas de Exame separadas por articulações.
 Backup em nuvem.
 Base teórica contendo vídeos para exemplificar a realização de procedimentos.
